@@ -1,18 +1,12 @@
-import React, {Fragment} from 'react';
 import cx from 'classnames';
-
-import {connect} from 'react-redux';
-
+import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
+import { connect } from 'react-redux';
 import HeaderLogo from '../AppLogo';
-
-import SearchBox from './Components/SearchBox';
-import MegaMenu from './Components/MegaMenu';
-import UserBox from './Components/UserBox';
-import HeaderRightDrawer from "./Components/HeaderRightDrawer";
-
 import HeaderDots from "./Components/HeaderDots";
+import HeaderRightDrawer from "./Components/HeaderRightDrawer";
+import MegaMenu from './Components/MegaMenu';
+import SearchBox from './Components/SearchBox';
 
 class Header extends React.Component {
     render() {

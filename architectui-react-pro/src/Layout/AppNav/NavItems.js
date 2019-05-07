@@ -1,7 +1,7 @@
 export const MainNav = [
     {
         icon: 'pe-7s-rocket',
-        label: 'Dashboards',
+        label: 'Design',
         content: [
             {
                 label: 'Analytics',
