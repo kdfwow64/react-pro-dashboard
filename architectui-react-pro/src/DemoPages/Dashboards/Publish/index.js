@@ -8,8 +8,9 @@ import Step4 from './Steps/Step4';
 import MultiStep from './Wizard';
 
 const steps = [
-    {name: 'Account Information', component: <Step1/>},
-    {name: 'Payment Information', component: <Step3/>},
+    {name: 'App Information', component: <Step1/>},
+    // {name: 'Test', component: <Step2/>},
+    {name: 'Account Info', component: <Step3/>},
     {name: 'Finish Wizard', component: <Step4/>}
 ];
 
@@ -42,7 +43,6 @@ export default class Publish extends React.Component {
                                 </Card>
                             </Col>
                         </Row>
-
                     </div>
                 </ReactCSSTransitionGroup>
             </Fragment>

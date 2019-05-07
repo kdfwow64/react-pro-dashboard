@@ -157,10 +157,6 @@ export default class WizardStep3 extends React.Component {
                                       id="collapseTwo">
                                 <CardBody>
                                     <FormGroup>
-                                        <Label for="exampleEmail3">Plain Text (Static)</Label>
-                                        <Input plaintext>Some plain text/ static value</Input>
-                                    </FormGroup>
-                                    <FormGroup>
                                         <Label for="exampleEmail4">Email</Label>
                                         <Input type="email" name="email" id="exampleEmail4"
                                                placeholder="with a placeholder"/>
