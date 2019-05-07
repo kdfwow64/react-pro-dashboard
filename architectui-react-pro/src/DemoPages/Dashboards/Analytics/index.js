@@ -1,12 +1,8 @@
-import Tabs, { TabPane } from 'rc-tabs';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
 import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 // Examples
 import AnalyticsDashboard1 from './Examples/Variation1';
-import AnalyticsDashboard2 from './Examples/Variation2';
 
 export default class AnalyticsDashboard extends Component {
 

@@ -1,17 +1,12 @@
-import React, {Component, Fragment} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-import PageTitleAlt2 from '../../../Layout/AppMain/PageTitleAlt2';
-
-import Tabs, {TabPane} from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
+import Tabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-
+import TabContent from 'rc-tabs/lib/SwipeableTabContent';
+import React, { Component, Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import PageTitleAlt2 from '../../../Layout/AppMain/PageTitleAlt2';
 // Examples
 import CRMDashboard1 from './Examples/Variation1';
 import CRMDashboard2 from './Examples/Variation2';
-import PageTitle from "../Commerce";
-
 
 export default class CRMDashboard extends Component {
 
