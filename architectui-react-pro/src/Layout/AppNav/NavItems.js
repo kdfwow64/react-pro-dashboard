@@ -101,6 +101,11 @@ export const MainNav = [
         label: 'Integrations',
         to: '#/dashboards/integrations'
     },
+    {
+        icon: 'pe-7s-plugin',
+        label: 'Push Notifications',
+        to: '#/dashboards/push-notifications'
+    },
 ];
 export const ComponentsNav = [
     {
