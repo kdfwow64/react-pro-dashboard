@@ -22,7 +22,7 @@ import ThemeOptions from '../../Layout/ThemeOptions/';
 
 const Dashboards = ({match}) => (
     <Fragment>
-        <ThemeOptions/>
+        {/* <ThemeOptions/> */}
         <AppHeader/>
         <div className="app-main">
             <AppSidebar/>
