@@ -27,8 +27,8 @@ export default class Publish extends React.Component {
                     transitionLeave={false}>
                     <div>
                         <PageTitle
-                            heading="Forms Wizard"
-                            subheading="Easily create beautiful form multi step wizards!"
+                            heading="Publish Your App"
+                            subheading="Publish your app to Apple and Google stores by filling out the form."
                             icon="lnr-map text-info"
                         />
                         <Row>
