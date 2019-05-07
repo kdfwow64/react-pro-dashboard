@@ -4,32 +4,40 @@ export const MainNav = [
         label: 'Design',
         content: [
             {
-                label: 'Analytics',
+                label: 'Landing',
                 to: '#/dashboards/analytics',
             },
             {
-                label: 'Commerce',
+                label: 'Collections',
                 to: '#/dashboards/commerce',
             },
             {
-                label: 'Sales',
+                label: 'Product',
                 to: '#/dashboards/sales',
             },
+            // {
+            //     label: 'Minimal',
+            //     content: [
+            //         {
+            //             label: 'Variation 1',
+            //             to: '#/dashboards/minimal-dashboard-1',
+            //         },
+            //         {
+            //             label: 'Variation 2',
+            //             to: '#/dashboards/minimal-dashboard-2',
+            //         },
+            //     ],
+            // },
             {
-                label: 'Minimal',
-                content: [
-                    {
-                        label: 'Variation 1',
-                        to: '#/dashboards/minimal-dashboard-1',
-                    },
-                    {
-                        label: 'Variation 2',
-                        to: '#/dashboards/minimal-dashboard-2',
-                    },
-                ],
+                label: 'User',
+                to: '#/dashboards/crm',
             },
             {
-                label: 'CRM',
+                label: 'Cart',
+                to: '#/dashboards/crm',
+            },
+            {
+                label: 'Search',
                 to: '#/dashboards/crm',
             }
         ],
