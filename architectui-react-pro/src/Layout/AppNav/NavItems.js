@@ -44,33 +44,34 @@ export const MainNav = [
     },
     {
         icon: 'pe-7s-browser',
-        label: 'Pages',
-        content: [
-            {
-                label: 'Login',
-                to: '#/pages/login',
-            },
-            {
-                label: 'Login Boxed',
-                to: '#/pages/login-boxed',
-            },
-            {
-                label: 'Register',
-                to: '#/pages/register',
-            },
-            {
-                label: 'Register Boxed',
-                to: '#/pages/register-boxed',
-            },
-            {
-                label: 'Forgot Password',
-                to: '#/pages/forgot-password',
-            },
-            {
-                label: 'Forgot Password Boxed',
-                to: '#/pages/forgot-password-boxed',
-            },
-        ],
+        label: 'Publish',
+        to: '#/dashboards/publish'
+        // content: [
+        //     {
+        //         label: 'Login',
+        //         to: '#/pages/login',
+        //     },
+        //     {
+        //         label: 'Login Boxed',
+        //         to: '#/pages/login-boxed',
+        //     },
+        //     {
+        //         label: 'Register',
+        //         to: '#/pages/register',
+        //     },
+        //     {
+        //         label: 'Register Boxed',
+        //         to: '#/pages/register-boxed',
+        //     },
+        //     {
+        //         label: 'Forgot Password',
+        //         to: '#/pages/forgot-password',
+        //     },
+        //     {
+        //         label: 'Forgot Password Boxed',
+        //         to: '#/pages/forgot-password-boxed',
+        //     },
+        // ],
     },
     {
         icon: 'pe-7s-plugin',
@@ -94,6 +95,16 @@ export const MainNav = [
         //         to: '#/apps/faq-section',
         //     },
         // ],
+    },
+    {
+        icon: 'pe-7s-plugin',
+        label: 'Integrations',
+        to: '#/dashboards/integrations'
+    },
+    {
+        icon: 'pe-7s-plugin',
+        label: 'Push Notifications',
+        to: '#/dashboards/push-notifications'
     },
 ];
 export const ComponentsNav = [

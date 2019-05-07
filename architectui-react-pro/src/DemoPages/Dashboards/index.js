@@ -1,24 +1,20 @@
-import React, {Fragment} from 'react';
-import {Route} from 'react-router-dom';
-
-// DASHBOARDS
-
-import AnalyticsDashboard from './Analytics/';
-import SalesDashboard from './Sales/';
-import CommerceDashboard from './Commerce/';
-import CRMDashboard from './CRM/';
-import SettingsDashboard from './Settings'
-import MinimalDashboard1 from './Minimal/Variation1';
-import MinimalDashboard2 from './Minimal/Variation2';
-
+import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import AppFooter from '../../Layout/AppFooter/';
 // Layout
-
 import AppHeader from '../../Layout/AppHeader/';
 import AppSidebar from '../../Layout/AppSidebar/';
-import AppFooter from '../../Layout/AppFooter/';
-
-// Theme Options
-import ThemeOptions from '../../Layout/ThemeOptions/';
+// DASHBOARDS
+import AnalyticsDashboard from './Analytics/';
+import CommerceDashboard from './Commerce/';
+import CRMDashboard from './CRM/';
+import Integrations from './Integrations';
+import MinimalDashboard1 from './Minimal/Variation1';
+import MinimalDashboard2 from './Minimal/Variation2';
+import Publish from './Publish';
+import PushNotifications from './PushNotifications';
+import SalesDashboard from './Sales/';
+import SettingsDashboard from './Settings';
 
 const Dashboards = ({match}) => (
     <Fragment>
@@ -32,7 +28,10 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/sales`} component={SalesDashboard}/>
                     <Route path={`${match.url}/commerce`} component={CommerceDashboard}/>
                     <Route path={`${match.url}/crm`} component={CRMDashboard}/>
+                    <Route path={`${match.url}/publish`} component={Publish}/>
                     <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
+                    <Route path={`${match.url}/integrations`} component={Integrations}/>
+                    <Route path={`${match.url}/push-notifications`} component={PushNotifications}/>
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>
                 </div>
