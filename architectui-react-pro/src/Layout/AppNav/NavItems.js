@@ -74,28 +74,33 @@ export const MainNav = [
     },
     {
         icon: 'pe-7s-plugin',
-        label: 'Applications',
-        content: [
-            {
-                label: 'Mailbox',
-                to: '#/apps/mailbox',
-            },
-            {
-                label: 'Chat',
-                to: '#/apps/chat',
-            },
-            {
-                label: 'Split Layout',
-                to: '#/apps/split-layout',
-            },
-            {
-                label: 'FAQ Section',
-                to: '#/apps/faq-section',
-            },
-        ],
+        label: 'Settings',
+        to: '#/dashboards/settings'
+        // content: [
+        //     {
+        //         label: 'Mailbox',
+        //         to: '#/apps/mailbox',
+        //     },
+        //     {
+        //         label: 'Chat',
+        //         to: '#/apps/chat',
+        //     },
+        //     {
+        //         label: 'Split Layout',
+        //         to: '#/apps/split-layout',
+        //     },
+        //     {
+        //         label: 'FAQ Section',
+        //         to: '#/apps/faq-section',
+        //     },
+        // ],
     },
 ];
 export const ComponentsNav = [
+    {
+        label: 'Analytics',
+        to: '#/dashboards/analytics',
+    },
     {
         icon: 'pe-7s-diamond',
         label: 'Elements',

@@ -1,10 +1,7 @@
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import React, {Suspense, lazy, Fragment} from 'react';
-import Loader from 'react-loaders'
-
-import {
-    ToastContainer,
-} from 'react-toastify';
+import React, { Fragment, lazy, Suspense } from 'react';
+import Loader from 'react-loaders';
+import { Redirect, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const UserPages = lazy(() => import('../../DemoPages/UserPages'));
 const Applications = lazy(() => import('../../DemoPages/Applications'));
@@ -175,8 +172,8 @@ const AppMain = () => {
                             <Loader type="ball-grid-beat"/>
                         </div>
                         <h6 className="mt-3">
-                            Please wait while we load all the Dashboards examples
-                            <small>Because this is a demonstration, we load at once all the Dashboards examples. This wouldn't happen in a real live app!</small>
+                            Please wait while we load the Dashboard
+                            {/* <small>Because this is a demonstration, we load at once all the Dashboards examples. This wouldn't happen in a real live app!</small> */}
                         </h6>
                     </div>
                 </div>
