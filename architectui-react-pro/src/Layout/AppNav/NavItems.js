@@ -96,6 +96,11 @@ export const MainNav = [
         //     },
         // ],
     },
+    {
+        icon: 'pe-7s-plugin',
+        label: 'Integrations',
+        to: '#/dashboards/integrations'
+    },
 ];
 export const ComponentsNav = [
     {

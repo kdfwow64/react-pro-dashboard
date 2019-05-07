@@ -8,6 +8,7 @@ import AppSidebar from '../../Layout/AppSidebar/';
 import AnalyticsDashboard from './Analytics/';
 import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
+import Integrations from './Integrations';
 import MinimalDashboard1 from './Minimal/Variation1';
 import MinimalDashboard2 from './Minimal/Variation2';
 import Publish from './Publish';
@@ -28,6 +29,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/crm`} component={CRMDashboard}/>
                     <Route path={`${match.url}/publish`} component={Publish}/>
                     <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
+                    <Route path={`${match.url}/integrations`} component={Integrations}/>
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>
                 </div>
