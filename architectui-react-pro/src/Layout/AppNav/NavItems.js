@@ -75,7 +75,7 @@ export const MainNav = [
     {
         icon: 'pe-7s-plugin',
         label: 'Settings',
-        to: '#'
+        to: '#/dashboards/settings'
         // content: [
         //     {
         //         label: 'Mailbox',

@@ -7,6 +7,7 @@ import AnalyticsDashboard from './Analytics/';
 import SalesDashboard from './Sales/';
 import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
+import SettingsDashboard from './Settings'
 import MinimalDashboard1 from './Minimal/Variation1';
 import MinimalDashboard2 from './Minimal/Variation2';
 
@@ -31,6 +32,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/sales`} component={SalesDashboard}/>
                     <Route path={`${match.url}/commerce`} component={CommerceDashboard}/>
                     <Route path={`${match.url}/crm`} component={CRMDashboard}/>
+                    <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>
                 </div>
