@@ -25,7 +25,7 @@ export default class AnalyticsDashboard extends Component {
                     transitionEnter={false}
                     transitionLeave={false}>
                     <PageTitle
-                        heading="Analytics Dashboard"
+                        heading="Analytics"
                         subheading="This is an example dashboard created using build-in elements and components."
                         icon="pe-7s-car icon-gradient bg-mean-fruit"
                     />
