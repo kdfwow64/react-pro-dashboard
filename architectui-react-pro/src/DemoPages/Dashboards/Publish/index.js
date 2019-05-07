@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Card, CardBody, Col, Row } from 'reactstrap';
-import MultiStep from './Wizard';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
 import Step1 from './Steps/Step1';
 import Step3 from './Steps/Step3';
 import Step4 from './Steps/Step4';
-import PageTitle from '../../../Layout/AppMain/PageTitle';
+import MultiStep from './Wizard';
 
 const steps = [
     {name: 'Account Information', component: <Step1/>},
