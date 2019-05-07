@@ -97,6 +97,10 @@ export const MainNav = [
 ];
 export const ComponentsNav = [
     {
+        label: 'Analytics',
+        to: '#/dashboards/analytics',
+    },
+    {
         icon: 'pe-7s-diamond',
         label: 'Elements',
         content: [
