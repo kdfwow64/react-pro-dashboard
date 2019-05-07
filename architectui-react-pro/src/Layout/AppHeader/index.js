@@ -44,7 +44,7 @@ class Header extends React.Component {
                         </div>
                         <div className="app-header-right">
                             <HeaderDots/>
-                            <UserBox/>
+                            {/* <UserBox/> */}
                             <HeaderRightDrawer/>
                         </div>
                     </div>
