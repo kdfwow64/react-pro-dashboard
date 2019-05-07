@@ -35,7 +35,7 @@ class Header extends React.Component {
                             <MegaMenu/>
                         </div> */}
                         <div className="app-header-right">
-                            <HeaderDots/>
+                            {/* <HeaderDots/> */}
                             {/* <UserBox/> */}
                             <HeaderRightDrawer/>
                         </div>
