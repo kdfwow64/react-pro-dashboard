@@ -116,202 +116,202 @@ export const ComponentsNav = [
         label: 'Preview on Device',
         to: '#/dashboards/preview-app',
     },
-    {
-        icon: 'pe-7s-diamond',
-        label: 'Elements',
-        content: [
-            {
-                label: 'Buttons',
-                content: [
-                    {
-                        label: 'Standard',
-                        to: '#/elements/buttons-standard',
-                    },
-                    {
-                        label: 'Pills',
-                        to: '#/elements/buttons-pills',
+    // {
+    //     icon: 'pe-7s-diamond',
+    //     label: 'Elements',
+    //     content: [
+    //         {
+    //             label: 'Buttons',
+    //             content: [
+    //                 {
+    //                     label: 'Standard',
+    //                     to: '#/elements/buttons-standard',
+    //                 },
+    //                 {
+    //                     label: 'Pills',
+    //                     to: '#/elements/buttons-pills',
 
-                    },
-                    {
-                        label: 'Square',
-                        to: '#/elements/buttons-square',
+    //                 },
+    //                 {
+    //                     label: 'Square',
+    //                     to: '#/elements/buttons-square',
 
-                    },
-                    {
-                        label: 'Shadow',
-                        to: '#/elements/buttons-shadow',
+    //                 },
+    //                 {
+    //                     label: 'Shadow',
+    //                     to: '#/elements/buttons-shadow',
 
-                    },
-                    {
-                        label: 'With Icons',
-                        to: '#/elements/buttons-icons',
-                    },
-                ]
-            },
-            {
-                label: 'Dropdowns',
-                to: '#/elements/dropdowns',
+    //                 },
+    //                 {
+    //                     label: 'With Icons',
+    //                     to: '#/elements/buttons-icons',
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             label: 'Dropdowns',
+    //             to: '#/elements/dropdowns',
 
-            },
-            {
-                label: 'Icons',
-                to: '#/elements/icons',
-            },
-            {
-                label: 'Badges',
-                to: '#/elements/badges-labels',
-            },
-            {
-                label: 'Cards',
-                to: '#/elements/cards',
-            },
-            {
-                label: 'Loading Indicators',
-                to: '#/elements/loaders',
-            },
-            {
-                label: 'List Groups',
-                to: '#/elements/list-group',
-            },
-            {
-                label: 'Navigation Menus',
-                to: '#/elements/navigation',
-            },
-            {
-                label: 'Timeline',
-                to: '#/elements/timelines',
-            },
-            {
-                label: 'Utilities',
-                to: '#/elements/utilities',
-            },
-            {
-                label: 'Visibility Sensor',
-                to: '#/elements/visibility-sensor',
-            },
-        ],
-    },
-    {
-        icon: 'pe-7s-car',
-        label: 'Components',
-        content: [
-            {
-                label: 'Tabs',
-                to: '#/components/tabs',
-            },
-            {
-                label: 'Accordions',
-                to: '#/components/accordions',
-            },
-            {
-                label: 'Notifications',
-                to: '#/components/notifications',
-            },
-            {
-                label: 'Modals',
-                to: '#/components/modals',
-            },
-            {
-                label: 'Loading Blockers',
-                to: '#/components/loading-blocks',
-            },
-            {
-                label: 'Progress Bar',
-                to: '#/components/progress-bar',
-            },
-            {
-                label: 'Tooltips & Popovers',
-                to: '#/components/tooltips-popovers',
-            },
-            {
-                label: 'Carousel',
-                to: '#/components/carousel',
-            },
-            {
-                label: 'Calendar',
-                to: '#/components/calendar',
-            },
-            {
-                label: 'Pagination',
-                to: '#/components/pagination',
-            },
-            {
-                label: 'Count Up',
-                to: '#/components/count-up',
-            },
-            {
-                label: 'Sticky Elements',
-                to: '#/components/sticky-elements',
-            },
-            {
-                label: 'Scrollable',
-                to: '#/components/scrollable-elements',
-            },
-            {
-                label: 'Tree View',
-                to: '#/components/tree-view',
-            },
-            {
-                label: 'Maps',
-                to: '#/components/maps',
-            },
-            {
-                label: 'Ratings',
-                to: '#/components/ratings',
-            },
-            {
-                label: 'Image Crop',
-                to: '#/components/image-crop',
-            },
-            {
-                label: 'Guided Tours',
-                to: '#/components/guided-tours',
-            },
+    //         },
+    //         {
+    //             label: 'Icons',
+    //             to: '#/elements/icons',
+    //         },
+    //         {
+    //             label: 'Badges',
+    //             to: '#/elements/badges-labels',
+    //         },
+    //         {
+    //             label: 'Cards',
+    //             to: '#/elements/cards',
+    //         },
+    //         {
+    //             label: 'Loading Indicators',
+    //             to: '#/elements/loaders',
+    //         },
+    //         {
+    //             label: 'List Groups',
+    //             to: '#/elements/list-group',
+    //         },
+    //         {
+    //             label: 'Navigation Menus',
+    //             to: '#/elements/navigation',
+    //         },
+    //         {
+    //             label: 'Timeline',
+    //             to: '#/elements/timelines',
+    //         },
+    //         {
+    //             label: 'Utilities',
+    //             to: '#/elements/utilities',
+    //         },
+    //         {
+    //             label: 'Visibility Sensor',
+    //             to: '#/elements/visibility-sensor',
+    //         },
+    //     ],
+    // },
+    // {
+    //     icon: 'pe-7s-car',
+    //     label: 'Components',
+    //     content: [
+    //         {
+    //             label: 'Tabs',
+    //             to: '#/components/tabs',
+    //         },
+    //         {
+    //             label: 'Accordions',
+    //             to: '#/components/accordions',
+    //         },
+    //         {
+    //             label: 'Notifications',
+    //             to: '#/components/notifications',
+    //         },
+    //         {
+    //             label: 'Modals',
+    //             to: '#/components/modals',
+    //         },
+    //         {
+    //             label: 'Loading Blockers',
+    //             to: '#/components/loading-blocks',
+    //         },
+    //         {
+    //             label: 'Progress Bar',
+    //             to: '#/components/progress-bar',
+    //         },
+    //         {
+    //             label: 'Tooltips & Popovers',
+    //             to: '#/components/tooltips-popovers',
+    //         },
+    //         {
+    //             label: 'Carousel',
+    //             to: '#/components/carousel',
+    //         },
+    //         {
+    //             label: 'Calendar',
+    //             to: '#/components/calendar',
+    //         },
+    //         {
+    //             label: 'Pagination',
+    //             to: '#/components/pagination',
+    //         },
+    //         {
+    //             label: 'Count Up',
+    //             to: '#/components/count-up',
+    //         },
+    //         {
+    //             label: 'Sticky Elements',
+    //             to: '#/components/sticky-elements',
+    //         },
+    //         {
+    //             label: 'Scrollable',
+    //             to: '#/components/scrollable-elements',
+    //         },
+    //         {
+    //             label: 'Tree View',
+    //             to: '#/components/tree-view',
+    //         },
+    //         {
+    //             label: 'Maps',
+    //             to: '#/components/maps',
+    //         },
+    //         {
+    //             label: 'Ratings',
+    //             to: '#/components/ratings',
+    //         },
+    //         {
+    //             label: 'Image Crop',
+    //             to: '#/components/image-crop',
+    //         },
+    //         {
+    //             label: 'Guided Tours',
+    //             to: '#/components/guided-tours',
+    //         },
 
-        ],
-    },
-    {
-        icon: 'pe-7s-display2',
-        label: 'Tables',
-        content: [
-            {
-                label: 'Data Tables',
-                content: [
-                    {
-                        label: 'Basic',
-                        to: '#/tables/data-tables',
-                    },
-                    {
-                        label: 'Custom Components',
-                        to: '#/tables/datatables-custom-components',
+    //     ],
+    // },
+    // {
+    //     icon: 'pe-7s-display2',
+    //     label: 'Tables',
+    //     content: [
+    //         {
+    //             label: 'Data Tables',
+    //             content: [
+    //                 {
+    //                     label: 'Basic',
+    //                     to: '#/tables/data-tables',
+    //                 },
+    //                 {
+    //                     label: 'Custom Components',
+    //                     to: '#/tables/datatables-custom-components',
 
-                    },
-                    {
-                        label: 'Fixed Header',
-                        to: '#/tables/datatables-fixed-header',
+    //                 },
+    //                 {
+    //                     label: 'Fixed Header',
+    //                     to: '#/tables/datatables-fixed-header',
 
-                    },
-                    {
-                        label: 'Aggregation',
-                        to: '#/tables/datatables-aggregation',
+    //                 },
+    //                 {
+    //                     label: 'Aggregation',
+    //                     to: '#/tables/datatables-aggregation',
 
-                    },
-                    {
-                        label: 'Editable Tables',
-                        to: '#/tables/datatables-editable',
-                    },
-                ]
-            },
-            {
-                label: 'Regular Tables',
-                to: '#/tables/regular-tables',
-            },
-            {
-                label: 'Grid Tables',
-                to: '#/tables/grid-tables',
-            },
-        ]
-    },
+    //                 },
+    //                 {
+    //                     label: 'Editable Tables',
+    //                     to: '#/tables/datatables-editable',
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             label: 'Regular Tables',
+    //             to: '#/tables/regular-tables',
+    //         },
+    //         {
+    //             label: 'Grid Tables',
+    //             to: '#/tables/grid-tables',
+    //         },
+    //     ]
+    // },
 ];
 export const FormsNav = [
     {
