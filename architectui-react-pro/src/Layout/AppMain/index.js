@@ -175,8 +175,8 @@ const AppMain = () => {
                             <Loader type="ball-grid-beat"/>
                         </div>
                         <h6 className="mt-3">
-                            Please wait while we load all the Dashboards examples
-                            <small>Because this is a demonstration, we load at once all the Dashboards examples. This wouldn't happen in a real live app!</small>
+                            Please wait while we load the Dashboard
+                            {/* <small>Because this is a demonstration, we load at once all the Dashboards examples. This wouldn't happen in a real live app!</small> */}
                         </h6>
                     </div>
                 </div>
