@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import HeaderLogo from '../AppLogo';
 import HeaderDots from "./Components/HeaderDots";
 import HeaderRightDrawer from "./Components/HeaderRightDrawer";
-import MegaMenu from './Components/MegaMenu';
-import SearchBox from './Components/SearchBox';
 
 class Header extends React.Component {
     render() {
@@ -32,10 +30,10 @@ class Header extends React.Component {
                         "app-header__content",
                         {'header-mobile-open': enableMobileMenuSmall},
                     )}>
-                        <div className="app-header-left">
+                        {/* <div className="app-header-left">
                             <SearchBox/>
                             <MegaMenu/>
-                        </div>
+                        </div> */}
                         <div className="app-header-right">
                             <HeaderDots/>
                             {/* <UserBox/> */}
