@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import HeaderLogo from '../AppLogo';
+import HeaderDots from "./Components/HeaderDots";
 import HeaderRightDrawer from "./Components/HeaderRightDrawer";
 
 class Header extends React.Component {
@@ -34,7 +35,7 @@ class Header extends React.Component {
                             <MegaMenu/>
                         </div> */}
                         <div className="app-header-right">
-                            {/* <HeaderDots/> */}
+                            <HeaderDots/>
                             {/* <UserBox/> */}
                             <HeaderRightDrawer/>
                         </div>

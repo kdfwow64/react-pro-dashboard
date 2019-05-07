@@ -11,6 +11,7 @@ import CRMDashboard from './CRM/';
 import Integrations from './Integrations';
 import MinimalDashboard1 from './Minimal/Variation1';
 import MinimalDashboard2 from './Minimal/Variation2';
+import PreviewApp from './PreviewApp';
 import Publish from './Publish';
 import PushNotifications from './PushNotifications';
 import SalesDashboard from './Sales/';
@@ -32,6 +33,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
                     <Route path={`${match.url}/integrations`} component={Integrations}/>
                     <Route path={`${match.url}/push-notifications`} component={PushNotifications}/>
+                    <Route path={`${match.url}/preview-app`} component={PreviewApp}/>
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>
                 </div>

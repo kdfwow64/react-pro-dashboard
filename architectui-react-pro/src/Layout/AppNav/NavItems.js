@@ -113,6 +113,10 @@ export const ComponentsNav = [
         to: '#/dashboards/analytics',
     },
     {
+        label: 'Preview on Device',
+        to: '#/dashboards/preview-app',
+    },
+    {
         icon: 'pe-7s-diamond',
         label: 'Elements',
         content: [
