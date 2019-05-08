@@ -32,7 +32,6 @@ export default class PushNotifications extends React.Component {
     
       componentDidMount() {
         // sendSlackMessage('Push Notification page loaded');
-        this.getScheduledNotifications();
       }
     
       onBodyChange = event => {
