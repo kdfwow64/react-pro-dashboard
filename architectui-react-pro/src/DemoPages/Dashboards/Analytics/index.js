@@ -19,7 +19,7 @@ export default class AnalyticsDashboard extends Component {
                     <PageTitle
                         heading="Analytics"
                         subheading="This is an example dashboard created using build-in elements and components."
-                        icon="pe-7s-car icon-gradient bg-mean-fruit"
+                        icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
                     />
                     {/* <Tabs
                         defaultActiveKey="1"

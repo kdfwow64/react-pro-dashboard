@@ -22,7 +22,7 @@ export default class Integrations extends React.Component {
                     <PageTitle
                         heading="Integrations"
                         subheading="Wide range of integrations in multiple categories."
-                        icon="pe-7s-stopwatch icon-gradient bg-amy-crisp"
+                        icon="pe-7s-plugin icon-gradient bg-amy-crisp"
                     />
                     <Tabs
                         defaultActiveKey="1"

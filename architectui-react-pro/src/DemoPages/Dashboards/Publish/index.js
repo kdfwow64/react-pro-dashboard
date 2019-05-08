@@ -30,7 +30,7 @@ export default class Publish extends React.Component {
                         <PageTitle
                             heading="Publish Your App"
                             subheading="Publish your app to Apple and Google stores by filling out the form."
-                            icon="lnr-map text-info"
+                            icon="pe-7s-rocket text-info"
                         />
                         <Row>
                             <Col md="12">

@@ -17,7 +17,7 @@ export default class PreviewApp extends React.Component {
                     <PageTitle
                         heading="Preview Your App"
                         subheading="This is an example dashboard created using build-in elements and components."
-                        icon="pe-7s-car icon-gradient bg-mean-fruit"
+                        icon="pe-7s-phone icon-gradient bg-mean-fruit"
                     />
                 </ReactCSSTransitionGroup>
             </Fragment>

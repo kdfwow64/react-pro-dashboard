@@ -1,6 +1,6 @@
 export const MainNav = [
     {
-        icon: 'pe-7s-rocket',
+        icon: 'pe-7s-paint',
         label: 'Design',
         content: [
             {
@@ -35,7 +35,7 @@ export const MainNav = [
         to: '#/dashboards/publish'
     },
     {
-        icon: 'pe-7s-plugin',
+        icon: 'pe-7s-tools',
         label: 'Settings',
         to: '#/dashboards/settings'
     },
@@ -45,7 +45,7 @@ export const MainNav = [
         to: '#/dashboards/integrations'
     },
     {
-        icon: 'pe-7s-plugin',
+        icon: 'pe-7s-speaker',
         label: 'Push Notifications',
         content: [
             {
@@ -64,22 +64,27 @@ export const MainNav = [
 export const ComponentsNav = [
     {
         label: 'Analytics',
+        icon: 'pe-7s-graph3',
         to: '#/dashboards/analytics',
     },
     {
         label: 'Preview on Device',
+        icon: 'pe-7s-phone',
         to: '#/dashboards/preview-app',
     },
     {
         label: 'Tutorials',
+        icon: 'pe-7s-video',
         to: '#/dashboards/preview-app',
     },
     {
         label: "FAQ's",
+        icon: 'pe-7s-help1',
         to: '#/dashboards/preview-app',
     },
     {
         label: 'Leave a Review',
+        icon: 'pe-7s-like2',
         to: '#/dashboards/preview-app',
     },
     {
