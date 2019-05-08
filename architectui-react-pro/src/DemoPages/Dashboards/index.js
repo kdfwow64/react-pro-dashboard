@@ -37,7 +37,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>
                 </div>
-                <AppFooter/>
+                {/* <AppFooter/> */}
             </div>
         </div>
     </Fragment>
