@@ -20,11 +20,11 @@ export default class CRMDashboard extends Component {
                     transitionAppearTimeout={0}
                     transitionEnter={false}
                     transitionLeave={false}>
-                    <PageTitleAlt2
+                    {/* <PageTitleAlt2
                         heading="CRM Dashboard"
                         subheading="Yet another dashboard built using only the included Architech elements and components."
                         icon="pe-7s-graph icon-gradient bg-ripe-malin"
-                    />
+                    /> */}
                     {/* <Tabs
                         defaultActiveKey="1"
                         renderTabBar={() => <ScrollableInkTabBar/>}

@@ -42,7 +42,7 @@ export default class SalesDashboard extends Component {
         return (
 
             <Fragment>
-                <div className="app-inner-layout">
+                {/* <div className="app-inner-layout">
                     <div className="app-inner-layout__header-boxed p-0">
                         <div className="app-inner-layout__header page-title-icon-rounded text-white bg-premium-dark mb-4">
                             <PageTitle
@@ -52,8 +52,8 @@ export default class SalesDashboard extends Component {
                             />
                         </div>
                     </div>
-                    {/* <Tabs tabsWrapperClass="body-tabs body-tabs-layout body-tabs-big" transform={false} showInkBar={true} items={getTabs()}/> */}
-                </div>
+                    <Tabs tabsWrapperClass="body-tabs body-tabs-layout body-tabs-big" transform={false} showInkBar={true} items={getTabs()}/>
+                </div> */}
             </Fragment>
         )
     }

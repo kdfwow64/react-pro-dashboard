@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import AppFooter from '../../Layout/AppFooter/';
 // Layout
 import AppHeader from '../../Layout/AppHeader/';
 import AppSidebar from '../../Layout/AppSidebar/';
@@ -8,6 +7,12 @@ import AppSidebar from '../../Layout/AppSidebar/';
 import AnalyticsDashboard from './Analytics/';
 import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
+import DesignCart from './Design/DesignCart';
+import DesignCollection from './Design/DesignCollection';
+import DesignLanding from './Design/DesignLanding';
+import DesignProduct from './Design/DesignProduct';
+import DesignSearch from './Design/DesignSearch';
+import DesignUser from './Design/DesignUser';
 import Integrations from './Integrations';
 import MinimalDashboard1 from './Minimal/Variation1';
 import MinimalDashboard2 from './Minimal/Variation2';
@@ -29,6 +34,12 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/sales`} component={SalesDashboard}/>
                     <Route path={`${match.url}/commerce`} component={CommerceDashboard}/>
                     <Route path={`${match.url}/crm`} component={CRMDashboard}/>
+                    <Route path={`${match.url}/design-landing`} component={DesignLanding}/>
+                    <Route path={`${match.url}/design-collection`} component={DesignCollection}/>
+                    <Route path={`${match.url}/design-product`} component={DesignProduct}/>
+                    <Route path={`${match.url}/design-user`} component={DesignUser}/>
+                    <Route path={`${match.url}/design-cart`} component={DesignCart}/>
+                    <Route path={`${match.url}/design-search`} component={DesignSearch}/>
                     <Route path={`${match.url}/publish`} component={Publish}/>
                     <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
                     <Route path={`${match.url}/integrations`} component={Integrations}/>

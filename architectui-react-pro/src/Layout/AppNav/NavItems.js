@@ -5,15 +5,15 @@ export const MainNav = [
         content: [
             {
                 label: 'Landing',
-                to: '#/dashboards/analytics',
+                to: '#/dashboards/design-landing',
             },
             {
                 label: 'Collections',
-                to: '#/dashboards/commerce',
+                to: '#/dashboards/design-collection',
             },
             {
                 label: 'Product',
-                to: '#/dashboards/sales',
+                to: '#/dashboards/design-product',
             },
             // {
             //     label: 'Minimal',
@@ -30,15 +30,15 @@ export const MainNav = [
             // },
             {
                 label: 'User',
-                to: '#/dashboards/crm',
+                to: '#/dashboards/design-user',
             },
             {
                 label: 'Cart',
-                to: '#/dashboards/crm',
+                to: '#/dashboards/design-cart',
             },
             {
                 label: 'Search',
-                to: '#/dashboards/crm',
+                to: '#/dashboards/design-search',
             }
         ],
     },

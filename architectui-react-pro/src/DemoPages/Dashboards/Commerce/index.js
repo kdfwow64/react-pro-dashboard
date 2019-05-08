@@ -23,11 +23,11 @@ export default class CommerceDashboard extends Component {
                     transitionAppearTimeout={0}
                     transitionEnter={false}
                     transitionLeave={false}>
-                    <PageTitle
+                    {/* <PageTitle
                         heading="Commerce Dashboard"
                         subheading="This dashboard was created as an example of the flexibility that ArchitectUI offers."
                         icon="pe-7s-graph icon-gradient bg-ripe-malin"
-                    />
+                    /> */}
                     {/* <Tabs
                         defaultActiveKey="1"
                         renderTabBar={() => <ScrollableInkTabBar/>}
