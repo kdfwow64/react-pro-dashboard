@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-export default class Landing extends React.Component {
+export default class DesignCart extends React.Component {
 
     render() {
         return (
