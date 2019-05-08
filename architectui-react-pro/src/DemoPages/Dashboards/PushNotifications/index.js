@@ -212,7 +212,53 @@ export default class PushNotifications extends React.Component {
                                 </Card>
                             </Col>
                             <Col md="6">
-                                
+                            <div style={{ float: 'left', position: 'relative' }}>
+                                <img
+                                src={require('./device.png')}
+                                alt=""
+                                style={{ float: 'right' }}
+                                width={'290px'}
+                                height={'530px'}
+                                />
+                                <div className="notification-screen-style">
+                                    <h2
+                                        className="Polaris-Heading"
+                                        style={{
+                                        maxWidth: '255px',
+                                        overflow: 'hidden',
+                                        fontSize: '11px',
+                                        fontWeight: 700,
+                                        minHeight: '24px'
+                                        }}
+                                    >
+                                        {this.state.titleText}
+                                    </h2>
+                                    <h2
+                                        className="Polaris-Heading"
+                                        style={{
+                                        maxWidth: '255px',
+                                        overflow: 'hidden',
+                                        fontSize: '11px',
+                                        fontWeight: 500,
+                                        minHeight: '24px'
+                                        }}
+                                    >
+                                        {this.state.subtitle}
+                                    </h2>
+                                    <h2
+                                        className="Polaris-Heading"
+                                        style={{
+                                        maxWidth: '255px',
+                                        overflow: 'hidden',
+                                        fontSize: '10px',
+                                        fontWeight: 400,
+                                        minHeight: '24px'
+                                        }}
+                                    >
+                                        {this.state.body}
+                                    </h2>
+                                    </div>
+                                </div>
                             </Col>
                         </Row>
                     </Container>
