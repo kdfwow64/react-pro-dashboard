@@ -70,12 +70,23 @@ export const ComponentsNav = [
         label: 'Preview on Device',
         to: '#/dashboards/preview-app',
     },
+    {
+        label: 'Tutorials',
+        to: '#/dashboards/preview-app',
+    },
+    {
+        label: "FAQ's",
+        to: '#/dashboards/preview-app',
+    },
+    {
+        label: 'Leave a Review',
+        to: '#/dashboards/preview-app',
+    },
+    {
+        label: 'Get a Free Month',
+        to: '#/dashboards/preview-app',
+    },
 ];
-
-
-
-
-
 export const FormsNav = [
     {
         icon: 'pe-7s-light',
