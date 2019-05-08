@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Card, CardBody, CardTitle, Input } from 'reactstrap';
+import { Card, CardBody, CardTitle, Row, Col, Input } from 'reactstrap';
 
 export default class SettingsDashboard extends Component {
 
@@ -16,9 +16,29 @@ export default class SettingsDashboard extends Component {
                     transitionLeave={false}>
                     <Card className="main-card mb-3">
                         <CardBody>
-                            <CardTitle>Storefront Token</CardTitle>
-                            <p>Your storefront token from Private app. See how to create one.</p>
-                            <Input type="text"/>
+                            <Row>
+                                <Col md={6}>
+                                    <CardTitle>Storefront Token</CardTitle>
+                                    <p>Your storefront token from Private app. See how to create one.</p>
+                                </Col>
+                                <Col md={6}>
+                                    <Input type="text"/>
+                                </Col>
+                            </Row>
+                        </CardBody>
+                    </Card>
+
+                    <Card className="main-card mb-3">
+                        <CardBody>
+                            <Row>
+                                <Col md={6}>
+                                    <CardTitle>Storefront Token</CardTitle>
+                                    <p>Your storefront token from Private app. See how to create one.</p>
+                                </Col>
+                                <Col md={6}>
+                                    <Input type="text"/>
+                                </Col>
+                            </Row>
                         </CardBody>
                     </Card>
                 </ReactCSSTransitionGroup>
