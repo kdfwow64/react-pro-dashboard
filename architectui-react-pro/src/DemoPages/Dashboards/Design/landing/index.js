@@ -5,11 +5,12 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import Modal from "react-responsive-modal";
+import { Col, Row } from 'reactstrap';
 //import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
 import '../index-rakesh.css';
 import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from "../theme-options";
-import SearchNavigationStyles from "./search-navigation-styles";
 import BrowseCollection from "./browse-collection";
 import CollectionTitle from "./collection-title";
 import CustomBanner from "./custom-banner";
@@ -24,14 +25,8 @@ import ProductCollection1 from "./product-collection-1";
 import ProductCollection2 from "./product-collection-2";
 import ProductSearchForm from "./search-form";
 import SearchNavigationSettings from "./search-navigation-settings";
+import SearchNavigationStyles from "./search-navigation-styles";
 import SingleProduct from "./single-product";
-import { themeColorFromName } from '../mobile-theme-utils';
-import {
-  Row, Col,
-  Card, CardBody,
-  CardTitle,
-  InputGroup, InputGroupAddon
-} from 'reactstrap';
 var Placeholder = './Placeholder.png';
 var API_ROOT = 'https://thesearchit.com';
 
