@@ -37,49 +37,28 @@ export default class ScheduledNotifications extends React.Component {
                 <Card className="main-card mb-3">
                     <CardBody>
                         <CardTitle>Scheduled Notifications</CardTitle>         
-                            <Table responsive className="mb-0">
-                                <thead>
+                        <Table responsive className="mb-0">
+                            <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>Send on</th>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                {notificationArray.map(notification => {
-                                    return (
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>{notification}</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                        </tr>
-                                    )
-                                })}
-                                </tbody>
+                            </thead>
+                            <tbody>
+                            {notificationArray.map(notification => {
+                                return (
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{notification}</td>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                    </tr>
+                                )
+                            })}
+                            </tbody>
                         </Table>
-
-
-                        {/* <Layout.Section>
-              <Card sectioned title="Scheduled Notifications">
-                <DataTable columnContentTypes={[
-                  'text',
-                  'text',
-                  'text'
-                ]} headings={[
-                  'Title',
-                  'Content',
-                  'Send on'
-                ]} rows={notificationArray}/>
-              </Card>
-            </Layout.Section> */}
                     </CardBody>
                 </Card>
             </Fragment>
