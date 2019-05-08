@@ -75,7 +75,7 @@ export const ComponentsNav = [
     {
         label: 'Tutorials',
         icon: 'pe-7s-video',
-        to: '#/dashboards/preview-app',
+        to: '#/dashboards/tutorials',
     },
     {
         label: "FAQ's",
