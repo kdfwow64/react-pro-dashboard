@@ -1,38 +1,12 @@
-import React, {Fragment} from 'react';
-
+import React, { Fragment } from 'react';
 import Ionicon from 'react-ionicons';
-
-import {
-    UncontrolledDropdown, DropdownToggle, DropdownMenu,
-    Nav, Col, Row, Button, NavItem, DropdownItem
-} from 'reactstrap';
-
-import {
-    AreaChart, Area,
-    ResponsiveContainer,
-} from 'recharts';
-
-import {
-    faArrowLeft,
-    faCog,
-} from '@fortawesome/free-solid-svg-icons';
-
-import CountUp from 'react-countup';
-
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
-import bg4 from '../../../assets/utils/images/dropdown-header/abstract4.jpg';
-import city2 from '../../../assets/utils/images/dropdown-header/city2.jpg';
-import city3 from '../../../assets/utils/images/dropdown-header/city3.jpg';
-
-import Flag from 'react-flagkit';
-
 import Tabs from 'react-responsive-tabs';
-
+import { Button, DropdownMenu, DropdownToggle, Nav, NavItem, UncontrolledDropdown } from 'reactstrap';
+import city3 from '../../../assets/utils/images/dropdown-header/city3.jpg';
 // Dropdown Tabs Content
 import ChatExample from './TabsContent/ChatExample';
-import TimelineEx from './TabsContent/TimelineExample';
 import SysErrEx from './TabsContent/SystemExample';
+import TimelineEx from './TabsContent/TimelineExample';
 
 const data = [
     {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
