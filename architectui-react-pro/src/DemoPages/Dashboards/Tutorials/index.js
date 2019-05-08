@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 
-export default class PreviewApp extends React.Component {
+export default class Tutorials extends Component {
 
     render() {
         return (
@@ -15,12 +15,12 @@ export default class PreviewApp extends React.Component {
                     transitionEnter={false}
                     transitionLeave={false}>
                     <PageTitle
-                        heading="Preview Your App"
-                        subheading="This is an example dashboard created using build-in elements and components."
-                        icon="pe-7s-phone icon-gradient bg-mean-fruit"
+                        heading="Tutorials"
+                        subheading="Example of a Dashboard page built with ArchitectUI."
+                        icon="pe-7s-video icon-gradient bg-sunny-morning"
                     />
                 </ReactCSSTransitionGroup>
             </Fragment>
-        );
+        )
     }
 }

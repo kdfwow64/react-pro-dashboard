@@ -20,6 +20,23 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>AppIt - Mobile App Builder</title>
+
+    <script>
+      var shopName = 'undefined'
+      if(window.location.href.indexOf('shop') > -1){
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+              vars[key] = value;
+          });
+          shopName = vars['shop'];
+      }
+      var beamer_config = {
+          product_id : "sWbVqfJH11864",
+          button_position: 'bottom-left',
+          user_id: shopName
+      };
+  </script>
+  <script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>               
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
