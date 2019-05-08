@@ -137,8 +137,6 @@ export default class PushNotifications extends React.Component {
         }
     
         return (
-
-
             <Fragment>
                 <ReactCSSTransitionGroup
                     component="div"

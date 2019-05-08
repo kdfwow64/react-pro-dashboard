@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Card, CardBody, CardTitle, Table } from 'reactstrap';
 var API_ROOT = 'https://thesearchit.com';
 
@@ -34,33 +35,41 @@ export default class ScheduledNotifications extends React.Component {
         notificationArray.push([ "test", "test", "test" ]);
         return (
             <Fragment>
-                <Card className="main-card mb-3">
-                    <CardBody>
-                        <CardTitle>Scheduled Notifications</CardTitle>         
-                        <Table responsive className="mb-0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Content</th>
-                                    <th>Send on</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {notificationArray.map(notification => {
-                                return (
+                <ReactCSSTransitionGroup
+                    component="div"
+                    transitionName="TabsAnimation"
+                    transitionAppear={true}
+                    transitionAppearTimeout={0}
+                    transitionEnter={false}
+                    transitionLeave={false}>
+                    <Card className="main-card mb-3">
+                        <CardBody>
+                            <CardTitle>Scheduled Notifications</CardTitle>         
+                            <Table responsive className="mb-0">
+                                <thead>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>{notification}</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Content</th>
+                                        <th>Send on</th>
                                     </tr>
-                                )
-                            })}
-                            </tbody>
-                        </Table>
-                    </CardBody>
-                </Card>
+                                </thead>
+                                <tbody>
+                                {notificationArray.map(notification => {
+                                    return (
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>{notification}</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                        </tr>
+                                    )
+                                })}
+                                </tbody>
+                            </Table>
+                        </CardBody>
+                    </Card>
+                </ReactCSSTransitionGroup>
             </Fragment>
         );
     }
