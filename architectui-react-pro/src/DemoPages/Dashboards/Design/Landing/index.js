@@ -7,7 +7,6 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import Modal from "react-responsive-modal";
 import { Col, Row } from 'reactstrap';
 //import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
-import '../index-rakesh.css';
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from "../theme-options";

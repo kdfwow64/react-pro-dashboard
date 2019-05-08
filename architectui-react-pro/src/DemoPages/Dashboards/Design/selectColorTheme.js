@@ -2,7 +2,6 @@
 // @ts-nocheck
 import axios from "axios";
 import * as React from "react";
-import './index-rakesh.css';
 import './index.css';
 import HomeTopTabs from "./home-tabs";
 var API_ROOT = 'https://thesearchit.com';

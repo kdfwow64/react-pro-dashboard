@@ -5,7 +5,7 @@ import React, { Fragment } from 'react';
 import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
 import 'react-switchery-component/react-switchery-component.css';
-import '../index-rakesh.css';
+import '../index.css';
 var API_ROOT = 'https://thesearchit.com';
 const Placeholder = './Placeholder.png';
 
