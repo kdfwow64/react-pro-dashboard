@@ -1,30 +1,26 @@
-import React, {Fragment} from 'react';
-import {
-    Row, Col,
-    FormGroup, Label, Input
-
-} from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Col, FormGroup, Input, Label, Row } from 'reactstrap';
 
 export default class WizardStep1 extends React.Component {
     render() {
         return (
             <Fragment>
                 <div className="form-wizard-content">
-                    <Row form>
-                        <Col md={6}>
+                    {/* <Row form> */}
+                        {/* <Col md={6}> */}
                             <FormGroup>
-                                <Label for="exampleEmail55">Email</Label>
-                                <Input type="email" name="email" id="exampleEmail55" placeholder="with a placeholder"/>
+                                <Label for="exampleEmail55">App Name</Label>
+                                <Input type="text" name="app-name" id="exampleEmail55" placeholder="Your app name"/>
                             </FormGroup>
-                        </Col>
-                        <Col md={6}>
+                        {/* </Col> */}
+                        {/* <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword22">Password</Label>
                                 <Input type="password" name="password" id="examplePassword22"
                                        placeholder="password placeholder"/>
                             </FormGroup>
-                        </Col>
-                    </Row>
+                        </Col> */}
+                    {/* </Row> */}
                     <FormGroup>
                         <Label for="exampleAddress">Address</Label>
                         <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
@@ -54,10 +50,10 @@ export default class WizardStep1 extends React.Component {
                             </FormGroup>
                         </Col>
                     </Row>
-                    <FormGroup check>
+                    {/* <FormGroup check>
                         <Input type="checkbox" name="check" id="exampleCheck"/>
                         <Label for="exampleCheck" check>Check me out</Label>
-                    </FormGroup>
+                    </FormGroup> */}
                 </div>
             </Fragment>
         );
