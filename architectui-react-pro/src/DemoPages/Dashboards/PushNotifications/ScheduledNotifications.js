@@ -51,6 +51,21 @@ export default class ScheduledNotifications extends React.Component {
                                 </tr>
                             </tbody>
                         </Table>
+
+
+                        {/* <Layout.Section>
+              <Card sectioned title="Scheduled Notifications">
+                <DataTable columnContentTypes={[
+                  'text',
+                  'text',
+                  'text'
+                ]} headings={[
+                  'Title',
+                  'Content',
+                  'Send on'
+                ]} rows={notificationArray}/>
+              </Card>
+            </Layout.Section> */}
                     </CardBody>
                 </Card>
             </Fragment>
