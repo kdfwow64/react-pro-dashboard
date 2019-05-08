@@ -80,12 +80,14 @@ export const ComponentsNav = [
     {
         label: "FAQ's",
         icon: 'pe-7s-help1',
-        to: '#/dashboards/preview-app',
+        to: 'https://appit.drift.help',
+        externalLink: true
     },
     {
         label: 'Leave a Review',
         icon: 'pe-7s-like2',
-        to: '#/dashboards/preview-app',
+        to: 'https://apps.shopify.com/mobile-app-creator-appit?#modal-show=ReviewListingModal',
+        externalLink: true
     },
     {
         label: 'Get a Free Month',
