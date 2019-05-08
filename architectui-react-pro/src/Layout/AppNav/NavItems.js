@@ -2,45 +2,46 @@ export const MainNav = [
     {
         icon: 'pe-7s-rocket',
         label: 'Design',
-        content: [
-            {
-                label: 'Landing',
-                to: '#/dashboards/design-landing',
-            },
-            {
-                label: 'Collections',
-                to: '#/dashboards/design-collection',
-            },
-            {
-                label: 'Product',
-                to: '#/dashboards/design-product',
-            },
-            // {
-            //     label: 'Minimal',
-            //     content: [
-            //         {
-            //             label: 'Variation 1',
-            //             to: '#/dashboards/minimal-dashboard-1',
-            //         },
-            //         {
-            //             label: 'Variation 2',
-            //             to: '#/dashboards/minimal-dashboard-2',
-            //         },
-            //     ],
-            // },
-            {
-                label: 'User',
-                to: '#/dashboards/design-user',
-            },
-            {
-                label: 'Cart',
-                to: '#/dashboards/design-cart',
-            },
-            {
-                label: 'Search',
-                to: '#/dashboards/design-search',
-            }
-        ],
+        to: '#/dashboards/design'
+    //     content: [
+    //         {
+    //             label: 'Landing',
+    //             to: '#/dashboards/design-landing',
+    //         },
+    //         {
+    //             label: 'Collections',
+    //             to: '#/dashboards/design-collection',
+    //         },
+    //         {
+    //             label: 'Product',
+    //             to: '#/dashboards/design-product',
+    //         },
+    //         // {
+    //         //     label: 'Minimal',
+    //         //     content: [
+    //         //         {
+    //         //             label: 'Variation 1',
+    //         //             to: '#/dashboards/minimal-dashboard-1',
+    //         //         },
+    //         //         {
+    //         //             label: 'Variation 2',
+    //         //             to: '#/dashboards/minimal-dashboard-2',
+    //         //         },
+    //         //     ],
+    //         // },
+    //         {
+    //             label: 'User',
+    //             to: '#/dashboards/design-user',
+    //         },
+    //         {
+    //             label: 'Cart',
+    //             to: '#/dashboards/design-cart',
+    //         },
+    //         {
+    //             label: 'Search',
+    //             to: '#/dashboards/design-search',
+    //         }
+    //     ],
     },
     {
         icon: 'pe-7s-rocket',

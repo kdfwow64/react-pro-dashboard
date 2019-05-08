@@ -7,21 +7,22 @@ import AppSidebar from '../../Layout/AppSidebar/';
 import AnalyticsDashboard from './Analytics/';
 import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
+import DesignApp from './Design';
 import DesignCart from './Design/DesignCart';
 import DesignCollection from './Design/DesignCollection';
-import DesignLanding from './Design/Landing';
 import DesignProduct from './Design/DesignProduct';
 import DesignSearch from './Design/DesignSearch';
 import DesignUser from './Design/DesignUser';
+import DesignLanding from './Design/Landing';
 import Integrations from './Integrations';
 import MinimalDashboard1 from './Minimal/Variation1';
 import MinimalDashboard2 from './Minimal/Variation2';
 import PreviewApp from './PreviewApp';
 import Publish from './Publish';
 import PushNotifications from './PushNotifications';
+import ScheduledNotifications from './PushNotifications/ScheduledNotifications';
 import SalesDashboard from './Sales/';
 import SettingsDashboard from './Settings';
-import ScheduledNotifications from './PushNotifications/ScheduledNotifications';
 
 const Dashboards = ({match}) => (
     <Fragment>
@@ -35,6 +36,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/sales`} component={SalesDashboard}/>
                     <Route path={`${match.url}/commerce`} component={CommerceDashboard}/>
                     <Route path={`${match.url}/crm`} component={CRMDashboard}/>
+                    <Route path={`${match.url}/design`} component={DesignApp}/>
                     <Route path={`${match.url}/design-landing`} component={DesignLanding}/>
                     <Route path={`${match.url}/design-collection`} component={DesignCollection}/>
                     <Route path={`${match.url}/design-product`} component={DesignProduct}/>
