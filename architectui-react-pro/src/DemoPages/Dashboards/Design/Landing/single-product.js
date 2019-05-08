@@ -1,6 +1,6 @@
 // tslint:disable
 // @ts-nocheck
-import React, { Fragment } from 'react';
+import React from 'react';
 const Loader = require('react-loader');
 
 class SingleProduct extends React.Component  {

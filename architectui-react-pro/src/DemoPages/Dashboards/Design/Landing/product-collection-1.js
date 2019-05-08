@@ -2,12 +2,6 @@
 // @ts-nocheck
 import axios from 'axios';
 import React, { Fragment } from 'react';
-import {
-  Row, Col,
-  Card, CardBody,
-  CardTitle,
-  InputGroup, InputGroupAddon
-} from 'reactstrap';
 
 var API_ROOT = 'https://thesearchit.com';
 const Loader = require('react-loader');

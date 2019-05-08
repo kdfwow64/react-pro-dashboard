@@ -1,24 +1,11 @@
 // tslint:disable
 // @ts-nocheck
-import axios from 'axios';
-import React, { Fragment } from 'react';
-import {
-  Row, Col,
-  Card, CardBody,
-  CardTitle,
-  InputGroup, InputGroupAddon
-} from 'reactstrap';
-
-import InputMask from 'react-input-mask';
-
-import {
-  faPhone,
-  faAt,
-  faLink,
-
-} from '@fortawesome/free-solid-svg-icons';
-
+import { faAt, faLink, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import React from 'react';
+import InputMask from 'react-input-mask';
+import { InputGroup, InputGroupAddon } from 'reactstrap';
 
 const Loader = require('react-loader');
 var API_ROOT = 'https://thesearchit.com';

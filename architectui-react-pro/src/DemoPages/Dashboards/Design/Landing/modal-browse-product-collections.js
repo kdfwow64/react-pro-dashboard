@@ -1,7 +1,7 @@
 // tslint:disable
 // @ts-nocheck
 import axios from 'axios';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ChromePicker } from 'react-color';
 import IconList from '../icon-list';
 

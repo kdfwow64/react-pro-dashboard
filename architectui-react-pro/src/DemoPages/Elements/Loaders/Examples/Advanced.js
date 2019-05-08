@@ -1,11 +1,8 @@
-import React, {Component, Fragment} from 'react'
-import Loader from 'react-loader-advanced';
+import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import {Loader as LoaderAnim} from 'react-loaders'
-
-import {
-    Button, Container
-} from 'reactstrap';
+import Loader from 'react-loader-advanced';
+import { Loader as LoaderAnim } from 'react-loaders';
+import { Button, Container } from 'reactstrap';
 
 const contentBoxStyle = {
     backgroundColor: 'white',
