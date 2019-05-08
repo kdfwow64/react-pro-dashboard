@@ -43,7 +43,7 @@ export const MainNav = [
         ],
     },
     {
-        icon: 'pe-7s-browser',
+        icon: 'pe-7s-rocket',
         label: 'Publish',
         to: '#/dashboards/publish'
         // content: [
