@@ -21,6 +21,7 @@ import Publish from './Publish';
 import PushNotifications from './PushNotifications';
 import SalesDashboard from './Sales/';
 import SettingsDashboard from './Settings';
+import ScheduledNotifications from './PushNotifications/ScheduledNotifications';
 
 const Dashboards = ({match}) => (
     <Fragment>
@@ -44,6 +45,7 @@ const Dashboards = ({match}) => (
                     <Route path={`${match.url}/settings`} component={SettingsDashboard}/>
                     <Route path={`${match.url}/integrations`} component={Integrations}/>
                     <Route path={`${match.url}/push-notifications`} component={PushNotifications}/>
+                    <Route path={`${match.url}/push-notifications-scheduled`} component={ScheduledNotifications}/>
                     <Route path={`${match.url}/preview-app`} component={PreviewApp}/>
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1}/>
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2}/>

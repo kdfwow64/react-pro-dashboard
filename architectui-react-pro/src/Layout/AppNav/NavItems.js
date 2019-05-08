@@ -104,7 +104,18 @@ export const MainNav = [
     {
         icon: 'pe-7s-plugin',
         label: 'Push Notifications',
-        to: '#/dashboards/push-notifications'
+        content: [
+            {
+                icon: 'pe-7s-plugin',
+                label: 'Send',
+                to: '#/dashboards/push-notifications'
+            },
+            {
+                icon: 'pe-7s-plugin',
+                label: 'Scheduled',
+                to: '#/dashboards/push-notifications-scheduled'
+            }
+        ]
     },
 ];
 export const ComponentsNav = [
