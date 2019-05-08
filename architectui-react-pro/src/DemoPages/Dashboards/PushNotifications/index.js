@@ -98,15 +98,7 @@ export default class PushNotifications extends React.Component {
             }
           });
       }
-    
-      getScheduledNotifications = () => {
-        axios
-        .get(`${API_ROOT}/api/v1/get-notifications`)
-        .then(resp => {
-          this.setState({ scheduledNotifications: resp.data });
-        });
-      }
-    
+
       searchProduct = searchField => {
         if (searchField !== '') {
           axios

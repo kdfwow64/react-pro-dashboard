@@ -124,6 +124,7 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
             ) : (
               <img
                 src={fileName}
+                alt=""
                 style={{maxWidth: previewImageWidth, maxHeight: previewImageHeight}}
               />
             )}
