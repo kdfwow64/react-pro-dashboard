@@ -164,49 +164,31 @@ export default class PushNotifications extends React.Component {
                                         <CardTitle>Controls Types</CardTitle>
                                         <Form>
                                             <FormGroup>
-                                                <Label for="exampleEmail">Email</Label>
-                                                <Input type="email" name="email" id="exampleEmail"
-                                                       placeholder="with a placeholder"/>
+                                                <Label for="exampleEmail">Notification Heading</Label>
+                                                <Input type="text" name="email" id="exampleEmail"
+                                                       placeholder=""/>
                                             </FormGroup>
                                             <FormGroup>
-                                                <Label for="examplePassword">Password</Label>
-                                                <Input type="password" name="password" id="examplePassword"
-                                                       placeholder="password placeholder"/>
+                                                <Label for="examplePassword">Notification Body</Label>
+                                                <Input type="textarea" name="password" id="examplePassword"
+                                                       placeholder=""/>
                                             </FormGroup>
                                             <FormGroup>
-                                                <Label for="exampleSelect">Select</Label>
+                                                <Label for="exampleSelect">Deeplink</Label>
                                                 <Input type="select" name="select" id="exampleSelect">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                    <option>None</option>
+                                                    <option>Collection</option>
+                                                    <option>Product</option>
                                                 </Input>
                                             </FormGroup>
                                             <FormGroup>
-                                                <Label for="exampleSelectMulti">Select Multiple</Label>
-                                                <Input type="select" name="selectMulti" id="exampleSelectMulti"
-                                                       multiple>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </Input>
-                                            </FormGroup>
-                                            <FormGroup>
-                                                <Label for="exampleText">Text Area</Label>
-                                                <Input type="textarea" name="text" id="exampleText"/>
-                                            </FormGroup>
-                                            <FormGroup>
-                                                <Label for="exampleFile">File</Label>
-                                                <Input type="file" name="file" id="exampleFile"/>
+                                                <Label for="exampleFile">Notification Image</Label>
+                                                <Input type="file" accept name="file" id="exampleFile"/>
                                                 <FormText color="muted">
-                                                    This is some placeholder block-level help text for the above input.
-                                                    It's a bit lighter and easily wraps to a new line.
+                                                    Attaching an image will show up in notification in mobile device.
                                                 </FormText>
                                             </FormGroup>
-                                            <Button color="primary" className="mt-1">Submit</Button>
+                                            <Button color="primary" className="mt-1">Send</Button>
                                         </Form>
                                     </CardBody>
                                 </Card>
