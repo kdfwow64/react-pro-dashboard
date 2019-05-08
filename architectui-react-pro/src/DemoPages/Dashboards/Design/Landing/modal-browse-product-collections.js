@@ -6,7 +6,6 @@ import { ChromePicker } from 'react-color';
 import IconList from '../icon-list';
 
 var API_ROOT = 'https://thesearchit.com';
-const Loader = require('react-loader');
 
 const ProductsCollections = {
   collections: [

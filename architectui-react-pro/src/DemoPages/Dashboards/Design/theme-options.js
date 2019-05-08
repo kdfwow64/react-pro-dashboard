@@ -1,40 +1,11 @@
 // tslint:disable
 // @ts-nocheck
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faAngleLeft, faAngleRight, faAngleUp, faAngry, faAnkh, faAppleAlt, faArchive, faArchway, faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faArrowCircleDown, faArrowCircleLeft, faArrowCircleRight, faArrowCircleUp, faArrowDown, faArrowLeft, faCalendarAlt, faCheckSquare, faCoffee, faCog, faQuoteLeft, faSpinner, faSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {fab} from '@fortawesome/free-brands-svg-icons'
-import {
-    faCoffee,
-    faCog,
-    faSpinner,
-    faQuoteLeft,
-    faSquare,
-    faCheckSquare,
-    faAngleLeft,
-    faAngleRight,
-    faAngleUp,
-    faAngry,
-    faAnkh,
-    faAppleAlt,
-    faArchive,
-    faCalendarAlt,
-    faArchway,
-    faArrowAltCircleDown,
-    faArrowAltCircleLeft,
-    faArrowAltCircleRight,
-    faArrowAltCircleUp,
-    faArrowCircleDown,
-    faArrowCircleLeft,
-    faArrowCircleRight,
-    faArrowCircleUp,
-    faArrowDown,
-    faArrowLeft,
-
-} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Hamburger from 'react-hamburgers';
+import SweetAlert from 'sweetalert-react';
 
 library.add(
     fab,
@@ -76,7 +47,6 @@ class ThemeOptions extends React.Component  {
     this.CloseThemeBar = this.CloseThemeBar.bind(this);
     this.OpenThemeBar = this.OpenThemeBar.bind(this);
     this.homeTopTabsShowEditAlert = React.createRef();
-    this.reloadPage = this.reloadPage.bind(this);
   }
   _onThemeOptionSelection = themName => {
     this.props.selectTheme(themName);
@@ -106,29 +76,6 @@ class ThemeOptions extends React.Component  {
   set OpenThemeBar(value) {
     this._OpenThemeBar = value;
   }
-  _reloadPage = () => {
-    confirmAlert({
-      title: 'Discard Changes?',
-      message:
-        'Are you sure, You want to reload the page. That means your all changes are removed. ',
-      buttons: [
-        {
-          label: 'Cancel',
-          onClick: () => ''
-        },
-        {
-          label: 'Ok',
-          onClick: () => window.location.reload()
-        }
-      ]
-    });
-  }
-  get reloadPage() {
-    return this._reloadPage;
-  }
-  set reloadPage(value) {
-    this._reloadPage = value;
-  }
 
   render() {
     return (
@@ -140,9 +87,17 @@ class ThemeOptions extends React.Component  {
           className="themeOptionInnerContainer"
           style={{ backgroundColor: this.state.imageSpacingColor }}
         >
-          <div className="UndoThemebutton" onClick={this.reloadPage}>
+          <div className="UndoThemebutton" onClick={() => this.setState({ reloadConfirmation: true })}>
             <i className="pe-7s-refresh" />
           </div>
+          <SweetAlert
+            title="Are you sure?"
+            confirmButtonColor=""
+            show={this.state.reloadConfirmation}
+            text="Are you sure, You want to reload the page. That means your all changes are removed."
+            showCancelButton
+            onConfirm={() => window.location.reload()}
+            onCancel={() => this.setState({ reloadConfirmation: false })}/>
           <div
             className="Fixedthemebutton"
             style={{

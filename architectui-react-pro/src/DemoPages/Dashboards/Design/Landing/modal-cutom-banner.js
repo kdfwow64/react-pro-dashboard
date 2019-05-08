@@ -7,7 +7,6 @@ import React from 'react';
 import InputMask from 'react-input-mask';
 import { InputGroup, InputGroupAddon } from 'reactstrap';
 
-const Loader = require('react-loader');
 var API_ROOT = 'https://thesearchit.com';
 
 class ModalCustomBanner extends React.Component {
@@ -351,7 +350,7 @@ class ModalCustomBanner extends React.Component {
                         {!this.state.isLoaded && (
                           <div className="">
                             {' '}
-                            <Loader loaded={this.state.isLoaded} />{' '}
+                            {/* <Loader loaded={this.state.isLoaded} />{' '} */}
                           </div>
                         )}
                         {this.state.isLoaded &&

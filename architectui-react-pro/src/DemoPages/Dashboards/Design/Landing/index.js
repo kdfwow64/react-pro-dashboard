@@ -30,8 +30,6 @@ import SingleProduct from "./single-product";
 var Placeholder = './Placeholder.png';
 var API_ROOT = 'https://thesearchit.com';
 
-var Loader = require("react-loader");
-
 const homeLandingAllSettings = {
   landingBuildNavigationBarInitialSettings: {
     navbarTitleColor: "#ffff00",
@@ -1878,9 +1876,9 @@ class HomePageContent extends React.Component {
                       </Droppable>
                     </div>
                   )}
-                  {!this.state.isLoaded && (
+                  {/* {!this.state.isLoaded && (
                     <Loader loaded={this.state.isLoaded} />
-                  )}
+                  )} */}
                 </div>
                 <div id="RightContainerScroll" style={{ maxWidth: 'calc(100% - 390px)' }} className="col-lg-8">
                
@@ -2211,9 +2209,9 @@ class HomePageContent extends React.Component {
                             </div>
                           
                           )}
-                          {!this.state.isLoaded &&
+                          {/* {!this.state.isLoaded &&
                             <Loader loaded={this.state.isLoaded} />
-                          }
+                          } */}
                         </div>
                       </div>
                     </div>

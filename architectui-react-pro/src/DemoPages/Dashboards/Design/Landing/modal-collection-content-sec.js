@@ -5,7 +5,6 @@ import React from 'react';
 import { ChromePicker } from 'react-color';
 import IconList from '../icon-list';
 const Placeholder = './Placeholder.png';
-const Loader = require('react-loader');
 var API_ROOT = 'https://thesearchit.com';
 
 const ProductsCollections = {
@@ -500,7 +499,7 @@ class ModalSearchContentSec extends React.Component  {
                     this.state.CollectionsProductsData.length !== 0 && (
                       <div className="">
                         {' '}
-                        <Loader loaded={this.state.isLoaded} />{' '}
+                        {/* <Loader loaded={this.state.isLoaded} />{' '} */}
                       </div>
                     )}
                   {this.state.CollectionsProductsData.length !== 0 &&

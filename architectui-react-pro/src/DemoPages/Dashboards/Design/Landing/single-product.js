@@ -1,7 +1,6 @@
 // tslint:disable
 // @ts-nocheck
 import React from 'react';
-const Loader = require('react-loader');
 
 class SingleProduct extends React.Component  {
    constructor(props) {

@@ -4,7 +4,6 @@ import axios from 'axios';
 import React, { Fragment } from 'react';
 
 var API_ROOT = 'https://thesearchit.com';
-const Loader = require('react-loader');
 
 const ProductsCollections = {
   collections: [
