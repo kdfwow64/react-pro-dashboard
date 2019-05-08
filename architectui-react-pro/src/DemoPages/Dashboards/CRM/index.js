@@ -25,14 +25,14 @@ export default class CRMDashboard extends Component {
                         subheading="Yet another dashboard built using only the included Architech elements and components."
                         icon="pe-7s-graph icon-gradient bg-ripe-malin"
                     />
-                    <Tabs
+                    {/* <Tabs
                         defaultActiveKey="1"
                         renderTabBar={() => <ScrollableInkTabBar/>}
                         renderTabContent={() => <TabContent/>}
                     >
                         <TabPane tab='Variation 1' key="1"><CRMDashboard2/></TabPane>
                         <TabPane tab='Variation 2' key="2"><CRMDashboard1/></TabPane>
-                    </Tabs>
+                    </Tabs> */}
                 </ReactCSSTransitionGroup>
             </Fragment>
         )

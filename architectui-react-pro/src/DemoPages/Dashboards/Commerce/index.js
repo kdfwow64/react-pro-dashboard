@@ -28,14 +28,14 @@ export default class CommerceDashboard extends Component {
                         subheading="This dashboard was created as an example of the flexibility that ArchitectUI offers."
                         icon="pe-7s-graph icon-gradient bg-ripe-malin"
                     />
-                    <Tabs
+                    {/* <Tabs
                         defaultActiveKey="1"
                         renderTabBar={() => <ScrollableInkTabBar/>}
                         renderTabContent={() => <TabContent/>}
                     >
                         <TabPane tab='Variation 1' key="1"><CommerceDashboard1/></TabPane>
                         <TabPane tab='Variation 2' key="2"><CommerceDashboard2/></TabPane>
-                    </Tabs>
+                    </Tabs> */}
                 </ReactCSSTransitionGroup>
             </Fragment>
         )

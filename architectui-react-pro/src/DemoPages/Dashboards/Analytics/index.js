@@ -29,7 +29,7 @@ export default class AnalyticsDashboard extends Component {
                         <TabPane tab='Variation 1' key="1"><AnalyticsDashboard1/></TabPane>
                         <TabPane tab='Variation 2' key="2"><AnalyticsDashboard2/></TabPane>
                     </Tabs> */}
-                    <AnalyticsDashboard1/>
+                    {/* <AnalyticsDashboard1/> */}
                 </ReactCSSTransitionGroup>
             </Fragment>
         )

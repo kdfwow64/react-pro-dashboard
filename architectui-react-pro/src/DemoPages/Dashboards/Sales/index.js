@@ -52,7 +52,7 @@ export default class SalesDashboard extends Component {
                             />
                         </div>
                     </div>
-                    <Tabs tabsWrapperClass="body-tabs body-tabs-layout body-tabs-big" transform={false} showInkBar={true} items={getTabs()}/>
+                    {/* <Tabs tabsWrapperClass="body-tabs body-tabs-layout body-tabs-big" transform={false} showInkBar={true} items={getTabs()}/> */}
                 </div>
             </Fragment>
         )
