@@ -115,11 +115,11 @@ export const MainNav = [
                 label: 'Scheduled',
                 to: '#/dashboards/push-notifications-scheduled'
             },
-            {
-                icon: 'pe-7s-plugin',
-                label: 'Notification History',
-                to: '#/dashboards/push-notifications-scheduled'
-            }
+            // {
+            //     icon: 'pe-7s-plugin',
+            //     label: 'Notification History',
+            //     to: '#/dashboards/push-notifications-scheduled'
+            // }
         ]
     },
 ];
