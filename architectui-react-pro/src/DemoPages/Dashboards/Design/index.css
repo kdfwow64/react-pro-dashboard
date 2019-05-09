@@ -3361,9 +3361,6 @@ position: absolute !important;
   text-align: center;
   padding: 10px 0px;
 }
-.app-main .app-main__inner {
-  padding: 0 !important;
-}
 .fixed-footer .app-main .app-main__outer {
   padding-bottom: 0 !important;
 }

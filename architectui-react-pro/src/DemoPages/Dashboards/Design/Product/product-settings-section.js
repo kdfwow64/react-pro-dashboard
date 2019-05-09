@@ -574,12 +574,12 @@ class ProductSettingsSection extends React.Component<any, any> {
     return (
       <div id="accordion" className="accordion-wrapper mb-3">
         <Card>
-          <CardHeader id="headingOne">
+          <CardHeader id="headingOne" onClick={() => this.toggleAccordion(0)}>
             <Button className="m-0 p-0" color="link"
               onClick={() => this.toggleAccordion(0)}
               aria-expanded={this.state.accordion[0]}
               aria-controls="exampleAccordion1">
-              Toggle item
+              PRODUCT IMAGES
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion"
@@ -690,12 +690,12 @@ class ProductSettingsSection extends React.Component<any, any> {
         </Card>
         
         <Card>
-          <CardHeader className="b-radius-0" id="headingTwo">
+          <CardHeader className="b-radius-0" id="headingTwo" onClick={() => this.toggleAccordion(1)}>
             <Button className="m-0 p-0" color="link"
               onClick={() => this.toggleAccordion(1)}
               aria-expanded={this.state.accordion[1]}
               aria-controls="exampleAccordion2">
-              Toggle item
+              TITLE & PRICE
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[1]} data-parent="#accordion"
@@ -806,12 +806,12 @@ class ProductSettingsSection extends React.Component<any, any> {
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingThree">
+          <CardHeader className="b-radius-0" id="headingThree" onClick={() => this.toggleAccordion(2)}>
             <Button className="m-0 p-0" color="link"
               onClick={() => this.toggleAccordion(2)}
               aria-expanded={this.state.accordion[2]}
               aria-controls="exampleAccordion3">
-              Toggle item
+              PRODUCT OPTIONS
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[2]} data-parent="#accordion"
@@ -959,7 +959,7 @@ class ProductSettingsSection extends React.Component<any, any> {
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingFour">
+          <CardHeader className="b-radius-0" id="headingFour" onClick={() => this.toggleAccordion(3)}>
             <Button className="m-0 p-0" color="link"
               onClick={() => this.toggleAccordion(3)}
               aria-expanded={this.state.accordion[3]}
@@ -1124,7 +1124,7 @@ class ProductSettingsSection extends React.Component<any, any> {
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingFive">
+          <CardHeader className="b-radius-0" id="headingFive" onClick={() => this.toggleAccordion(4)}>
             <Button className="m-0 p-0" color="link"
               onClick={() => this.toggleAccordion(4)}
               aria-expanded={this.state.accordion[4]}
