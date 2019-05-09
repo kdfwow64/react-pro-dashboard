@@ -393,7 +393,7 @@ class ModalSearchContentSec extends React.Component  {
                     this.state.CollectionsProductsData.length !== 0
                       ? 'auto'
                       : '130px',
-                  width: '355px',
+                  width: '268px',
                   overflow:
                     this.state.CollectionsProductsData.length !== 0
                       ? 'auto'
@@ -405,7 +405,7 @@ class ModalSearchContentSec extends React.Component  {
                   style={{
                     background: this.state.HeaderBGColor,
                     position: 'absolute',
-                    width: '355px',
+                    width: '268px',
                     height: '35px'
                   }}
                 >
