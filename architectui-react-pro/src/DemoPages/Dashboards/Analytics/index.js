@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
-import { Card, Col, Row } from 'reactstrap';
+import { Card, CardBody, Container, CardTitle, Col, Row } from 'reactstrap';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 var API_ROOT = 'https://thesearchit.com';
 
@@ -322,15 +322,20 @@ export default class AnalyticsDashboard extends Component {
                             subheading="This is an example dashboard created using build-in elements and components."
                             icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
                         />
-                            <Card>
+                                                <Container fluid>
+
                                 {/* <FormLayout> */}
-                                    <Card>
+                                    <Card className="main-card mb-3">
+                                    <CardBody>
+                                    <CardTitle>Active Users</CardTitle>
                                         {/* <DisplayText size="small">Active Users <StatefulToolTip position="right" arrow="center"
                                             id="activeUsersToolTip"
                                             text="Each point represents the number of unique users that used the app over the previous 1 day (daily), 7 days (weekly) and 30 days (monthly) respectively." /></DisplayText> */}
                                         <Line data={activeUsersData} />
+                                        </CardBody>
                                     </Card>
-                                    <Card>
+                                    <Card className="main-card mb-3">
+                                    <CardBody>
                                         <Row>
                                                     <Col>
                                                         {/* <DisplayText size="small">Daily session per user <StatefulToolTip position="right" arrow="center"
@@ -355,15 +360,18 @@ export default class AnalyticsDashboard extends Component {
                                                         <HorizontalBar data={topDevicesData} />
                                                     </Col>
                                                 </Row>
-                                    </Card>
-                                    <Card>
+                                                </CardBody>
+                                                </Card>
+                                    <Card className="main-card mb-3">
+                                    <CardBody>
                                         {/* <DisplayText size="small">Active users per version <StatefulToolTip position="right" arrow="center"
                                             id="versionDetailsToolTip"
                                             text="Distribution of the number of users that were active, by version. Only the latest 20 versions are displayed." /></DisplayText> */}
                                         <Bar data={versionDetailsData} />
+                                        </CardBody>
                                     </Card>
                                 {/* </FormLayout> */}
-                            </Card>
+                            </Container>
                     </ReactCSSTransitionGroup>
                 </Fragment>
                 );
