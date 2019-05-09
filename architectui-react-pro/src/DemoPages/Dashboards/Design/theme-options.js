@@ -1,53 +1,57 @@
 // tslint:disable
 // @ts-nocheck
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faAngleLeft, faAngleRight, faAngleUp, faAngry, faAnkh, faAppleAlt, faArchive, faArchway, faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faArrowCircleDown, faArrowCircleLeft, faArrowCircleRight, faArrowCircleUp, faArrowDown, faArrowLeft, faCalendarAlt, faCheckSquare, faCoffee, faCog, faQuoteLeft, faSpinner, faSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import SweetAlert from 'sweetalert-react';
+import Axios from 'axios';
+import { themeColorFromName } from './mobile-theme-utils';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { Tooltip } from 'reactstrap';
+import {
+  toast,
+} from 'react-toastify';
+import {
+  Row, Col,
+  Card, CardBody, Button,
+} from 'reactstrap';
+var API_ROOT = 'https://thesearchit.com';
 
 library.add(
-    fab,
-    faCoffee,
-    faCog,
-    faSpinner,
-    faQuoteLeft,
-    faSquare,
-    faCheckSquare,
-    faAngleLeft,
-    faCalendarAlt,
-    faAngleRight,
-    faAngleUp,
-    faAngry,
-    faAnkh,
-    faAppleAlt,
-    faArchive,
-    faArchway,
-    faArrowAltCircleDown,
-    faArrowAltCircleLeft,
-    faArrowAltCircleRight,
-    faArrowAltCircleUp,
-    faArrowCircleDown,
-    faArrowCircleLeft,
-    faArrowCircleRight,
-    faArrowCircleUp,
-    faArrowDown,
-    faArrowLeft,
+  fab,
+  faCog,
+  faSpinner,
 );
 
-class ThemeOptions extends React.Component  {
+class ThemeOptions extends React.Component {
   //homeTopTabsShowEditAlert: React.RefObject<{}>;
   constructor(props) {
     super(props);
-    this.state = {
-      DisplayThemeBar: false,
-    };
     this.onThemeOptionSelection = this.onThemeOptionSelection.bind(this);
     this.CloseThemeBar = this.CloseThemeBar.bind(this);
     this.OpenThemeBar = this.OpenThemeBar.bind(this);
+    this.saveClicked = this.saveClicked.bind(this);
+    this.saveTheme = this.saveTheme.bind(this);
     this.homeTopTabsShowEditAlert = React.createRef();
+
   }
+  state = {
+    tooltip: false,
+    tooltipRefresh: false,
+    tooltipSaved: false,
+    tooltipSettings: false,
+    DisplayThemeBar: false,
+    isEdited: this.props.isEdited,
+    editedTheme: this.props.editedTheme,
+    selectedTheme: '',
+    clicked: false,
+    saved: false,
+    collection: '',
+    toCollections: false,
+    openFirstModal: false,
+    item: '',
+  };
   _onThemeOptionSelection = themName => {
     this.props.selectTheme(themName);
   }
@@ -57,7 +61,6 @@ class ThemeOptions extends React.Component  {
   set onThemeOptionSelection(value) {
     this._onThemeOptionSelection = value;
   }
-
   _CloseThemeBar = () => {
     this.setState({ DisplayThemeBar: false });
   }
@@ -77,6 +80,50 @@ class ThemeOptions extends React.Component  {
     this._OpenThemeBar = value;
   }
 
+  showSavedButton = () => {
+    this.setState({ isEdited: false });
+    this.setState({ clicked: false });
+    this.setState({ saved: true });
+  }
+  showSaveButton = () => {
+    this.setState({ isEdited: true });
+    this.setState({ clicked: false });
+    this.setState({ saved: false });
+  }
+  saveClicked = () => {
+    this.props.onSaveEditedItems();
+    this.setState({ isEdited: false });
+    this.setState({ clicked: true });
+    this.setState({ saved: false });
+  }
+
+  saveTheme = () => {
+    Axios.post(`${API_ROOT}/api/v2/app-theme`, { themeColor: themeColorFromName(this.state.selectedTheme) });
+  }
+  toggle() {
+    this.setState({
+      tooltip: !this.state.tooltip
+    });
+  }
+  toggleOne() {
+    this.setState({
+      tooltipSaved: !this.state.tooltipSaved
+    });
+  }
+  toggleTwo() {
+    this.setState({
+      tooltipRefresh: !this.state.tooltipRefresh
+    });
+  }
+  toggleThree() {
+    this.setState({
+      tooltipSettings: !this.state.tooltipSettings
+    });
+  }
+  savedHoverTooltip = () => {
+    toast['success']('Your changes are Saved!');
+  }
+
   render() {
     return (
       <div
@@ -87,9 +134,48 @@ class ThemeOptions extends React.Component  {
           className="themeOptionInnerContainer"
           style={{ backgroundColor: this.state.imageSpacingColor }}
         >
-          <div className="UndoThemebutton" onClick={() => this.setState({ reloadConfirmation: true })}>
+          {this.state.isEdited && !this.state.clicked && !this.state.saved && (
+            <div>
+              <div className="Savebutton" id='Tooltip-save' style={{ backgroundColor: '#0e7c95', cursor: 'pointer' }} onClick={this.saveClicked}>
+                <i className="lnr-enter" />
+              </div>
+              <Tooltip placement='auto' isOpen={this.state.tooltip} target='Tooltip-save' toggle={this.toggle.bind(this)}>
+                Click to Save!
+              </Tooltip>
+              {//toast['warn']('Click on Save to save your changes!')
+              }
+            </div>
+          )}
+          {this.state.clicked && !this.state.isEdited && !this.state.saved && (
+            <div>
+              <div className="Savebutton" id='Tooltip-saving' style={{ backgroundColor: '#0A941B', cursor: 'progress' }}>
+                <FontAwesomeIcon
+                  icon={['fas', 'spinner']}
+                  pulse
+                  fixedWidth
+                  size="1x"
+                />
+              </div>
+            </div>
+          )}
+          {this.state.saved && !this.state.isEdited && !this.state.clicked && (
+            <div>
+              <div className="Savebutton" id='Tooltip-saved' style={{ backgroundColor: '#ccc', cursor: 'default' }} onMouseEnter={this.savedHoverTooltip.bind(this)} >
+                <i className="lnr-enter" />
+              </div>
+              <Tooltip placement='auto' isOpen={this.state.tooltipSaved} target='Tooltip-saved' toggle={this.toggleOne.bind(this)}>
+                Changes are Saved!
+              </Tooltip>
+            </div>
+          )}
+
+          <div id="Tooltip-refresh" className="UndoThemebutton" onClick={() => this.setState({ reloadConfirmation: true })}>
             <i className="pe-7s-refresh" />
           </div>
+          <Tooltip placement='auto' isOpen={this.state.tooltipRefresh} target='Tooltip-refresh' toggle={this.toggleTwo.bind(this)}>
+            Click to refresh page!
+              </Tooltip>
+
           <SweetAlert
             title="Are you sure?"
             confirmButtonColor=""
@@ -97,28 +183,32 @@ class ThemeOptions extends React.Component  {
             text="Are you sure, You want to reload the page. That means your all changes are removed."
             showCancelButton
             onConfirm={() => window.location.reload()}
-            onCancel={() => this.setState({ reloadConfirmation: false })}/>
+            onCancel={() => this.setState({ reloadConfirmation: false })} />
           <div
             className="Fixedthemebutton"
             style={{
               display: this.state.DisplayThemeBar === false ? 'block' : 'none'
             }}
             onClick={this.OpenThemeBar}
+            id="Tooltip-settings"
           >
-           <FontAwesomeIcon
-            icon={['fas', 'cog']}
-            spin
-            fixedWidth={false}
-            size="1x"
+            <FontAwesomeIcon
+              icon={['fas', 'cog']}
+              spin
+              fixedWidth={false}
+              size="1x"
             />
           </div>
+          <Tooltip placement='auto' isOpen={this.state.tooltipSettings} target='Tooltip-settings' toggle={this.toggleThree.bind(this)}>
+            Open Theming Configuration!
+            </Tooltip>
+
           <div
             className="themeContainer"
             style={{
               display: this.state.DisplayThemeBar === true ? 'block' : 'none'
             }}
           >
-
             <ul style={{}} className="ThemeHideSection">
               <li
                 onClick={() => {
@@ -220,9 +310,7 @@ class ThemeOptions extends React.Component  {
                 <div className="themeTitle">FLAMINGO</div>
               </li>
             </ul>
-           
-           
-           
+
             <div id="closeThemeIcon" onClick={this.CloseThemeBar}>
               <i className="pe-7s-close-circle" />
             </div>

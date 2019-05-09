@@ -306,7 +306,7 @@ class ModalBrowseProductCollections extends React.Component  {
             style={{
               color: this.state.titleColor,
               backgroundColor: this.state.footerBGColor,
-              width: '402px',
+              width: '219px',
               bottom: '18.4%',
               left: '30px'
             }}
