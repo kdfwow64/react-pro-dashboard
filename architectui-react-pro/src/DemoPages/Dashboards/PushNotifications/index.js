@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Button, Card, CardBody, CardTitle, Col, Container, Form, FormGroup, FormText, Input, Label, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardSubtitle, CardTitle, Col, Container, Form, FormGroup, FormText, Input, Label, Row } from 'reactstrap';
 var API_ROOT = 'https://thesearchit.com';
 
 export default class PushNotifications extends React.Component {
@@ -150,7 +150,8 @@ export default class PushNotifications extends React.Component {
                             <Col md="6">
                                 <Card className="main-card mb-3">
                                     <CardBody>
-                                        <CardTitle>Controls Types</CardTitle>
+                                        <CardTitle>Push Notification</CardTitle>
+                                        <CardSubtitle>You can send push notifications after your app is published.</CardSubtitle>
                                         <Form>
                                             <FormGroup>
                                                 <Label for="exampleEmail">Notification Heading</Label>
