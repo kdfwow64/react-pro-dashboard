@@ -1,11 +1,9 @@
 import axios from 'axios';
-import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui';
 import * as moment from 'moment';
 import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
-import Loader from 'react-loaders';
-import { Card } from 'reactstrap';
+import { Card, Col, Row } from 'reactstrap';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 var API_ROOT = 'https://thesearchit.com';
 
@@ -300,16 +298,16 @@ export default class AnalyticsDashboard extends Component {
         };
 
         let ui;
-        if (this.state.api_complete_progress === 100) {
-            if (this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
-                this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
-                this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
-                this.state.sessionCount > 0 ||
-                this.state.averageSessionsPerUser > 0 ||
-                this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
-                this.ifAnyNonZero(this.state.modelCounts) ||
-                this.ifAnyNonZero(this.state.versionDetailsDataset)
-            ) {
+        // if (this.state.api_complete_progress === 100) {
+        //     if (this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
+        //         this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
+        //         this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
+        //         this.state.sessionCount > 0 ||
+        //         this.state.averageSessionsPerUser > 0 ||
+        //         this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
+        //         this.ifAnyNonZero(this.state.modelCounts) ||
+        //         this.ifAnyNonZero(this.state.versionDetailsDataset)
+        //     ) {
                 ui = (
                     <Fragment>
                     <ReactCSSTransitionGroup
@@ -324,19 +322,17 @@ export default class AnalyticsDashboard extends Component {
                             subheading="This is an example dashboard created using build-in elements and components."
                             icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
                         />
-                            <Card sectioned>
+                            <Card>
                                 {/* <FormLayout> */}
-                                    <Card sectioned>
+                                    <Card>
                                         {/* <DisplayText size="small">Active Users <StatefulToolTip position="right" arrow="center"
                                             id="activeUsersToolTip"
                                             text="Each point represents the number of unique users that used the app over the previous 1 day (daily), 7 days (weekly) and 30 days (monthly) respectively." /></DisplayText> */}
                                         <Line data={activeUsersData} />
                                     </Card>
-                                    <Card sectioned>
-                                        <Table>
-                                            <TableBody displayRowCheckbox={false}>
-                                                <TableRow>
-                                                    <TableRowColumn>
+                                    <Card>
+                                        <Row>
+                                                    <Col>
                                                         {/* <DisplayText size="small">Daily session per user <StatefulToolTip position="right" arrow="center"
                                                             id="dailySessionsToolTip"
                                                             text="Each point is the average number of sessions per unique user for that day." /></DisplayText> */}
@@ -351,18 +347,16 @@ export default class AnalyticsDashboard extends Component {
                                                                 {/* <p><DisplayText size="small">{this.state.averageSessionsPerUser}</DisplayText></p> */}
                                                             </div>
                                                         {/* </Stack> */}
-                                                    </TableRowColumn>
-                                                    <TableRowColumn>
+                                                    </Col>
+                                                    <Col>
                                                         {/* <DisplayText size="small">Top devices <StatefulToolTip position="right" arrow="center"
                                                             id="topDevicesToolTip"
                                                             text="The number of active users for the top used models. OS Distribution: the distribution of top 4 OS version of active users." /></DisplayText> */}
                                                         <HorizontalBar data={topDevicesData} />
-                                                    </TableRowColumn>
-                                                </TableRow>
-                                            </TableBody>
-                                        </Table>
+                                                    </Col>
+                                                </Row>
                                     </Card>
-                                    <Card sectioned>
+                                    <Card>
                                         {/* <DisplayText size="small">Active users per version <StatefulToolTip position="right" arrow="center"
                                             id="versionDetailsToolTip"
                                             text="Distribution of the number of users that were active, by version. Only the latest 20 versions are displayed." /></DisplayText> */}
@@ -373,7 +367,7 @@ export default class AnalyticsDashboard extends Component {
                     </ReactCSSTransitionGroup>
                 </Fragment>
                 );
-            } else {
+            // } else {
                 // Show empty data page
                 // ui = (
                 //     <EmptyState
@@ -384,12 +378,12 @@ export default class AnalyticsDashboard extends Component {
                 //         <p>Analytics will start showing up here once there is enough data.</p>
                 //     </EmptyState>
                 // );
-            }
-        } else {
-            ui = (
-                <Loader type="ball-scale"/>
-            );
-        }
+        //     }
+        // } else {
+        //     ui = (
+        //         <Loader type="ball-scale"/>
+        //     );
+        // }
         return (ui);
     }
 }
