@@ -626,8 +626,7 @@ const getListStyle = (isDraggingOver) => ({
 });
 class HomePageContent extends React.Component {
 
-  homeTopTabsShowEditAlert = null;
-  currentSelectedSection = null;
+  //homeTopTabsShowEditAlert = null;
   allModalReferencesById = [];
   allReferencesById = {};
   HideSettingsValue = null;
@@ -698,8 +697,7 @@ class HomePageContent extends React.Component {
     this.showStoreNameLable = this.showStoreNameLable.bind(this);
     this.hideTextshowLabel = this.hideTextshowLabel.bind(this);
     this.productSearchFormRef = React.createRef();
-    this.homeTopTabsShowEditAlert = React.createRef();
-    this.currentSelectedSection = React.createRef();
+    //this.homeTopTabsShowEditAlert = this.props.homeTopTabsShowEditAlert;
     this.allReferencesById = {};
     this.allModalReferencesById = [];
     this.state = {
@@ -870,15 +868,15 @@ class HomePageContent extends React.Component {
 
     this.setState({ navbarBackgroundColorValue: themeColor });
 
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
-    this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
-    this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
+    //this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
   }
 
   changeMyStoreLabel = () => {
     this.setState({ showMyStoreTextBox: 'block' });
     this.setState({ showMyLabel: 'none' });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   changeMyStoreName = (e) => {
     this.setState({ NavBarTitleText: e.target.value });
@@ -894,7 +892,7 @@ class HomePageContent extends React.Component {
     this.setState({ showMyLabel: 'block' });
   }
   DisplaySaveBtn = () => {
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   handleNavStyleMenuIconColorChangeComplete = (color) => {
     this.setState({ menuIconColor: color.hex });
@@ -932,7 +930,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onBrowseProductCollectionCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -967,7 +965,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onCollectionWithTitleModalCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -989,7 +987,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onSingleProductModalCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -1027,7 +1025,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onCollection1ModalCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -1064,7 +1062,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onCollection2ModalCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -1101,7 +1099,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onProductModalCloseClick = (stateVaribleName) => {
     const newAllModalIds = { ...this.state.allModalIds };
@@ -1123,7 +1121,7 @@ class HomePageContent extends React.Component {
       landingTabDraggedItems.push(item);
     });
     this.setState({ landingTabDraggedItems });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   move = (source, destination, droppableSource, droppableDestination) => {
 
@@ -1575,27 +1573,27 @@ class HomePageContent extends React.Component {
 
   HomeValue = (val) => {
     this.setState({ HomeValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   SearchValue = (val) => {
     this.setState({ SearchValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   CartValue = (val) => {
     this.setState({ CartValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   ContactValue = (val) => {
     this.setState({ ContactValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   AccountValue = (val) => {
     this.setState({ AccountValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   handleNavStyleMenuCellColorChangeComplete = (color) => {
     this.setState({ menuCellBGColor: color.hex });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   HideSettingSection(HideSettingValue) {
     this.setState({ SettingStoreHide: 'none' });
@@ -1609,19 +1607,19 @@ class HomePageContent extends React.Component {
     this.setState({ displaybuildleft: 'none' });
     this.setState({ LandingStyleDisplay: 'block' });
     this.setState({ LandingPreviewDisplay: 'none' });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   LandingBuildDisplay = () => {
     this.setState({ displaybuildleft: 'block' });
     this.setState({ LandingStyleDisplay: 'none' });
     this.setState({ LandingPreviewDisplay: 'none' });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   LandingPreviewDisplay = () => {
     this.setState({ displaybuildleft: 'none' });
     this.setState({ LandingStyleDisplay: 'none' });
     this.setState({ LandingPreviewDisplay: 'block' });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   navbarTitleColorCode = (navbartitle) => {
     this.setState({ navbartitleValue: navbartitle.hex });
@@ -1673,7 +1671,7 @@ class HomePageContent extends React.Component {
         state = { landingTabDraggedItems: items };
       }
       this.setState(state);
-      this.homeTopTabsShowEditAlert.current.showSaveButton();
+      //this.homeTopTabsShowEditAlert.current.showSaveButton();
     } else {
       const result = this.move(
         this.getList(source.droppableId),
@@ -1695,7 +1693,7 @@ class HomePageContent extends React.Component {
         landingTabDraggedItems: (result).droppable2
       });
 
-      this.homeTopTabsShowEditAlert.current.showSaveButton();
+      //this.homeTopTabsShowEditAlert.current.showSaveButton();
 
     }
   }
@@ -1713,15 +1711,15 @@ class HomePageContent extends React.Component {
     this.setState({ DropDownGetIconheader: icon });
   }
   DisplySaveBtn = () => {
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   navigationType = (val) => {
     this.setState({ navigationTypeValue: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   NavTitle = (val) => {
     this.setState({ NavTitle: val });
-    this.homeTopTabsShowEditAlert.current.showSaveButton();
+    //this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   onSaveEditedItems = () => {
     const LandingSettings = {
@@ -1783,6 +1781,7 @@ class HomePageContent extends React.Component {
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}>
+
           <div id="HomePageContentContainer">
             <div className="HomeRightContainer">
               <DragDropContext onDragEnd={this.onDragEnd}>
@@ -1840,45 +1839,50 @@ class HomePageContent extends React.Component {
                             ref={provided.innerRef}
                             className="HomePageLeftBlock draggableContainer"
                           >
-                            <Row>
-                              <Col md="12">
-                                {this.state.landingTabAllDraggableItems.map(
-                                  (item, index) => (
-                                    <Draggable
-                                      key={item.id}
-                                      draggableId={item.id}
-                                      index={index}
-                                    >
-                                      {(provided, snapshot) => (
-                                        <div
-                                          className={item.id}
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          style={getItemStyle(
-                                            snapshot.isDragging,
-                                            provided.draggableProps.style
-                                          )}
+                           <Row>
+                                  <Col md="12">
+                            {this.state.landingTabAllDraggableItems.map(
+                              (item, index) => (
+                               
+                                        <Draggable
+                                          key={item.id}
+                                          draggableId={item.id}
+                                          index={index}
                                         >
-                                          {this.getElementContent(item, 'draggable')}
-                                        </div>
-                                      )}
-                                    </Draggable>
-                                  )
-                                )}
-                              </Col>
-                            </Row>
+                                          {(provided, snapshot) => (
+                                            <div
+                                              className={item.id}
+                                              ref={provided.innerRef}
+                                              {...provided.draggableProps}
+                                              {...provided.dragHandleProps}
+                                              style={getItemStyle(
+                                                snapshot.isDragging,
+                                                provided.draggableProps.style
+                                              )}
+                                            >
+                                              {this.getElementContent(item, 'draggable')}
+                                            </div>
+                                          )}
+                                        </Draggable>
+                                     
+                              )
+                            )}
+                                  </Col>
+                                </Row>
                             {provided.placeholder}
                           </div>
                         )}
                       </Droppable>
                     </div>
                   )}
+                  {/* {!this.state.isLoaded && (
+                    <Loader loaded={this.state.isLoaded} />
+                  )} */}
                 </div>
                 <div id="RightContainerScroll" style={{ maxWidth: 'calc(100% - 390px)' }} className="col-lg-8">
-
+               
                   <div id="mbl_bg_rit">
-
+                 
                     <div
                       id="BuildCollectionsConstructor"
                       style={{
@@ -1985,9 +1989,9 @@ class HomePageContent extends React.Component {
                           </div>
 
                           {this.state.isLoaded && (
-
+                        
                             <div className="main_droppable_div" style={{ display: this.state.DragStoreDisplay }}>
-
+                            
                               <Droppable droppableId="droppable2">
                                 {(provided, snapshot) => (
                                   <div
@@ -2046,7 +2050,6 @@ class HomePageContent extends React.Component {
                                                       modal: 'modal-general'
                                                     }}
                                                   >
-                                                  <div className="modal_effect_in" >
                                                     {item.elementtype ===
                                                       'productSearchForm' && (
                                                         <ModalSearchContent
@@ -2190,8 +2193,6 @@ class HomePageContent extends React.Component {
                                                           }
                                                         />
                                                       )}
-                                                      </div>
-
                                                   </Modal>
                                                 </div>
                                               )}
@@ -2203,8 +2204,13 @@ class HomePageContent extends React.Component {
                                   </div>
                                 )}
                               </Droppable>
+                           
                             </div>
+                          
                           )}
+                          {/* {!this.state.isLoaded &&
+                            <Loader loaded={this.state.isLoaded} />
+                          } */}
                         </div>
                       </div>
                     </div>
@@ -2235,15 +2241,13 @@ class HomePageContent extends React.Component {
                         </div>
                       </div>
                     </div>
-
-                  </div>
-
+                
+                </div>
+              
                 </div>
               </DragDropContext>
             </div>
-            <ThemeOptions selectTheme={this.onThemeOptionSelection}
-                        ref={this.homeTopTabsShowEditAlert}
-                        onSaveEditedItems={this.onSaveEditedItems} />
+            <ThemeOptions selectTheme={this.onThemeOptionSelection} />
           </div>
         </ReactCSSTransitionGroup>
       </Fragment>
