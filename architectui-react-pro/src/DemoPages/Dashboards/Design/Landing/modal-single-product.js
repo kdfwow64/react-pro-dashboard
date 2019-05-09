@@ -6,8 +6,13 @@ import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
 import 'react-switchery-component/react-switchery-component.css';
 import '../index.css';
+import {Button} from 'reactstrap';
+import Ionicon from 'react-ionicons'
 var API_ROOT = 'https://thesearchit.com';
 const Placeholder = './Placeholder.png';
+const iconData = [
+  "ios-add",
+];
 
 const ProductsCollectionsCellsSettings = [
   {
@@ -686,7 +691,7 @@ class ModalSingleProduct extends React.Component  {
                       <div className="title_setting_single">CELL CONTENT</div>
                       <div className="picture1_txt">PICTURE #{index + 1}</div>
                       <div className="SingleproductpictureOption">
-                        <h2>TAPPING THIS PICTURE GOES TO A</h2>
+                        <h2>TAPPING THIS PICTURE GOES TO</h2>
                         <select
                           className="pictureCollectionProduct"
                           onChange={e => {
@@ -949,7 +954,13 @@ class ModalSingleProduct extends React.Component  {
                   onClick={this.getCellContents}
                   style={{ display: this.state.addanotherdisplay }}
                 >
-                  <div className="Append_right_link_title">Add Another</div>
+                  <div className="Append_right_link_title">
+                  <Button className="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x" outline
+                      color="primary">
+                      {/*<Ionicon fontSize="20px" color="#333" icon='ios-add' className="btn-icon-wrapper" />*/}
+                      Add Another
+                      </Button>
+                  </div>
                   <div className="Append_right_link_icon">
                     <i className="fa fa-plus-circle" />
                   </div>
