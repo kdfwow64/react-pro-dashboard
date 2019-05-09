@@ -765,6 +765,22 @@ input.search_input {
   color: #b9b9b9;
 }
 
+.ProductEffectResultDropDown input {
+  width: 100%;
+}
+
+.ProductEffectResultDropDown input[type="text"] {
+  padding-left: 10px;
+  padding-right: 5px;
+  line-height: 35px;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  background-color: rgb(255, 255, 255);
+  color: #bfbfbf;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 .HomePageLeftBlock {
   max-width: 88%;
   width: 100%;
@@ -792,6 +808,11 @@ input.search_input {
   margin: 0 auto;
 }
 
+#ProductPicture {
+  width: 380px;
+  height: 30px;
+}
+
 #ProductRightBody {
   margin-top: 10px;
   margin-left: auto;
@@ -800,6 +821,51 @@ input.search_input {
   background-color: #FFFFFF;
   box-shadow: 0px 0px 12px 0px #d6d6d6;
   margin-bottom: 20px;
+}
+
+#ProducttitleAndPrice {
+  position: relative;
+}
+
+#ProductOptionAvailable1 {
+  height: 45px;
+  line-height: 45px;
+  text-align: left;
+  position: relative;
+}
+
+#ProductOptionAvailable {
+  font-size: 12px;
+  width: 380px;
+  color: #8f8f8f;
+  line-height: 50px;
+  text-align: center;
+  position: relative;
+}
+
+#ProductExternalLink {
+  padding-top: 10px;
+  height: 45px;
+  color: #898989;
+  font-size: 14px;
+}
+
+#ProductDescription {
+  font-size: 14px;
+  overflow: auto;
+}
+
+#ProductAddCart {
+  height: 50px;
+}
+
+.accordion .accordion__title {
+  padding: unset;
+  background-color: rgb(255, 255, 255);
+}
+
+.accordion .accordion__title:hover {
+  background-color: #f5f5f5;
 }
 
 .ProductSilderActiveColor h5 {
@@ -813,9 +879,29 @@ input.search_input {
   margin: 0 auto;
 }
 
+.ProductDropSearchDown:hover {
+  border: 1px solid #e275d2;
+}
+
 .ProductEffectTitle {
   text-align: center;
   color: #b9b9b9;
+}
+
+.ProductEffectResultDropDown input {
+  width: 100%;
+}
+
+.ProductDropSearchDown {
+  padding-left: 10px;
+  padding-right: 5px;
+  line-height: 35px;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  background-color: rgb(255, 255, 255);
+  color: #bfbfbf;
+  font-size: 11px;
+  cursor: pointer;
 }
 
 .HomePageLeftBlock {
@@ -826,6 +912,29 @@ input.search_input {
 
 .HomePageRightDropSection {
   max-width: 100%;
+  width: 100%;
+}
+
+.searchProIcon {
+  position: absolute;
+  right: 17px;
+  top: 5px;
+  color: #b9b9b9;
+}
+
+.ProductEffectResultDropDown {
+  position: relative;
+  margin-top: 10px;
+}
+
+.ProductResult {
+  height: 40px;
+  background-color: #f9f9f9;
+  z-index: 9999;
+  border: 1px solid;
+  color: #b9b9b9;
+  margin-top: 3px;
+  position: absolute;
   width: 100%;
 }
 
@@ -886,7 +995,17 @@ input.search_input {
   padding-top: 20px;
 }
 
+.external_txt {
+  font-size: 12px;
+  color: #717171;
+}
+
 /*Publish Page Css*/
+
+.right li a {
+  color: rgb(0, 0, 238);
+  text-decoration: underline;
+}
 
  {
   padding: 5px;
@@ -1111,9 +1230,29 @@ i.fa-pencil,i.fa-plus {
 
 /* Drop Down Icon*/
 
+#IconList li {
+  z-index: 1;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  list-style: none;
+  display: block;
+}
+
+#IconList li i {
+  font-size: 20px;
+}
+
 #IconList {
   columns: 5;
   cursor: pointer;
+}
+
+.Iconactive {
+  color: #fff !important;
+  background-color: #0E7C95 !important;
+  border: 1px solid #0E7C95 !important;
 }
 
 /*Tutorials Page Css*/
@@ -1580,6 +1719,11 @@ i.fa-pencil,i.fa-plus {
   top: -8px;
 }
 
+.accordion__body {
+  width: 90% !important;
+  margin: 0 auto !important;
+}
+
 .productBox {
   float: left;
 }
@@ -1610,6 +1754,13 @@ i.fa-pencil,i.fa-plus {
   overflow: hidden;
   height: 405px;
   overflow-y: scroll;
+}
+
+.mainProductListSearch {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: 200px;
+  overflow-x: scroll;
 }
 
 .setting_right_main {
@@ -1709,11 +1860,15 @@ i.fa-pencil,i.fa-plus {
   padding: 10px 0px 30px 0px;
 }
 
-.active_theme {
+.select_theme_sec li:hover,.active_theme {
   background-color: rgba(0,0,0,0.5);
   cursor: pointer;
   margin-bottom: 0px !important;
   padding: 0px 0px 20px 0px;
+}
+
+.select_theme_sec li {
+  margin-bottom: 20px;
 }
 
 .trail_period_container {
@@ -1945,6 +2100,11 @@ i.fa-pencil,i.fa-plus {
 }
 
 /*28-11-21-018*/
+
+.user_section_main .textColorCode {
+  padding-bottom: 4px;
+  height: 26px;
+}
 
 .colorPickerBorder {
   border: 1px solid #000000;
