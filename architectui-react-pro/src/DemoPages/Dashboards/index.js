@@ -8,7 +8,7 @@ import AnalyticsDashboard from './Analytics/';
 import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
 import DesignApp from './Design';
-import DesignCart from './Design/DesignCart';
+import DesignCart from './Design/Cart/Cart';
 import DesignCollection from './Design/DesignCollection';
 import DesignProduct from './Design/DesignProduct';
 import DesignSearch from './Design/DesignSearch';

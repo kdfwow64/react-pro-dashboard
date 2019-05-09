@@ -15,15 +15,27 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .HomeRightLeftContainer {
-  flex: 1 1;
-  flex-direction: column;
-  display: flex;
-  z-index: 12;
+  display: inline-block;
+  /*added 15-11-18 */
+  margin-right: 15px;
+  height: 87vh;
+  overflow-y: scroll;
+  /*border-right: 1px solid #efefef;*/
 }
 
 /*.HomeRightRightContainer{width: auto;display: inline-block;margin-left: 15px;position: absolute !important;}*/
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
 /*added 15-11-18 */
+
+.HomeRightContainer {
+  position: relative;
+  top: 3em;
+  /*6em;*/
+}
 
 #search_product {
   width: 90%;
@@ -42,6 +54,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .searchInput {
   height: 58px;
+  /*width: 77%;*/
   position: relative;
   margin-top: 5px;
   background-color: #FFFFFF;
@@ -53,6 +66,7 @@ h1,h2,h3,h4,h5,h6 {
 #top_main_nav {
   border-top: 1px solid #efefef;
   padding: 0px !important;
+  /* margin-left: 17em;*/
 }
 
 .seachIcon {
@@ -131,7 +145,7 @@ input.search_input {
   height: 35px;
   float: left;
   font-size: 10px;
-  line-height: 38px;
+  line-height: 35px;
   text-align: center;
   color: #fff;
 }
@@ -216,7 +230,6 @@ input.search_input {
   color: #b9b9b9;
   background-repeat: no-repeat;
   background-size: cover !important;
-  background-color: rgb(238, 241, 243);
 }
 
 .ThirdPictureTitle {
@@ -389,7 +402,6 @@ input.search_input {
   text-align: center;
   font-size: 25px;
   color: #b9b9b9;
-  line-height: 125px;
 }
 
 .SixthGridHeaderDetails {
@@ -454,10 +466,19 @@ input.search_input {
   display: none;
 }
 
+#BuildCollectionsConstructor {
+  margin-top: 45px;
+}
+
+/*#BuildCollectionsConstructorNavBar:hover>#BuildCollectionsTitleHint {
+  display: block !important;
+  height: 23px !important;
+}*/
+
 /* 16-11-1-2018 changes */
 
 #CollectionMainContainer {
-  height: 92vh;
+  height: 87vh;
   overflow-x: hidden;
   overflow-y: scroll;
   float: left;
@@ -498,6 +519,12 @@ input.search_input {
 .react-color-picker__saturation-spectrum, .react-color-picker__hue-spectrum{
   height: 150px !important;
 }*/
+
+.TopPosition {
+  position: relative;
+  top: 2em;
+  /*6em;*/
+}
 
 .CollectionEffectResultDropDown input {
   width: 100%;
@@ -562,19 +589,10 @@ input.search_input {
 }
 
 #CollectionMainRightContainer {
-  width: 250px;
+  /* height: 90vh;
+  overflow-x: scroll;*/
+  width: 380px;
   margin: 0 auto;
-  margin-top: 50px;
-  background-color: #fff;
-  min-height: 400px;
-  height: auto;
-  /* background-image: url(http://patelrakesh.in/images/mobile-new.png);
-  background-size: cover;
-  margin-top: 0px;
-  background-repeat: no-repeat;
-  height: 92vh;
-  background-position: center;
-  padding: 0;*/
 }
 
 .textColorCode {
@@ -598,7 +616,7 @@ input.search_input {
   background-color: rgb(51, 51, 51);
   top: 0px;
   right: 0px;
-  width: 55px;
+  width: 100px;
   opacity: 0.8;
   height: 100%;
   position: absolute;
@@ -653,16 +671,16 @@ input.search_input {
 }
 
 .CollectionMainEditOptionContainer {
-  width: 100%;
+  width: 380px;
   z-index: 10;
   position: relative;
   left: 0px;
   top: 0px;
-  margin: 0 auto;
+  /* height: 550px; */
+  box-shadow: 0px 0px 11px 3px #c8c8c8;
   margin-top: 0px;
+  padding-bottom: 5em;
   margin-bottom: 20px;
-  height: 60vh;
-  overflow: scroll;
 }
 
 .CollectionEditCancelButton {
@@ -693,13 +711,23 @@ input.search_input {
   transition: 1s;
 }
 
+.ProductEffectTitle {
+  text-align: center;
+  color: #b9b9b9;
+}
+
 .HomePageLeftBlock {
   max-width: 88%;
   width: 100%;
 }
 
+.HomePageRightDropSection {
+  max-width: 50%;
+  width: 100%;
+}
+
 #RightContainerScroll {
-  height: 92vh;
+  height: 87vh;
   overflow-x: scroll;
   padding-right: 0px;
   padding-left: 0px;
@@ -707,12 +735,22 @@ input.search_input {
 
 #BuildCollectionEffectNavBarContainer {
   height: 50px;
-  width: 100%;
+  width: 380px;
   font-size: 16px;
   position: relative;
   text-align: center;
   line-height: 50px;
   margin: 0 auto;
+}
+
+#ProductRightBody {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 12px 0px #d6d6d6;
+  margin-bottom: 20px;
 }
 
 .ProductSilderActiveColor h5 {
@@ -726,6 +764,11 @@ input.search_input {
   margin: 0 auto;
 }
 
+.ProductEffectTitle {
+  text-align: center;
+  color: #b9b9b9;
+}
+
 .HomePageLeftBlock {
   max-width: 88%;
   width: 100%;
@@ -735,13 +778,10 @@ input.search_input {
 .HomePageRightDropSection {
   max-width: 100%;
   width: 100%;
-  height: 60vh;
-  overflow: auto;
-  margin: 0px auto;
 }
 
 .buildStoreContainer:hover .BuildCollectionsTitleHint {
-  display: none;
+  display: block;
   font-size: 11px;
   line-height: 40px;
   text-align: center;
@@ -793,7 +833,21 @@ input.search_input {
   margin-bottom: 10px;
 }
 
+.Productcustomizesection {
+  padding-top: 20px;
+}
+
 /*Publish Page Css*/
+
+ {
+  padding: 5px;
+  color: #666;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  vertical-align: top;
+  font-size: 13.3333px;
+}
 
 /*Setting Page*/
 
@@ -843,6 +897,140 @@ i.fa-pencil,i.fa-plus {
 #cart_right_body {
   padding-bottom: 2em;
   padding-top: 15px;
+}
+
+#CartFirstMain,#CartSecondMain,#CartThirdMain,#CartFourthMain,#CartFifthMain,#CartSixthMain {
+  width: 350px;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+#CartFirstMain {
+  width: 350px;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+.CartPlaceholderImage {
+  margin: 10px;
+  text-align: center;
+  line-height: 105px;
+  border-radius: 15px;
+  background-color: #f5f5f5;
+  color: #898989;
+  height: 100px;
+  width: 100px;
+}
+
+.CartFirstFirst {
+  padding: 0px !important;
+}
+
+.CartFirstSecond h2 {
+  text-align: left;
+  line-height: 20px;
+  font-size: 15px;
+  top: 38px;
+  position: relative;
+}
+
+.CartFirstSecond h4 {
+  text-align: left;
+  line-height: 20px;
+  font-size: 12px;
+  color: #8b8b8b;
+  top: 30px;
+  position: relative;
+}
+
+.CartFirstSecond h6 {
+  text-align: left;
+  line-height: 20px;
+  font-size: 14px;
+  top: 25px;
+  position: relative;
+}
+
+.CartFirstThird {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.CartFirstSecond {
+  padding-right: 0px !important;
+}
+
+.CartMinusSquare {
+  line-height: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.CartQuantityMiddle {
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.CartPlusSquare {
+  line-height: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.CartFirstThird {
+  margin-top: 20px;
+}
+
+.CartCouponText {
+  height: 40px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 40px;
+  float: left;
+}
+
+.CartDiscountCutIcon {
+  margin-left: 5px;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  width: 40px;
+}
+
+.CartDiscountApply {
+  margin-left: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.CartCoupon {
+  height: 40px;
+  border-radius: 10px;
+}
+
+.CartTotalPriceDetail {
+  font-size: 13px;
+  line-height: 25px;
+  text-align: right;
+}
+
+.CartTotalDetails {
+  width: 100%;
+  padding-bottom: 5em;
+}
+
+.CartProcessCheckoutButton {
+  width: 350px;
+  height: 45px;
+  border-radius: 5px;
+  line-height: 45px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*27-11-2018*/
@@ -1490,34 +1678,16 @@ i.fa-pencil,i.fa-plus {
   color: #0E7C95;
 }
 
-#searchBarContainer {
-  box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03), 0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03), 0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05), 0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
-}
-
-#mbl_bg_rit {
-  max-width: 380px;
-  width: 100%;
-  margin: 0 auto;
-  background-image: url(http://patelrakesh.in/images/mobile-new.png);
-  background-position: center;
-  background-size: cover;
-  height: 89vh;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-#BuildCollectionsConstructor {
-  max-width: 260px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  top: 33px;
-}
-
 .menu-item span:first-child {
   padding-right: 10px;
+}
+
+.button_sec {
+  margin-top: 15px;
+  border-radius: 25px;
+  height: 45px;
+  text-align: center;
+  padding: 10px 0px;
 }
 
 .droppableContainer .hoverContainerForEditIcon {
