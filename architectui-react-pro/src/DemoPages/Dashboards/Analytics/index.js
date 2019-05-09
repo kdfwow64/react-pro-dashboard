@@ -322,10 +322,8 @@ export default class AnalyticsDashboard extends Component {
                             subheading="This is an example dashboard created using build-in elements and components."
                             icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
                         />
-                                                <Container fluid>
-
-                                {/* <FormLayout> */}
-                                    <Card className="main-card mb-3">
+                            <Container fluid>
+                                <Card className="main-card mb-3">
                                     <CardBody>
                                     <CardTitle>Active Users</CardTitle>
                                         {/* <DisplayText size="small">Active Users <StatefulToolTip position="right" arrow="center"
