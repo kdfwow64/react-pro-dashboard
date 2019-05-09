@@ -11,7 +11,7 @@ import DesignApp from './Design';
 import DesignCart from './Design/Cart/Cart';
 import DesignCollection from './Design/DesignCollection';
 import DesignProduct from './Design/DesignProduct';
-import DesignSearch from './Design/DesignSearch';
+import DesignSearch from './Design/Search/Search';
 import DesignUser from './Design/DesignUser';
 import DesignLanding from './Design/Landing';
 import Integrations from './Integrations';

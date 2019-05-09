@@ -1,11 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Tabs from 'react-responsive-tabs';
 import DesignLanding from './Landing';
-import DesignCollection from './DesignCollection';
-import DesignProduct from './DesignProduct';
-import DesignCart from './DesignCart';
-import DesignUser from './DesignUser';
-import DesignSearch from './DesignSearch';
 
 // Examples
 
