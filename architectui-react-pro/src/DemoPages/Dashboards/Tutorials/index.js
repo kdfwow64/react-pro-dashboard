@@ -49,7 +49,7 @@ export default class Tutorials extends Component {
               >
                 <Card className="mb-3 profile-block">
                   <div className="dropdown-menu-header">
-                    <img src={bg1} className="profile-blur opacity-10" />
+                    <img src={bg1} alt="" className="profile-blur opacity-10" />
                     <div className="profile-inner bg-warning opacity-5" />
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper avatar-icon-lg">
@@ -71,7 +71,7 @@ export default class Tutorials extends Component {
               >
                 <Card className="mb-3 profile-block">
                   <div className="dropdown-menu-header">
-                    <img src={bg2} className="profile-blur opacity-10" />
+                    <img src={bg2} alt="" className="profile-blur opacity-10" />
                     <div className="profile-inner bg-dark opacity-6" />
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper avatar-icon-lg">
