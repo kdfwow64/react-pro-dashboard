@@ -121,7 +121,7 @@ class ThemeOptions extends React.Component {
     });
   }
   savedHoverTooltip = () => {
-    toast['success']('Your changes are Saved!');
+    toast['success']('Your changes are already Saved!');
   }
 
   render() {
@@ -137,7 +137,7 @@ class ThemeOptions extends React.Component {
           {this.state.isEdited && !this.state.clicked && !this.state.saved && (
             <div>
               <div className="Savebutton" id='Tooltip-save' style={{ backgroundColor: '#0e7c95', cursor: 'pointer' }} onClick={this.saveClicked}>
-                <i className="lnr-enter" />
+                <i className="pe-7s-diskette" />
               </div>
               <Tooltip placement='auto' isOpen={this.state.tooltip} target='Tooltip-save' toggle={this.toggle.bind(this)}>
                 Click to Save!
@@ -161,7 +161,7 @@ class ThemeOptions extends React.Component {
           {this.state.saved && !this.state.isEdited && !this.state.clicked && (
             <div>
               <div className="Savebutton" id='Tooltip-saved' style={{ backgroundColor: '#ccc', cursor: 'default' }} onMouseEnter={this.savedHoverTooltip.bind(this)} >
-                <i className="lnr-enter" />
+                <i className="pe-7s-diskette" />
               </div>
               <Tooltip placement='auto' isOpen={this.state.tooltipSaved} target='Tooltip-saved' toggle={this.toggleOne.bind(this)}>
                 Changes are Saved!

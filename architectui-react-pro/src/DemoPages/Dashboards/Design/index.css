@@ -42,7 +42,6 @@ code { font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", mon
   background: linear-gradient(to bottom, #0ebed0, #58ccc1, #adceff);
   height: 100vh;
   overflow: auto;
-  overflow-x: scroll;
   position: fixed !important;
   z-index: 9999;
 }
@@ -330,7 +329,7 @@ input.search_input {
 }
 #FifthDropContainer{
   height: 440px;
-  width: 250px;
+  width: 100%;
   margin-bottom: 20px;
   margin-top: 20px;
   background-color: rgb(255, 255, 255);
@@ -496,20 +495,16 @@ input.search_input {
   margin-top: calc(40% - 28px);
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
 }
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent; 
-  border-left: 1px solid #efefef;
 }
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(169, 175, 179, 0.51); 
 }
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover { 
-  background: rgba(169, 175, 179, 0.51); 
+  background: rgba(169, 175, 179, 0.51);
 }
 #RightNavLinks {
   margin-top: 30px;
@@ -630,13 +625,12 @@ input.search_input {
 /* 16-11-1-2018 changes */
 #CollectionMainContainer {
   height: 92vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
   float: left;
-  /*position: fixed;*/
   background-color: #FFFFFF;
   margin-right: 0px;
   padding: 0px !important;
+  -webkit-animation: fadein 2s;
+  animation: fadein 2s;
 }
 #collectionContainer {
   height: auto !important;
@@ -661,13 +655,9 @@ input.search_input {
   height: auto;
   overflow: visible;
 }
-.CollectionPageStyle{
-  width: 100%;
-}
 .CollectionPageStyle {
-  width: 280px;
   margin: 0 auto !important;
-  padding-top: 20px;
+  padding: 0 30px;
 }
 .CollectionSettingtitle {
   margin-right: auto;
@@ -687,6 +677,7 @@ input.search_input {
   color: #c6c6c6;
   width: 95%;
   font-weight: lighter !important;
+  cursor: pointer;
 }
 .CollectionSettingOption {
   margin-left: auto;
@@ -707,13 +698,13 @@ input.search_input {
   height: 150px !important;
 }*/
 #CollectionEffectMainContainer {
-  width: 380px;
+  width: 100%;
   margin: 0 auto;
-  padding-top: 20px;
 }
 .TopPosition {
   position: relative;
-  top: 2em; /*6em;*/
+  top: 2em;
+  margin-left: 20px;
 }
 .CollectionEffectTitle {
   text-align: center;
@@ -728,7 +719,7 @@ input.search_input {
     border: 1px solid;
     left: 1px;
     top: 40px;
-    overflow-y: auto; 
+    overflow: auto;
 }
 .CollectionEffectResultDropDown input {
   width: 100%;
@@ -751,8 +742,8 @@ input.search_input {
   font-size: 20px;
   position: absolute;
   z-index: 99999;
-  width: 380px;
-  overflow-y: scroll;
+  width: 250px;
+  overflow: auto;
 }
 .CollectionEffectResultDropDown {
   margin-top: 10px;
@@ -779,23 +770,22 @@ input.search_input {
   text-align: center;
   line-height: 50px;
   margin-top: 10px;
+  margin: 0 auto;
 }
 #CollectionEffectBody {
- /* min-height: 452px;*/
-  height: auto;
+  height: 55vh;
   width: 100%;
+  overflow: auto;
 }
 .CollectionEffectMainContainer {
-  width: 380px;
+  width: 100%;
   z-index: 10;
   position: relative;
   left: 0px;
   top: 0px;
-  /*height: 550px;*/
-  box-shadow: 0px 0px 11px 3px #c8c8c8;
   margin-top: 0px;
   padding-bottom: 5em;
-  margin-bottom: 20px;
+  overflow: auto;
 }
 .CollectionEffectContainer {
   width: 100%;
@@ -845,12 +835,13 @@ input.search_input {
   margin-top: 5px;
 }
 .CollectionEffectGridPrice {
-  width: 100%;
+  width: 80%;
   height: 15px;
   line-height: 15px;
   color: #b9b9b9;
   font-size: 11px;
   text-align: center;
+  margin: 0 auto;
 }
 #CollectionEffectList {
   margin-top: 0px;
@@ -884,13 +875,12 @@ input.search_input {
   font-size: 15px;
   line-height: normal;
   text-overflow: ellipsis;
-  width: 75%;
   overflow: hidden;
   white-space: nowrap;
 }
 .CollectionEffectListProductPrice {
   top: 18px;
-  left: 10px;
+  left: 0px;
   position: relative;
   font-size: 15px;
 }
@@ -907,6 +897,8 @@ input.search_input {
   background-color: #fff;
   min-height: 400px;
   height: auto;
+  -webkit-animation: fadein 2s;
+  animation: fadein 2s;
  /* background-image: url(http://patelrakesh.in/images/mobile-new.png);
   background-size: cover;
   margin-top: 0px;
@@ -992,9 +984,6 @@ input.search_input {
   top: 0px;
   margin: 0 auto;
   margin-top: 0px;
-  margin-bottom: 20px;
-  height: 60vh;
-  overflow: scroll;
 }
 .CollectionEditCancelButton {
   float: left;
@@ -1058,7 +1047,6 @@ input.search_input {
 }
 #RightContainerScroll {
   height: 92vh;
-  overflow-x: scroll;
   padding-right: 0px;
   padding-left: 0px;
 }
@@ -1072,17 +1060,13 @@ input.search_input {
   margin: 0 auto;
 }
 #ProductPicture {
-  width: 380px;
   height: 30px;
 }
 #ProductRightBody {
-  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   height: auto;
   background-color: #FFFFFF;
-  box-shadow: 0px 0px 12px 0px #d6d6d6;
-  margin-bottom: 20px;
 }
 #productImageHeartIcon {
   width: 50px;
@@ -1143,7 +1127,6 @@ input.search_input {
 }
 #ProductOptionAvailable {
   font-size: 12px;
-  width: 380px;
   color: #8f8f8f;
   line-height: 50px;
   text-align: center;
@@ -1263,7 +1246,7 @@ input.search_input {
   z-index: 10;
   left: 0px;
   top: 0px;
-  height: 380px;
+  height: 240px;
   background-color: #eef1f3;
   font-size: 35px;
   text-align: center;
@@ -1432,9 +1415,6 @@ input.search_input {
 .StyleNote {
   display: inline-block;
   margin-top: 15px;
-}
-.Productcustomizesection {
-  padding-top: 20px;
 }
 .Homenavigation {
   width: 100%;
@@ -1776,8 +1756,6 @@ input.search_input {
   color: gray;
 }
 .send_push_scroller {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   height: calc(100% - 180px);
 }
 .send_alert {
@@ -2055,26 +2033,20 @@ i.fa-pencil, i.fa-plus {
   padding-top: 15px;
 }
 #CartFirstMain, #CartSecondMain, #CartThirdMain, #CartFourthMain, #CartFifthMain, #CartSixthMain {
-  width: 350px;
-  margin-left: 15px;
-  margin-top: 15px;
-  border-radius: 20px;
-}
-#CartFirstMain {
-  width: 350px;
-  margin-left: 15px;
+  width: 90%;
+  margin: 0 auto;
   margin-top: 15px;
   border-radius: 20px;
 }
 .CartPlaceholderImage {
-  margin: 10px;
+  margin: 10px;    
   text-align: center;
-  line-height: 105px;
+  line-height: 80px;
   border-radius: 15px;
   background-color: #f5f5f5;
   color: #898989;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 75px;
 }
 .CartFirstFirst {
   padding: 0px !important;
@@ -2083,22 +2055,23 @@ i.fa-pencil, i.fa-plus {
   text-align: left;
   line-height: 20px;
   font-size: 15px;
-  top: 38px;
+  top: 5px;
   position: relative;
+  margin-bottom: 5px;
 }
 .CartFirstSecond h4 {
   text-align: left;
   line-height: 20px;
   font-size: 12px;
-  color: #8b8b8b;
-  top: 30px;
+  top: 0px;
+  margin-bottom: 0px;
   position: relative;
 }
 .CartFirstSecond h6 {
   text-align: left;
   line-height: 20px;
   font-size: 14px;
-  top: 25px;
+  top: 0px;
   position: relative;
 }
 .CartFirstThird {
@@ -2125,7 +2098,7 @@ i.fa-pencil, i.fa-plus {
   text-align: center;
 }
 .CartFirstThird {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .CartCouponText {
   height: 40px;
@@ -2160,7 +2133,7 @@ i.fa-pencil, i.fa-plus {
   padding-bottom: 5em;
 }
 .CartProcessCheckoutButton {
-  width: 350px;
+  width: 100%;
   height: 45px;
   border-radius: 5px;
   line-height: 45px;
@@ -2226,7 +2199,7 @@ i.fa-pencil, i.fa-plus {
   z-index: 999;
   top: 35px;
   height: 200px;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 /*Tutorials Page Css*/
@@ -2783,8 +2756,6 @@ i.fa-pencil, i.fa-plus {
 }
 #edit_existing_Product_box {
   height: calc(100% - 64px);
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   width: 100%;
   overflow-x: hidden;
 }
@@ -3115,7 +3086,6 @@ position: absolute !important;
   background-color: #fff;
   border: 1px solid #ccc;
   height: 200px;
-  overflow-x: scroll;
 }
 .homeTopNav li.save_main {
   margin-right: 0px !important;
@@ -3592,7 +3562,7 @@ position: absolute !important;
   color: #fff;
   line-height: 75px;
   text-align: center;
-  font-size: 27px;
+  font-size: 30px;
   box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03), 0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03), 0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05), 0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
     -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
     -o-transition: all .3s cubic-bezier(.25,.8,.25,1);
@@ -3608,4 +3578,15 @@ position: absolute !important;
   -o-transition: all .3s cubic-bezier(.25,.8,.25,1);
   transition: all .3s cubic-bezier(.25,.8,.25,1);
   -webkit-animation: beamer_pop-in .5s;
+}
+.app-main .app-main__inner {
+  padding: 0px !important;
+}
+.leftCardHeader{
+  font-size: 1.1rem;
+  color: #0e7c95;
+  margin: 0 auto;
+}
+.proPaddBtm{
+  padding-bottom: 10px;
 }

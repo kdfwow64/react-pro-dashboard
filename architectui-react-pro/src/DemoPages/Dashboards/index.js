@@ -9,7 +9,7 @@ import CommerceDashboard from './Commerce/';
 import CRMDashboard from './CRM/';
 import DesignApp from './Design';
 import DesignCart from './Design/Cart/Cart';
-import DesignCollection from './Design/DesignCollection';
+import DesignCollection from './Design/collection/collections';
 import DesignProduct from './Design/Product/products';
 import DesignSearch from './Design/Search/Search';
 import DesignUser from './Design/DesignUser';

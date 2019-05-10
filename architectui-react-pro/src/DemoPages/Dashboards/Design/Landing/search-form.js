@@ -33,7 +33,7 @@ class ProductSearchForm extends React.Component  {
           className="search_edit_icon"
           style={{ color: this.state.iconColor, fontSize: '12px', top: '19px' }}
         >
-          <i className="fa fa-search" />
+          <i className="lnr-magnifier" />
         </span>
         <input
           type="text"

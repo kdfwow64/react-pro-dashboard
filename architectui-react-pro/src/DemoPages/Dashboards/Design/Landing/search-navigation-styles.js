@@ -71,27 +71,27 @@ class SearchNavigationStyles extends React.Component  {
     const allMenuItem = [
       {
         id: '1',
-        icon: 'fa fa-home',
+        icon: 'pe-7s-home',
         defaultText: 'HOME'
       },
       {
         id: '2',
-        icon: 'fa fa-search',
+        icon: 'lnr-magnifier',
         defaultText: 'SEARCHin'
       },
       {
         id: '3',
-        icon: 'fa fa-user-circle',
+        icon: 'pe-7s-user',
         defaultText: 'ACCOUNT'
       },
       {
         id: '4',
-        icon: 'fa fa-shopping-cart',
+        icon: 'lnr-cart',
         defaultText: 'MY CART'
       },
       {
         id: '5',
-        icon: 'fa fa-envelope',
+        icon: 'lnr-envelope',
         defaultText: 'CONTACT'
       }
     ];
@@ -120,7 +120,7 @@ class SearchNavigationStyles extends React.Component  {
         source.index,
         destination.index
       );
-      let state: any = { items };
+      let state= { items };
       if (source.droppableId === 'droppable') {
         state = { allMenuItem: items };
       }
@@ -143,7 +143,7 @@ class SearchNavigationStyles extends React.Component  {
           <span>
             {' '}
             <i
-              className="fa fa-home"
+              className="pe-7s-home"
               style={{ color: this.props.menuIconColor }}
             />
           </span>
@@ -189,7 +189,7 @@ class SearchNavigationStyles extends React.Component  {
           <span>
             {' '}
             <i
-              className="fa fa-search"
+              className="lnr-magnifier"
               style={{ color: this.props.menuIconColor }}
             />
           </span>
@@ -235,7 +235,7 @@ class SearchNavigationStyles extends React.Component  {
           <span>
             {' '}
             <i
-              className="fa fa-user-circle"
+              className="pe-7s-user"
               style={{ color: this.props.menuIconColor }}
             />
           </span>
@@ -281,7 +281,7 @@ class SearchNavigationStyles extends React.Component  {
           <span>
             {' '}
             <i
-              className="fa fa-shopping-cart"
+              className="lnr-cart"
               style={{ color: this.props.menuIconColor }}
             />
           </span>
@@ -327,7 +327,7 @@ class SearchNavigationStyles extends React.Component  {
           <span>
             {' '}
             <i
-              className="fa fa-envelope"
+              className="lnr-envelope"
               style={{ color: this.props.menuIconColor }}
             />
           </span>
