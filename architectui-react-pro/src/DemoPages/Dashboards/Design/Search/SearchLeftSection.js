@@ -1,35 +1,13 @@
 // tslint:disable
 // @ts-nocheck
-import * as React from 'react';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { ChromePicker } from 'react-color';
 import IconList from '../icon-list';
+import { Col, Row, Card, CardBody,
+  CardTitle, CardHeader } from 'reactstrap';
 
-class SearchLeftSection extends React.Component<any, any> {
-
-  SearchInputColorPicker = null;
-  SearchIconColorPicker = null;
-  SearchBGColorPicker = null;
-  BGColorPicker: any;
-  SearchInputBorderPicker: any;
-  SearchTitleColorPicker: any;
-  CellSeparatorColorPicker: any;
-  CellBGColorPicker: any;
-  ProductBorderColorPicker: any;
-  ProductTitleColorPicker: any;
-  PriceColorPicker: any;
-  ProductIconColorPicker: any;
-  BGColor: string | string[];
-  SearchInputColor: string | string[];
-  SearchInputBorder: string | string[];
-  SearchIconColor: string | string[];
-  SearchTitleColor: string | string[];
-  SearchBGColor: string | string[];
-  CellSeparatorColor: string | string[];
-  CellBGColor: string | string[];
-  ProductBorderColor: string | string[];
-  ProductTitleColor: string | string[];
-  PriceColor: string | string[];
-  ProductIconColor: string | string[];
+class SearchLeftSection extends React.Component {
 
   constructor(props) {
     super(props);
@@ -116,7 +94,7 @@ class SearchLeftSection extends React.Component<any, any> {
     PriceColorPicker: false,
     ProductIconColor: '#2ecc71',
     ProductIconColorPicker: false,
-    DropDownGetSearchActionIconheader: 'fa fa-arrow-right'
+    DropDownGetSearchActionIconheader: 'lnr-arrow-right'
   };
 
   BGColorhandleChange(BGColor) {
@@ -269,7 +247,19 @@ class SearchLeftSection extends React.Component<any, any> {
 
   render() {
     return (
+      <Fragment>
+      <ReactCSSTransitionGroup
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}>
       <div className="ProductSettingsMainContainer" id="ProductSettingsBody">
+      <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Search Settings </h3> </CardHeader>
+
+<Row style={{padding: '0 30px', marginBottom: '10px'}}>
+
         <div
           className="ProductSilderActiveColor"
           style={{ position: 'relative' }}
@@ -703,7 +693,13 @@ class SearchLeftSection extends React.Component<any, any> {
             </div>
           ) : null}
         </div>
+    
+        </Row>
+    
       </div>
+      </ReactCSSTransitionGroup>
+      </Fragment>
+      
     );
   }
 }

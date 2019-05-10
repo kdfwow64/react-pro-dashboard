@@ -2,34 +2,10 @@
 // @ts-nocheck
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
+import { Col, Row, Card, CardBody,
+  CardTitle, CardHeader } from 'reactstrap';
 
-class CartLeftSection extends React.Component<any, any> {
-  CellBGColorPicker: any;
-  ProductTitlePicker: any;
-  ProductOptionColorPicker: any;
-  CellPriceColorPicker: any;
-  QuantityIconColorPicker: any;
-  QuantityTextColorPicker: any;
-  ApplyBGColorPicker: any;
-  ApplyIconColorPicker: any;
-  ApplyTextColorPicker: any;
-  PriceTextColorPicker: any;
-  ButtonBGColorPicker: any;
-  ButtonTextColorPicker: any;
-  CartBGColor: string | string[];
-  //popover: any;
-  CellBGColor: string | string[];
-  ProductTitle: string | string[];
-  ProductOptionColor: string | string[];
-  CellPriceColor: string | string[];
-  QuantityIconColor: string | string[];
-  QuantityTextColor: string | string[];
-  ApplyBGColor: string | string[];
-  ApplyIconColor: string | string[];
-  ApplyTextColor: string | string[];
-  PriceTextColor: string | string[];
-  ButtonBGColor: string | string[];
-  ButtonTextColor: string | string[];
+class CartLeftSection extends React.Component {
   constructor(props) {
     super(props);
     this.CartBGColorhandleClose = this.CartBGColorhandleClose.bind(this);
@@ -259,6 +235,9 @@ class CartLeftSection extends React.Component<any, any> {
   render() {
     return (
       <div className="ProductSettingsMainContainer" id="ProductSettingsBody">
+      <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Cart Settings </h3> </CardHeader>
+      <Row style={{padding: '0 30px', marginBottom: '20px'}}>
+
         <div
           className="ProductSilderActiveColor"
           style={{ position: 'relative' }}
@@ -713,6 +692,9 @@ class CartLeftSection extends React.Component<any, any> {
             </div>
           ) : null}
         </div>
+     
+     </Row>
+     
       </div>
     );
   }

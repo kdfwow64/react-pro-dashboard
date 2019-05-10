@@ -13,15 +13,16 @@ import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import ProductcustomizePage from './product-customize-section';
 import ProductSettingsSection from './product-settings-section';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 var API_ROOT = 'https://thesearchit.com';
 
-class Products extends React.Component<any, any> {
+class Products extends React.Component {
 
   homeTopTabsShowEditAlert = null;
 
   constructor(props) {
     super(props);
-    this.homeTopTabsShowEditAlert = this.props.homeTopTabsShowEditAlert;
+    this.homeTopTabsShowEditAlert = React.createRef();
     this.state = {
       bannerImageUrl: '',
     };
@@ -201,7 +202,7 @@ class Products extends React.Component<any, any> {
       this.setState({
         productselectedTitle: res.data.ProductSettings.productselectedTitle
       });
-      this.setState({bannerImageUrl: res.data.ProductSettings.bannerImageUrl});
+      this.setState({ bannerImageUrl: res.data.ProductSettings.bannerImageUrl });
     });
   }
 
@@ -411,7 +412,7 @@ class Products extends React.Component<any, any> {
     this.setState({ navbgcolor: color.hex });
   }
   bannerImageUrlCallBack = (val) => {
-    this.setState({ bannerImageUrl : val});
+    this.setState({ bannerImageUrl: val });
   }
   onThemeOptionSelection = themName => {
     this.setState({ navbgcolor: themeColorFromName(themName) });
@@ -423,15 +424,19 @@ class Products extends React.Component<any, any> {
     return (
       <Fragment>
         <ReactCSSTransitionGroup
-            component="div"
-            transitionName="TabsAnimation"
-            transitionAppear={true}
-            transitionAppearTimeout={0}
-            transitionEnter={false}
-            transitionLeave={false}>
-            <Row>
-              <Col md={6}>
-              <ProductSettingsSection
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}>
+          <Row>
+            <Col md={4}
+              id="CollectionMainContainer"
+              style={{ border: '1px solid #efefef' }}
+            >
+              <PerfectScrollbar>
+                <ProductSettingsSection
                   FavButtonPos={this.FavButtonPos}
                   SilderActiveColorCallback={this.SilderActiveColorCallback}
                   SilderDotColorCallback={this.SilderDotColorCallback}
@@ -516,77 +521,80 @@ class Products extends React.Component<any, any> {
                   ExternalLinkUrlVal={this.state.ExternalLinkUrl}
                   RemoveLinkDetail={this.RemoveLinkDetail}
                 />
-              </Col>
-              
-              <Col md={6}>
-              <ProductcustomizePage
-                    navBarTitle={this.navBarTitle}
-                    DisplaySaveBtn={this.DisplaySaveBtn}
-                    SilderActiveColor={this.state.SilderActiveColor}
-                    SilderDotColor={this.state.SilderDotColor}
-                    SilderBGColor={this.state.SilderBGColor}
-                    FavButtonPosValue={this.state.FavButtonPos}
-                    FavBtnColor={this.state.FavBtnColor}
-                    ProductTitleColor={this.state.ProductTitleColor}
-                    ProductPriceColor={this.state.ProductPriceColor}
-                    ProductRatingColor={this.state.ProductRatingColor}
-                    ProducttitlebarBGColor={this.state.ProducttitlebarBGColor}
-                    AddLinkSecShow={this.state.AddLinkSecShow}
-                    ExternalIconColor={this.state.ExternalIconColor}
-                    ExternalLinkColor={this.state.ExternalLinkColor}
-                    ExternalBGColor={this.state.ExternalBGColor}
-                    ProductCellBGColor={this.state.ProductCellBGColor}
-                    OptionTitleColor={this.state.OptionTitleColor}
-                    OptionValueColor={this.state.OptionValueColor}
-                    OptionIconColor={this.state.OptionIconColor}
-                    DescTitleText={this.state.DescTitleText}
-                    DescTitleColor={this.state.DescTitleColor}
-                    DescHeaderBGColor={this.state.DescHeaderBGColor}
-                    DescBGColor={this.state.DescBGColor}
-                    DescTextColor={this.state.DescTextColor}
-                    CartTitleText={this.state.CartTitleText}
-                    CartTitleColor={this.state.CartTitleColor}
-                    CartButtonColor={this.state.CartButtonColor}
-                    CartBGColor={this.state.CartBGColor}
-                    FavButtonBottom={this.state.FavButtonBottom}
-                    FavButtonTop={this.state.FavButtonTop}
-                    FavButtonLeft={this.state.FavButtonLeft}
-                    FavButtonRight={this.state.FavButtonRight}
-                    MarginLeftTitleSection={this.state.MarginLeftTitleSection}
-                    DropDownGetIcon={this.state.DropDownGetIcon}
-                    ExternalIcon={this.state.DropDownGetExternalIcon}
-                    ExternalLinkTitle={this.state.ExternalLinkTitle}
-                    DropDownGetIconheader={this.DropDownGetIconheader}
-                    naviconcolor={this.naviconcolor}
-                    navtitlecolor={this.navtitlecolor}
-                    NavTitle={this.NavTitle}
-                    DropDownGetIconheaderValue={this.state.DropDownGetIconheader}
-                    naviconcolorValue={this.state.naviconcolor}
-                    navtitlecolorValue={this.state.navtitlecolor}
-                    navbgcolorClick = {this.navbgcolorClick}
-                    navbgcolorValue={this.state.navbgcolor}
-                    NavTitleValue={this.state.NavTitle}
-                    navBarTitleValue={this.state.navBarTitle}
-                    productImage={this.productImage}
-                    productName={this.productName}
-                    productRate={this.productRate}
-                    productselectedTitle={this.productselectedTitle}
-                    productImageValue={this.state.productImage}
-                    productNameValue={this.state.productName}
-                    productRateValue={this.state.productRate}
-                    productselectedTitleValue={this.state.productselectedTitle}
-                    bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                    bannerImageUrl={this.state.bannerImageUrl}
-                  />
-              </Col>
-            </Row>
-          {/* <div>
-            <div className="row TopPosition">
-              
-              <ThemeOptions selectTheme={this.onThemeOptionSelection} />
-            </div>
-          </div> */}
-      </ReactCSSTransitionGroup>
+              </PerfectScrollbar>
+            </Col>
+            <Col md={8} id="RightContainerScroll" >
+              <div id="mbl_bg_rit">
+                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                  <PerfectScrollbar>
+                    <ProductcustomizePage
+                      navBarTitle={this.navBarTitle}
+                      DisplaySaveBtn={this.DisplaySaveBtn}
+                      SilderActiveColor={this.state.SilderActiveColor}
+                      SilderDotColor={this.state.SilderDotColor}
+                      SilderBGColor={this.state.SilderBGColor}
+                      FavButtonPosValue={this.state.FavButtonPos}
+                      FavBtnColor={this.state.FavBtnColor}
+                      ProductTitleColor={this.state.ProductTitleColor}
+                      ProductPriceColor={this.state.ProductPriceColor}
+                      ProductRatingColor={this.state.ProductRatingColor}
+                      ProducttitlebarBGColor={this.state.ProducttitlebarBGColor}
+                      AddLinkSecShow={this.state.AddLinkSecShow}
+                      ExternalIconColor={this.state.ExternalIconColor}
+                      ExternalLinkColor={this.state.ExternalLinkColor}
+                      ExternalBGColor={this.state.ExternalBGColor}
+                      ProductCellBGColor={this.state.ProductCellBGColor}
+                      OptionTitleColor={this.state.OptionTitleColor}
+                      OptionValueColor={this.state.OptionValueColor}
+                      OptionIconColor={this.state.OptionIconColor}
+                      DescTitleText={this.state.DescTitleText}
+                      DescTitleColor={this.state.DescTitleColor}
+                      DescHeaderBGColor={this.state.DescHeaderBGColor}
+                      DescBGColor={this.state.DescBGColor}
+                      DescTextColor={this.state.DescTextColor}
+                      CartTitleText={this.state.CartTitleText}
+                      CartTitleColor={this.state.CartTitleColor}
+                      CartButtonColor={this.state.CartButtonColor}
+                      CartBGColor={this.state.CartBGColor}
+                      FavButtonBottom={this.state.FavButtonBottom}
+                      FavButtonTop={this.state.FavButtonTop}
+                      FavButtonLeft={this.state.FavButtonLeft}
+                      FavButtonRight={this.state.FavButtonRight}
+                      MarginLeftTitleSection={this.state.MarginLeftTitleSection}
+                      DropDownGetIcon={this.state.DropDownGetIcon}
+                      ExternalIcon={this.state.DropDownGetExternalIcon}
+                      ExternalLinkTitle={this.state.ExternalLinkTitle}
+                      DropDownGetIconheader={this.DropDownGetIconheader}
+                      naviconcolor={this.naviconcolor}
+                      navtitlecolor={this.navtitlecolor}
+                      NavTitle={this.NavTitle}
+                      DropDownGetIconheaderValue={this.state.DropDownGetIconheader}
+                      naviconcolorValue={this.state.naviconcolor}
+                      navtitlecolorValue={this.state.navtitlecolor}
+                      navbgcolorClick={this.navbgcolorClick}
+                      navbgcolorValue={this.state.navbgcolor}
+                      NavTitleValue={this.state.NavTitle}
+                      navBarTitleValue={this.state.navBarTitle}
+                      productImage={this.productImage}
+                      productName={this.productName}
+                      productRate={this.productRate}
+                      productselectedTitle={this.productselectedTitle}
+                      productImageValue={this.state.productImage}
+                      productNameValue={this.state.productName}
+                      productRateValue={this.state.productRate}
+                      productselectedTitleValue={this.state.productselectedTitle}
+                      bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                      bannerImageUrl={this.state.bannerImageUrl}
+                    />
+                  </PerfectScrollbar>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <ThemeOptions selectTheme={this.onThemeOptionSelection}
+            ref={this.homeTopTabsShowEditAlert}
+            onSaveEditedItems={this.onSaveEditedItems} />
+        </ReactCSSTransitionGroup>
       </Fragment>
     );
   }

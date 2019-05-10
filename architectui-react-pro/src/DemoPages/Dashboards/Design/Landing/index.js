@@ -5,7 +5,10 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import Modal from "react-responsive-modal";
-import { Col, Row } from 'reactstrap';
+import {
+  Col, Row, Card, CardBody,
+  CardTitle, CardHeader
+} from 'reactstrap';
 //import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
@@ -26,6 +29,8 @@ import ProductSearchForm from "./search-form";
 import SearchNavigationSettings from "./search-navigation-settings";
 import SearchNavigationStyles from "./search-navigation-styles";
 import SingleProduct from "./single-product";
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import Loader from 'react-loaders';
 var Placeholder = './Placeholder.png';
 var API_ROOT = 'https://thesearchit.com';
 
@@ -55,7 +60,7 @@ const homeLandingAllSettings = {
         CollectionCellBG: "#ffffff",
         CollectionProductTitle: "#000000",
         value: 10,
-        DropDownGetIconheader: "fa fa-dropbox",
+        DropDownGetIconheader: "pe-7s-plugin",
         DropDownGetIconaction: "lnr-arrow-right",
         selectedProductName: 111,
         prodCollectionname: "",
@@ -78,7 +83,7 @@ const homeLandingAllSettings = {
         CollectionCellBG: "#ffffff",
         CollectionProductTitle: "#000000",
         value: 5,
-        DropDownGetIconheader: "fa fa-bookmark",
+        DropDownGetIconheader: "lnr-bookmark",
         DropDownGetIconaction: "lnr-arrow-right",
         selectedProductName: 111,
         prodCollectionname: "",
@@ -175,7 +180,7 @@ const homeLandingAllSettings = {
         footerBGColor: "#0E7C95",
         imageSpacingColor: "#ffffff",
         title: "BROWSE COLLECTION",
-        DropDownGetIconheader: "fa fa-angle-double-right",
+        DropDownGetIconheader: "lnr-chevron-right",
         prodCollectionname: "",
         selectedProductName: "111",
         ProductsCollections: {
@@ -499,7 +504,7 @@ function getElementDefaultObject(e) {
       CollectionCellBG: '#ffffff',
       CollectionProductTitle: '#000000',
       value: 10,
-      DropDownGetIconheader: 'fa fa-dropbox',
+      DropDownGetIconheader: 'pe-7s-plugin',
       DropDownGetIconaction: 'lnr-arrow-right',
       elementtype: 'productCollection1'
     };
@@ -517,7 +522,7 @@ function getElementDefaultObject(e) {
       CollectionCellBG: '#ffffff',
       CollectionProductTitle: '#000000',
       value: 5,
-      DropDownGetIconheader: 'fa fa-bookmark',
+      DropDownGetIconheader: 'lnr-bookmark',
       DropDownGetIconaction: 'lnr-arrow-right',
       elementtype: 'productCollection2'
     };
@@ -584,7 +589,7 @@ function getElementDefaultObject(e) {
       footerBGColor: '#0E7C95',
       imageSpacingColor: '#ffffff',
       title: 'BROWSE COLLECTION',
-      DropDownGetIconheader: 'fa fa-angle-double-right',
+      DropDownGetIconheader: 'lnr-chevron-right',
       elementtype: 'collectionWithTitle'
     };
   }
@@ -1786,464 +1791,477 @@ class HomePageContent extends React.Component {
           <div id="HomePageContentContainer">
             <div className="HomeRightContainer">
               <DragDropContext onDragEnd={this.onDragEnd}>
-                <div
-                  className="HomeRightLeftContainer col-lg-4"
-                  id="CollectionMainContainer"
-                  style={{ maxWidth: '390px' }}
-                >
-                  <div
-                    className={
-                      this.state.displaybuildleft === 'block' ? '' : 'activeSec'
-                    }
-                    style={{
-                      display:
-                        this.state.displaybuildleft === 'block' ? 'none' : 'block'
-                    }}
-                  >
-                    <div className="">
-                      <SearchNavigationStyles
-                        DisplaySaveBtn={this.DisplaySaveBtn}
-                        menuCellBGColor={this.state.menuCellBGColor}
-                        menuIconColor={this.state.menuIconColor}
-                        menuTitleColor={this.state.menuTitleColor}
-                        menuTabActiveColor={this.state.menuTabActiveColor}
-                        menuTabInactiveColor={this.state.menuTabInactiveColor} menuSeparatorColor={this.state.menuSeparatorColor}
-                        ContactValue={this.ContactValue}
-                        HomeValue={this.HomeValue}
-                        SearchValue={this.SearchValue}
-                        AccountValue={this.AccountValue}
-                        CartValue={this.CartValue}
-                        ContactVal={this.state.ContactValue}
-                        HomeVal={this.state.HomeValue}
-                        SearchVal={this.state.SearchValue}
-                        AccountVal={this.state.AccountValue}
-                        CartVal={this.state.CartValue}
-                      />
-                    </div>
-                  </div>
-                  {this.state.isLoaded && (
-                    <div
-                      style={{ display: this.state.displaybuildleft }}
-                      className={
-                        this.state.displaybuildleft === 'block' ? ' activeSec' : ''
-                      }
+                
+                  <Row>
+                    <Col md={4}
+                      id="CollectionMainContainer"
+                      className="HomeRightLeftContainer"
+                      style={{ maxWidth: '390px' }}
                     >
-                      {this.state.trialDays === null ? null : (
-                        <div className="trail_period_container">
-                          <p>Trial Period: <span>{this.state.trialDays} days remaining</span></p>
-                        </div>
-                      )}
-                      <div className="seachIcon">DRAG AND DROP</div>
-                      <Droppable droppableId="droppable">
-                        {(provided, snapshot) => (
-                          <div
-                            ref={provided.innerRef}
-                            className="HomePageLeftBlock draggableContainer"
-                          >
-                            <Row>
-                              <Col md="12">
-                                {this.state.landingTabAllDraggableItems.map(
-                                  (item, index) => (
-                                    <Draggable
-                                      key={item.id}
-                                      draggableId={item.id}
-                                      index={index}
-                                    >
-                                      {(provided, snapshot) => (
-                                        <div
-                                          className={item.id}
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          style={getItemStyle(
-                                            snapshot.isDragging,
-                                            provided.draggableProps.style
-                                          )}
-                                        >
-                                          {this.getElementContent(item, 'draggable')}
-                                        </div>
-                                      )}
-                                    </Draggable>
-                                  )
-                                )}
-                              </Col>
-                            </Row>
-                            {provided.placeholder}
-                          </div>
-                        )}
-                      </Droppable>
-                    </div>
-                  )}
-                </div>
-                <div id="RightContainerScroll" style={{ maxWidth: 'calc(100% - 390px)' }} className="col-lg-8">
-
-                  <div id="mbl_bg_rit">
-
-                    <div
-                      id="BuildCollectionsConstructor"
-                      style={{
-                        display:
-                          this.state.displaybuildleft === 'block' ? 'block' : 'none'
-                      }}
-                      className={
-                        this.state.displaybuildleft === 'block' ? 'activeSec' : ''
-                      }
-                    >
+                    <PerfectScrollbar>
                       <div
-                        id="CollectionMainRightContainer"
+                        className={
+                          this.state.displaybuildleft === 'block' ? '' : 'activeSec'
+                        }
+                        style={{
+                          display:
+                            this.state.displaybuildleft === 'block' ? 'none' : 'block'
+                        }}
                       >
-                        <div>
-                          <div className="buildStoreContainer">
-                            {this.state.NavTitle === 'text' &&
-                              <div className="BuildCollectionsTitleHint">
-                                <span>CLICK THE TITLE BELOW TO EDIT</span>
-                              </div>
-                            }
-                            <div
-                              id="BuildCollectionEffectNavBarContainer"
-                              style={{
-                                backgroundColor: this.state
-                                  .navbarBackgroundColorValue
-                              }}
-                            >
-                              <div id="CollectionEffectNavBarContainer">
-                                <div
-                                  id="CollectionEffectnavBars"
-                                  style={{ color: this.state.navbgiconcolorValue }}
-                                >
-                                </div>
-
-                                {this.state.NavTitle === 'img' &&
-                                  <div id="CollectionEffectMyStoreTitle">
-                                    <img src={this.state.bannerImageUrl} style={{ maxHeight: "30px", maxWidth: "90px" }} />
-                                  </div>
-                                }
-                                {this.state.NavTitle === 'text' &&
-                                  <div
-                                    style={{ color: this.state.navbartitleValue }}
-                                    id="CollectionEffectMyStoreTitle">
-                                    <label
-                                      style={{ display: this.state.showMyLabel }}
-                                      onClick={this.changeMyStoreLabel}> {this.state.NavBarTitleText} </label>
-                                    <input
-                                      onBlur={this.showStoreNameLable}
-                                      onChange={this.changeMyStoreName}
-                                      className="NavTextEdit"
-                                      onKeyPress={this.hideTextshowLabel}
-                                      style={{
-                                        display: this.state.showMyStoreTextBox
-                                      }}
-                                      type="text"
-                                      value={this.state.NavBarTitleText}
-                                    />
-                                  </div>
-                                }
-
-                                <div
-                                  id="CollectionEditMainSlider"
-                                  onClick={this.CollectionMainSectionEditOption}
-                                >
-                                  <div id="CollectionEditOption">
-                                    <i className="lnr-pencil" />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            id="CollectionEffectBody"
-                            style={{ display: this.state.SettingStoreHide }}
-                          >
-                            <SearchNavigationSettings
-                              navbarTitleColorCodeCallback={
-                                this.navbarTitleColorCode
-                              }
-                              navbarBackgroundColorCallback={
-                                this.navbarBackgroundColorCode
-                              }
-                              navbarIconColorCallback={this.navbarIconColorCode}
-                              HideSettingSection={this.HideSettingSection}
-                              CollectionBarIcon={this.CollectionBarIcon}
-                              BuildStyleColor={this.state.BuildStyleColor}
-                              StyleStyleColor={this.state.StyleStyleColor}
-                              onApplySettings={this.onSearchNavigationSettingsApply}
-                              DisplySaveBtn={this.DisplySaveBtn}
-                              DropDownGetIconheader={
-                                this.state.DropDownGetIconheader
-                              }
-                              navbarBackgroundColorValue={
-                                this.state.navbarBackgroundColorValue
-                              }
-                              navbartitleValue={this.state.navbartitleValue}
-                              navbgiconcolorValue={this.state.navbgiconcolorValue}
-                              NavTitle={this.NavTitle}
-                              NavTitleVal={this.state.NavTitle}
-                              bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                              bannerImageUrl={this.state.bannerImageUrl}
-
-                            />
-                          </div>
-
-                          {this.state.isLoaded && (
-
-                            <div className="main_droppable_div" style={{ display: this.state.DragStoreDisplay }}>
-
-                              <Droppable droppableId="droppable2">
-                                {(provided, snapshot) => (
-                                  <div
-                                    ref={provided.innerRef}
-                                    className="HomePageRightDropSection"
-                                  >
-                                    <div>
-                                      {this.state.landingTabDraggedItems &&
-                                        this.state.landingTabDraggedItems.length != 0 &&
-                                        this.state.landingTabDraggedItems.map(
-                                          (item, index) => (
-                                            <Draggable
-                                              key={`key-dragged-${item.id}`}
-                                              draggableId={`dragged-draggable-${
-                                                item.id
-                                                }`}
-                                              index={index}
-                                            >
-                                              {(provided, snapshot) => (
-                                                <div
-                                                  key={item.id}
-                                                  className="dropAndModalContainer"
-                                                >
-                                                  <div
-                                                    className={`droppableContainer itemId-${
-                                                      item.id
-                                                      }`}
-                                                    ref={provided.innerRef}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    style={getItemStyle(
-                                                      snapshot.isDragging,
-                                                      provided.draggableProps.style
-                                                    )}
-                                                  >
-                                                    {this.getElementContent(
-                                                      item,
-                                                      'droppable'
-                                                    )}
-                                                  </div>
-                                                  <Modal
-                                                    key={`modal-dragged-${item.id}`}
-                                                    open={
-                                                      this.state.allModalIds[
-                                                      'show' + item.id
-                                                      ] || false
-                                                    }
-                                                    onClose={() =>
-                                                      this.hideEditSettingPopup(
-                                                        'show' + item.id
-                                                      )
-                                                    }
-                                                    center
-                                                    classNames={{
-                                                      overlay: 'videoModalOverlay',
-                                                      modal: 'modal-general'
-                                                    }}
-                                                  >
-                                                  <div className="modal_effect_in" >
-                                                    {item.elementtype ===
-                                                      'productSearchForm' && (
-                                                        <ModalSearchContent
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this.onProductModalCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this
-                                                              .onProductSearchSettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'productCollection1' && (
-                                                        <ModalCollectionContent
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this
-                                                              .onCollection1ModalCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this.onCollection1SettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'singleProduct' && (
-                                                        <ModalSingleProduct
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this
-                                                              .onSingleProductModalCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this
-                                                              .onSingleProductSettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'productCollection2' && (
-                                                        <ModalSearchContentSec
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this
-                                                              .onCollection2ModalCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this.onCollection2SettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'collectionWithTitle' && (
-                                                        <ModalCollectionWithTitleContent
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this
-                                                              .onCollectionWithTitleModalCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this
-                                                              .onCollectionWithTitleSettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'collectionSet' && (
-                                                        <ModalBrowseProductCollections
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this
-                                                              .onBrowseProductCollectionCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this
-                                                              .onBrowseProductCollectionSettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                    {item.elementtype ===
-                                                      'customBanner' && (
-                                                        <ModalCustomBanner
-                                                          ref={
-                                                            this.allModalReferencesById[
-                                                            item.id
-                                                            ]
-                                                          }
-                                                          defaultSettings={item.settings}
-                                                          onCloseModal={
-                                                            this.onCustomBannerCloseClick
-                                                          }
-                                                          modalId={'show' + item.id}
-                                                          itemId={item.id}
-                                                          onApply={
-                                                            this
-                                                              .onCustomBannerSettingApply
-                                                          }
-                                                        />
-                                                      )}
-                                                      </div>
-
-                                                  </Modal>
-                                                </div>
-                                              )}
-                                            </Draggable>
-                                          )
-                                        )}
-                                      {provided.placeholder}
-                                    </div>
-                                  </div>
-                                )}
-                              </Droppable>
+                        <div className="">
+                          <SearchNavigationStyles
+                            DisplaySaveBtn={this.DisplaySaveBtn}
+                            menuCellBGColor={this.state.menuCellBGColor}
+                            menuIconColor={this.state.menuIconColor}
+                            menuTitleColor={this.state.menuTitleColor}
+                            menuTabActiveColor={this.state.menuTabActiveColor}
+                            menuTabInactiveColor={this.state.menuTabInactiveColor} menuSeparatorColor={this.state.menuSeparatorColor}
+                            ContactValue={this.ContactValue}
+                            HomeValue={this.HomeValue}
+                            SearchValue={this.SearchValue}
+                            AccountValue={this.AccountValue}
+                            CartValue={this.CartValue}
+                            ContactVal={this.state.ContactValue}
+                            HomeVal={this.state.HomeValue}
+                            SearchVal={this.state.SearchValue}
+                            AccountVal={this.state.AccountValue}
+                            CartVal={this.state.CartValue}
+                          />
+                        </div>
+                      </div>
+                      {this.state.isLoaded && (
+                        <div
+                          style={{ display: this.state.displaybuildleft }}
+                          className={
+                            this.state.displaybuildleft === 'block' ? ' activeSec' : ''
+                          }
+                        >
+                          {this.state.trialDays === null ? null : (
+                            <div className="trail_period_container">
+                              <p>Trial Period: <span>{this.state.trialDays} days remaining</span></p>
                             </div>
                           )}
+                          <CardHeader style={{ marginBottom: '10px' }}><h3 className="leftCardHeader"> DRAG AND DROP </h3> </CardHeader>
+                          <Droppable droppableId="droppable">
+                            {(provided, snapshot) => (
+                              <div
+                                ref={provided.innerRef}
+                                className="HomePageLeftBlock draggableContainer"
+                              >
+                                <Row>
+                                  <Col md="12">
+                                    {this.state.landingTabAllDraggableItems.map(
+                                      (item, index) => (
+                                        <Draggable
+                                          key={item.id}
+                                          draggableId={item.id}
+                                          index={index}
+                                        >
+                                          {(provided, snapshot) => (
+                                            <div
+                                              className={item.id}
+                                              ref={provided.innerRef}
+                                              {...provided.draggableProps}
+                                              {...provided.dragHandleProps}
+                                              style={getItemStyle(
+                                                snapshot.isDragging,
+                                                provided.draggableProps.style
+                                              )}
+                                            >
+                                              {this.getElementContent(item, 'draggable')}
+                                            </div>
+                                          )}
+                                        </Draggable>
+                                      )
+                                    )}
+                                  </Col>
+                                </Row>
+                                {provided.placeholder}
+                              </div>
+                            )}
+                          </Droppable>
                         </div>
-                      </div>
-                    </div>
-                    <div
-                      className={
-                        this.state.displaybuildleft === 'block' ? '' : 'activeSec'
-                      }
-                      style={{
-                        display:
-                          this.state.displaybuildleft === 'block' ? 'none' : 'block'
-                      }}
+                      )}
+                    </PerfectScrollbar>
+                    </Col>
+                    <Col md={8}
+                      id="RightContainerScroll"
+                      style={{ maxWidth: 'calc(100% - 390px)' }}
                     >
-                      <div id="BuildCollectionsConstructor">
+                    <div id="mbl_bg_rit">
+                      <div
+                        id="BuildCollectionsConstructor"
+                        style={{
+                          display:
+                            this.state.displaybuildleft === 'block' ? 'block' : 'none'
+                        }}
+                        className={
+                          this.state.displaybuildleft === 'block' ? 'activeSec' : ''
+                        }
+                      >
                         <div
-                          className="landingStyle"
-                          style={{ display: this.state.HideSettingsValue }}
+                          id="CollectionMainRightContainer"
                         >
-                          <div style={{ display: this.state.displaybuild }}>
+                            <div className="buildStoreContainer">
+                              {this.state.NavTitle === 'text' &&
+                                <div className="BuildCollectionsTitleHint">
+                                  <span>CLICK THE TITLE BELOW TO EDIT</span>
+                                </div>
+                              }
+                              <div
+                                id="BuildCollectionEffectNavBarContainer"
+                                style={{
+                                  backgroundColor: this.state
+                                    .navbarBackgroundColorValue
+                                }}
+                              >
+                                <div id="CollectionEffectNavBarContainer">
+                                  <div
+                                    id="CollectionEffectnavBars"
+                                    style={{ color: this.state.navbgiconcolorValue }}
+                                  >
+                                  </div>
+
+                                  {this.state.NavTitle === 'img' &&
+                                    <div id="CollectionEffectMyStoreTitle">
+                                      <img src={this.state.bannerImageUrl} style={{ maxHeight: "30px", maxWidth: "90px" }} />
+                                    </div>
+                                  }
+                                  {this.state.NavTitle === 'text' &&
+                                    <div
+                                      style={{ color: this.state.navbartitleValue }}
+                                      id="CollectionEffectMyStoreTitle">
+                                      <label
+                                        style={{ display: this.state.showMyLabel }}
+                                        onClick={this.changeMyStoreLabel}> {this.state.NavBarTitleText} </label>
+                                      <input
+                                        onBlur={this.showStoreNameLable}
+                                        onChange={this.changeMyStoreName}
+                                        className="NavTextEdit"
+                                        onKeyPress={this.hideTextshowLabel}
+                                        style={{
+                                          display: this.state.showMyStoreTextBox
+                                        }}
+                                        type="text"
+                                        value={this.state.NavBarTitleText}
+                                      />
+                                    </div>
+                                  }
+
+                                  <div
+                                    id="CollectionEditMainSlider"
+                                    onClick={this.CollectionMainSectionEditOption}
+                                  >
+                                    <div id="CollectionEditOption">
+                                      <i className="lnr-pencil" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                             <div
                               id="CollectionEffectBody"
-                              style={{
-                                display: this.state
-                                  .CollectionMainSectionEditOptionValue
-                              }}
+                              style={{ display: this.state.SettingStoreHide, height: '60vh' }}
                             >
+                              <SearchNavigationSettings
+                                navbarTitleColorCodeCallback={
+                                  this.navbarTitleColorCode
+                                }
+                                navbarBackgroundColorCallback={
+                                  this.navbarBackgroundColorCode
+                                }
+                                navbarIconColorCallback={this.navbarIconColorCode}
+                                HideSettingSection={this.HideSettingSection}
+                                CollectionBarIcon={this.CollectionBarIcon}
+                                BuildStyleColor={this.state.BuildStyleColor}
+                                StyleStyleColor={this.state.StyleStyleColor}
+                                onApplySettings={this.onSearchNavigationSettingsApply}
+                                DisplySaveBtn={this.DisplySaveBtn}
+                                DropDownGetIconheader={
+                                  this.state.DropDownGetIconheader
+                                }
+                                navbarBackgroundColorValue={
+                                  this.state.navbarBackgroundColorValue
+                                }
+                                navbartitleValue={this.state.navbartitleValue}
+                                navbgiconcolorValue={this.state.navbgiconcolorValue}
+                                NavTitle={this.NavTitle}
+                                NavTitleVal={this.state.NavTitle}
+                                bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                                bannerImageUrl={this.state.bannerImageUrl}
+
+                              />
+                            </div>
+
+                            {!this.state.isLoaded && (
+                              <Loader color="#0e7c95" type="ball-scale-multiple" />
+                            )}
+                            {this.state.isLoaded && (
+                              <div className="main_droppable_div" style={{ display: this.state.DragStoreDisplay }}>
+
+                                <Droppable droppableId="droppable2">
+                                  {(provided, snapshot) => (
+                                    <div
+                                      ref={provided.innerRef}
+                                      className="HomePageRightDropSection"
+                                    >
+                                      <div>
+                                        {this.state.landingTabDraggedItems &&
+                                          this.state.landingTabDraggedItems.length != 0 &&
+                                          this.state.landingTabDraggedItems.map(
+                                            (item, index) => (
+                                              <Draggable
+                                                key={`key-dragged-${item.id}`}
+                                                draggableId={`dragged-draggable-${
+                                                  item.id
+                                                  }`}
+                                                index={index}
+                                              >
+                                                {(provided, snapshot) => (
+                                                  <div
+                                                    key={item.id}
+                                                    className="dropAndModalContainer"
+                                                  >
+                                                    <div
+                                                      className={`droppableContainer itemId-${
+                                                        item.id
+                                                        }`}
+                                                      ref={provided.innerRef}
+                                                      {...provided.draggableProps}
+                                                      {...provided.dragHandleProps}
+                                                      style={getItemStyle(
+                                                        snapshot.isDragging,
+                                                        provided.draggableProps.style
+                                                      )}
+                                                    >
+                                                      {this.getElementContent(
+                                                        item,
+                                                        'droppable'
+                                                      )}
+                                                    </div>
+                                                    <Modal
+                                                      key={`modal-dragged-${item.id}`}
+                                                      open={
+                                                        this.state.allModalIds[
+                                                        'show' + item.id
+                                                        ] || false
+                                                      }
+                                                      onClose={() =>
+                                                        this.hideEditSettingPopup(
+                                                          'show' + item.id
+                                                        )
+                                                      }
+                                                      center
+                                                      classNames={{
+                                                        overlay: 'videoModalOverlay',
+                                                        modal: 'modal-general'
+                                                      }}
+                                                    >
+                                                      <div className="modal_effect_in" >
+                                                        {item.elementtype ===
+                                                          'productSearchForm' && (
+                                                            <ModalSearchContent
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this.onProductModalCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this
+                                                                  .onProductSearchSettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'productCollection1' && (
+                                                            <ModalCollectionContent
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this
+                                                                  .onCollection1ModalCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this.onCollection1SettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'singleProduct' && (
+                                                            <ModalSingleProduct
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this
+                                                                  .onSingleProductModalCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this
+                                                                  .onSingleProductSettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'productCollection2' && (
+                                                            <ModalSearchContentSec
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this
+                                                                  .onCollection2ModalCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this.onCollection2SettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'collectionWithTitle' && (
+                                                            <ModalCollectionWithTitleContent
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this
+                                                                  .onCollectionWithTitleModalCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this
+                                                                  .onCollectionWithTitleSettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'collectionSet' && (
+                                                            <ModalBrowseProductCollections
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this
+                                                                  .onBrowseProductCollectionCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this
+                                                                  .onBrowseProductCollectionSettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                        {item.elementtype ===
+                                                          'customBanner' && (
+                                                            <ModalCustomBanner
+                                                              ref={
+                                                                this.allModalReferencesById[
+                                                                item.id
+                                                                ]
+                                                              }
+                                                              defaultSettings={item.settings}
+                                                              onCloseModal={
+                                                                this.onCustomBannerCloseClick
+                                                              }
+                                                              modalId={'show' + item.id}
+                                                              itemId={item.id}
+                                                              onApply={
+                                                                this
+                                                                  .onCustomBannerSettingApply
+                                                              }
+                                                            />
+                                                          )}
+                                                      </div>
+
+                                                    </Modal>
+                                                  </div>
+                                                )}
+                                              </Draggable>
+                                            )
+                                          )}
+                                        {provided.placeholder}
+                                      </div>
+                                    </div>
+                                  )}
+                                </Droppable>
+                              </div>
+                            )}
+                      
+                        </div>
+
+
+                      </div>
+                      <div
+                        className={
+                          this.state.displaybuildleft === 'block' ? '' : 'activeSec'
+                        }
+                        style={{
+                          display:
+                            this.state.displaybuildleft === 'block' ? 'none' : 'block'
+                        }}
+                      >
+                        <div id="BuildCollectionsConstructor">
+                          <div
+                            className="landingStyle"
+                            style={{ display: this.state.HideSettingsValue }}
+                          >
+                            <div style={{ display: this.state.displaybuild }}>
+                              <div
+                                id="CollectionEffectBody"
+                                style={{
+                                  display: this.state
+                                    .CollectionMainSectionEditOptionValue
+                                }}
+                              >
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
 
-                  </div>
+                  </Col>
+                  </Row>
 
-                </div>
+                
+
               </DragDropContext>
             </div>
             <ThemeOptions selectTheme={this.onThemeOptionSelection}
-                        ref={this.homeTopTabsShowEditAlert}
-                        onSaveEditedItems={this.onSaveEditedItems} />
+              ref={this.homeTopTabsShowEditAlert}
+              onSaveEditedItems={this.onSaveEditedItems} />
           </div>
         </ReactCSSTransitionGroup>
       </Fragment>

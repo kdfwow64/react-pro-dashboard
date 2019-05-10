@@ -3,6 +3,12 @@
 import axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {
+  Button,
+  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
+  Collapse, Fade, Row
+} from 'reactstrap';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
@@ -10,14 +16,13 @@ import CartLeftSection from './CartLeftSection';
 import CartRightSection from './CartRightSection';
 var API_ROOT = 'https://thesearchit.com';
 
-class Cart extends React.Component<any, any> {
-  homeTopTabsShowEditAlert: any;
+class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       bannerImageUrl: ''
     };
-    this.homeTopTabsShowEditAlert = this.props.homeTopTabsShowEditAlert;
+    this.homeTopTabsShowEditAlert = React.createRef();
   }
 
   onSaveEditedItems = () => {
@@ -83,7 +88,7 @@ class Cart extends React.Component<any, any> {
       this.setState({ naviconcolor: res.data.CartSettings.naviconcolor });
       this.setState({ navtitlecolor: res.data.CartSettings.navtitlecolor });
       this.setState({ NavTitle: res.data.CartSettings.NavTitle });
-      this.setState({ bannerImageUrl: res.data.CartSettings.bannerImageUrl});
+      this.setState({ bannerImageUrl: res.data.CartSettings.bannerImageUrl });
     });
   }
   onThemeOptionSelection = themName => {
@@ -158,9 +163,9 @@ class Cart extends React.Component<any, any> {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   DisplaySaveBtn = () => {
- /*   this.setState({ DropDownGetIconheader: val.DropDownGetIconheader });
-    this.setState({ naviconcolor: val.naviconcolor });
-    this.setState({ navtitlecolor: val.navtitlecolor });*/
+    /*   this.setState({ DropDownGetIconheader: val.DropDownGetIconheader });
+       this.setState({ naviconcolor: val.naviconcolor });
+       this.setState({ navtitlecolor: val.navtitlecolor });*/
 
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
@@ -168,26 +173,25 @@ class Cart extends React.Component<any, any> {
     this.setState({ navbgcolor: color.hex });
   }
   bannerImageUrlCallBack = (val) => {
-    this.setState({bannerImageUrl: val});
+    this.setState({ bannerImageUrl: val });
   }
 
   render() {
     return (
       <Fragment>
         <ReactCSSTransitionGroup
-            component="div"
-            transitionName="TabsAnimation"
-            transitionAppear={true}
-            transitionAppearTimeout={0}
-            transitionEnter={false}
-            transitionLeave={false}>
-          <div>
-            <div className="row TopPosition">
-              <div
-                className="col-lg-4"
-                id="CollectionMainContainer"
-                style={{ border: '1px solid #efefef' }}
-              >
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}>
+          <Row>
+            <Col md={4}
+              id="CollectionMainContainer"
+              style={{ border: '1px solid #efefef' }}
+            >
+              <PerfectScrollbar>
                 <CartLeftSection
                   CartBGColorCallback={this.CartBGColorCallback}
                   CellBGColorCallback={this.CellBGColorCallback}
@@ -216,42 +220,49 @@ class Cart extends React.Component<any, any> {
                   ButtonBGColor={this.state.ButtonBGColor}
                   ButtonTextColor={this.state.ButtonTextColor}
                 />
-              </div>
-              <div className="col-lg-8" id="RightContainerScroll">
-                <div id="CollectionMainRightContainer">
-                  <CartRightSection
-                    DisplaySaveBtn={this.DisplaySaveBtn}
-                    CartBGColor={this.state.CartBGColor}
-                    CellBGColor={this.state.CellBGColor}
-                    ProductTitle={this.state.ProductTitle}
-                    ProductOptionColor={this.state.ProductOptionColor}
-                    CellPriceColor={this.state.CellPriceColor}
-                    QuantityIconColor={this.state.QuantityIconColor}
-                    QuantityTextColor={this.state.QuantityTextColor}
-                    ApplyBGColor={this.state.ApplyBGColor}
-                    ApplyIconColor={this.state.ApplyIconColor}
-                    ApplyTextColor={this.state.ApplyTextColor}
-                    PriceTextColor={this.state.PriceTextColor}
-                    ButtonBGColor={this.state.ButtonBGColor}
-                    ButtonTextColor={this.state.ButtonTextColor}
-                    DropDownGetIconheader={this.DropDownGetIconheader}
-                    naviconcolor={this.naviconcolor}
-                    navtitlecolor={this.navtitlecolor}
-                    NavTitle={this.NavTitle}
-                    NavTitleValue={this.state.NavTitle}
-                    navbgcolorVall={this.navbgcolorVall}
-                    navbgcolorValue={this.state.navbgcolor}
-                    DropDownGetIconheaderValue={this.state.DropDownGetIconheader}
-                    naviconcolorValue={this.state.naviconcolor}
-                    navtitlecolorValue={this.state.navtitlecolor}
-                    bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                    bannerImageUrl={this.state.bannerImageUrl}
-                  />
+              </PerfectScrollbar>
+            </Col>
+            <Col md={8}
+              id="RightContainerScroll"
+              style={{ border: '1px solid #efefef' }}
+            >
+              <div id="mbl_bg_rit">
+                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                    <CartRightSection
+                      DisplaySaveBtn={this.DisplaySaveBtn}
+                      CartBGColor={this.state.CartBGColor}
+                      CellBGColor={this.state.CellBGColor}
+                      ProductTitle={this.state.ProductTitle}
+                      ProductOptionColor={this.state.ProductOptionColor}
+                      CellPriceColor={this.state.CellPriceColor}
+                      QuantityIconColor={this.state.QuantityIconColor}
+                      QuantityTextColor={this.state.QuantityTextColor}
+                      ApplyBGColor={this.state.ApplyBGColor}
+                      ApplyIconColor={this.state.ApplyIconColor}
+                      ApplyTextColor={this.state.ApplyTextColor}
+                      PriceTextColor={this.state.PriceTextColor}
+                      ButtonBGColor={this.state.ButtonBGColor}
+                      ButtonTextColor={this.state.ButtonTextColor}
+                      DropDownGetIconheader={this.DropDownGetIconheader}
+                      naviconcolor={this.naviconcolor}
+                      navtitlecolor={this.navtitlecolor}
+                      NavTitle={this.NavTitle}
+                      NavTitleValue={this.state.NavTitle}
+                      navbgcolorVall={this.navbgcolorVall}
+                      navbgcolorValue={this.state.navbgcolor}
+                      DropDownGetIconheaderValue={this.state.DropDownGetIconheader}
+                      naviconcolorValue={this.state.naviconcolor}
+                      navtitlecolorValue={this.state.navtitlecolor}
+                      bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                      bannerImageUrl={this.state.bannerImageUrl}
+                    />
                 </div>
               </div>
-              <ThemeOptions selectTheme={this.onThemeOptionSelection} />
-            </div>
-          </div>
+            </Col>
+            <ThemeOptions selectTheme={this.onThemeOptionSelection}
+              ref={this.homeTopTabsShowEditAlert}
+              onSaveEditedItems={this.onSaveEditedItems} />
+          </Row>
         </ReactCSSTransitionGroup>
       </Fragment>
     );

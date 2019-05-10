@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { Fragment } from 'react';
 import { ChromePicker } from 'react-color';
 import IconList from '../icon-list';
+import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
 var API_ROOT = 'https://thesearchit.com';
 
 const ProductsCollections = {
@@ -1016,18 +1017,10 @@ class ModalSearchContent extends React.Component  {
                   </div>
                 </div>
               </div>
-              <div className="setting_bottom">
-                <div className="CollectionEditCancelButton CollectionEditButton">
-                  <a href="javascript:void(0);" onClick={this.onCloseModal}>
-                    <span>CANCEL</span>
-                  </a>
-                </div>
-                <div className="CollectionEditapplyButton CollectionEditButton">
-                  <a href="javascript:void(0);" onClick={this.onApplySetting}>
-                    <span>APPLY</span>
-                  </a>
-                </div>
-              </div>
+              <CardFooter className="d-block text-right">
+                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
+                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+              </CardFooter>
             </div>
           </div>
         </div>

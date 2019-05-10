@@ -40,7 +40,7 @@ class SearchRightSection extends React.Component<any, any> {
       navbgcolor: this.props.navbgcolor || '#2ecc71',
       navtitlecolor: this.props.navtitlecolor || '#ffffff',
       naviconcolor: this.props.naviconcolor || '#ffffff',
-      DropDownGetIconheader: this.props.DropDownGetIconheader || 'fa fa-bars',
+      DropDownGetIconheader: this.props.DropDownGetIconheader || 'lnr-menu',
        NavTitleValue: this.props.NavTitleValue,
       //NavTitle: 'Text',
       navicondisplayColorPicker: false,
@@ -150,9 +150,6 @@ class SearchRightSection extends React.Component<any, any> {
     return (
       <div className="ProductcustomizeMainsection">
         <div className="Productcustomizesection">
-          <div className="ProductEffectTitle">
-            <label> CUSTOMIZE SEARCH PAGE </label>
-          </div>
           <div id="ProductRightBody">
             <div
               id="CollectionEffectNavBarContainer"
@@ -162,7 +159,7 @@ class SearchRightSection extends React.Component<any, any> {
                 id="CollectionEffectnavBars"
                 style={{ color: this.props.naviconcolor || '#fff' }}
               >
-                <i className={this.props.DropDownGetIconheader || 'fa fa-bars'} />
+                <i className='lnr-menu' />
               </div>
               <div
                 id="CollectionEffectMyStoreTitle"
@@ -183,12 +180,12 @@ class SearchRightSection extends React.Component<any, any> {
                 onClick={this.CollectionMainSectionEditOption}
               >
                 <div id="CollectionEditOption">
-                  <i className="fa fa-pencil" />
+                  <i className="lnr-pencil" />
                 </div>
               </div>
             </div>
 
-            <div id="CollectionEffectBody">
+            <div id="CollectionEffectBody" style={{height: '60vh'}}>
               <div
                 className="CollectionMainEditOptionContainer"
                 style={{
@@ -409,7 +406,7 @@ class SearchRightSection extends React.Component<any, any> {
                       className="SearchTextIcon"
                       style={{ color: this.props.SearchIconColor }}
                     >
-                      <i className="fa fa-search" />
+                      <i className="lnr-magnifier" />
                     </div>
                     SEARCH PRODUCTS
                   </div>

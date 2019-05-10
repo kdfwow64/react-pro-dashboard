@@ -2,6 +2,7 @@
 // @ts-nocheck
 import React, { Fragment } from 'react';
 import { ChromePicker } from 'react-color';
+import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
 
 class ModalSearchContent extends React.Component  {
    constructor(props) {
@@ -153,7 +154,7 @@ class ModalSearchContent extends React.Component  {
                   className="search_edit_icon"
                   style={{ color: this.state.iconColor }}
                 >
-                  <i className="fa fa-search" />
+                  <i className="lnr-magnifier" />
                 </span>
                 <input
                   type="text"
@@ -376,19 +377,11 @@ class ModalSearchContent extends React.Component  {
                   </div>
                 </div>
               </div>
+              <CardFooter className="d-block text-right">
+                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
+                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+              </CardFooter>
 
-              <div className="setting_bottom">
-                <div className="CollectionEditCancelButton CollectionEditButton">
-                  <a href="javascript:void(0);" onClick={this.onCloseModal}>
-                    <span>CANCEL</span>
-                  </a>
-                </div>
-                <div className="CollectionEditapplyButton CollectionEditButton">
-                  <a href="javascript:void(0);" onClick={this.onApplySetting}>
-                    <span>APPLY</span>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

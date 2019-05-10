@@ -16,7 +16,7 @@ class SearchListView extends React.Component<any, any> {
                 <div className="CollectionEffectListContainerImage">
                     <div className="CollectionEffectListImage"
                     style={{ border: `1px solid ${this.props.ProductBorderColor}` }}>
-                        <i className="fa fa-image"></i>
+                        <i className="pe-7s-photo"></i>
                     </div>
                 </div>
                 <div className="CollectionEffectListContainerTitleAndPrice">

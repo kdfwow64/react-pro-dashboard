@@ -4,6 +4,12 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {
+  Button,
+  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
+  Collapse, Fade, Row
+} from 'reactstrap';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
@@ -11,7 +17,7 @@ import SearchLeftSection from './SearchLeftSection';
 import SearchRightSection from './SearchRightSection';
 var API_ROOT = 'https://thesearchit.com';
 
-class Cart extends React.Component<any, any> {
+class Cart extends React.Component {
 
   homeTopTabsShowEditAlert = null;
 
@@ -20,7 +26,7 @@ class Cart extends React.Component<any, any> {
     this.state = {
       bannerImageUrl: '',
     };
-    this.homeTopTabsShowEditAlert = this.props.homeTopTabsShowEditAlert;
+    this.homeTopTabsShowEditAlert = React.createRef();
   }
 
   onSaveEditedItems = () => {
@@ -43,7 +49,7 @@ class Cart extends React.Component<any, any> {
       DropDownGetIconheader: this.state.DropDownGetIconheader,
       naviconcolor: this.state.naviconcolor,
       navtitlecolor: this.state.navtitlecolor,
-    //  NavTitle: this.state.NavTitle,
+      //  NavTitle: this.state.NavTitle,
       NavTitleValue: this.state.NavTitleValue,
       bannerImageUrl: this.state.bannerImageUrl,
     };
@@ -96,9 +102,9 @@ class Cart extends React.Component<any, any> {
       });
       this.setState({ naviconcolor: res.data.SearchSettings.naviconcolor });
       this.setState({ navtitlecolor: res.data.SearchSettings.navtitlecolor });
-     // this.setState({ NavTitle: res.data.SearchSettings.NavTitle });
+      // this.setState({ NavTitle: res.data.SearchSettings.NavTitle });
       this.setState({ NavTitleValue: res.data.SearchSettings.NavTitleValue });
-      this.setState({bannerImageUrl: res.data.SearchSettings.bannerImageUrl});
+      this.setState({ bannerImageUrl: res.data.SearchSettings.bannerImageUrl });
     });
   }
   onThemeOptionSelection = themName => {
@@ -185,92 +191,98 @@ class Cart extends React.Component<any, any> {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   }
   bannerImageUrlCallBack = (val) => {
-    this.setState({bannerImageUrl: val});
+    this.setState({ bannerImageUrl: val });
   }
 
   render() {
     return (
       <Fragment>
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName="TabsAnimation"
-                    transitionAppear={true}
-                    transitionAppearTimeout={0}
-                    transitionEnter={false}
-                    transitionLeave={false}>
-      <div>
-        <div className="row TopPosition">
-          <div
-            className="col-lg-4"
-            id="CollectionMainContainer"
-            style={{ border: '1px solid #efefef' }}
-          >
-            <SearchLeftSection
-              BGColorCallback={this.BGColorCallback}
-              SearchInputColorCallback={this.SearchInputColorCallback}
-              SearchInputBorderCallback={this.SearchInputBorderCallback}
-              SearchIconColorCallback={this.SearchIconColorCallback}
-              SearchTitleColorCallback={this.SearchTitleColorCallback}
-              SearchBGColorCallback={this.SearchBGColorCallback}
-              CellSeparatorColorCallback={this.CellSeparatorColorCallback}
-              CellBGColorCallback={this.CellBGColorCallback}
-              ProductBorderColorCallback={this.ProductBorderColorCallback}
-              ProductTitleColorCallback={this.ProductTitleColorCallback}
-              PriceColorCallback={this.PriceColorCallback}
-              ProductIconColorCallback={this.ProductIconColorCallback}
-              searchAction={this.searchAction}
-              BGColor={this.state.BGColor}
-              SearchInputColor={this.state.SearchInputColor}
-              SearchInputBorder={this.state.SearchInputBorder}
-              SearchIconColor={this.state.SearchIconColor}
-              SearchTitleColor={this.state.SearchTitleColor}
-              SearchBGColor={this.state.SearchBGColor}
-              CellSeparatorColor={this.state.CellSeparatorColor}
-              CellBGColor={this.state.CellBGColor}
-              ProductBorderColor={this.state.ProductBorderColor}
-              ProductTitleColor={this.state.ProductTitleColor}
-              PriceColor={this.state.PriceColor}
-              ProductIconColor={this.state.ProductIconColor}
-              searchActionValue={this.state.searchAction}
-            />
-          </div>
-          <div className="col-lg-8" id="RightContainerScroll">
-            <div id="CollectionMainRightContainer">
-              <SearchRightSection
-                DisplaySaveBtn={this.DisplaySaveBtn}
-                BGColor={this.state.BGColor}
-                SearchInputColor={this.state.SearchInputColor}
-                SearchInputBorder={this.state.SearchInputBorder}
-                SearchIconColor={this.state.SearchIconColor}
-                SearchTitleColor={this.state.SearchTitleColor}
-                SearchBGColor={this.state.SearchBGColor}
-                CellSeparatorColor={this.state.CellSeparatorColor}
-                CellBGColor={this.state.CellBGColor}
-                ProductBorderColor={this.state.ProductBorderColor}
-                ProductTitleColor={this.state.ProductTitleColor}
-                PriceColor={this.state.PriceColor}
-                ProductIconColor={this.state.ProductIconColor}
-                searchAction={this.state.searchAction}
-                navbgcolor={this.state.navbgcolor}
-                DropDownGetIconheader={this.state.DropDownGetIconheader}
-                naviconcolor={this.state.naviconcolor}
-                navtitlecolor={this.state.navtitlecolor}
-               // NavTitle={this.state.NavTitle}
-                DropDownGetIconheaderCall={this.DropDownGetIconheader}
-                naviconcolorCall={this.naviconcolor}
-                navtitlecolorCall={this.navtitlecolor}
-                navbgcolorCall={this.navbgcolor}
-                NavTitleCall={this.NavTitle}
-                NavTitleValue={this.state.NavTitleValue}
-                bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                bannerImageUrl={this.state.bannerImageUrl}
-              />
-            </div>
-          </div>
-          <ThemeOptions selectTheme={this.onThemeOptionSelection} />
-        </div>
-      </div>
-      </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}>
+          <Row>
+            <Col
+              md={4}
+              id="CollectionMainContainer"
+              style={{ border: '1px solid #efefef' }}
+            >
+              <PerfectScrollbar>
+                <SearchLeftSection
+                  BGColorCallback={this.BGColorCallback}
+                  SearchInputColorCallback={this.SearchInputColorCallback}
+                  SearchInputBorderCallback={this.SearchInputBorderCallback}
+                  SearchIconColorCallback={this.SearchIconColorCallback}
+                  SearchTitleColorCallback={this.SearchTitleColorCallback}
+                  SearchBGColorCallback={this.SearchBGColorCallback}
+                  CellSeparatorColorCallback={this.CellSeparatorColorCallback}
+                  CellBGColorCallback={this.CellBGColorCallback}
+                  ProductBorderColorCallback={this.ProductBorderColorCallback}
+                  ProductTitleColorCallback={this.ProductTitleColorCallback}
+                  PriceColorCallback={this.PriceColorCallback}
+                  ProductIconColorCallback={this.ProductIconColorCallback}
+                  searchAction={this.searchAction}
+                  BGColor={this.state.BGColor}
+                  SearchInputColor={this.state.SearchInputColor}
+                  SearchInputBorder={this.state.SearchInputBorder}
+                  SearchIconColor={this.state.SearchIconColor}
+                  SearchTitleColor={this.state.SearchTitleColor}
+                  SearchBGColor={this.state.SearchBGColor}
+                  CellSeparatorColor={this.state.CellSeparatorColor}
+                  CellBGColor={this.state.CellBGColor}
+                  ProductBorderColor={this.state.ProductBorderColor}
+                  ProductTitleColor={this.state.ProductTitleColor}
+                  PriceColor={this.state.PriceColor}
+                  ProductIconColor={this.state.ProductIconColor}
+                  searchActionValue={this.state.searchAction}
+                />
+              </PerfectScrollbar>
+            </Col>
+            <Col md={8} id="RightContainerScroll">
+              <div id="mbl_bg_rit">
+                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                  <PerfectScrollbar>
+                    <SearchRightSection
+                      DisplaySaveBtn={this.DisplaySaveBtn}
+                      BGColor={this.state.BGColor}
+                      SearchInputColor={this.state.SearchInputColor}
+                      SearchInputBorder={this.state.SearchInputBorder}
+                      SearchIconColor={this.state.SearchIconColor}
+                      SearchTitleColor={this.state.SearchTitleColor}
+                      SearchBGColor={this.state.SearchBGColor}
+                      CellSeparatorColor={this.state.CellSeparatorColor}
+                      CellBGColor={this.state.CellBGColor}
+                      ProductBorderColor={this.state.ProductBorderColor}
+                      ProductTitleColor={this.state.ProductTitleColor}
+                      PriceColor={this.state.PriceColor}
+                      ProductIconColor={this.state.ProductIconColor}
+                      searchAction={this.state.searchAction}
+                      navbgcolor={this.state.navbgcolor}
+                      DropDownGetIconheader={this.state.DropDownGetIconheader}
+                      naviconcolor={this.state.naviconcolor}
+                      navtitlecolor={this.state.navtitlecolor}
+                      // NavTitle={this.state.NavTitle}
+                      DropDownGetIconheaderCall={this.DropDownGetIconheader}
+                      naviconcolorCall={this.naviconcolor}
+                      navtitlecolorCall={this.navtitlecolor}
+                      navbgcolorCall={this.navbgcolor}
+                      NavTitleCall={this.NavTitle}
+                      NavTitleValue={this.state.NavTitleValue}
+                      bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                      bannerImageUrl={this.state.bannerImageUrl}
+                    />
+                  </PerfectScrollbar>
+                </div>
+              </div>
+            </Col>
+            <ThemeOptions selectTheme={this.onThemeOptionSelection}
+              ref={this.homeTopTabsShowEditAlert}
+              onSaveEditedItems={this.onSaveEditedItems} />
+          </Row>
+        </ReactCSSTransitionGroup>
       </Fragment>
     );
   }
