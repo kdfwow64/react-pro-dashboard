@@ -146,67 +146,67 @@ class SettingsDashboard extends React.Component<any, any> {
             subheading="Example of a Dashboard page built with ArchitectUI."
             icon="pe-7s-video icon-gradient bg-sunny-morning"
           />
-            <form ref={this.setFormRef} onSubmit={handleSubmit}>
-              <Card className="main-card mb-3">
-                <CardBody>
-                  <Row>
-                    <Col md={6}>
-                      <CardTitle>Storefront Token</CardTitle>
-                      <p>
-                        Your storefront token from Private app. See how to
-                        create one.
-                      </p>
-                    </Col>
-                    <Col md={6}>
-                      <Input type="text" />
-                    </Col>
-                  </Row>
-                </CardBody>
-              </Card>
+          <form ref={this.setFormRef} onSubmit={handleSubmit}>
+            <Card className="main-card mb-3">
+              <CardBody>
+                <Row>
+                  <Col md={6}>
+                    <CardTitle>Storefront Token</CardTitle>
+                    <p>
+                      Your storefront token from Private app. See how to create
+                      one.
+                    </p>
+                  </Col>
+                  <Col md={6}>
+                    <Input type="text" />
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
 
-              {/* <Card sectioned>
-                  <Grid container spacing={0} style={{ margin: '15px' }}>
-                    <Grid item xs={12} sm={6}>
-                      <TextContainer>
-                        <TextStyle variation="strong">
-                          Collection Sort Order <RealTimeToolTip />{' '}
-                          <StatefulToolTip
-                            position="right"
-                            arrow="center"
-                            id="collectionSortOrderToolTip"
-                            // tslint:disable-next-line:max-line-length
-                            text={`The sorting order for the collections in the 'Browse' section in the mobile app`}
-                          />
-                        </TextStyle>
-                        <p>
-                          <TextStyle variation="subdued">
-                            Sorting order for the collections in the 'Browse'
-                            section.
-                          </TextStyle>
-                        </p>
-                      </TextContainer>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <Field
-                        name="collectionSortOrder"
-                        component={renderSelectField}
-                        options={[
-                          { label: 'Alphabetical', value: 'ALPHABETICAL' },
-                          {
-                            label: 'Recently Updated',
-                            value: 'RECENTLY_UPDATED'
-                          }
-                        ]}
-                        value={'alphabetical'}
-                        ref={this.saveRef}
-                        onChange={onChangeSubmit(handleSubmit)}
-                        withRef
+            <Card>
+              <CardBody>
+                <Row>
+                  <Col>
+                    <CardTitle>Collection Sort Order</CardTitle>
+                    {/* <TextStyle variation="strong">
+                      Collection Sort Order <RealTimeToolTip />{" "}
+                      <StatefulToolTip
+                        position="right"
+                        arrow="center"
+                        id="collectionSortOrderToolTip"
+                        // tslint:disable-next-line:max-line-length
+                        text={`The sorting order for the collections in the 'Browse' section in the mobile app`}
                       />
-                    </Grid>
-                  </Grid>
-                </Card> */}
+                    </TextStyle> */}
+                    <p>
+                      {/* <TextStyle variation="subdued"> */}
+                      Sorting order for the collections in the 'Browse' section.
+                      {/* </TextStyle> */}
+                    </p>
+                  </Col>
+                  <Col>
+                    <Field
+                      name="collectionSortOrder"
+                      component={renderSelectField}
+                      options={[
+                        { label: "Alphabetical", value: "ALPHABETICAL" },
+                        {
+                          label: "Recently Updated",
+                          value: "RECENTLY_UPDATED"
+                        }
+                      ]}
+                      value={"alphabetical"}
+                      ref={this.saveRef}
+                      //   onChange={onChangeSubmit(handleSubmit)}
+                      withRef
+                    />
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
 
-              {/* <Field
+            {/* <Field
                   name="applePayEnabled"
                   component={renderApplePayEnabled}
                   ref={this.saveRef}
@@ -214,7 +214,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-              {/* <Field
+            {/* <Field
                   name="androidPayEnabled"
                   component={renderAndroidPayEnabled}
                   ref={this.saveRef}
@@ -222,7 +222,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-              {/* {androidPayEnabledValue === true ? (
+            {/* {androidPayEnabledValue === true ? (
                   <StyleRoot>
                     <div style={styles.androidPay}>
                       <Card sectioned>
@@ -270,7 +270,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </StyleRoot>
                 ) : null} */}
 
-              {/* <Field
+            {/* <Field
                   name="showSmartAppBanner"
                   component={renderSmartAppBannerField}
                   ref={this.saveRef}
@@ -278,7 +278,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-              {/* <Field
+            {/* <Field
                   name="hideSoldOutProducts"
                   component={renderHideSoldOutProductsField}
                   ref={this.ref}
@@ -286,7 +286,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-              {/* {hideSoldOutProductsValue === true ? (
+            {/* {hideSoldOutProductsValue === true ? (
                   <StyleRoot>
                     <div style={styles.apiUrl}>
                       <Card sectioned>
@@ -330,7 +330,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </StyleRoot>
                 ) : null} */}
 
-              {/* <Card sectioned>
+            {/* <Card sectioned>
                   <Grid container spacing={0} style={{ margin: '15px' }}>
                     <Grid item xs={12} sm={6}>
                       <TextContainer>
@@ -517,7 +517,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </Grid>
                 </Grid> */}
 
-              {/* <Grid container spacing={0} style={{ margin: '15px' }}>
+            {/* <Grid container spacing={0} style={{ margin: '15px' }}>
                   <Grid item xs={12} sm={6}>
                     <TextContainer>
                       <TextStyle variation="strong">
@@ -542,21 +542,21 @@ class SettingsDashboard extends React.Component<any, any> {
                   </Grid>
                 </Grid>
               </Card> */}
-            </form>
-            <div
-              className={"Polaris-Card__Footer"}
-              style={{ padding: "15px 0rem 2rem" }}
+          </form>
+          <div
+            className={"Polaris-Card__Footer"}
+            style={{ padding: "15px 0rem 2rem" }}
+          >
+            <Button
+              primary
+              onClick={() => {
+                this.setState({ snackbarOpen: true });
+              }}
+              loading={loading}
             >
-              <Button
-                primary
-                onClick={() => {
-                  this.setState({ snackbarOpen: true });
-                }}
-                loading={loading}
-              >
-                Save
-              </Button>
-            </div>
+              Save
+            </Button>
+          </div>
           <Snackbar
             style={{ marginBottom: "10px" }}
             open={this.state.snackbarOpen}
