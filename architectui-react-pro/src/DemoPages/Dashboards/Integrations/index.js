@@ -1,24 +1,9 @@
-import React, { Fragment } from "react";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
-import { Grid, Snackbar } from "@material-ui/core";
-import ExternalLink from "../../../utilities/ExternalLink";
-// import Radium, { StyleRoot } from 'radium';
-// import { fadeInDown } from 'react-animations';
-import { connect } from "react-redux";
-import { Field, formValueSelector, reduxForm } from "redux-form";
-// import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
-// import { onChangeSubmit } from '../../../../shared/util/save-form-util';
-import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
-import StatefulToolTip from "../../../utilities/StatefulToolTip";
-import { Card, Button, CardBody, Row, Col, CardTitle, Input } from "reactstrap";
-import { DropdownList } from "react-widgets";
+import { Snackbar } from "@material-ui/core";
 import axios from "axios";
+import React, { Fragment } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { Button, Card, CardBody, CardTitle, Col, Input, Row } from "reactstrap";
+import PageTitle from "../../../Layout/AppMain/PageTitle";
 
 var API_ROOT = "https://thesearchit.com";
 
