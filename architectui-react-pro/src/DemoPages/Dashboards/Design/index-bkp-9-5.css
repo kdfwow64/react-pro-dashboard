@@ -2122,9 +2122,6 @@ i.fa-pencil,i.fa-plus {
   margin-top: 100px;
 }
 
-.app-main .app-main__inner {
-  padding: 0 !important;
-}
 .fixed-footer .app-main .app-main__outer {
   padding-bottom: 0 !important;
 }
