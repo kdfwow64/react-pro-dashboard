@@ -166,7 +166,6 @@ export default class Integrations extends React.Component {
             subheading="Wide range of integrations in multiple categories."
             icon="pe-7s-plugin icon-gradient bg-amy-crisp"
           />
-
           <Card className="main-card mb-3">
             <CardBody>
               <Row>
@@ -191,7 +190,6 @@ export default class Integrations extends React.Component {
               </Row>
             </CardBody>
           </Card>
-
           <Card className="main-card mb-3">
             <CardBody>
               <Row>
@@ -216,7 +214,6 @@ export default class Integrations extends React.Component {
               </Row>
             </CardBody>
           </Card>
-
           <Card className="main-card mb-3">
             <CardBody>
               <Row>
@@ -241,141 +238,121 @@ export default class Integrations extends React.Component {
               </Row>
             </CardBody>
           </Card>
-
-          {/* <Card sectioned>
-                <Grid container spacing={0} style={{ margin: "15px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Google Analytics{" "}
-                        <StatefulToolTip
+          <Card className="main-card mb-3">
+            <CardBody>
+              <Row>
+                <Col md={6}>
+                  <CardTitle>Google Analytics </CardTitle>
+                  {/* <StatefulToolTip
                           position="right"
                           arrow="center"
                           id="gaToolTip"
                           // tslint:disable-next-line:max-line-length
                           text={`Add Google Analytics to your mobile apps and track user activity.`}
-                        />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Google Analytics Tracking Id.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      label="Google Analytics Tracking Id"
-                      value={this.state.appIntegrations.gaTrackingId}
-                      onChange={this.saveGATrackingId}
-                    />
-                  </Grid>
-                </Grid>
-              </Card>
-
-              <Card sectioned>
-                <Grid container spacing={0} style={{ margin: "15px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Intercom{" "}
-                        <StatefulToolTip
+                        /> */}
+                  <p>Google Analytics Tracking Id.</p>
+                </Col>
+                <Col md={6}>
+                  <Input
+                    label="Google Analytics Tracking Id"
+                    value={this.state.appIntegrations.gaTrackingId}
+                    onChange={this.saveGATrackingId}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+          <Card className="main-card mb-3">
+            <CardBody>
+              <Row>
+                <Col md={6}>
+                  <CardTitle>Intercom </CardTitle>
+                  {/* <StatefulToolTip
                           position="right"
                           arrow="center"
                           id="intercomToolTip"
                           // tslint:disable-next-line:max-line-length
                           text={`If you want to show intercom in your mobile app you can enable the integration by entering the API Key and AppId from Intercom dashboard.`}
-                        />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          You'll need to get your Intercom app ID and API key.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      label="Intercom App Id"
-                      value={this.state.appIntegrations.intercomAppId}
-                      onChange={value => {
-                        var appIntegrations = this.state.appIntegrations;
-                        appIntegrations.intercomAppId = value;
-                        this.setState({ appIntegrations });
-                        this.saveIntercom();
-                      }}
-                    />
+                        /> */}
+                  <p>You'll need to get your Intercom app ID and API key.</p>
+                </Col>
+                <Col md={6}>
+                  <Input
+                    label="Intercom App Id"
+                    value={this.state.appIntegrations.intercomAppId}
+                    onChange={value => {
+                      var appIntegrations = this.state.appIntegrations;
+                      appIntegrations.intercomAppId = value;
+                      this.setState({ appIntegrations });
+                      this.saveIntercom();
+                    }}
+                  />
 
-                    <TextField
-                      label="Intercom API Key iOS"
-                      value={this.state.appIntegrations.intercomAPIKeyiOS}
-                      onChange={value => {
-                        var appIntegrations = this.state.appIntegrations;
-                        appIntegrations.intercomAPIKeyiOS = value;
-                        this.setState({ appIntegrations });
-                        this.saveIntercom();
-                      }}
-                    />
+                  <Input
+                    label="Intercom API Key iOS"
+                    value={this.state.appIntegrations.intercomAPIKeyiOS}
+                    onChange={value => {
+                      var appIntegrations = this.state.appIntegrations;
+                      appIntegrations.intercomAPIKeyiOS = value;
+                      this.setState({ appIntegrations });
+                      this.saveIntercom();
+                    }}
+                  />
 
-                    <TextField
-                      label="Intercom API Key Android"
-                      value={this.state.appIntegrations.intercomAPIKeyAndroid}
-                      onChange={value => {
-                        var appIntegrations = this.state.appIntegrations;
-                        appIntegrations.intercomAPIKeyAndroid = value;
-                        this.setState({ appIntegrations });
-                        this.saveIntercom();
-                      }}
-                    />
-                  </Grid>
-                </Grid>
-              </Card>
+                  <Input
+                    label="Intercom API Key Android"
+                    value={this.state.appIntegrations.intercomAPIKeyAndroid}
+                    onChange={value => {
+                      var appIntegrations = this.state.appIntegrations;
+                      appIntegrations.intercomAPIKeyAndroid = value;
+                      this.setState({ appIntegrations });
+                      this.saveIntercom();
+                    }}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
 
-              <Card sectioned>
-                <Grid container spacing={0} style={{ margin: "15px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Jivo Chat{" "}
-                        <StatefulToolTip
+          <Card className="main-card mb-3">
+            <CardBody>
+              <Row>
+                <Col md={6}>
+                  <CardTitle>Jivo Chat </CardTitle>
+                  {/* <StatefulToolTip
                           position="right"
                           arrow="center"
                           id="jivoChatToolTip"
                           // tslint:disable-next-line:max-line-length
                           text={`Show chat bubble in your mobile app using Jivo Chat app.`}
-                        />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Show chat bubble in your mobile app using Jivo Chat
-                          app.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      label="Widget Id"
-                      value={this.state.appIntegrations.jivoChatWidgetId}
-                      onChange={this.saveJivoChatWidgetId}
-                    />
-                  </Grid>
-                </Grid>
-              </Card>
-            <div
-              className={"Polaris-Card__Footer"}
-              style={{ padding: "15px 0rem 2rem" }}
+                        /> */}
+                  <p>
+                    Show chat bubble in your mobile app using Jivo Chat app.
+                  </p>
+                </Col>
+                <Col md={6}>
+                  <Input
+                    label="Widget Id"
+                    value={this.state.appIntegrations.jivoChatWidgetId}
+                    onChange={this.saveJivoChatWidgetId}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+          <div
+            className={"Polaris-Card__Footer"}
+            style={{ padding: "15px 0rem 2rem" }}
+          >
+            <Button
+              onClick={() => {
+                this.setState({ snackbarOpen: true });
+              }}
+              // loading={loading}
             >
-              <Button
-                primary
-                onClick={() => {
-                  this.setState({ snackbarOpen: true });
-                }}
-                // loading={loading}
-              >
-                Save
-              </Button>
-            </div>
+              Save
+            </Button>
+          </div>
           <Snackbar
             style={{ marginBottom: "10px" }}
             open={this.state.snackbarOpen}
@@ -385,7 +362,7 @@ export default class Integrations extends React.Component {
             onClose={() => {
               this.setState({ snackbarOpen: false });
             }}
-          /> */}
+          />
         </ReactCSSTransitionGroup>
       </Fragment>
     );
