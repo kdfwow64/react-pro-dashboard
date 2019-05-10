@@ -12,6 +12,7 @@ import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
 import StatefulToolTip from "../../../utilities/StatefulToolTip";
 import { Card, Button, CardBody, Row, Col, CardTitle, Input } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
+import { DropdownList } from "react-widgets";
 
 // import AndroidPaySettingToggle from './Toggles/AndroidPaySettingToggle';
 // import ApplePaySettingToggle from './Toggles/ApplePaySettingToggle';
@@ -72,7 +73,14 @@ export const renderSelectField = ({
   children,
   ...custom
 }) => (
-  <Input type="text" />
+  <DropdownList
+    data={options}
+    value={input.value}
+    allowCreate="onFilter"
+    onCreate={name => this.handleCreate(name)}
+    onChange={value => input.onChange(value)}
+    // textField="name"
+  />
   //   <Select
   //     label=""
   //     value={input.value || ''}
@@ -169,20 +177,8 @@ class SettingsDashboard extends React.Component<any, any> {
                 <Row>
                   <Col>
                     <CardTitle>Collection Sort Order</CardTitle>
-                    {/* <TextStyle variation="strong">
-                      Collection Sort Order <RealTimeToolTip />{" "}
-                      <StatefulToolTip
-                        position="right"
-                        arrow="center"
-                        id="collectionSortOrderToolTip"
-                        // tslint:disable-next-line:max-line-length
-                        text={`The sorting order for the collections in the 'Browse' section in the mobile app`}
-                      />
-                    </TextStyle> */}
                     <p>
-                      {/* <TextStyle variation="subdued"> */}
                       Sorting order for the collections in the 'Browse' section.
-                      {/* </TextStyle> */}
                     </p>
                   </Col>
                   <Col>
@@ -190,13 +186,15 @@ class SettingsDashboard extends React.Component<any, any> {
                       name="collectionSortOrder"
                       component={renderSelectField}
                       options={[
-                        { label: "Alphabetical", value: "ALPHABETICAL" },
-                        {
-                          label: "Recently Updated",
-                          value: "RECENTLY_UPDATED"
-                        }
+                        "Alphabetical",
+                        "Recently Updated"
+                        // { label: "Alphabetical", value: "ALPHABETICAL" },
+                        // {
+                        //   label: "Recently Updated",
+                        //   value: "RECENTLY_UPDATED"
+                        // }
                       ]}
-                      value={"alphabetical"}
+                      value={"Alphabetical"}
                       ref={this.saveRef}
                       //   onChange={onChangeSubmit(handleSubmit)}
                       withRef
