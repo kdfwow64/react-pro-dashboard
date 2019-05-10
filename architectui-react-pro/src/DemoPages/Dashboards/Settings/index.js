@@ -1,17 +1,17 @@
-import { Grid, Snackbar } from '@material-ui/core';
-import ExternalLink from '../../../utilities/ExternalLink';
+import { Grid, Snackbar } from "@material-ui/core";
+import ExternalLink from "../../../utilities/ExternalLink";
 // import Radium, { StyleRoot } from 'radium';
-import React, {Fragment} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React, { Fragment } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 // import { fadeInDown } from 'react-animations';
-import { connect } from 'react-redux';
-import { Field, formValueSelector, reduxForm } from 'redux-form';
+import { connect } from "react-redux";
+import { Field, formValueSelector, reduxForm } from "redux-form";
 // import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
 // import { onChangeSubmit } from '../../../../shared/util/save-form-util';
-import RealTimeToolTip from '../../../utilities/RealTimeToolTip';
-import StatefulToolTip from '../../../utilities/StatefulToolTip';
-import { Card, Button, CardBody, Row, Col, CardTitle, Input } from 'reactstrap';
-import PageTitle from '../../../Layout/AppMain/PageTitle';
+import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
+import StatefulToolTip from "../../../utilities/StatefulToolTip";
+import { Card, Button, CardBody, Row, Col, CardTitle, Input } from "reactstrap";
+import PageTitle from "../../../Layout/AppMain/PageTitle";
 
 // import AndroidPaySettingToggle from './Toggles/AndroidPaySettingToggle';
 // import ApplePaySettingToggle from './Toggles/ApplePaySettingToggle';
@@ -53,15 +53,15 @@ export const renderTextField = ({
   meta: { touched, error },
   ...custom
 }) => (
-    <Input type="text"/>
-//   <TextField
-//     helpText={label}
-//     floatingLabelText={label}
-//     multiline={multiLine}
-//     error={touched && error}
-//     {...input}
-//     {...custom}
-//   />
+  <Input type="text" />
+  //   <TextField
+  //     helpText={label}
+  //     floatingLabelText={label}
+  //     multiline={multiLine}
+  //     error={touched && error}
+  //     {...input}
+  //     {...custom}
+  //   />
 );
 
 export const renderSelectField = ({
@@ -72,13 +72,13 @@ export const renderSelectField = ({
   children,
   ...custom
 }) => (
-    <Input type="text"/>
-//   <Select
-//     label=""
-//     value={input.value || ''}
-//     onChange={value => input.onChange(value)}
-//     options={options}
-//   />
+  <Input type="text" />
+  //   <Select
+  //     label=""
+  //     value={input.value || ''}
+  //     onChange={value => input.onChange(value)}
+  //     options={options}
+  //   />
 );
 
 class SettingsDashboard extends React.Component<any, any> {
@@ -106,7 +106,7 @@ class SettingsDashboard extends React.Component<any, any> {
 
   setFormRef = element => {
     this.form = element;
-  }
+  };
 
   saveRef = ref => (this.ref = ref);
 
@@ -132,36 +132,40 @@ class SettingsDashboard extends React.Component<any, any> {
     // };
 
     return (
-        <Fragment>
+      <Fragment>
         <ReactCSSTransitionGroup
-            component="div"
-            transitionName="TabsAnimation"
-            transitionAppear={true}
-            transitionAppearTimeout={0}
-            transitionEnter={false}
-            transitionLeave={false}>
-            <PageTitle
-                heading="Settings"
-                subheading="Example of a Dashboard page built with ArchitectUI."
-                icon="pe-7s-video icon-gradient bg-sunny-morning"
-            />
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          <PageTitle
+            heading="Settings"
+            subheading="Example of a Dashboard page built with ArchitectUI."
+            icon="pe-7s-video icon-gradient bg-sunny-morning"
+          />
           <Card sectioned>
-              <form ref={this.setFormRef} onSubmit={handleSubmit}>
+            <form ref={this.setFormRef} onSubmit={handleSubmit}>
               <Card className="main-card mb-3">
                 <CardBody>
-                    <Row>
-                        <Col md={6}>
-                            <CardTitle>Storefront Token</CardTitle>
-                            <p>Your storefront token from Private app. See how to create one.</p>
-                        </Col>
-                        <Col md={6}>
-                            <Input type="text"/>
-                        </Col>
-                    </Row>
+                  <Row>
+                    <Col md={6}>
+                      <CardTitle>Storefront Token</CardTitle>
+                      <p>
+                        Your storefront token from Private app. See how to
+                        create one.
+                      </p>
+                    </Col>
+                    <Col md={6}>
+                      <Input type="text" />
+                    </Col>
+                  </Row>
                 </CardBody>
-               </Card>
+              </Card>
 
-                {/* <Card sectioned>
+              {/* <Card sectioned>
                   <Grid container spacing={0} style={{ margin: '15px' }}>
                     <Grid item xs={12} sm={6}>
                       <TextContainer>
@@ -203,7 +207,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </Grid>
                 </Card> */}
 
-                {/* <Field
+              {/* <Field
                   name="applePayEnabled"
                   component={renderApplePayEnabled}
                   ref={this.saveRef}
@@ -211,7 +215,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-                {/* <Field
+              {/* <Field
                   name="androidPayEnabled"
                   component={renderAndroidPayEnabled}
                   ref={this.saveRef}
@@ -219,7 +223,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-                {/* {androidPayEnabledValue === true ? (
+              {/* {androidPayEnabledValue === true ? (
                   <StyleRoot>
                     <div style={styles.androidPay}>
                       <Card sectioned>
@@ -267,7 +271,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </StyleRoot>
                 ) : null} */}
 
-                {/* <Field
+              {/* <Field
                   name="showSmartAppBanner"
                   component={renderSmartAppBannerField}
                   ref={this.saveRef}
@@ -275,7 +279,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-                {/* <Field
+              {/* <Field
                   name="hideSoldOutProducts"
                   component={renderHideSoldOutProductsField}
                   ref={this.ref}
@@ -283,7 +287,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   withRef
                 /> */}
 
-                {/* {hideSoldOutProductsValue === true ? (
+              {/* {hideSoldOutProductsValue === true ? (
                   <StyleRoot>
                     <div style={styles.apiUrl}>
                       <Card sectioned>
@@ -327,7 +331,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </StyleRoot>
                 ) : null} */}
 
-                {/* <Card sectioned>
+              {/* <Card sectioned>
                   <Grid container spacing={0} style={{ margin: '15px' }}>
                     <Grid item xs={12} sm={6}>
                       <TextContainer>
@@ -514,7 +518,7 @@ class SettingsDashboard extends React.Component<any, any> {
                   </Grid>
                 </Grid> */}
 
-                {/* <Grid container spacing={0} style={{ margin: '15px' }}>
+              {/* <Grid container spacing={0} style={{ margin: '15px' }}>
                   <Grid item xs={12} sm={6}>
                     <TextContainer>
                       <TextStyle variation="strong">
@@ -539,10 +543,10 @@ class SettingsDashboard extends React.Component<any, any> {
                   </Grid>
                 </Grid>
               </Card> */}
-              </form>
+            </form>
             <div
-              className={'Polaris-Card__Footer'}
-              style={{ padding: '15px 0rem 2rem' }}
+              className={"Polaris-Card__Footer"}
+              style={{ padding: "15px 0rem 2rem" }}
             >
               <Button
                 primary
@@ -555,43 +559,43 @@ class SettingsDashboard extends React.Component<any, any> {
               </Button>
             </div>
           </Card>
-        <Snackbar
-          style={{ marginBottom: '10px' }}
-          open={this.state.snackbarOpen}
-          ContentProps={{ style: { fontSize: '20px' } }}
-          message={<span>Saving...</span>}
-          autoHideDuration={3000}
-          onClose={() => {
-            this.setState({ snackbarOpen: false });
-          }}
-        />
+          <Snackbar
+            style={{ marginBottom: "10px" }}
+            open={this.state.snackbarOpen}
+            ContentProps={{ style: { fontSize: "20px" } }}
+            message={<span>Saving...</span>}
+            autoHideDuration={3000}
+            onClose={() => {
+              this.setState({ snackbarOpen: false });
+            }}
+          />
         </ReactCSSTransitionGroup>
-        </Fragment>
+      </Fragment>
     );
   }
 }
 
-const selector = formValueSelector('appSettings'); // <-- same as form name
+const selector = formValueSelector("appSettings"); // <-- same as form name
 const mapStateToProps = storeState => ({
-//   initialValues: storeState.appSettings.appSettings,
-//   snackbarOpen: storeState.appSettings.saved,
-//   loading: storeState.appSettings.loading,
-//   hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
-//   androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
+  //   initialValues: storeState.appSettings.appSettings,
+  //   snackbarOpen: storeState.appSettings.saved,
+  //   loading: storeState.appSettings.loading,
+  //   hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
+  //   androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
 });
 
 const mapDispatchToProps = {
-//   getAppSettings,
-//   saveAppSettings,
-//   saveForm
+  //   getAppSettings,
+  //   saveAppSettings,
+  //   saveForm
 };
 
 const appSettingsForm = reduxForm({
-  form: 'appSettings',
-  enableReinitialize: true,
-//   onSubmit: (values, dispatch) => {
-//     dispatch(saveAppSettings(values));
-//   }
+  form: "appSettings",
+  enableReinitialize: true
+  //   onSubmit: (values, dispatch) => {
+  //     dispatch(saveAppSettings(values));
+  //   }
 })(SettingsDashboard);
 
 const reduxConnect = connect(
