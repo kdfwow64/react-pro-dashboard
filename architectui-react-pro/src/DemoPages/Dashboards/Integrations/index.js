@@ -217,38 +217,32 @@ export default class Integrations extends React.Component {
             </CardBody>
           </Card>
 
-          {/* <Card sectioned>
-                <Grid container spacing={0} style={{ margin: "15px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Judge.Me Reviews{" "}
-                        <StatefulToolTip
+          <Card className="main-card mb-3">
+            <CardBody>
+              <Row>
+                <Col md={6}>
+                  <CardTitle>Judge.Me Reviews </CardTitle>
+                  {/* <StatefulToolTip
                           position="right"
                           arrow="center"
                           id="judgemeToolTip"
                           // tslint:disable-next-line:max-line-length
                           text={`If you want to show product reviews from Judge.Me you can enable the integration by entering the API Key from Judge.Me dashboard.`}
-                        />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Your Judge.Me API Token.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      label="Judge.Me API Token"
-                      value={this.state.appIntegrations.judgeMeAPIToken}
-                      onChange={this.saveJudgeMe}
-                    />
-                  </Grid>
-                </Grid>
-              </Card>
+                        /> */}
+                  <p>Your Judge.Me API Token.</p>
+                </Col>
+                <Col md={6}>
+                  <Input
+                    label="Judge.Me API Token"
+                    value={this.state.appIntegrations.judgeMeAPIToken}
+                    onChange={this.saveJudgeMe}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
 
-              <Card sectioned>
+          {/* <Card sectioned>
                 <Grid container spacing={0} style={{ margin: "15px" }}>
                   <Grid item xs={12} sm={6}>
                     <TextContainer>
