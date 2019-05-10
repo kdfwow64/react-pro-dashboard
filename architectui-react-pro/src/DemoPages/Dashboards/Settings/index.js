@@ -146,7 +146,6 @@ class SettingsDashboard extends React.Component<any, any> {
             subheading="Example of a Dashboard page built with ArchitectUI."
             icon="pe-7s-video icon-gradient bg-sunny-morning"
           />
-          <Card sectioned>
             <form ref={this.setFormRef} onSubmit={handleSubmit}>
               <Card className="main-card mb-3">
                 <CardBody>
@@ -558,7 +557,6 @@ class SettingsDashboard extends React.Component<any, any> {
                 Save
               </Button>
             </div>
-          </Card>
           <Snackbar
             style={{ marginBottom: "10px" }}
             open={this.state.snackbarOpen}
