@@ -44,7 +44,7 @@ class SelectColorTheme extends React.Component  {
           openModal: false,
           allModalIds: {},
           isEdited: false,
-          DropDownGetIconheader: 'fa fa-bars',
+          DropDownGetIconheader: 'lnr-menu',
           showMyStoreTextBox: 'none',
           NavBarTitleText: 'MY STORE',
           showMyLabel: 'block',

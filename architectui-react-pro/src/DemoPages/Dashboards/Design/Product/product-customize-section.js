@@ -383,9 +383,6 @@ class ProductcustomizePage extends React.Component<any, any> {
     return (
       <div className="ProductcustomizeMainsection">
         <div className="Productcustomizesection">
-          <div className="ProductEffectTitle">
-            <label> CUSTOMIZE PRODUCTS PAGE </label>
-          </div>
           <div className="ProductEffectResultDropDown">
             <input
               type="text"
@@ -398,7 +395,7 @@ class ProductcustomizePage extends React.Component<any, any> {
               className="ProductDropSearchDown"
             />
             <div className="searchProIcon">
-              <i className="fa fa-caret-up" />
+              <i className="lnr-chevron-down" />
             </div>
             <div
               className="ProductResult"
@@ -465,7 +462,7 @@ class ProductcustomizePage extends React.Component<any, any> {
                 onClick={this.CollectionMainSectionEditOption}
               >
                 <div id="CollectionEditOption">
-                  <i className="fa fa-pencil" />
+                  <i className="lnr-pencil" />
                 </div>
               </div>
             </div>

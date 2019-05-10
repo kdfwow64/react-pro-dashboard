@@ -4,41 +4,7 @@ import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import { Button, Card, CardHeader, Collapse } from 'reactstrap';
 
-class ProductSettingsSection extends React.Component<any, any> {
-  OptionTitleColorPicker: any;
-  OptionValueColorPicker: any;
-  OptionIconColorPicker: any;
-  DescTitleColorPicker: any;
-  DescHeaderBGColorPicker: any;
-  DescBGColorPicker: any;
-  DescTextColorPicker: any;
-  CartTitleColorPicker: any;
-  CartButtonColorPicker: any;
-  CartBGColorPicker: any;
-  SilderActiveColor: string | string[];
-  SilderDotColor: string | string[];
-  SilderBGColor: string | string[];
-  FavBtnColor: string | string[];
-  ProductTitleColor: string | string[];
-  ProductPriceColor: string | string[];
-  ProductRatingColor: string | string[];
-  ProducttitlebarBGColor: string | string[];
-  ExternalIconColor: string | string[];
-  ExternalLinkColor: string | string[];
-  ExternalBGColor: string | string[];
-  ProductCellBGColor: string | string[];
-  OptionTitleColor: string | string[];
-  OptionValueColor: string | string[];
-  OptionIconColor: string | string[];
-  DescTitleColor: string | string[];
-  DescHeaderBGColor: string | string[];
-  DescBGColor: string | string[];
-  DescTextColor: string | string[];
-  CartTitleColor: string | string[];
-  CartButtonColor: string | string[];
-  CartBGColor: string | string[];
-  cartBtnWebValue: any;
-  cartBtnEmailValue: any;
+class ProductSettingsSection extends React.Component {
   constructor(props) {
     super(props);
     this.SilderActiveColorhandleChange = this.SilderActiveColorhandleChange.bind(
@@ -542,11 +508,11 @@ class ProductSettingsSection extends React.Component<any, any> {
   }
   render() {
     const IconArry = [
-      { name: 'fa fa-heart' },
-      { name: 'fa fa-star' },
-      { name: 'fa fa-trophy' },
-      { name: 'fa fa-thumbs-up' },
-      { name: 'fa fa-thumb-tack' }
+      { name: 'lnr-heart' },
+      { name: 'lnr-star' },
+      { name: 'pe-7s-cup' },
+      { name: 'lnr-thumbs-up' },
+      { name: 'lnr-pushpin' }
     ];
     const activeIcon = this.props.DropDownGetIcon;
     const listItems = IconArry.map((d, index) => {
@@ -572,7 +538,9 @@ class ProductSettingsSection extends React.Component<any, any> {
     });
 
     return (
-      <div id="accordion" className="accordion-wrapper mb-3">
+      <div id="accordion" className="accordion-wrapper mb-3 TopPosition">
+      <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Product Settings </h3> </CardHeader>
+
         <Card>
           <CardHeader id="headingOne" onClick={() => this.toggleAccordion(0)}>
             <Button className="m-0 p-0" color="link"
@@ -583,7 +551,7 @@ class ProductSettingsSection extends React.Component<any, any> {
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion"
-              id="exampleAccordion1">
+              id="exampleAccordion1" className="proPaddBtm">
             <div
               className="ProductSilderActiveColor"
               style={{ position: 'relative' }}
@@ -699,7 +667,7 @@ class ProductSettingsSection extends React.Component<any, any> {
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[1]} data-parent="#accordion"
-              id="exampleAccordion2">
+              id="exampleAccordion2"  className="proPaddBtm">
               <div
                 className="ProductSilderActiveColor"
                 style={{ position: 'relative', marginTop: '20px' }}
@@ -815,7 +783,7 @@ class ProductSettingsSection extends React.Component<any, any> {
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[2]} data-parent="#accordion"
-              id="exampleAccordion3">
+              id="exampleAccordion3"  className="proPaddBtm" >
               <div
                 className="ProductSilderActiveColor"
                 style={{ position: 'relative', marginTop: '20px' }}
@@ -968,7 +936,7 @@ class ProductSettingsSection extends React.Component<any, any> {
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[3]} data-parent="#accordion"
-                id="exampleAccordion4">
+                id="exampleAccordion4"  className="proPaddBtm">
               <div
                 className="ProductSilderActiveColor"
                 style={{ position: 'relative', marginTop: '20px' }}

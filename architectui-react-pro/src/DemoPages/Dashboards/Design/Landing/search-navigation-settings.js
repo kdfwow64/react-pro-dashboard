@@ -35,7 +35,7 @@ class SearchNavigationSettings extends React.Component  {
       HideSettingSection: 'none',
 
       isEdited: false
-      // DropDownGetIconheader: 'fa fa-bars',
+      // DropDownGetIconheader: 'lnr-menu',
     };
 
     this.handleNavbarColorChangeComplete = this.handleNavbarColorChangeComplete.bind(

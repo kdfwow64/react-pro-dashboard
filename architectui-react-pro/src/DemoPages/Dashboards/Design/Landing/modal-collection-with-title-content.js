@@ -4,8 +4,7 @@ import axios from 'axios';
 import React, { Fragment } from 'react';
 import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
-import { Button } from 'reactstrap';
-import Ionicon from 'react-ionicons'
+import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
 import 'react-switchery-component/react-switchery-component.css';
 import { DropdownList } from 'react-widgets'
 
@@ -1224,7 +1223,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                               this.RemoveNewAddedDiv(index);
                             }}
                           >
-                            <i className="fa fa-trash" /> Remove Picture
+                            <i className="lnr-trash" /> Remove Picture
                           </div>
                         )}
                       </div>
@@ -1245,7 +1244,6 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </Button>
                   </div>
                   <div className="Append_right_link_icon">
-                    <i className="fa fa-plus-circle" />
                   </div>
                 </div>
 
@@ -1561,24 +1559,29 @@ class ModalCollectionWithTitleContent extends React.Component {
                 </div>
               </div>
 
-              <div className="setting_bottom">
+              {/*<div className="setting_bottom">
                 <div className="CollectionEditCancelButton CollectionEditButton">
-                  <a href="javascript:void(0);" onClick={this.onCloseModal}>
+                {/* } <a href="javascript:void(0);" onClick={this.onCloseModal}>
                     <span>CANCEL</span>
-                  </a>
-                 {/*} <Button className="mb-2 mr-2 btn-icon btn-pill" outline color="focus" onClick={this.onCloseModal}>
+                      </a>
+                <Button className="mr-2 btn btn-link btn-sm" onClick={this.onCloseModal}>
                   CANCEL
-                  </Button>*/}
+                </Button>
                 </div>
                 <div className="CollectionEditapplyButton CollectionEditButton">
-                   <a href="javascript:void(0);" >
+                 {/*}  <a href="javascript:void(0);" >
                     <span>APPLY</span>
                   </a>
-                 {/* <Button className="mb-2 mr-2 btn-icon btn-pill" outline color="focus" onClick={this.onApplySetting}>
+                  <Button className="btn btn-success btn-lg" onClick={this.onApplySetting}>
                     APPLY
-                  </Button>*/}
+                  </Button>
                 </div>
-              </div>
+              </div>*/}
+
+              <CardFooter className="d-block text-right">
+                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
+                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+              </CardFooter>
             </div>
           </div>
         </div>
