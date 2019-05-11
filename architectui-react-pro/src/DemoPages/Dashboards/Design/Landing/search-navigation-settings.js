@@ -11,31 +11,20 @@ class SearchNavigationSettings extends React.Component  {
 
     this.state = {
       background: '#ffffff',
-      // navbarBackgroundColorCode:this.props.navbarBackgroundColorValue,
-
       displayColorPicker: false,
       navbarBackgroundColorCode: this.props.navbarBackgroundColorValue,
-
       navbarIconColorCode: this.props.navbgiconcolorValue,
       navbarTitleColorCode: this.props.navbartitleValue,
-      // navbarIconColorCode: this.props.navbgiconcolorValue,
       displayIconColorPicker: false,
-
-      // navbarTitleColorCode: this.props.navbartitleValue,
       displayTitleColorPicker: false,
-
       celldisplayColorPicker: false,
       cellicondisplayColorPicker: false,
-      // color: '#ffffff',
-      // NavTitle: 'Text',
-
       OnCollectionEditValue: 'none',
       OnCollectionEditValueText: 'block',
       showIconsList: 'none',
       HideSettingSection: 'none',
 
       isEdited: false
-      // DropDownGetIconheader: 'lnr-menu',
     };
 
     this.handleNavbarColorChangeComplete = this.handleNavbarColorChangeComplete.bind(
@@ -240,20 +229,6 @@ class SearchNavigationSettings extends React.Component  {
               ) : null}
             </div>
           </div>
-
-          {/* <div className="CollectionMainEditIcon">
-            <div className="col-sm-12 CollectionSettingIcon">
-              <label>NAV BAR ICON (Will be applied globally)</label>
-            </div>
-            <div className="col-sm-12 CollectionMainEditBGIconView">
-              <IconList
-                DropDownGetIconLandingNavCallback={
-                  this.DropDownGetIconLandingNavCallback
-                }
-                IconClassName={this.props.DropDownGetIconheader}
-              />
-            </div>
-          </div> */}
 
           <div className="CollectionMainEditIconColor">
             <div className="col-sm-12 CollectionSettingEditIconColor">

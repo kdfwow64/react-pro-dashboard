@@ -35,7 +35,6 @@ class CartRightSection extends React.Component {
       navbgcolor: '#2ecc71',
       navtitlecolor: '#ffffff',
       naviconcolor: '#ffffff',
-      DropDownGetIconheader: 'lnr-menu',
       NavTitle: 'Text',
 
       ShowHideGridListView: 'block',
@@ -45,11 +44,6 @@ class CartRightSection extends React.Component {
       OnCollectionEditValue: 'none',
       bannerImageUrl: '',
     };
-  }
-
-  DropDownGetCartUserNavCallback = icon => {
-    this.setState({ DropDownGetIconheader: icon });
-    this.props.DropDownGetIconheader(icon);
   }
 
   navtitlehandleChange(navtitlecolor) {
@@ -117,17 +111,9 @@ class CartRightSection extends React.Component {
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px'
+    left: '0px',
   };
   ApplyNavSettings = () => {
-    /* const CollectionSettings = {
-       DropDownGetIconheader: this.state.DropDownGetIconheader,
-       naviconcolor: this.state.naviconcolor,
-       navtitlecolor: this.state.navtitlecolor,
-       navbgcolor: this.state.navbgcolor,
-       NavTitle: this.state.NavTitle,
-       bannerImageUrl: this.state.bannerImageUrl,
-     };*/
 
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
@@ -157,12 +143,6 @@ class CartRightSection extends React.Component {
                 id="CollectionEffectNavBarContainer"
                 style={{ backgroundColor: this.props.navbgcolorValue || '#0E7C95' }}
               >
-                <div
-                  id="CollectionEffectnavBars"
-                  style={{ color: this.props.naviconcolorValue }}
-                >
-                  <i className='lnr-menu' />
-                </div>
                 <div
                   id="CollectionEffectMyStoreTitle"
                   style={{ color: this.props.navtitlecolorValue }}
@@ -255,20 +235,6 @@ class CartRightSection extends React.Component {
                         ) : null}
                       </div>
                     </div>
-
-                    {/* <div className="CollectionMainEditIcon">
-                    <div className="col-sm-12 CollectionSettingIcon">
-                      <label>NAV BAR ICON (Will be applied globally)</label>
-                    </div>
-                    <div className="col-sm-12 CollectionMainEditBGIconView">
-                      <IconList
-                        DropDownGetCartUserNavCallback={
-                          this.DropDownGetCartUserNavCallback
-                        }
-                        IconClassName={this.props.DropDownGetIconheaderValue}
-                      />
-                    </div>
-                  </div> */}
 
                     <div className="CollectionMainEditIconColor">
                       <div className="col-sm-12 CollectionSettingEditIconColor">

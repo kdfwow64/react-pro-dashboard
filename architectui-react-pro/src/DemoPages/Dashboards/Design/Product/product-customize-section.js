@@ -61,14 +61,7 @@ const CollectionsProducts = {
   SelectedCollectionId: '111'
 };
 
-class ProductcustomizePage extends React.Component<any, any> {
-  navicondisplayColorPicker: any;
-  navbgdisplayColorPicker: any;
-  navtitledisplayColorPicker: any;
-  navbgcolor: string | string[];
-  naviconcolor: string | string[];
-  navtitlecolor: string | string[];
-  //navbghandleChange: any;
+class ProductcustomizePage extends React.Component  {
   constructor(props) {
     super(props);
     this.DisplayProductResult = this.DisplayProductResult.bind(this);
@@ -348,7 +341,7 @@ class ProductcustomizePage extends React.Component<any, any> {
         source.index,
         destination.index
       );
-      let state: any = { items };
+      let state = { items };
       if (source.droppableId === 'droppable') {
         state = { productPageElements: items };
       }

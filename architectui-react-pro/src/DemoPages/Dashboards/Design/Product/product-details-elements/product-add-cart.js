@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-class ProductAddCart extends React.Component<any, any> {
+class ProductAddCart extends React.Component  {
 
     render() {
 

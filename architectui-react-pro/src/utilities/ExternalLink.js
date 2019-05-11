@@ -1,7 +1,7 @@
 /* tslint:disable */
 import * as React from "react";
 
-export default class ExternalLink extends React.Component<any, any> {
+export default class ExternalLink extends React.Component {
   constructor(props) {
     super(props);
   }

@@ -5,7 +5,7 @@ import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import CollectionSettingSingleSection from './collection-setting-grid-single-section';
 import CollectioinSettingListSectionEffects from './collection-setting-list-single-section';
-//import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../Mobile/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import Loader from 'react-loaders';
 var API_ROOT = 'https://thesearchit.com';
 
@@ -192,7 +192,6 @@ class CollectioinSettingSectionEffects extends React.Component{
       ProductsCollectionsDataVal: getSelectedCollectionProducts(),
       collectionTypeVal: '',
       CollectionSelectedIdValue: '',
-      DropDownGetIconheader: this.props.DropDownGetIconheaderValue,
       naviconcolor: this.props.naviconcolorValue,
       navtitlecolor: this.props.navtitlecolorValue,
       navbgcolor: this.props.navbgcolorValue,
@@ -421,12 +420,6 @@ class CollectioinSettingSectionEffects extends React.Component{
             style={{ backgroundColor: this.props.navbgcolorValue || '#0E7C95' }}
           >
             <div
-              id="CollectionEffectnavBars"
-              style={{ color: this.props.naviconcolorValue || '#fff' }}
-            >
-              <i className={this.props.DropDownGetIconheaderValue || 'lnr-menu'} />
-            </div>
-            <div
               id="CollectionEffectMyStoreTitle"
               style={{ color: this.props.navtitlecolorValue || '#fff' }}
             >
@@ -606,7 +599,7 @@ class CollectioinSettingSectionEffects extends React.Component{
                     <label>NAV IMAGE</label>
                   </div>
                   <div className="col-sm-12 CollectionMainEditIconImgView">
-                  {/*<S3SingleFileUploaderWithPreviewAndFileNameCapability
+                  <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
                         acceptedFiles={[ 'image/jpeg', 'image/png' ]}
                         fileName={this.props.bannerImageUrl}
@@ -614,8 +607,7 @@ class CollectioinSettingSectionEffects extends React.Component{
                         previewImageWidth={'100px'}
                         imageFolder={"navTitleImage"}
                         onChange={ (value) => this.bannerImageUrl(value) }
-                  />*/}
-                  <input type="file"></input>
+                  />
                     </div>
                   </div>
                   <div className="CollectionEditCancelButton CollectionEditButton">

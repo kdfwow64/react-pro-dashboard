@@ -7,7 +7,7 @@ import Dropzone from "react-dropzone";
 import * as S3Upload from "react-s3-uploader/s3upload";
 var API_ROOT = 'https://thesearchit.com';
 
-export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extends React.Component<any,any> {
+export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extends React.Component {
   constructor(props) {
     super(props);
     this.state = { fileName: this.props.fileName, loading: false };

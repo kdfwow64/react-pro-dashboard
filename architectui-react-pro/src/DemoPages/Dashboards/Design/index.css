@@ -3323,14 +3323,6 @@ position: absolute !important;
 .menu-item span:first-child {
   padding-right: 10px;
 }
-
-.button_sec {
-  margin-top: 15px;
-  border-radius: 25px;
-  height: 45px;
-  text-align: center;
-  padding: 10px 0px;
-}
 .fixed-footer .app-main .app-main__outer {
   padding-bottom: 0 !important;
 }
@@ -3587,3 +3579,239 @@ position: absolute !important;
 .proPaddBtm{
   padding-bottom: 10px;
 }
+.UserOptionsContainer .OptionContainer {
+  padding-bottom: 20px;
+}
+.common_title_user {
+  color: #717171;
+  line-height: 30px;
+  font-size: 12px;
+}
+.noticeContainer {
+  color: #e377d4;
+  font-size: 12px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+#headingOne, #headingTwo, #headingThree, #headingFour, #headingFive {
+  cursor: pointer;
+}
+.button_sec, .FullNameContainer {
+  margin-top: 15px;
+  border-radius: 25px;
+  height: 45px;
+}
+.user_icon_cnt {
+  width: 50px;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  float: left;
+}
+.user_input_cnt {
+  width: calc(100% - 50px);
+  height: 45px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 45px;
+}
+.ordersContainer {
+  height: 75px;
+}
+.ordersIconContainer {
+  width: 70px;
+  height: 75px;
+  float: left;
+  padding-left: 5px;
+  padding-top: 5px;
+  text-align: center;
+  line-height: 75px;
+}
+.ordersPicture {
+  width: 60px;
+  height: 60px;
+  background-color: #f5f5f5;
+  color: #898989;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 30px;
+}
+.ordersTitleContainer {
+  width: calc(100% - 75px);
+  height: 75px;
+  float: left;
+}
+.ordersPrice, .ordersTitle {
+  width: 100%;
+  height: 15px;
+  font-size: 13px;
+  float: left;
+}
+.ordersPrice {
+  line-height: 25px;
+}
+.ordersDate {
+  width: 100%;
+  height: 20px;
+  margin-top: 5px;
+  line-height: 20px;
+  float: left;
+  color: #333;
+  font-size: 11px;
+}
+.ordersTitle {
+  margin-top: 10px;
+}
+.accountformcontainer {
+  padding-bottom: 20px;
+  min-height: 460px;
+  height: auto;
+}
+.order_PageTitles {
+  width: 100%;
+  height: 30px;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+}
+.order_SectionTitles {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  line-height: 20px;
+}
+.order_cellHolder {
+  height: 60px;
+  position: relative;
+}
+.detail_image_sec {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+.detail_image {
+  width: 45px;
+  height: 45px;
+  border-radius: 22.5px;
+  margin-top: 7.5px;
+  background-color: #fff;
+  color: #bebebe;
+  float: left;
+  text-align: center;
+  line-height: 45px;
+  margin-left: 7.5px;
+}
+.order_optionColors, .order_productColors {
+  height: 20px;
+  line-height: 20px;
+  float: left;
+  width: calc(100% - 120px);
+}
+.order_productColors {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.order_optionColors {
+  font-size: 11px;
+}
+.order_priceColors {
+  width: 60px;
+  position: absolute;
+  right: 0;
+  height: 60px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 60px;
+}
+.order_priceDescriptor {
+  width: 80%;
+  padding-left: 10px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  float: left;
+}
+.order_priceColorssec {
+  width: 20%;
+  height: 30px;
+  text-align: right;
+  float: left;
+  font-size: 12px;
+  line-height: 30px;
+  padding-right: 10px;
+}
+.order_generalText {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #444;
+  text-align: left;
+}
+.order_SectionTitles {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  line-height: 20px;
+}
+.cell_sep {
+  display: inline-block;
+  width: 100%;
+}
+.usersettingsTitleContainer {
+  width: 100%;
+  height: 75px;
+  padding-left: 10px;
+  position: relative;
+  float: left;
+}
+.usersettingsTitle {
+  width: 100%;
+  height: 20px;
+  margin-top: 15px;
+  float: left;
+}
+.usersettingsTitle {
+  width: 100%;
+  height: 20px;
+  margin-top: 15px;
+  float: left;
+}
+.usersettingsSwitchContainer {
+  position: absolute;
+  right: 0;
+  height: 75px;
+  top: 0;
+  width: 100px;
+}
+.userswitchBackground {
+  width: 60px;
+  height: 33px;
+  border-radius: 18px;
+  top: 20px;
+  position: absolute;
+  left: calc(50% - 32.5px);
+}
+.userswitchCircle {
+  height: 31px;
+  width: 31px;
+  border-radius: 31px;
+  position: absolute;
+  z-index: 2;
+  top: 21px;
+  left: 18px;
+}
+.form_main_cont {
+  padding: 15px;
+}
+
+
+
+
+

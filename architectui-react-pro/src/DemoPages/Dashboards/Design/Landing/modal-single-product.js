@@ -404,7 +404,7 @@ class ModalSingleProduct extends React.Component  {
   ProductTitle = (item, index, e) => {
     if (index === 0) {
       const newLeftCellContents = [ ...this.state.leftcellContents ];
-      const cellItem: any = newLeftCellContents[index];
+      const cellItem = newLeftCellContents[index];
       // cellItem.title = e.target.value;
       cellItem.name = e.target.value;
       newLeftCellContents[index] = cellItem;
@@ -453,7 +453,7 @@ class ModalSingleProduct extends React.Component  {
       this.setState({ selectedprice: '' });
       this.setState({ DisplayCollectionValue: 'none' });
       this.setState({ selectedName: '' });
-      const newleftcellContents: any = [ ...this.state.leftcellContents ];
+      const newleftcellContents = [ ...this.state.leftcellContents ];
       let cellContentsItem = {};
       cellContentsItem = item2;
       newleftcellContents[index] = cellContentsItem;
@@ -465,7 +465,7 @@ class ModalSingleProduct extends React.Component  {
   setCollectionForProduct = (item2, index2, item, index) => {
     item2.DisplayCollectionValue = 'none';
     const newcellContents = [ ...this.state.cellContents ];
-    const cellContentsItem: any = {};
+    const cellContentsItem = {};
     cellContentsItem.CollectionDisplay = item.CollectionDisplay;
     cellContentsItem.ProductDisplay = item.ProductDisplay;
     cellContentsItem.ShowCollectionProduct = item.ShowCollectionProduct;
@@ -487,7 +487,7 @@ class ModalSingleProduct extends React.Component  {
     this.setState({ showProductDropdown });
 
     if (index === 0) {
-      const newleftcellContents: any = [ ...this.state.leftcellContents ];
+      const newleftcellContents = [ ...this.state.leftcellContents ];
       let cellContentsItem = {};
       cellContentsItem = item2;
       newleftcellContents[index] = cellContentsItem;
@@ -514,7 +514,7 @@ class ModalSingleProduct extends React.Component  {
 
   componentWillMount() {
     const newleftcellContents = [ ...this.state.leftcellContents ];
-    let cellContentsItem: any = {};
+    let cellContentsItem = {};
     if (this.state.selectedProductName) {
       const SelectedCollectionData = {
         title: this.state.prodCollectionname,

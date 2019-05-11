@@ -7,8 +7,6 @@ import HomeTopTabs from "./home-tabs";
 var API_ROOT = 'https://thesearchit.com';
 
 class SelectColorTheme extends React.Component  {
-  //homeTopTabsShowEditAlert: React.RefObject<{}>;
- // homeTopTabsShowEditAlert: any;
     constructor(props) {
         super(props);
         //this.homeTopTabsShowEditAlert = this.props.homeTopTabsShowEditAlert;
@@ -44,7 +42,6 @@ class SelectColorTheme extends React.Component  {
           openModal: false,
           allModalIds: {},
           isEdited: false,
-          DropDownGetIconheader: 'lnr-menu',
           showMyStoreTextBox: 'none',
           NavBarTitleText: 'MY STORE',
           showMyLabel: 'block',
@@ -61,14 +58,10 @@ class SelectColorTheme extends React.Component  {
           themName: '',
         }
         this.goto_tutorial = this.goto_tutorial.bind(this);
-        //this.homeTopTabsShowEditAlert = React.createRef();
-        //this.onSaveEditedItems = this.onSaveEditedItems.bind(this);
-      //  this.show_msg = this.show_msg.bind(this);
     };
       
   onThemeOptionSelection = (themName,colorcode) => {
     this.setState({showNextbtn: true});
-   // this.homeTopTabsShowEditAlert.current.showSaveButton();
     const landingTab = [];
     this.state.landingTabDraggedItems.map((item, index) => {
       const elementId = item.id;
@@ -131,7 +124,6 @@ class SelectColorTheme extends React.Component  {
       AccountValue: this.state.AccountValue,
       CartValue: this.state.CartValue,
       DragStoreDisplay: this.state.DragStoreDisplay,
-      DropDownGetIconheader: this.state.DropDownGetIconheader,
       SettingStoreHide: this.state.SettingStoreHide,
       LandingPreviewDisplay: this.state.LandingPreviewDisplay,
       LandingStyleDisplay: this.state.LandingStyleDisplay,

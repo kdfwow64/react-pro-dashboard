@@ -3,7 +3,7 @@
 import { Tooltip } from 'reactstrap';
 import * as React from "react";
 
-export default class RealTimeToolTip extends React.Component<any, any> {
+export default class RealTimeToolTip extends React.Component {
   render() {
     return (
       <span>
