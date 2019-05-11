@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Button, Card, Col, Modal, ModalBody, Row } from "reactstrap";
-import avatar3 from "../../../assets/utils/images/avatars/4.jpg";
-import avatar5 from "../../../assets/utils/images/avatars/5.jpg";
+import { Card, Col, Modal, ModalBody, Row } from "reactstrap";
 import bg1 from "../../../assets/utils/images/dropdown-header/abstract1.jpg";
 import bg2 from "../../../assets/utils/images/dropdown-header/city2.jpg";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
