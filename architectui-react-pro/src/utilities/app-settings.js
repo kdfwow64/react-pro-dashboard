@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { submit } from 'redux-form';
-import { FAILURE, REQUEST, SUCCESS } from './action-type.util.ts';
+import { FAILURE, REQUEST, SUCCESS } from './action-type.util.js';
 var API_ROOT = 'https://thesearchit.com';
 
 export const ACTION_TYPES = {
