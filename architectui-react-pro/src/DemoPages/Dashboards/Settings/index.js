@@ -89,9 +89,9 @@ export const renderSelectField = ({
   //   />
 );
 
-class SettingsDashboard extends React.Component<any, any> {
-  ref: any;
-  form: HTMLFormElement;
+class SettingsDashboard extends React.Component {
+  /*ref: any;
+  form: HTMLFormElement;*/
 
   constructor(props) {
     super(props);

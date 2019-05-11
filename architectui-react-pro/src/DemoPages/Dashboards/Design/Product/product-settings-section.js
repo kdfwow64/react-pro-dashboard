@@ -475,7 +475,7 @@ class ProductSettingsSection extends React.Component {
   };
   popover = {
     position: 'absolute',
-    zIndex: 10000
+    zIndex: 99999,
   };
 
   DropDownGetIcon = e => {
@@ -538,7 +538,7 @@ class ProductSettingsSection extends React.Component {
     });
 
     return (
-      <div id="accordion" className="accordion-wrapper mb-3 TopPosition">
+      <div id="accordion" className="accordion-wrapper mb-3">
       <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Product Settings </h3> </CardHeader>
 
         <Card>
@@ -550,8 +550,7 @@ class ProductSettingsSection extends React.Component {
               PRODUCT IMAGES
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion"
-              id="exampleAccordion1" className="proPaddBtm">
+          <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion" id="exampleAccordion1" className="proPaddBtm">
             <div
               className="ProductSilderActiveColor"
               style={{ position: 'relative' }}
@@ -932,7 +931,7 @@ class ProductSettingsSection extends React.Component {
               onClick={() => this.toggleAccordion(3)}
               aria-expanded={this.state.accordion[3]}
               aria-controls="exampleAccordion4">
-              Toggle item
+              DESCRIPTION
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[3]} data-parent="#accordion"
@@ -1097,7 +1096,7 @@ class ProductSettingsSection extends React.Component {
               onClick={() => this.toggleAccordion(4)}
               aria-expanded={this.state.accordion[4]}
               aria-controls="exampleAccordion5">
-              Toggle item
+              ADD TO CART
             </Button>
           </CardHeader>
           <Collapse isOpen={this.state.accordion[4]} data-parent="#accordion"
@@ -1220,6 +1219,7 @@ class ProductSettingsSection extends React.Component {
               </div>
             </Collapse>
         </Card>
+    
       </div>
     );
   }

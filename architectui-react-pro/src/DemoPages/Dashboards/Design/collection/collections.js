@@ -330,8 +330,9 @@ class Collections extends React.Component {
         transitionAppearTimeout={0}
         transitionEnter={false}
         transitionLeave={false}>
+        {this.state.isLoaded &&
         <Row>
-            <Col md={4}
+          <Col md={4}
             id="CollectionMainContainer"
             style={{ border: '1px solid #efefef' }}
           >
@@ -433,6 +434,10 @@ class Collections extends React.Component {
           </div>
           </Col>
         </Row>
+        }
+        {!this.state.isLoaded &&
+          <Loader color="#0e7c95" type="ball-scale-multiple"/>
+        }
         <ThemeOptions selectTheme={this.onThemeOptionSelection}
           ref={this.homeTopTabsShowEditAlert}
           onSaveEditedItems={this.onSaveEditedItems} />

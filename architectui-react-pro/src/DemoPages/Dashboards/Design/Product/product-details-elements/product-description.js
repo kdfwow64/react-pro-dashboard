@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-class ProductDescription extends React.Component<any, any> {
+class ProductDescription extends React.Component  {
 
     render() {
 

@@ -5,7 +5,7 @@ import { ChromePicker } from 'react-color';
 import SearchListView from './SearchListView';
 // import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../Mobile/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
-class SearchRightSection extends React.Component<any, any> {
+class SearchRightSection extends React.Component  {
 
   navtitlecolor = null;
   naviconcolor = null;
@@ -40,7 +40,6 @@ class SearchRightSection extends React.Component<any, any> {
       navbgcolor: this.props.navbgcolor || '#2ecc71',
       navtitlecolor: this.props.navtitlecolor || '#ffffff',
       naviconcolor: this.props.naviconcolor || '#ffffff',
-      DropDownGetIconheader: this.props.DropDownGetIconheader || 'lnr-menu',
        NavTitleValue: this.props.NavTitleValue,
       //NavTitle: 'Text',
       navicondisplayColorPicker: false,
@@ -51,24 +50,9 @@ class SearchRightSection extends React.Component<any, any> {
   }
 
   ApplyNavSettings = () => {
-    /*const CollectionSettings = {
-      DropDownGetIconheader: this.state.DropDownGetIconheader,
-      naviconcolor: this.state.naviconcolor,
-      navtitlecolor: this.state.navtitlecolor,
-      navbgcolor: this.state.navbgcolor,
-     // NavTitle: this.state.NavTitle,
-      NavTitleValue: this.state.NavTitleValue
-    };*/
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
     this.props.DisplaySaveBtn();
-   /* console.log("apply setting::");
-    console.log(CollectionSettings);*/
-  }
-
-  DropDownGetIconSearchNavCallback = icon => {
-    this.setState({ DropDownGetIconheader: icon });
-    this.props.DropDownGetIconheaderCall(icon);
   }
 
   navtitlehandleChange(navtitlecolor) {
@@ -155,12 +139,6 @@ class SearchRightSection extends React.Component<any, any> {
               id="CollectionEffectNavBarContainer"
               style={{ backgroundColor: this.props.navbgcolor || '#0E7C95' }}
             >
-              <div
-                id="CollectionEffectnavBars"
-                style={{ color: this.props.naviconcolor || '#fff' }}
-              >
-                <i className='lnr-menu' />
-              </div>
               <div
                 id="CollectionEffectMyStoreTitle"
                 style={{ color: this.props.navtitlecolor || '#fff' }}
@@ -253,20 +231,6 @@ class SearchRightSection extends React.Component<any, any> {
                       ) : null}
                     </div>
                   </div>
-                  {/* <div className="CollectionMainEditIcon">
-                    <div className="col-sm-12 CollectionSettingIcon">
-                      <label>NAV BAR ICON (Will be applied globally)</label>
-                    </div>
-                    <div className="col-sm-12 CollectionMainEditBGIconView">
-                      <IconList
-                        DropDownGetIconSearchNavCallback={
-                          this.DropDownGetIconSearchNavCallback
-                        }
-                        IconClassName={this.props.DropDownGetIconheader}
-                      />
-                    </div>
-                  </div> */}
-
                   <div className="CollectionMainEditIconColor">
                     <div className="col-sm-12 CollectionSettingEditIconColor">
                       <label>NAV BAR ICON COLOR </label>

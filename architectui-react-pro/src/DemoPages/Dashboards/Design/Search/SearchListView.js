@@ -2,7 +2,7 @@
 import * as React from 'react';
 import SearchRightSection from './SearchRightSection';
 
-class SearchListView extends React.Component<any, any> {
+class SearchListView extends React.Component  {
     constructor(props) {
         super(props);
     }

@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-class ProductExternalLink extends React.Component<any, any> {
+class ProductExternalLink extends React.Component  {
 
     render() {
 

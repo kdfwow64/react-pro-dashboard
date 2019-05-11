@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-class ProductPicture extends React.Component<any, any> {
+class ProductPicture extends React.Component  {
   constructor(props) {
     super(props);
   }

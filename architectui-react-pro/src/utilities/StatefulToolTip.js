@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Tooltip } from 'reactstrap';
 
-export default class StatefulToolTip extends React.Component<any, any> {
+export default class StatefulToolTip extends React.Component {
 
 
     constructor(props) {
