@@ -7,6 +7,7 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { connect } from "react-redux";
 import { Field, formValueSelector, reduxForm } from "redux-form";
 // import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
+import { getAppSettings } from '../../../utilities/app-settings';
 // import { onChangeSubmit } from '../../../../shared/util/save-form-util';
 import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
 import StatefulToolTip from "../../../utilities/StatefulToolTip";
@@ -102,7 +103,7 @@ class SettingsDashboard extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.getAppSettings();
+    this.props.getAppSettings();
     // sendSlackMessage('App Settings page loaded');
   }
 
@@ -573,17 +574,17 @@ class SettingsDashboard extends React.Component {
 
 const selector = formValueSelector("appSettings"); // <-- same as form name
 const mapStateToProps = storeState => ({
-  //   initialValues: storeState.appSettings.appSettings,
-  //   snackbarOpen: storeState.appSettings.saved,
-  //   loading: storeState.appSettings.loading,
-  //   hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
-  //   androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
+    // initialValues: storeState.appSettings.appSettings,
+    // snackbarOpen: storeState.appSettings.saved,
+    // loading: storeState.appSettings.loading,
+    // hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
+    // androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
 });
 
 const mapDispatchToProps = {
-  //   getAppSettings,
-  //   saveAppSettings,
-  //   saveForm
+    getAppSettings,
+    // saveAppSettings,
+    // saveForm
 };
 
 const appSettingsForm = reduxForm({
