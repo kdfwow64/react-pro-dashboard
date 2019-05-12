@@ -262,38 +262,42 @@ export default class Integrations extends React.Component {
                   <p>You'll need to get your Intercom app ID and API key.</p>
                 </Col>
                 <Col md={6}>
-                  <Input
-                    label="Intercom App Id"
-                    value={this.state.appIntegrations.intercomAppId}
-                    onChange={value => {
-                      var appIntegrations = this.state.appIntegrations;
-                      appIntegrations.intercomAppId = value;
-                      this.setState({ appIntegrations });
-                      this.saveIntercom();
-                    }}
-                  />
-
-                  <Input
-                    label="Intercom API Key iOS"
-                    value={this.state.appIntegrations.intercomAPIKeyiOS}
-                    onChange={value => {
-                      var appIntegrations = this.state.appIntegrations;
-                      appIntegrations.intercomAPIKeyiOS = value;
-                      this.setState({ appIntegrations });
-                      this.saveIntercom();
-                    }}
-                  />
-
-                  <Input
-                    label="Intercom API Key Android"
-                    value={this.state.appIntegrations.intercomAPIKeyAndroid}
-                    onChange={value => {
-                      var appIntegrations = this.state.appIntegrations;
-                      appIntegrations.intercomAPIKeyAndroid = value;
-                      this.setState({ appIntegrations });
-                      this.saveIntercom();
-                    }}
-                  />
+                  <div style={{ paddingBottom: "20px" }}>
+                    <Input
+                      label="Intercom App Id"
+                      value={this.state.appIntegrations.intercomAppId}
+                      onChange={value => {
+                        var appIntegrations = this.state.appIntegrations;
+                        appIntegrations.intercomAppId = value;
+                        this.setState({ appIntegrations });
+                        this.saveIntercom();
+                      }}
+                    />
+                  </div>
+                  <div style={{ paddingBottom: "20px" }}>
+                    <Input
+                      label="Intercom API Key iOS"
+                      value={this.state.appIntegrations.intercomAPIKeyiOS}
+                      onChange={value => {
+                        var appIntegrations = this.state.appIntegrations;
+                        appIntegrations.intercomAPIKeyiOS = value;
+                        this.setState({ appIntegrations });
+                        this.saveIntercom();
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      label="Intercom API Key Android"
+                      value={this.state.appIntegrations.intercomAPIKeyAndroid}
+                      onChange={value => {
+                        var appIntegrations = this.state.appIntegrations;
+                        appIntegrations.intercomAPIKeyAndroid = value;
+                        this.setState({ appIntegrations });
+                        this.saveIntercom();
+                      }}
+                    />
+                  </div>
                 </Col>
               </Row>
             </CardBody>
