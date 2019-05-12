@@ -76,10 +76,10 @@ export default class WizardStep3 extends React.Component {
         return (
             <Fragment>
                 <div className="form-wizard-content">
-                    <div id="accordion" className="accordion-wrapper mb-3">
-                        <Card>
-                            <CardHeader id="headingOne">
-                                <Button block color="link" className="text-left m-0 p-0"
+                    {/* <div id="accordion" className="accordion-wrapper mb-3"> */}
+                        {/* <Card>
+                            <CardHeader id="headingOne"> */}
+                                {/* <Button block color="link" className="text-left m-0 p-0"
                                         onClick={() => this.toggleAccordion(0)}
                                         aria-expanded={this.state.accordion[0]}
                                         aria-controls="collapseOne">
@@ -88,10 +88,9 @@ export default class WizardStep3 extends React.Component {
                                         <p>Enter your user informations below</p>
                                     </h3>
                                 </Button>
-                            </CardHeader>
-                            <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion"
-                                      id="collapseOne" aria-labelledby="headingOne">
-                                <CardBody>
+                            </CardHeader> */}
+                            
+                                {/* <CardBody> */}
                                     <Row form>
                                         <Col md={6}>
                                             <FormGroup>
@@ -138,10 +137,9 @@ export default class WizardStep3 extends React.Component {
                                             </FormGroup>
                                         </Col>
                                     </Row>
-                                </CardBody>
-                            </Collapse>
-                        </Card>
-                        <Card>
+                                {/* </CardBody>
+                        </Card> */}
+                        {/* <Card>
                             <CardHeader className="b-radius-0" id="headingTwo">
                                 <Button block color="link" className="text-left m-0 p-0"
                                         onClick={() => this.toggleAccordion(1)}
@@ -249,8 +247,8 @@ export default class WizardStep3 extends React.Component {
                                     </FormGroup>
                                 </CardBody>
                             </Collapse>
-                        </Card>
-                    </div>
+                        </Card> */}
+                    {/* </div> */}
                 </div>
             </Fragment>
         );

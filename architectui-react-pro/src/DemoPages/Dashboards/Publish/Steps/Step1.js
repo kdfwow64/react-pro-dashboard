@@ -22,11 +22,11 @@ export default class WizardStep1 extends React.Component {
                         </Col> */}
                     {/* </Row> */}
                     <FormGroup>
-                        <Label for="exampleAddress">Address</Label>
+                        <Label for="exampleAddress">Short description of the app</Label>
                         <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleAddress2">Address 2</Label>
+                        <Label for="exampleAddress2">Long description of the app</Label>
                         <Input type="text" name="address2" id="exampleAddress2"
                                placeholder="Apartment, studio, or floor"/>
                     </FormGroup>
