@@ -148,9 +148,9 @@ export default class PushNotifications extends React.Component {
           transitionLeave={false}
         >
           <PageTitle
-            heading="Integrations"
-            subheading="Wide range of integrations in multiple categories."
-            icon="pe-7s-plugin icon-gradient bg-amy-crisp"
+            heading="Push Notifications"
+            subheading="Engage your customers with push notifications."
+            icon="pe-7s-speaker icon-gradient bg-amy-crisp"
           />
           <Container fluid>
             <Row>
