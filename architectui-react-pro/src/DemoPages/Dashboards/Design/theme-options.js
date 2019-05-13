@@ -112,7 +112,7 @@ class ThemeOptions extends React.Component {
     });
   }
   savedHoverTooltip = () => {
-    toast["success"]("Your changes are already Saved!");
+    // toast["success"]("Your changes are already Saved!");
   };
 
   render() {
