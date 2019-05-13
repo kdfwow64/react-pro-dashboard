@@ -228,6 +228,13 @@ class ModalBrowseProductCollections extends React.Component  {
         });
     }
   }
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -425,7 +432,7 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onIconColorClick}
-                      onBlur={this.onIconColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -440,6 +447,7 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayIconColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onIconColorClose }/>
                         <ChromePicker
                           color={this.state.iconColor}
                           onChange={this.onIconColorClickComplete}
@@ -480,7 +488,7 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onTitleColorClick}
-                      onBlur={this.onTitleColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -495,6 +503,7 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayTitleColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onTitleColorClose }/>
                         <ChromePicker
                           color={this.state.titleColor}
                           onChange={this.onTitleColorClickComplete}
@@ -516,7 +525,7 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onFooterBGColorClick}
-                      onBlur={this.onFooterBGColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -531,6 +540,7 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayFooterBGColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onFooterBGColorClose }/>
                         <ChromePicker
                           color={this.state.footerBGColor}
                           onChange={this.onFooterBGColorClickComplete}
@@ -552,7 +562,7 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onImageSpacingColorClick}
-                      onBlur={this.onImageSpacingColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -567,6 +577,7 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayImageSpacingColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onImageSpacingColorClose }/>
                         <ChromePicker
                           color={this.state.imageSpacingColor}
                           onChange={this.onImageSpacingColorClickComplete}

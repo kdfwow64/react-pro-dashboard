@@ -251,8 +251,9 @@ input.search_input {
   overflow: hidden;
 }
 .HoverEffectDragDrop:hover{
-  cursor: move !important;
-  border: 2px dashed #6039bd;
+  /*cursor: move !important;
+  border: 2px dashed #6039bd;*/
+
 }
 #ThirdDropContainer {
   height: 250px;
@@ -399,6 +400,7 @@ input.search_input {
   overflow: hidden;
   margin-top: 5px;
   text-align: center;
+  width: 115px;
 }
 .FifthDropGridPrice {
   width: 100%;
@@ -1318,9 +1320,9 @@ input.search_input {
   z-index: 9999;
   border: 1px solid;
   color: #b9b9b9;
-  margin-top: 3px;
   position: absolute;
   width: 100%;
+  height: auto;
 }
 .buildStoreContainer:hover .BuildCollectionsTitleHint{
   display: none;
@@ -3086,6 +3088,7 @@ position: absolute !important;
   background-color: #fff;
   border: 1px solid #ccc;
   height: 200px;
+  overflow: auto;
 }
 .homeTopNav li.save_main {
   margin-right: 0px !important;
@@ -3326,8 +3329,11 @@ position: absolute !important;
 .fixed-footer .app-main .app-main__outer {
   padding-bottom: 0 !important;
 }
+
+
 #searchBarContainer {
   box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03), 0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03), 0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05), 0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
+  transition: all 0.3s cubic-bezier(0.51, 0.4, 0.52, 0.41);
 }
 #mbl_bg_rit{
   max-width: 380px;
@@ -3362,8 +3368,9 @@ position: absolute !important;
   height: 100%;
   background-color: #111111;
   opacity: 0.7;
-  cursor: move;
-  outline: 2px dashed #6039bd;
+  /*cursor: move;
+  outline: 2px dashed #6039bd;*/
+  cursor: grab;
 }
 
 .editIcon {
@@ -3418,13 +3425,22 @@ position: absolute !important;
   padding-bottom: 0px;
 }
 .draggableContainer .hoverEffectContainer {
-  height: 0;
+  cursor: grab;
+    -moz-transition: -moz-transform 0.2s, box-shadow 0.2s;
+    -o-transition: -o-transform 0.2s, box-shadow 0.2s;
+    -webkit-transition: -webkit-transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .droppableContainer .hoverEffectContainer {
   height: 100%;
   display: table;
   width: 100%;
+  cursor: grab;
+  -moz-transition: -moz-transform 0.2s, box-shadow 0.2s;
+  -o-transition: -o-transform 0.2s, box-shadow 0.2s;
+  -webkit-transition: -webkit-transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .draggableContainer .hoverContainerForEditIcon:hover  .hoverEffectContainer {
@@ -3436,8 +3452,15 @@ position: absolute !important;
   left: 0px;
   top: 0px;
   opacity: 0.7;
-  outline: 2px dashed #6039bd;
-  cursor: move;
+  /*outline: 2px dashed #6039bd;
+  cursor: move;*/
+  moz-transform: scale(1.03, 1.03);
+    -ms-transform: scale(1.03, 1.03);
+    -webkit-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03);
+    -moz-box-shadow: #0e7c95 0 1px 3px;
+    -webkit-box-shadow: #0e7c95 0 1px 3px;
+    box-shadow: #0e7c95 1px 0px 6px 1px;
 }
 
 .onDragRemove {
@@ -3512,6 +3535,14 @@ position: absolute !important;
   animation: slide 0.5s forwards;
   animation-delay: 2s;
   transition: 1s;*/
+  
+  moz-transform: scale(1.03, 1.03);
+  -ms-transform: scale(1.03, 1.03);
+  -webkit-transform: scale(1.03, 1.03);
+  transform: scale(1.03, 1.03);
+  -moz-box-shadow: #0e7c95 0 1px 3px;
+  -webkit-box-shadow: #0e7c95 0 1px 3px;
+  box-shadow: #0e7c95 1px 0px 6px 1px;
 }
 
 .droppableContainer .hoverContainerForEditIcon:hover .onDragRemove {

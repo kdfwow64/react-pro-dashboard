@@ -492,6 +492,13 @@ class Orderdetailoption extends React.Component  {
     displayoptiondetailcellbgColor: false,
     displayoptiondetailcellsepColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -511,7 +518,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailBgColorClick}
-                    onBlur={this.onorderdetailBgColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -527,6 +534,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailBGcolor ? (
                     <div style={styles.popover}>
+                     <div style={ this.cover } onClick={ this.onorderdetailBgColorClose }/>                      
                       <ChromePicker
                         color={this.props.orderdetailBgColor}
                         onChange={this.onorderdetailBgColorChangeComplete}
@@ -548,7 +556,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailnumberColorClick}
-                    onBlur={this.onorderdetailnumberColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -564,6 +572,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayorderdetailnumberColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onorderdetailnumberColorClose }/>
                       <ChromePicker
                         color={this.props.orderdetailnumberColor}
                         onChange={this.onorderdetailnumberColorChangeComplete}
@@ -585,7 +594,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onheadertitleBGColorClick}
-                    onBlur={this.onheadertitleBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -601,6 +610,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayheadertitlecolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onheadertitleBGColorClose }/>
                       <ChromePicker
                         color={this.props.headertitleBGColor}
                         onChange={this.onheadertitleBGColorChangeComplete}
@@ -622,7 +632,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailheaderbgColorClick}
-                    onBlur={this.onorderdetailheaderbgColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -638,6 +648,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayheaderbgcolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onorderdetailheaderbgColorClose }/>
                       <ChromePicker
                         color={this.props.orderdetailheaderbgColor}
                         onChange={this.onorderdetailheaderbgColorChangeComplete}
@@ -659,7 +670,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptionaddresstextColorClick}
-                    onBlur={this.onoptionaddresstextColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -675,6 +686,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptioaddresscolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptionaddresstextColorClose }/>
                       <ChromePicker
                         color={this.props.optionaddresstextColor}
                         onChange={this.onoptionaddresstextColorChangeComplete}
@@ -694,7 +706,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailpriceColorClick}
-                    onBlur={this.onoptiondetailpriceColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -710,6 +722,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptionpricecolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondetailpriceColorClose }/>
                       <ChromePicker
                         color={this.props.optiondetailpriceColor}
                         onChange={this.onoptiondetailpriceColorChangeComplete}
@@ -729,7 +742,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailsproductColorClick}
-                    onBlur={this.onoptiondetailsproductColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -745,6 +758,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailprocolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondetailsproductColorClose }/>
                       <ChromePicker
                         color={this.props.optiondetailsproductColor}
                         onChange={
@@ -766,7 +780,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailsopColorClick}
-                    onBlur={this.onoptiondetailsopColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -782,6 +796,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displaydetailsoption ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondetailsopColorClose }/>
                       <ChromePicker
                         color={this.props.optiondetailsopColor}
                         onChange={this.onoptiondetailsopColorChangeComplete}
@@ -803,7 +818,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onopriondetaildescColorClick}
-                    onBlur={this.onopriondetaildescColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -819,6 +834,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displaypricedesccolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onopriondetaildescColorClose }/>
                       <ChromePicker
                         color={this.props.opriondetaildescColor}
                         onChange={this.onopriondetaildescChangeComplete}
@@ -840,7 +856,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailcellbgColorClick}
-                    onBlur={this.onoptiondetailcellbgColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -856,6 +872,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailcellbgColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondetailcellbgColorClose }/>
                       <ChromePicker
                         color={this.props.optiondetailscellbgColor}
                         onChange={this.onoptiondetailcellbgColorChangeComplete}
@@ -877,7 +894,7 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailcellsepColorClick}
-                    onBlur={this.onoptiondetailcellsepColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -893,6 +910,7 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailcellsepColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondetailcellsepColorClose}/>
                       <ChromePicker
                         color={this.props.optiondetailcellsepColor}
                         onChange={this.onoptiondetailcellsepColorChangeComplete}

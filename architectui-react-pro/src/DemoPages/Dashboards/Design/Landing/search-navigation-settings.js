@@ -152,7 +152,13 @@ class SearchNavigationSettings extends React.Component  {
     position: 'absolute',
     zIndex: 10000
   };
-
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
   DropDownGetIconLandingNavCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.CollectionBarIcon(icon);
@@ -206,7 +212,7 @@ class SearchNavigationSettings extends React.Component  {
                 className="textColorCode"
                 onChange={this.onNavbarBackgroundColorChange}
                 onClick={this.handleNavbarBackgroundColorClick}
-                onBlur={this.handlePickerClose}
+                
               />
               <div style={this.swatch}>
                 <div
@@ -221,6 +227,7 @@ class SearchNavigationSettings extends React.Component  {
               </div>
               {this.state.displayColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.handlePickerClose }/>
                   <ChromePicker
                     color={this.props.navbarBackgroundColorValue}
                     onChange={this.handleNavbarColorChangeComplete}
@@ -230,7 +237,7 @@ class SearchNavigationSettings extends React.Component  {
             </div>
           </div>
 
-          <div className="CollectionMainEditIconColor">
+          {/*<div className="CollectionMainEditIconColor">
             <div className="col-sm-12 CollectionSettingEditIconColor">
               <label>NAV BAR ICON COLOR</label>
             </div>
@@ -242,7 +249,7 @@ class SearchNavigationSettings extends React.Component  {
                 className="textColorCode"
                 onChange={this.onNavbgiconcolorValueChange}
                 onClick={this.handleNavbarIconColorClick}
-                onBlur={this.handleIconColorPickerClose}
+                
               />
               <div style={this.swatch}>
                 <div
@@ -257,6 +264,7 @@ class SearchNavigationSettings extends React.Component  {
               </div>
               {this.state.displayIconColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.handleIconColorPickerClose }/>
                   <ChromePicker
                     color={this.props.navbgiconcolorValue}
                     onChange={this.handleNavbarIconColorChangeComplete}
@@ -264,7 +272,7 @@ class SearchNavigationSettings extends React.Component  {
                 </div>
               ) : null}
             </div>
-          </div>
+          </div>*/}
 
           <div
             className="CollectionMainEditIconColor"
@@ -283,7 +291,7 @@ class SearchNavigationSettings extends React.Component  {
                 className="textColorCode"
                 onChange={this.onNavbartitleValueChange}
                 onClick={this.handleNavbarTitleColorClick}
-                onBlur={this.handleTitleColorPickerClose}
+                
               />
               <div style={this.swatch}>
                 <div
@@ -298,6 +306,7 @@ class SearchNavigationSettings extends React.Component  {
               </div>
               {this.state.displayTitleColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.handleTitleColorPickerClose }/>
                   <ChromePicker
                     color={this.props.navbartitleValue}
                     onChange={this.handleNavbarTitleColorChangeComplete}

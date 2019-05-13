@@ -338,6 +338,14 @@ class CreateAccountOptions extends React.Component  {
     displayGeneralTextColor: false,
     displayTextLinkColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
+
   render() {
     return (
       <div id="SearchNavigationSettings" className="SearchNavigationSettings">
@@ -356,7 +364,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onBGColorClick}
-                    onBlur={this.onBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -372,6 +380,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
+                     <div style={ this.cover } onClick={ this.onBGColorClose }/>                      
                       <ChromePicker
                         color={this.props.UserAccountBGColor}
                         onChange={this.onBGColorChangeComplete}
@@ -393,7 +402,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputBGColorClick}
-                    onBlur={this.onInputBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -409,6 +418,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onInputBGColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountinputBGColor}
                         onChange={this.onInputBGColorChangeComplete}
@@ -430,7 +440,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputIconColorClick}
-                    onBlur={this.onInputIconColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -446,6 +456,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputIconColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onInputIconColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountinputIconColor}
                         onChange={this.onInputIconColorChangeComplete}
@@ -467,7 +478,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputTitleColorClick}
-                    onBlur={this.onInputTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -483,6 +494,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onInputTitleColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountinputTitleColor}
                         onChange={this.onInputTitleColorChangeComplete}
@@ -502,7 +514,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onButtonColorClick}
-                    onBlur={this.onButtonColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -518,6 +530,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onButtonColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountbuttonColor}
                         onChange={this.onButtonColorChangeComplete}
@@ -539,7 +552,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onButtonTitleColorClick}
-                    onBlur={this.onButtonTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -555,6 +568,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onButtonTitleColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountbuttonTitleColor}
                         onChange={this.onButtonTitleColorChangeComplete}
@@ -574,7 +588,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onGeneralTextColorClick}
-                    onBlur={this.onGeneralTextColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -590,6 +604,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onGeneralTextColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccountgeneralTextColor}
                         onChange={this.onGeneralTextColorChangeComplete}
@@ -609,7 +624,7 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onTextLinkColorClick}
-                    onBlur={this.onTextLinkColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -625,6 +640,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onTextLinkColorClose }/>
                       <ChromePicker
                         color={this.props.UserAccounttextLinkColor}
                         onChange={this.onTextLinkColorChangeComplete}

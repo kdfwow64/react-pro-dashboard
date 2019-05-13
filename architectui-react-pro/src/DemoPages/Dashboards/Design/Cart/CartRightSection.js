@@ -123,6 +123,13 @@ class CartRightSection extends React.Component {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
   }
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -212,7 +219,7 @@ class CartRightSection extends React.Component {
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navbghandleClick}
-                          onBlur={this.navbghandleClose}
+                          
                         />
                         <div style={this.swatch}>
                           <div
@@ -227,6 +234,7 @@ class CartRightSection extends React.Component {
                         </div>
                         {this.state.navbgdisplayColorPicker ? (
                           <div style={this.popover}>
+                            <div style={ this.cover } onClick={ this.navbghandleClose }/>
                             <ChromePicker
                               color={this.props.navbgcolorValue || '#0E7C95'}
                               onChange={this.navbghandleChange}
@@ -236,7 +244,7 @@ class CartRightSection extends React.Component {
                       </div>
                     </div>
 
-                    <div className="CollectionMainEditIconColor">
+                   {/*} <div className="CollectionMainEditIconColor">
                       <div className="col-sm-12 CollectionSettingEditIconColor">
                         <label>NAV BAR ICON COLOR</label>
                       </div>
@@ -248,7 +256,7 @@ class CartRightSection extends React.Component {
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.naviconhandleClick}
-                          onBlur={this.naviconhandleClose}
+                          
                         />
                         <div style={this.swatch}>
                           <div
@@ -263,6 +271,7 @@ class CartRightSection extends React.Component {
                         </div>
                         {this.state.navicondisplayColorPicker ? (
                           <div style={this.popover}>
+                            <div style={ this.cover } onClick={ this.naviconhandleClose }/>
                             <ChromePicker
                               color={this.props.naviconcolorValue || '#fff'}
                               onChange={this.naviconhandleChange}
@@ -270,7 +279,7 @@ class CartRightSection extends React.Component {
                           </div>
                         ) : null}
                       </div>
-                    </div>
+                    </div>*/}
 
                     <div
                       className="CollectionMainEditIconColor"
@@ -290,7 +299,7 @@ class CartRightSection extends React.Component {
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navtitlehandleClick}
-                          onBlur={this.navtitlehandleClose}
+                          
                         />
                         <div style={this.swatch}>
                           <div
@@ -305,6 +314,7 @@ class CartRightSection extends React.Component {
                         </div>
                         {this.state.navtitledisplayColorPicker ? (
                           <div style={this.popover}>
+                            <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
                             <ChromePicker
                               color={this.props.navtitlecolorValue || '#fff'}
                               onChange={this.navtitlehandleChange}

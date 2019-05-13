@@ -276,7 +276,14 @@ class CreatecontactOptions extends React.Component  {
     displayButtonColor: false,
     displayButtonTitleColor: false
   };
-
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
+  
   render() {
     return (
       <div id="SearchNavigationSettings" className="SearchNavigationSettings">
@@ -295,7 +302,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactBGColorClick}
-                    onBlur={this.oncontactBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -311,6 +318,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactBGColorClose }/>
                       <ChromePicker
                         color={this.props.contactBGColor}
                         onChange={this.oncontactBGColorChangeComplete}
@@ -332,7 +340,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactInputBGColorClick}
-                    onBlur={this.oncontactInputBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -348,6 +356,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactInputBGColorClose }/>
                       <ChromePicker
                         color={this.props.contactinputBGColor}
                         onChange={this.oncontactInputBGColorChangeComplete}
@@ -369,7 +378,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactInputIconColorClick}
-                    onBlur={this.oncontactInputIconColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -385,6 +394,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayInputIconColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactInputIconColorClose }/>
                       <ChromePicker
                         color={this.props.contactinputIconColor}
                         onChange={this.oncontactInputIconColorChangeComplete}
@@ -406,7 +416,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactInputTitleColorClick}
-                    onBlur={this.oncontactInputTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -422,6 +432,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactInputTitleColorClose }/>
                       <ChromePicker
                         color={this.props.contactinputTitleColor}
                         onChange={this.oncontactInputTitleColorChangeComplete}
@@ -441,7 +452,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactButtonColorClick}
-                    onBlur={this.oncontactButtonColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -457,6 +468,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactButtonColorClose }/>
                       <ChromePicker
                         color={this.props.contactbuttonColor}
                         onChange={this.oncontactButtonColorChangeComplete}
@@ -478,7 +490,7 @@ class CreatecontactOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncontactButtonTitleColorClick}
-                    onBlur={this.oncontactButtonTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -494,6 +506,7 @@ class CreatecontactOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncontactButtonTitleColorClose }/>
                       <ChromePicker
                         color={this.props.contactbuttonTitleColor}
                         onChange={this.oncontactButtonTitleColorChangeComplete}

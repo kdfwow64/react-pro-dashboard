@@ -538,6 +538,13 @@ class ModalSingleProduct extends React.Component  {
         this.setState({ CollectionsProductsData: res.data });
       });
   }
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     const { value } = this.state;
@@ -980,7 +987,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onTitleColorClick}
-                        onBlur={this.onTitleColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -994,7 +1001,8 @@ class ModalSingleProduct extends React.Component  {
                         />
                       </div>
                       {this.state.displayTitleColor ? (
-                        <div style={this.popover}>
+                        <div style={this.popover}>                          
+                          <div style={ this.cover } onClick={ this.onTitleColorClose }/>
                           <ChromePicker
                             color={this.state.titleColor}
                             onChange={this.onTitleColorClickComplete}
@@ -1015,7 +1023,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPriceColorClick}
-                        onBlur={this.onPriceColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1030,6 +1038,7 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPriceColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onPriceColorClose }/>
                           <ChromePicker
                             color={this.state.priceColor}
                             onChange={this.onPriceColorClickComplete}
@@ -1050,7 +1059,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onProductBorderColorClick}
-                        onBlur={this.onProductBorderColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1065,6 +1074,7 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayProductBorderColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onProductBorderColorClose }/>
                           <ChromePicker
                             color={this.state.productBorderColor}
                             onChange={this.onProductBorderColorClickComplete}
@@ -1085,7 +1095,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onCellBGColorClick}
-                        onBlur={this.onCellBGColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1100,6 +1110,7 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayCellBGColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onCellBGColorClose }/>
                           <ChromePicker
                             color={this.state.cellBGColor}
                             onChange={this.onCellBGColorClickComplete}
@@ -1120,7 +1131,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPageCircleActiveColorClick}
-                        onBlur={this.onPageCircleActiveColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1135,6 +1146,7 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPageCircleActiveColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onPageCircleActiveColorClose }/>
                           <ChromePicker
                             color={this.state.pageCircleActiveColor}
                             onChange={this.onPageCircleActiveColorClickComplete}
@@ -1155,7 +1167,7 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPageCircleInactiveColorClick}
-                        onBlur={this.onPageCircleInactiveColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1170,6 +1182,7 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPageCircleInactiveColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onPageCircleInactiveColorClose }/>
                           <ChromePicker
                             color={this.state.pageCircleInactiveColor}
                             onChange={

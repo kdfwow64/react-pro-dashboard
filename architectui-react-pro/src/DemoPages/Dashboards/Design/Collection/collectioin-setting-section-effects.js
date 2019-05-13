@@ -14,7 +14,7 @@ const ProductsCollections = {
     {
       id: '111',
       name: 'Default',
-      image:'https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg',
+      image: 'https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg',
       products: [
         {
           id: '234',
@@ -71,31 +71,31 @@ const ProductsCollections = {
           id: '2343',
           name: 'Title 2',
           title: 'Title 3',
-          imageUrl:'',
+          imageUrl: '',
         },
         {
           id: '2324',
           name: 'Title 3',
           title: 'Title 4',
-          imageUrl:'',
+          imageUrl: '',
         },
         {
           id: '23334',
           name: 'Title 3',
           title: 'Title 5',
-          imageUrl:'',
+          imageUrl: '',
         },
         {
           id: '244434',
           name: 'Title 4',
           title: 'Title 6',
-          imageUrl:'',
+          imageUrl: '',
         },
         {
           id: '23334',
           name: 'Title 5',
           title: 'Title 7',
-          imageUrl:'',
+          imageUrl: '',
         }
       ]
     },
@@ -151,12 +151,12 @@ const ProductsCollections = {
 function getSelectedCollectionProducts() {
   let products = {};
   ProductsCollections.collections.map((item, index) => {
-      products = item.products;
+    products = item.products;
   });
   return products;
 }
 
-class CollectioinSettingSectionEffects extends React.Component{
+class CollectioinSettingSectionEffects extends React.Component {
   constructor(props) {
     super(props);
     this.DisplayCollectionResult = this.DisplayCollectionResult.bind(this);
@@ -195,20 +195,20 @@ class CollectioinSettingSectionEffects extends React.Component{
       navtitlecolor: this.props.navtitlecolorValue,
       navbgcolor: this.props.navbgcolorValue,
       NavTitle: this.props.NavTitleValue,
-      
+
     };
   }
 
   setParentValues = (settings) => {
     this.setState({ collectionTypeVal: settings.collectionType });
     this.setState({ CollectionSelectedIdValue: settings.CollectionSelectedId });
-    if (this.state.collectionTypeVal && this.state.CollectionSelectedIdValue) {
+    if (settings.collectionType && settings.CollectionSelectedId) {
       axios
         .get(
           `${API_ROOT}/api/v2/collection/products/` +
-            this.state.collectionTypeVal +
-            `/` +
-            this.state.CollectionSelectedIdValue
+          settings.collectionType +
+          `/` +
+          settings.CollectionSelectedId
         )
         .then(res1 => {
           this.setState({ ProductList: res1.data.productVMList });
@@ -218,7 +218,7 @@ class CollectioinSettingSectionEffects extends React.Component{
   }
 
   ApplyNavSettings = () => {
-   const CollectionSettings = {
+    const CollectionSettings = {
       DropDownGetIconheader: this.state.DropDownGetIconheader,
       naviconcolor: this.state.naviconcolor,
       navtitlecolor: this.state.navtitlecolor,
@@ -305,6 +305,14 @@ class CollectioinSettingSectionEffects extends React.Component{
     bottom: '0px',
     left: '0px'
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  };
+
   collectionClick = (item) => {
     this.props.Clickedfilter();
     this.setState({ DisplayCollection: 'none' });
@@ -314,13 +322,13 @@ class CollectioinSettingSectionEffects extends React.Component{
     this.props.CollectionSelectedId(item.id);
     this.props.collectionType(item.collectionType);
     this.props.collectionHandle(item.handle);
-
+    this.setState({ isLoaded: false });
     axios
       .get(
         `${API_ROOT}/api/v2/collection/products/` +
-          item.collectionType +
-          `/` +
-          item.id
+        item.collectionType +
+        `/` +
+        item.id
       )
       .then(res1 => {
         this.setState({ ProductList: res1.data.productVMList });
@@ -340,10 +348,8 @@ class CollectioinSettingSectionEffects extends React.Component{
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
   }
-
-
+ 
   render() {
-
     return (
       <div
         id="CollectionEffectMainContainer"
@@ -400,7 +406,7 @@ class CollectioinSettingSectionEffects extends React.Component{
                         No Image{' '}
                       </span>
                     )}
-                      {item2.imageUrl === '' && (
+                    {item2.imageUrl === '' && (
                       <i
                         style={{ width: '50px', height: '50px' }}
                         className="pe-7s-photo"
@@ -422,13 +428,13 @@ class CollectioinSettingSectionEffects extends React.Component{
               id="CollectionEffectMyStoreTitle"
               style={{ color: this.props.navtitlecolorValue || '#fff' }}
             >
-              { this.props.NavTitleValue === 'img' &&
-                <img src={this.props.bannerImageUrl} style={{maxHeight:"30px", maxWidth: "90px" }} />
+              {this.props.NavTitleValue === 'img' &&
+                <img src={this.props.bannerImageUrl} style={{ maxHeight: "30px", maxWidth: "90px" }} />
               }
-              { this.props.NavTitleValue === 'text' &&
+              {this.props.NavTitleValue === 'text' &&
                 'COLLECTIONS'
               }
-              { ! this.props.NavTitleValue &&
+              {!this.props.NavTitleValue &&
                 'COLLECTIONS'
               }
             </div>
@@ -441,164 +447,164 @@ class CollectioinSettingSectionEffects extends React.Component{
               </div>
             </div>
           </div>
-
-          <div id="CollectionEffectBody">
-            <div
-              className="CollectionMainEditOptionContainer"
-              style={{
-                display: this.state.CollectionMainSectionEditOptionValue,
-                height: '55vh'
-              }}
-            >
-              <div className="CollectionEditSettingOptionContainer">
-                <h2>EDIT NAVIGATION BAR</h2>
-                <p>
-                  *Note: Editing this navigation bar will override the theme's
-                  navigation bar for this page only.
+          {this.state.isLoaded &&
+            <div id="CollectionEffectBody">
+              <div
+                className="CollectionMainEditOptionContainer"
+                style={{
+                  display: this.state.CollectionMainSectionEditOptionValue,
+                  height: '55vh'
+                }}
+              >
+                <div className="CollectionEditSettingOptionContainer">
+                  <h2>EDIT NAVIGATION BAR</h2>
+                  <p>
+                    *Note: Editing this navigation bar will override the theme's
+                    navigation bar for this page only.
                 </p>
 
-                <div className="CollectionMainEditTitle">
-                  <div className="col-sm-12 CollectionSettingEditTitle">
-                    <label> NAVIGATION BAR TITLE </label>
+                  <div className="CollectionMainEditTitle">
+                    <div className="col-sm-12 CollectionSettingEditTitle">
+                      <label> NAVIGATION BAR TITLE </label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditTitleView">
+                      <select
+                        name=""
+                        id="CollectionMainEditSelect"
+                        onChange={this.OnCollectionEditClick.bind(this)}
+                        value={this.props.NavTitleValue || 'text'}
+                      >
+                        <option value="img">Use Image</option>
+                        <option value="text">Use Text</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="col-sm-12 CollectionMainEditTitleView">
-                    <select
-                      name=""
-                      id="CollectionMainEditSelect"
-                      onChange={this.OnCollectionEditClick.bind(this)}
-                      value={this.props.NavTitleValue || 'text'}
-                    >
-                      <option value="img">Use Image</option>
-                      <option value="text">Use Text</option>
-                    </select>
-                  </div>
-                </div>
 
-                <div className="CollectionMainEditIcon">
-                  <div className="col-sm-12 CollectionSettingIcon">
-                    <label>NAV BAR BACKGROUND COLOR </label>
-                  </div>
-                  <div className="col-sm-12 CollectionMainEditBGIconView">
-                    <input
-                      type="text"
-                      value={this.props.navbgcolorValue || '#0E7C95'}
-                      defaultValue={this.props.navbgcolorValue || '#0E7C95'}
-                      id="CollectionDropDown"
-                      className="textColorCode"
-                      onClick={this.navbghandleClick}
-                      onBlur={this.navbghandleClose}
-                    />
-                    <div style={this.swatch}>
-                      <div
-                        className="colorPickerBorder"
-                        style={{
-                          width: '20px',
-                          height: '20px',
-                          backgroundColor: this.props.navbgcolorValue || '#0E7C95'
-                        }}
+                  <div className="CollectionMainEditIcon">
+                    <div className="col-sm-12 CollectionSettingIcon">
+                      <label>NAV BAR BACKGROUND COLOR </label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditBGIconView">
+                      <input
+                        type="text"
+                        value={this.props.navbgcolorValue || '#0E7C95'}
+                        defaultValue={this.props.navbgcolorValue || '#0E7C95'}
+                        id="CollectionDropDown"
+                        className="textColorCode"
                         onClick={this.navbghandleClick}
                       />
-                    </div>
-                    {this.state.navbgdisplayColorPicker ? (
-                      <div style={this.popover}>
-                        <ChromePicker
-                          color={this.props.navbgcolorValue || '#0E7C95'}
-                          onChange={this.navbghandleChange}
+                      <div style={this.swatch}>
+                        <div
+                          className="colorPickerBorder"
+                          style={{
+                            width: '20px',
+                            height: '20px',
+                            backgroundColor: this.props.navbgcolorValue || '#0E7C95'
+                          }}
+                          onClick={this.navbghandleClick}
                         />
                       </div>
-                    ) : null}
+                      {this.state.navbgdisplayColorPicker ? (
+                        <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navbghandleClose }/>
+                          <ChromePicker
+                            color={this.props.navbgcolorValue || '#0E7C95'}
+                            onChange={this.navbghandleChange}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-                <div className="CollectionMainEditIconColor">
-                  <div className="col-sm-12 CollectionSettingEditIconColor">
-                    <label>NAV BAR ICON COLOR</label>
-                  </div>
-                  <div className="col-sm-12 CollectionMainEditIconColorView">
-                    <input
-                      type="text"
-                      value={this.props.naviconcolorValue || '#fff'}
-                      defaultValue={this.props.naviconcolorValue || '#fff'}
-                      id="CollectionDropDown"
-                      className="textColorCode"
-                      onClick={this.naviconhandleClick}
-                      onBlur={this.naviconhandleClose}
-                    />
-                    <div style={this.swatch}>
-                      <div
-                        className="colorPickerBorder"
-                        style={{
-                          width: '20px',
-                          height: '20px',
-                          backgroundColor: this.props.naviconcolorValue || '#fff'
-                        }}
+                  {/*<div className="CollectionMainEditIconColor">
+                    <div className="col-sm-12 CollectionSettingEditIconColor">
+                      <label>NAV BAR ICON COLOR</label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditIconColorView">
+                      <input
+                        type="text"
+                        value={this.props.naviconcolorValue || '#fff'}
+                        defaultValue={this.props.naviconcolorValue || '#fff'}
+                        id="CollectionDropDown"
+                        className="textColorCode"
                         onClick={this.naviconhandleClick}
                       />
-                    </div>
-                    {this.state.navicondisplayColorPicker ? (
-                      <div style={this.popover}>
-                        <ChromePicker
-                          color={this.props.naviconcolorValue || '#fff'}
-                          onChange={this.naviconhandleChange}
+                      <div style={this.swatch}>
+                        <div
+                          className="colorPickerBorder"
+                          style={{
+                            width: '20px',
+                            height: '20px',
+                            backgroundColor: this.props.naviconcolorValue || '#fff'
+                          }}
+                          onClick={this.naviconhandleClick}
                         />
                       </div>
-                    ) : null}
-                  </div>
-                </div>
+                      {this.state.navicondisplayColorPicker ? (
+                        <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.naviconhandleClose }/>
+                          <ChromePicker
+                            color={this.props.naviconcolorValue || '#fff'}
+                            onChange={this.naviconhandleChange}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>*/}
 
-                <div
-                  className="CollectionMainEditIconColor"
-                  style={{
-                    display:
-                      this.props.NavTitleValue === 'img' ? 'none' : 'block'
-                  }}
-                >
-                  <div className="col-sm-12 CollectionSettingEditIconColor">
-                    <label>NAV BAR TITLE COLOR</label>
-                  </div>
-                  <div className="col-sm-12 CollectionMainEditIconColorView">
-                    <input
-                      type="text"
-                      value={this.props.navtitlecolorValue || '#fff'}
-                      defaultValue={this.props.navtitlecolorValue || '#fff'}
-                      id="CollectionDropDown"
-                      className="textColorCode"
-                      onClick={this.navtitlehandleClick}
-                      onBlur={this.navtitlehandleClose}
-                    />
-                    <div style={this.swatch}>
-                      <div
-                        className="colorPickerBorder"
-                        style={{
-                          width: '20px',
-                          height: '20px',
-                          backgroundColor: this.props.navtitlecolorValue || '#fff'
-                        }}
+                  <div
+                    className="CollectionMainEditIconColor"
+                    style={{
+                      display:
+                        this.props.NavTitleValue === 'img' ? 'none' : 'block'
+                    }}
+                  >
+                    <div className="col-sm-12 CollectionSettingEditIconColor">
+                      <label>NAV BAR TITLE COLOR</label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditIconColorView">
+                      <input
+                        type="text"
+                        value={this.props.navtitlecolorValue || '#fff'}
+                        defaultValue={this.props.navtitlecolorValue || '#fff'}
+                        id="CollectionDropDown"
+                        className="textColorCode"
                         onClick={this.navtitlehandleClick}
                       />
-                    </div>
-                    {this.state.navtitledisplayColorPicker ? (
-                      <div style={this.popover}>
-                        <ChromePicker
-                          color={this.props.navtitlecolorValue || '#fff'}
-                          onChange={this.navtitlehandleChange}
+                      <div style={this.swatch}>
+                        <div
+                          className="colorPickerBorder"
+                          style={{
+                            width: '20px',
+                            height: '20px',
+                            backgroundColor: this.props.navtitlecolorValue || '#fff'
+                          }}
+                          onClick={this.navtitlehandleClick}
                         />
                       </div>
-                    ) : null}
+                      {this.state.navtitledisplayColorPicker ? (
+                        <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
+                          <ChromePicker
+                            color={this.props.navtitlecolorValue || '#fff'}
+                            onChange={this.navtitlehandleChange}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
 
-                <div
-                  className="CollectionMainEditImg"
-                  style={{
-                    display:
-                      this.props.NavTitleValue === 'img' ? 'block' : 'none'
-                  }}
-                >
-                  <div className="col-sm-12 CollectionSettingEditImg">
-                    <label>NAV IMAGE</label>
-                  </div>
-                  <div className="col-sm-12 CollectionMainEditIconImgView">
-                  <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                  <div
+                    className="CollectionMainEditImg"
+                    style={{
+                      display:
+                        this.props.NavTitleValue === 'img' ? 'block' : 'none'
+                    }}
+                  >
+                    <div className="col-sm-12 CollectionSettingEditImg">
+                      <label>NAV IMAGE</label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditIconImgView">
+                      {/*<S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
                         acceptedFiles={[ 'image/jpeg', 'image/png' ]}
                         fileName={this.props.bannerImageUrl}
@@ -606,104 +612,42 @@ class CollectioinSettingSectionEffects extends React.Component{
                         previewImageWidth={'100px'}
                         imageFolder={"navTitleImage"}
                         onChange={ (value) => this.bannerImageUrl(value) }
-                  />
+                  />*/}
+                      <input type="file"></input>
                     </div>
                   </div>
                   <div className="CollectionEditCancelButton CollectionEditButton">
-                  <span onClick={this.CollectionCloseEditSection}>CANCEL</span>
-                </div>
+                    <span onClick={this.CollectionCloseEditSection}>CANCEL</span>
+                  </div>
 
-                <div className="CollectionEditapplyButton CollectionEditButton">
-                  <span onClick={this.ApplyNavSettings}>APPLY</span>
-                </div>
+                  <div className="CollectionEditapplyButton CollectionEditButton">
+                    <span onClick={this.ApplyNavSettings}>APPLY</span>
+                  </div>
 
                 </div>
 
               </div>
-            <div
-              className="CollectionEffectMainContainer"
-              style={{
-                backgroundColor: this.props.MainContainerBGColorValue,
-                display: this.state.ShowHideGridListView
-              }}
-            >
-              <div className="CollectionEffectContainer">
-                <ul
-                  className="CollectionEffectGridRightContainer"
-                  id="CollectionEffectGrid"
-                  style={{
-                    display:
-                      this.props.SelectedOption === 'Grid' ? 'block' : 'none',
-                    columns: this.props.CollectionGridRowValue
-                  }}
-                >
-                  { this.state.ProductList &&
-                    this.state.ProductList.length !== 0 &&
-                    this.state.isLoaded &&
-                    this.state.ProductList.map((item2, index2) => {
-                      return (
-                        <CollectionSettingSingleSection
-                          gridSelectProductTitleValue={
-                            this.props.gridSelectProductTitleValue
-                          }
-                          gridSelectPriceTitleValue={
-                            this.props.gridSelectPriceTitleValue
-                          }
-                          gridTitleValue={this.props.gridTitleValue}
-                          productborderColorValue={
-                            this.props.productborderColorValue
-                          }
-                          producttitleColorValue={
-                            this.props.producttitleColorValue
-                          }
-                          pricetitleColorValue={this.props.pricetitleColorValue}
-                          ProdTitle={item2.title}
-                          ProdImageUrl={item2.imageUrl}
-                          ProdPrice={item2.price}
-                        />
-                      );
-                    })}
-                 {this.state.ProductList &&
-                  this.state.ProductList.length != 0 &&
-                   !this.state.isLoaded && (
-                    <div className="">
-                      {' '}
-                      <Loader color="#0e7c95" type="ball-scale-multiple"/> {' '}
-                    </div>
-                  )}
-                  {!this.state.ProductList &&
-                    //this.state.ProductList.length === 0 &&
-                    this.state.ProductsCollectionsDataVal.map(
-                      (item2, index2) => {
-                        return (
-                          <CollectionSettingSingleSection
-                            gridSelectProductTitleValue={
-                              this.props.gridSelectProductTitleValue
-                            }
-                            gridSelectPriceTitleValue={
-                              this.props.gridSelectPriceTitleValue
-                            }
-                            gridTitleValue={this.props.gridTitleValue}
-                            productborderColorValue={
-                              this.props.productborderColorValue
-                            }
-                            producttitleColorValue={
-                              this.props.producttitleColorValue
-                            }
-                            pricetitleColorValue={
-                              this.props.pricetitleColorValue
-                            }
-                            ProdTitle={item2.title}
-                            ProdImageUrl={item2.imageUrl}
-                            ProdPrice={item2.price}
-                          />
-                        );
-                      }
-                    )}
+              <div
+                className="CollectionEffectMainContainer"
+                style={{
+                  backgroundColor: this.props.MainContainerBGColorValue,
+                  display: this.state.ShowHideGridListView
+                }}
+              >
+                <div className="CollectionEffectContainer">
+                  <ul
+                    className="CollectionEffectGridRightContainer"
+                    id="CollectionEffectGrid"
+                    style={{
+                      display:
+                        this.props.SelectedOption === 'Grid' ? 'block' : 'none',
+                      columns: this.props.CollectionGridRowValue
+                    }}
+                  >
                     {this.state.ProductList &&
-                    this.state.ProductList.length === 0 &&
-                    this.state.ProductsCollectionsDataVal.map(
-                      (item2, index2) => {
+                      this.state.ProductList.length !== 0 &&
+                      this.state.isLoaded &&
+                      this.state.ProductList.map((item2, index2) => {
                         return (
                           <CollectionSettingSingleSection
                             gridSelectProductTitleValue={
@@ -719,63 +663,93 @@ class CollectioinSettingSectionEffects extends React.Component{
                             producttitleColorValue={
                               this.props.producttitleColorValue
                             }
-                            pricetitleColorValue={
-                              this.props.pricetitleColorValue
-                            }
+                            pricetitleColorValue={this.props.pricetitleColorValue}
                             ProdTitle={item2.title}
                             ProdImageUrl={item2.imageUrl}
                             ProdPrice={item2.price}
                           />
                         );
-                      }
-                    )}
-                </ul>
+                      })}
+                    {this.state.ProductList &&
+                      this.state.ProductList.length != 0 &&
+                      !this.state.isLoaded && (
+                        <div className="">
+                          {' '}
+                          <Loader color="#0e7c95" type="ball-scale-multiple" /> {' '}
+                        </div>
+                      )}
+                    {!this.state.ProductList &&
+                      //this.state.ProductList.length === 0 &&
+                      this.state.ProductsCollectionsDataVal.map(
+                        (item2, index2) => {
+                          return (
+                            <CollectionSettingSingleSection
+                              gridSelectProductTitleValue={
+                                this.props.gridSelectProductTitleValue
+                              }
+                              gridSelectPriceTitleValue={
+                                this.props.gridSelectPriceTitleValue
+                              }
+                              gridTitleValue={this.props.gridTitleValue}
+                              productborderColorValue={
+                                this.props.productborderColorValue
+                              }
+                              producttitleColorValue={
+                                this.props.producttitleColorValue
+                              }
+                              pricetitleColorValue={
+                                this.props.pricetitleColorValue
+                              }
+                              ProdTitle={item2.title}
+                              ProdImageUrl={item2.imageUrl}
+                              ProdPrice={item2.price}
+                            />
+                          );
+                        }
+                      )}
+                    {this.state.ProductList &&
+                      this.state.ProductList.length === 0 &&
+                      this.state.ProductsCollectionsDataVal.map(
+                        (item2, index2) => {
+                          return (
+                            <CollectionSettingSingleSection
+                              gridSelectProductTitleValue={
+                                this.props.gridSelectProductTitleValue
+                              }
+                              gridSelectPriceTitleValue={
+                                this.props.gridSelectPriceTitleValue
+                              }
+                              gridTitleValue={this.props.gridTitleValue}
+                              productborderColorValue={
+                                this.props.productborderColorValue
+                              }
+                              producttitleColorValue={
+                                this.props.producttitleColorValue
+                              }
+                              pricetitleColorValue={
+                                this.props.pricetitleColorValue
+                              }
+                              ProdTitle={item2.title}
+                              ProdImageUrl={item2.imageUrl}
+                              ProdPrice={item2.price}
+                            />
+                          );
+                        }
+                      )}
+                  </ul>
 
-                <div
-                  className="CollectionEffectGridRightContainer"
-                  id="CollectionEffectList"
-                  style={{
-                    display:
-                      this.props.SelectedOption === 'Grid' ? 'none' : 'block'
-                  }}
-                >
-                  { this.state.ProductList &&
-                    this.state.ProductList.length !== 0 &&
-                   // this.state.isLoaded &&
-                    this.state.ProductList.map((item2, index2) => {
-                      return (
-                        <CollectioinSettingListSectionEffects
-                          CellBGColorValue={this.props.CellBGColorValue}
-                          CellseparatorColorValue={
-                            this.props.CellseparatorColorValue
-                          }
-                          CelliconColorValue={this.props.CelliconColorValue}
-                          productborderColorValue={
-                            this.props.productborderColorValue
-                          }
-                          producttitleColorValue={
-                            this.props.producttitleColorValue
-                          }
-                          pricetitleColorValue={this.props.pricetitleColorValue}
-                          IconAction={this.props.IconAction}
-                          ProdTitle={item2.title}
-                          ProdImageUrl={item2.imageUrl}
-                          ProdPrice={item2.price}
-                        />
-                      );
-                    })}
-                 {this.state.ProductList &&
-                 this.state.ProductList.length != 0 &&
-                   !this.state.isLoaded && (
-                    <div className="">
-                      {' '}
-                      <Loader color="#0e7c95" type="ball-scale-multiple"/>{' '}
-                    </div>
-                  )}
-                  { !this.state.ProductList && 
-                    //this.state.ProductList.length === 0 &&
-                    this.state.ProductsCollectionsDataVal.map(
-                      (item2, index2) => {
+                  <div
+                    className="CollectionEffectGridRightContainer"
+                    id="CollectionEffectList"
+                    style={{
+                      display:
+                        this.props.SelectedOption === 'Grid' ? 'none' : 'block'
+                    }}
+                  >
+                    {this.state.ProductList &&
+                      this.state.ProductList.length !== 0 &&
+                      // this.state.isLoaded &&
+                      this.state.ProductList.map((item2, index2) => {
                         return (
                           <CollectioinSettingListSectionEffects
                             CellBGColorValue={this.props.CellBGColorValue}
@@ -789,53 +763,86 @@ class CollectioinSettingSectionEffects extends React.Component{
                             producttitleColorValue={
                               this.props.producttitleColorValue
                             }
-                            pricetitleColorValue={
-                              this.props.pricetitleColorValue
-                            }
+                            pricetitleColorValue={this.props.pricetitleColorValue}
                             IconAction={this.props.IconAction}
+                            ProdTitle={item2.title}
+                            ProdImageUrl={item2.imageUrl}
+                            ProdPrice={item2.price}
                           />
                         );
-                      }
-                    )}
+                      })}
+                    {this.state.ProductList &&
+                      this.state.ProductList.length != 0 &&
+                      !this.state.isLoaded && (
+                        <div className="">
+                          {' '}
+                          <Loader color="#0e7c95" type="ball-scale-multiple" />{' '}
+                        </div>
+                      )}
+                    {!this.state.ProductList &&
+                      //this.state.ProductList.length === 0 &&
+                      this.state.ProductsCollectionsDataVal.map(
+                        (item2, index2) => {
+                          return (
+                            <CollectioinSettingListSectionEffects
+                              CellBGColorValue={this.props.CellBGColorValue}
+                              CellseparatorColorValue={
+                                this.props.CellseparatorColorValue
+                              }
+                              CelliconColorValue={this.props.CelliconColorValue}
+                              productborderColorValue={
+                                this.props.productborderColorValue
+                              }
+                              producttitleColorValue={
+                                this.props.producttitleColorValue
+                              }
+                              pricetitleColorValue={
+                                this.props.pricetitleColorValue
+                              }
+                              IconAction={this.props.IconAction}
+                            />
+                          );
+                        }
+                      )}
 
-                    { this.state.ProductList && 
-                    this.state.ProductList.length === 0 &&
-                    this.state.ProductsCollectionsDataVal.map(
-                      (item2, index2) => {
-                        return (
-                          <CollectioinSettingListSectionEffects
-                            CellBGColorValue={this.props.CellBGColorValue}
-                            CellseparatorColorValue={
-                              this.props.CellseparatorColorValue
-                            }
-                            CelliconColorValue={this.props.CelliconColorValue}
-                            productborderColorValue={
-                              this.props.productborderColorValue
-                            }
-                            producttitleColorValue={
-                              this.props.producttitleColorValue
-                            }
-                            pricetitleColorValue={
-                              this.props.pricetitleColorValue
-                            }
-                            IconAction={this.props.IconAction}
-                          />
-                        );
-                      }
-                    )}
+                    {this.state.ProductList &&
+                      this.state.ProductList.length === 0 &&
+                      this.state.ProductsCollectionsDataVal.map(
+                        (item2, index2) => {
+                          return (
+                            <CollectioinSettingListSectionEffects
+                              CellBGColorValue={this.props.CellBGColorValue}
+                              CellseparatorColorValue={
+                                this.props.CellseparatorColorValue
+                              }
+                              CelliconColorValue={this.props.CelliconColorValue}
+                              productborderColorValue={
+                                this.props.productborderColorValue
+                              }
+                              producttitleColorValue={
+                                this.props.producttitleColorValue
+                              }
+                              pricetitleColorValue={
+                                this.props.pricetitleColorValue
+                              }
+                              IconAction={this.props.IconAction}
+                            />
+                          );
+                        }
+                      )}
+                  </div>
                 </div>
               </div>
             </div>
-        
-           
-            </div>
-
-           
-        
-        
+          }
+          {!this.state.isLoaded &&
+          <div id="CollectionEffectBody" >
+            <Loader color="#0e7c95" type="ball-scale-multiple" style={{margin: '0 auto', textAlign: 'center', marginTop: '10em', marginLeft: '8em', }} />
           </div>
+          }
         </div>
-      
+      </div>
+
     );
   }
 }

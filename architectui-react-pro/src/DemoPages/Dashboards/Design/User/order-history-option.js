@@ -478,6 +478,13 @@ class OrderHistoryOption extends React.Component  {
     displatcellbgcolor: false,
     displaycellsepratorColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -497,7 +504,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptionBGColorClick}
-                    onBlur={this.onoptionBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -513,6 +520,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptionBGColorClose }/>                                            
                       <ChromePicker
                         color={this.props.optionBGColor}
                         onChange={this.onoptionBGColorChangeComplete}
@@ -537,7 +545,6 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiontitleColorClick}
-                    onBlur={this.onoptiontitleColorClose}
                   />
 
                   <div style={styles.swatch}>
@@ -553,6 +560,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displayTabtitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiontitleColorClose }/>
                       <ChromePicker
                         color={this.props.optiontitleColor}
                         onChange={this.onoptiontitleColorChangeComplete}
@@ -572,7 +580,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptionpriceColorClick}
-                    onBlur={this.onoptionpriceColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -588,6 +596,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displayPriceColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptionpriceColorClose }/>
                       <ChromePicker
                         color={this.props.optionpriceColor}
                         onChange={this.onoptionpriceColorChangeComplete}
@@ -607,7 +616,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondateColorClick}
-                    onBlur={this.onoptiondateColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -623,6 +632,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displatdateColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onoptiondateColorClose }/>
                       <ChromePicker
                         color={this.props.optiondateColor}
                         onChange={this.onoptiondateColorChangeComplete}
@@ -645,7 +655,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onimageborderColorClick}
-                    onBlur={this.onimageborderColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -661,6 +671,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displatimgborderColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onimageborderColorClose }/>
                       <ChromePicker
                         color={this.props.imageborderColor}
                         onChange={this.onimageborderChangeComplete}
@@ -683,7 +694,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncellbgClick}
-                    onBlur={this.oncellbgClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -699,6 +710,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displatcellbgcolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncellbgClose }/>
                       <ChromePicker
                         color={this.props.cellBgColor}
                         onChange={this.oncellbgChangeComplete}
@@ -721,7 +733,7 @@ class OrderHistoryOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.oncellsepratorColorClick}
-                    onBlur={this.oncellsepratorColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -737,6 +749,7 @@ class OrderHistoryOption extends React.Component  {
                   </div>
                   {this.state.displaycellsepratorColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.oncellsepratorColorClose }/>
                       <ChromePicker
                         color={this.props.cellsepratorColor}
                         onChange={this.oncellsepratorColorChangeComplete}

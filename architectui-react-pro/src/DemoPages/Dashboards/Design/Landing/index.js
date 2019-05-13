@@ -1778,127 +1778,128 @@ class HomePageContent extends React.Component {
   render() {
     return (
       <Fragment>
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="TabsAnimation"
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnter={false}
-          transitionLeave={false}>
-          <div id="HomePageContentContainer">
-            <div className="HomeRightContainer">
-              <DragDropContext onDragEnd={this.onDragEnd}>
-                
+        {this.state.isLoaded &&
+          <ReactCSSTransitionGroup
+            component="div"
+            transitionName="TabsAnimation"
+            transitionAppear={true}
+            transitionAppearTimeout={0}
+            transitionEnter={false}
+            transitionLeave={false}>
+            <div id="HomePageContentContainer">
+              <div className="HomeRightContainer">
+                <DragDropContext onDragEnd={this.onDragEnd}>
+
                   <Row>
                     <Col md={4}
                       id="CollectionMainContainer"
                       className="HomeRightLeftContainer"
                       style={{ maxWidth: '390px' }}
                     >
-                    <PerfectScrollbar>
-                      <div
-                        className={
-                          this.state.displaybuildleft === 'block' ? '' : 'activeSec'
-                        }
-                        style={{
-                          display:
-                            this.state.displaybuildleft === 'block' ? 'none' : 'block'
-                        }}
-                      >
-                        <div className="">
-                          <SearchNavigationStyles
-                            DisplaySaveBtn={this.DisplaySaveBtn}
-                            menuCellBGColor={this.state.menuCellBGColor}
-                            menuIconColor={this.state.menuIconColor}
-                            menuTitleColor={this.state.menuTitleColor}
-                            menuTabActiveColor={this.state.menuTabActiveColor}
-                            menuTabInactiveColor={this.state.menuTabInactiveColor} menuSeparatorColor={this.state.menuSeparatorColor}
-                            ContactValue={this.ContactValue}
-                            HomeValue={this.HomeValue}
-                            SearchValue={this.SearchValue}
-                            AccountValue={this.AccountValue}
-                            CartValue={this.CartValue}
-                            ContactVal={this.state.ContactValue}
-                            HomeVal={this.state.HomeValue}
-                            SearchVal={this.state.SearchValue}
-                            AccountVal={this.state.AccountValue}
-                            CartVal={this.state.CartValue}
-                          />
-                        </div>
-                      </div>
-                      {this.state.isLoaded && (
+                      <PerfectScrollbar>
                         <div
-                          style={{ display: this.state.displaybuildleft }}
                           className={
-                            this.state.displaybuildleft === 'block' ? ' activeSec' : ''
+                            this.state.displaybuildleft === 'block' ? '' : 'activeSec'
                           }
+                          style={{
+                            display:
+                              this.state.displaybuildleft === 'block' ? 'none' : 'block'
+                          }}
                         >
-                          {this.state.trialDays === null ? null : (
-                            <div className="trail_period_container">
-                              <p>Trial Period: <span>{this.state.trialDays} days remaining</span></p>
-                            </div>
-                          )}
-                          <CardHeader style={{ marginBottom: '10px' }}><h3 className="leftCardHeader"> DRAG AND DROP </h3> </CardHeader>
-                          <Droppable droppableId="droppable">
-                            {(provided, snapshot) => (
-                              <div
-                                ref={provided.innerRef}
-                                className="HomePageLeftBlock draggableContainer"
-                              >
-                                <Row>
-                                  <Col md="12">
-                                    {this.state.landingTabAllDraggableItems.map(
-                                      (item, index) => (
-                                        <Draggable
-                                          key={item.id}
-                                          draggableId={item.id}
-                                          index={index}
-                                        >
-                                          {(provided, snapshot) => (
-                                            <div
-                                              className={item.id}
-                                              ref={provided.innerRef}
-                                              {...provided.draggableProps}
-                                              {...provided.dragHandleProps}
-                                              style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                              )}
-                                            >
-                                              {this.getElementContent(item, 'draggable')}
-                                            </div>
-                                          )}
-                                        </Draggable>
-                                      )
-                                    )}
-                                  </Col>
-                                </Row>
-                                {provided.placeholder}
+                          <div className="">
+                            <SearchNavigationStyles
+                              DisplaySaveBtn={this.DisplaySaveBtn}
+                              menuCellBGColor={this.state.menuCellBGColor}
+                              menuIconColor={this.state.menuIconColor}
+                              menuTitleColor={this.state.menuTitleColor}
+                              menuTabActiveColor={this.state.menuTabActiveColor}
+                              menuTabInactiveColor={this.state.menuTabInactiveColor} menuSeparatorColor={this.state.menuSeparatorColor}
+                              ContactValue={this.ContactValue}
+                              HomeValue={this.HomeValue}
+                              SearchValue={this.SearchValue}
+                              AccountValue={this.AccountValue}
+                              CartValue={this.CartValue}
+                              ContactVal={this.state.ContactValue}
+                              HomeVal={this.state.HomeValue}
+                              SearchVal={this.state.SearchValue}
+                              AccountVal={this.state.AccountValue}
+                              CartVal={this.state.CartValue}
+                            />
+                          </div>
+                        </div>
+                        {this.state.isLoaded && (
+                          <div
+                            style={{ display: this.state.displaybuildleft }}
+                            className={
+                              this.state.displaybuildleft === 'block' ? ' activeSec' : ''
+                            }
+                          >
+                            {this.state.trialDays === null ? null : (
+                              <div className="trail_period_container">
+                                <p>Trial Period: <span>{this.state.trialDays} days remaining</span></p>
                               </div>
                             )}
-                          </Droppable>
-                        </div>
-                      )}
-                    </PerfectScrollbar>
+                            <CardHeader style={{ marginBottom: '10px' }}><h3 className="leftCardHeader"> DRAG AND DROP </h3> </CardHeader>
+                            <Droppable droppableId="droppable">
+                              {(provided, snapshot) => (
+                                <div
+                                  ref={provided.innerRef}
+                                  className="HomePageLeftBlock draggableContainer"
+                                >
+                                  <Row>
+                                    <Col md="12">
+                                      {this.state.landingTabAllDraggableItems.map(
+                                        (item, index) => (
+                                          <Draggable
+                                            key={item.id}
+                                            draggableId={item.id}
+                                            index={index}
+                                          >
+                                            {(provided, snapshot) => (
+                                              <div
+                                                className={item.id}
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                style={getItemStyle(
+                                                  snapshot.isDragging,
+                                                  provided.draggableProps.style
+                                                )}
+                                              >
+                                                {this.getElementContent(item, 'draggable')}
+                                              </div>
+                                            )}
+                                          </Draggable>
+                                        )
+                                      )}
+                                    </Col>
+                                  </Row>
+                                  {provided.placeholder}
+                                </div>
+                              )}
+                            </Droppable>
+                          </div>
+                        )}
+                      </PerfectScrollbar>
                     </Col>
                     <Col md={8}
                       id="RightContainerScroll"
                       style={{ maxWidth: 'calc(100% - 390px)' }}
                     >
-                    <div id="mbl_bg_rit">
-                      <div
-                        id="BuildCollectionsConstructor"
-                        style={{
-                          display:
-                            this.state.displaybuildleft === 'block' ? 'block' : 'none'
-                        }}
-                        className={
-                          this.state.displaybuildleft === 'block' ? 'activeSec' : ''
-                        }
-                      >
+                      <div id="mbl_bg_rit">
                         <div
-                          id="CollectionMainRightContainer"
+                          id="BuildCollectionsConstructor"
+                          style={{
+                            display:
+                              this.state.displaybuildleft === 'block' ? 'block' : 'none'
+                          }}
+                          className={
+                            this.state.displaybuildleft === 'block' ? 'activeSec' : ''
+                          }
                         >
+                          <div
+                            id="CollectionMainRightContainer"
+                          >
                             <div className="buildStoreContainer">
                               {this.state.NavTitle === 'text' &&
                                 <div className="BuildCollectionsTitleHint">
@@ -2214,53 +2215,60 @@ class HomePageContent extends React.Component {
                                 </Droppable>
                               </div>
                             )}
-                      
+
+                          </div>
+
+
                         </div>
-
-
-                      </div>
-                      <div
-                        className={
-                          this.state.displaybuildleft === 'block' ? '' : 'activeSec'
-                        }
-                        style={{
-                          display:
-                            this.state.displaybuildleft === 'block' ? 'none' : 'block'
-                        }}
-                      >
-                        <div id="BuildCollectionsConstructor">
-                          <div
-                            className="landingStyle"
-                            style={{ display: this.state.HideSettingsValue }}
-                          >
-                            <div style={{ display: this.state.displaybuild }}>
-                              <div
-                                id="CollectionEffectBody"
-                                style={{
-                                  display: this.state
-                                    .CollectionMainSectionEditOptionValue
-                                }}
-                              >
+                        <div
+                          className={
+                            this.state.displaybuildleft === 'block' ? '' : 'activeSec'
+                          }
+                          style={{
+                            display:
+                              this.state.displaybuildleft === 'block' ? 'none' : 'block'
+                          }}
+                        >
+                          <div id="BuildCollectionsConstructor">
+                            <div
+                              className="landingStyle"
+                              style={{ display: this.state.HideSettingsValue }}
+                            >
+                              <div style={{ display: this.state.displaybuild }}>
+                                <div
+                                  id="CollectionEffectBody"
+                                  style={{
+                                    display: this.state
+                                      .CollectionMainSectionEditOptionValue
+                                  }}
+                                >
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
+
                       </div>
 
-                    </div>
-
-                  </Col>
+                    </Col>
                   </Row>
 
-                
 
-              </DragDropContext>
+
+                </DragDropContext>
+              </div>
+              <ThemeOptions selectTheme={this.onThemeOptionSelection}
+                ref={this.homeTopTabsShowEditAlert}
+                onSaveEditedItems={this.onSaveEditedItems} />
             </div>
-            <ThemeOptions selectTheme={this.onThemeOptionSelection}
-              ref={this.homeTopTabsShowEditAlert}
-              onSaveEditedItems={this.onSaveEditedItems} />
+          </ReactCSSTransitionGroup>
+        }
+        {!this.state.isLoaded &&
+          <div>
+            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
           </div>
-        </ReactCSSTransitionGroup>
+        }
+
       </Fragment>
     );
   }

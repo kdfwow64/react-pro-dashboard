@@ -229,6 +229,13 @@ class CartLeftSection extends React.Component {
     bottom: '0px',
     left: '0px'
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
 
 
@@ -250,7 +257,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.CartBGColorhandleClick}
-            onBlur={this.CartBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -265,6 +272,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.CartBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.CartBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.CartBGColor}
                 onChange={this.CartBGColorhandleChange}
@@ -285,7 +293,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.CellBGColorhandleClick}
-            onBlur={this.CellBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -300,6 +308,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.CellBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.CellBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.CellBGColor}
                 onChange={this.CellBGColorhandleChange}
@@ -320,7 +329,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ProductTitlehandleClick}
-            onBlur={this.ProductTitlehandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -335,6 +344,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ProductTitlePicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ProductTitlehandleClose }/>
               <ChromePicker
                 color={this.props.ProductTitle}
                 onChange={this.ProductTitlehandleChange}
@@ -355,7 +365,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ProductOptionColorhandleClick}
-            onBlur={this.ProductOptionColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -370,6 +380,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ProductOptionColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ProductOptionColorhandleClose }/>
               <ChromePicker
                 color={this.props.ProductOptionColor}
                 onChange={this.ProductOptionColorhandleChange}
@@ -390,7 +401,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.CellPriceColorhandleClick}
-            onBlur={this.CellPriceColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -405,6 +416,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.CellPriceColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.CellPriceColorhandleClose }/>
               <ChromePicker
                 color={this.props.CellPriceColor}
                 onChange={this.CellPriceColorhandleChange}
@@ -425,7 +437,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.QuantityIconColorhandleClick}
-            onBlur={this.QuantityIconColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -440,6 +452,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.QuantityIconColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.QuantityIconColorhandleClose }/>
               <ChromePicker
                 color={this.props.QuantityIconColor}
                 onChange={this.QuantityIconColorhandleChange}
@@ -460,7 +473,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.QuantityTextColorhandleClick}
-            onBlur={this.QuantityTextColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -475,6 +488,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.QuantityTextColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.QuantityTextColorhandleClose }/>
               <ChromePicker
                 color={this.props.QuantityTextColor}
                 onChange={this.QuantityTextColorhandleChange}
@@ -495,7 +509,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ApplyBGColorhandleClick}
-            onBlur={this.ApplyBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -510,6 +524,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ApplyBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ApplyBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.ApplyBGColor}
                 onChange={this.ApplyBGColorhandleChange}
@@ -530,7 +545,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ApplyIconColorhandleClick}
-            onBlur={this.ApplyIconColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -545,6 +560,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ApplyIconColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ApplyIconColorhandleClose }/>
               <ChromePicker
                 color={this.props.ApplyIconColor}
                 onChange={this.ApplyIconColorhandleChange}
@@ -565,7 +581,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ApplyTextColorhandleClick}
-            onBlur={this.ApplyTextColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -580,6 +596,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ApplyTextColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ApplyTextColorhandleClose }/>
               <ChromePicker
                 color={this.props.ApplyTextColor}
                 onChange={this.ApplyTextColorhandleChange}
@@ -600,7 +617,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.PriceTextColorhandleClick}
-            onBlur={this.PriceTextColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -615,6 +632,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.PriceTextColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.PriceTextColorhandleClose }/>
               <ChromePicker
                 color={this.props.PriceTextColor}
                 onChange={this.PriceTextColorhandleChange}
@@ -635,7 +653,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ButtonBGColorhandleClick}
-            onBlur={this.ButtonBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -650,6 +668,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ButtonBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ButtonBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.ButtonBGColor}
                 onChange={this.ButtonBGColorhandleChange}
@@ -670,7 +689,7 @@ class CartLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ButtonTextColorhandleClick}
-            onBlur={this.ButtonTextColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -685,6 +704,7 @@ class CartLeftSection extends React.Component {
           </div>
           {this.state.ButtonTextColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ButtonTextColorhandleClose }/>
               <ChromePicker
                 color={this.props.ButtonTextColor}
                 onChange={this.ButtonTextColorhandleChange}
