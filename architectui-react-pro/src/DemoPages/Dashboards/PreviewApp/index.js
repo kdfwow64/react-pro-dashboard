@@ -86,6 +86,7 @@ export default class PreviewApp extends React.Component {
             style={{ marginBottom: "10px" }}
             open={this.state.snackbarOpen}
             ContentProps={{ style: { fontSize: "20px" } }}
+            // eslint-disable-next-line jsx-a11y/accessible-emoji
             message={<span>Email sent ✅</span>}
             onClose={() => {
               this.setState({ snackbarOpen: false });
