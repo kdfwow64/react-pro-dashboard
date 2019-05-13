@@ -175,15 +175,16 @@ class UserBox extends React.Component {
                                 </div>
                             </div>
 
-                            {/* <div className="widget-content-right header-user-info ml-3">
-                                <Button className="btn-shadow p-1" size="sm" onClick={this.notify2} color="info"
+                            <div className="widget-content-right header-user-info ml-3">
+                                <Button className="btn-shadow p-1" size="sm" onClick={()=> {window.open('mailto:support@appit.app')}} color="info"
                                         id="Tooltip-1">
-                                    <Ionicon color="#ffffff" fontSize="20px" icon="ios-calendar-outline"/>
+                                        <i className="pe-7s-headphones btn-icon-wrapper mb-2" fontSize="20px"/>
+                                    {/* <Ionicon color="#ffffff" fontSize="20px" icon="pe-7s-headphones"/> */}
                                 </Button>
-                                <UncontrolledTooltip placement="bottom" target={'Tooltip-1'}>
+                                {/* <UncontrolledTooltip placement="bottom" target={'Tooltip-1'}>
                                     Click for Toastify Notifications!
-                                </UncontrolledTooltip>
-                            </div> */}
+                                </UncontrolledTooltip> */}
+                            </div>
                         </div>
                     </div>
                 </div>
