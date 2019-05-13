@@ -91,6 +91,7 @@ export const ComponentsNav = [
     },
     {
         label: 'Get a Free Month',
+        icon: 'pe-7s-cash',
         to: '#/dashboards/get-a-free-month',
     },
 ];
