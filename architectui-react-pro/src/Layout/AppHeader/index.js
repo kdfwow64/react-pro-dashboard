@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import HeaderLogo from '../AppLogo';
 import HeaderDots from "./Components/HeaderDots";
 import HeaderRightDrawer from "./Components/HeaderRightDrawer";
+import UserBox from './Components/UserBox';
 
 class Header extends React.Component {
     render() {
@@ -26,20 +27,20 @@ class Header extends React.Component {
 
                     <HeaderLogo/>
 
-                    {/* <div className={cx(
+                    <div className={cx(
                         "app-header__content",
                         {'header-mobile-open': enableMobileMenuSmall},
-                    )}> */}
+                    )}>
                         {/* <div className="app-header-left">
                             <SearchBox/>
                             <MegaMenu/>
                         </div> */}
-                        {/* <div className="app-header-right"> */}
+                        <div className="app-header-right">
                             {/* <HeaderDots/> */}
-                            {/* <UserBox/> */}
+                            <UserBox/>
                             {/* <HeaderRightDrawer/> */}
-                        {/* </div> */}
-                    {/* </div> */}
+                        </div>
+                    </div>
                 </ReactCSSTransitionGroup>
             </Fragment>
         );

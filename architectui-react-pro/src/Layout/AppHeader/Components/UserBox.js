@@ -25,6 +25,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import city3 from '../../../assets/utils/images/dropdown-header/city3.jpg';
 import avatar1 from '../../../assets/utils/images/avatars/1.jpg';
+import { getShop } from '../../../utilities/shop-utils';
 
 class UserBox extends React.Component {
     constructor(props) {
@@ -51,7 +52,7 @@ class UserBox extends React.Component {
                 <div className="header-btn-lg pr-0">
                     <div className="widget-content p-0">
                         <div className="widget-content-wrapper">
-                            <div className="widget-content-left">
+                            {/* <div className="widget-content-left">
                                 <UncontrolledButtonDropdown>
                                     <DropdownToggle color="link" className="p-0">
                                         <img width={42} className="rounded-circle" src={avatar1} alt=""/>
@@ -164,17 +165,17 @@ class UserBox extends React.Component {
                                         </Nav>
                                     </DropdownMenu>
                                 </UncontrolledButtonDropdown>
-                            </div>
+                            </div> */}
                             <div className="widget-content-left  ml-3 header-user-info">
                                 <div className="widget-heading">
-                                    Alina Mclourd
+                                    Welcome
                                 </div>
                                 <div className="widget-subheading">
-                                    VP People Manager
+                                    {getShop()}
                                 </div>
                             </div>
 
-                            <div className="widget-content-right header-user-info ml-3">
+                            {/* <div className="widget-content-right header-user-info ml-3">
                                 <Button className="btn-shadow p-1" size="sm" onClick={this.notify2} color="info"
                                         id="Tooltip-1">
                                     <Ionicon color="#ffffff" fontSize="20px" icon="ios-calendar-outline"/>
@@ -182,7 +183,7 @@ class UserBox extends React.Component {
                                 <UncontrolledTooltip placement="bottom" target={'Tooltip-1'}>
                                     Click for Toastify Notifications!
                                 </UncontrolledTooltip>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
