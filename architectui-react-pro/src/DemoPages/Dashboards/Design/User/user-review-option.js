@@ -555,6 +555,14 @@ class ReviewOptions extends React.Component  {
     displaytextColor: false,
     displayreadmoreColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
+
   render() {
     return (
       <div id="SearchNavigationSettings" className="SearchNavigationSettings">
@@ -573,7 +581,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewBgColorClick}
-                    onBlur={this.onreviewBgColorClose}
                   />
 
                   <div style={styles.swatch}>
@@ -589,6 +596,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewBgColorClose }/>
                       <ChromePicker
                         color={this.props.reviewBgColor}
                         onChange={this.onreviewBgColorChangeComplete}
@@ -608,7 +616,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewRatingColorClick}
-                    onBlur={this.onreviewRatingColorClose}
                   />
 
                   <div style={styles.swatch}>
@@ -619,11 +626,11 @@ class ReviewOptions extends React.Component  {
                         height: '20px',
                         backgroundColor: this.props.reviewRatingColor
                       }}
-                      // onClick={this.onreviewRatingClick}
                     />
                   </div>
                   {this.state.displayreviewRatingColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewRatingColorClose}/>
                       <ChromePicker
                         color={this.props.reviewRatingColor}
                         onChange={this.onreviewRatingColorChangeComplete}
@@ -645,7 +652,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewInputBGColorClick}
-                    onBlur={this.onreviewInputBGColorClose}
                   />
 
                   <div style={styles.swatch}>
@@ -661,6 +667,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewInputBGColorClose }/>
                       <ChromePicker
                         color={this.props.reviewinputBGColor}
                         onChange={this.onreviewInputBGColorChangeComplete}
@@ -682,7 +689,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewInputTitleColorClick}
-                    onBlur={this.onreviewInputTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -698,6 +705,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewInputTitleColorClose }/>
                       <ChromePicker
                         color={this.props.reviewinputTitleColor}
                         onChange={this.onreviewInputTitleColorChangeComplete}
@@ -717,7 +725,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewButtonColorClick}
-                    onBlur={this.onreviewButtonColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -733,6 +741,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewButtonColorClose }/>
                       <ChromePicker
                         color={this.props.reviewbuttonColor}
                         onChange={this.onreviewButtonColorChangeComplete}
@@ -754,7 +763,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewButtonTitleColorClick}
-                    onBlur={this.onreviewButtonTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -770,6 +779,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewButtonTitleColorClose }/>
                       <ChromePicker
                         color={this.props.reviewbuttonTitleColor}
                         onChange={this.onreviewButtonTitleColorChangeComplete}
@@ -791,7 +801,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewGeneralTextColorClick}
-                    onBlur={this.onreviewGeneralTextColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -807,6 +817,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewGeneralTextColorClose }/>
                       <ChromePicker
                         color={this.props.reviewgeneralTextColor}
                         onChange={this.onreviewGeneralTextColorChangeComplete}
@@ -829,7 +840,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewTextLinkColorClick}
-                    onBlur={this.onreviewTextLinkColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -845,6 +856,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewTextLinkColorClose }/>
                       <ChromePicker
                         color={this.props.reviewtextLinkColor}
                         onChange={this.onreviewTextLinkColorChangeComplete}
@@ -867,7 +879,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewcellColorClick}
-                    onBlur={this.onreviewcellColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -883,6 +895,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displaycellColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewcellColorClose }/>
                       <ChromePicker
                         color={this.props.reviewcellColor}
                         onChange={this.onreviewcellChangeComplete}
@@ -905,7 +918,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewpostColorClick}
-                    onBlur={this.onreviewpostColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -921,6 +934,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreviewpostColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewpostColorClose }/>
                       <ChromePicker
                         color={this.props.reviewpostedColor}
                         onChange={this.onreviewpostColorChangeComplete}
@@ -943,7 +957,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewdateColorClick}
-                    onBlur={this.onreviewdateColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -959,6 +973,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreviewdateColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewdateColorClose }/>
                       <ChromePicker
                         color={this.props.reviewdateColor}
                         onChange={this.onreviewdateColorChangeComplete}
@@ -981,7 +996,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewtextColorClick}
-                    onBlur={this.onreviewtextColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -997,6 +1012,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displaytextColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewtextColorClose }/>
                       <ChromePicker
                         color={this.props.reviewtextColor}
                         onChange={this.onreviewtextColorChangeComplete}
@@ -1019,7 +1035,7 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewreadmoreColorClick}
-                    onBlur={this.onreviewreadmoreColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -1035,6 +1051,7 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreadmoreColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onreviewreadmoreColorClose }/>
                       <ChromePicker
                         color={this.props.reviewreadmoreColor}
                         onChange={this.onreviewreadmoreColorChangeComplete}

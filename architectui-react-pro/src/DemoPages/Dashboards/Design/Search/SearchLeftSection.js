@@ -244,6 +244,13 @@ class SearchLeftSection extends React.Component {
     bottom: '0px',
     left: '0px'
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -272,7 +279,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.BGColorhandleClick}
-            onBlur={this.BGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -287,6 +294,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.BGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.BGColorhandleClose }/>
               <ChromePicker
                 color={this.props.BGColor}
                 onChange={this.BGColorhandleChange}
@@ -307,7 +315,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.SearchInputColorhandleClick}
-            onBlur={this.SearchInputColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -322,6 +330,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.SearchInputColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.SearchInputColorhandleClose }/>
               <ChromePicker
                 color={this.props.SearchInputColor}
                 onChange={this.SearchInputColorhandleChange}
@@ -342,7 +351,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.SearchInputBorderhandleClick}
-            onBlur={this.SearchInputBorderhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -357,6 +366,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.SearchInputBorderPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.SearchInputBorderhandleClose }/>
               <ChromePicker
                 color={this.props.SearchInputBorder}
                 onChange={this.SearchInputBorderhandleChange}
@@ -377,7 +387,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.SearchIconColorhandleClick}
-            onBlur={this.SearchIconColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -392,6 +402,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.SearchIconColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.SearchIconColorhandleClose }/>
               <ChromePicker
                 color={this.props.SearchIconColor}
                 onChange={this.SearchIconColorhandleChange}
@@ -412,7 +423,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.SearchTitleColorhandleClick}
-            onBlur={this.SearchTitleColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -427,6 +438,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.SearchTitleColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.SearchTitleColorhandleClose }/>
               <ChromePicker
                 color={this.props.SearchTitleColor}
                 onChange={this.SearchTitleColorhandleChange}
@@ -447,7 +459,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.SearchBGColorhandleClick}
-            onBlur={this.SearchBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -462,6 +474,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.SearchBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.SearchBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.SearchBGColor}
                 onChange={this.SearchBGColorhandleChange}
@@ -482,7 +495,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.CellSeparatorColorhandleClick}
-            onBlur={this.CellSeparatorColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -497,6 +510,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.CellSeparatorColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.CellSeparatorColorhandleClose }/>
               <ChromePicker
                 color={this.props.CellSeparatorColor}
                 onChange={this.CellSeparatorColorhandleChange}
@@ -517,7 +531,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.CellBGColorhandleClick}
-            onBlur={this.CellBGColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -532,6 +546,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.CellBGColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.CellBGColorhandleClose }/>
               <ChromePicker
                 color={this.props.CellBGColor}
                 onChange={this.CellBGColorhandleChange}
@@ -552,7 +567,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ProductBorderColorhandleClick}
-            onBlur={this.ProductBorderColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -567,6 +582,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.ProductBorderColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ProductBorderColorhandleClose }/>
               <ChromePicker
                 color={this.props.ProductBorderColor}
                 onChange={this.ProductBorderColorhandleChange}
@@ -587,7 +603,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ProductTitleColorhandleClick}
-            onBlur={this.ProductTitleColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -602,6 +618,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.ProductTitleColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ProductTitleColorhandleClose }/>
               <ChromePicker
                 color={this.props.ProductTitleColor}
                 onChange={this.ProductTitleColorhandleChange}
@@ -622,7 +639,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.PriceColorhandleClick}
-            onBlur={this.PriceColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -637,6 +654,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.PriceColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.PriceColorhandleClose }/>
               <ChromePicker
                 color={this.props.PriceColor}
                 onChange={this.PriceColorhandleChange}
@@ -671,7 +689,7 @@ class SearchLeftSection extends React.Component {
             id="CollectionDropDown"
             className="textColorCode"
             onClick={this.ProductIconColorhandleClick}
-            onBlur={this.ProductIconColorhandleClose}
+            
           />
           <div style={this.swatch}>
             <div
@@ -686,6 +704,7 @@ class SearchLeftSection extends React.Component {
           </div>
           {this.state.ProductIconColorPicker ? (
             <div style={this.popover}>
+              <div style={ this.cover } onClick={ this.ProductIconColorhandleClose }/>
               <ChromePicker
                 color={this.props.ProductIconColor}
                 onChange={this.ProductIconColorhandleChange}

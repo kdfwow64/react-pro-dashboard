@@ -273,6 +273,14 @@ class OrderFavouriteOption extends React.Component  {
     displayfavouritecellbgcolor: false,
     displayfavouritecellsepratorColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
+  
   render() {
     return (
       <div id="SearchNavigationSettings" className="SearchNavigationSettings">
@@ -291,7 +299,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouriteColorClick}
-                    onBlur={this.onfavouriteColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -307,6 +315,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouriteBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavouriteColorClose }/>
                       <ChromePicker
                         color={this.props.favouriteColor}
                         onChange={this.onfavouriteColorChangeComplete}
@@ -326,7 +335,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritetitleColorClick}
-                    onBlur={this.onfavouritetitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -342,6 +351,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavTabtitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavouritetitleColorClose }/>
                       <ChromePicker
                         color={this.props.favouritetitleColor}
                         onChange={this.onfavouritetitleColorChangeComplete}
@@ -361,7 +371,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritepriceColorClick}
-                    onBlur={this.onfavouritepriceColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -377,6 +387,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavPriceColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavouritepriceColorClose }/>
                       <ChromePicker
                         color={this.props.favouritepriceColor}
                         onChange={this.onfavouritepriceColorChangeComplete}
@@ -399,7 +410,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavoriteimageColorClick}
-                    onBlur={this.onfavoriteimageColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -415,6 +426,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavimgborderColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavoriteimageColorClose }/>
                       <ChromePicker
                         color={this.props.favoriteimageColor}
                         onChange={this.onfavoriteimageChangeComplete}
@@ -437,7 +449,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritecellbgClick}
-                    onBlur={this.onfavouritecellbgClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -453,6 +465,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouritecellbgcolor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavouritecellbgClose }/>
                       <ChromePicker
                         color={this.props.favouritecellBgColor}
                         onChange={this.onfavouritecellbgChangeComplete}
@@ -475,7 +488,7 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritecellsepratorColorClick}
-                    onBlur={this.onfavouritecellsepratorColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -491,6 +504,7 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouritecellsepratorColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onfavouritecellsepratorColorClose }/>
                       <ChromePicker
                         color={this.props.favouritecellsepratorColor}
                         onChange={

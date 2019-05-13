@@ -45,7 +45,8 @@ class CollectioinSettingSection extends React.Component  {
       productborderColorPicker: false,
       pricetitleColorPicker: false,
       producttitleColorPicker: false,
-      DropDownGetIconheader: this.props.IconAction
+      DropDownGetIconheader: this.props.IconAction,
+      MainContainerBGColorValue:"#ff0000"
       // SelectedOption: this.props.SelectedOption,
     };
   }
@@ -91,10 +92,10 @@ class CollectioinSettingSection extends React.Component  {
   }
 
   handleClick = () => {
-    this.setState({ displayColorPicker: true });
+    this.setState({ displayColorPicker: !this.state.displayColorPicker });
   }
   cellhandleClick = () => {
-    this.setState({ celldisplayColorPicker: true });
+    this.setState({ celldisplayColorPicker: !this.state.celldisplayColorPicker });
   }
   cellseparatorhandleClick = () => {
     this.setState({
@@ -121,7 +122,7 @@ class CollectioinSettingSection extends React.Component  {
   }
 
   handleChange(color) {
-    this.setState({ color: color.hex });
+    this.setState({ MainContainerBGColorValue: color.hex });
     this.props.MainContainerBGColor(color);
   }
   cellcolorhandleChange(cellcolor ) {
@@ -158,8 +159,15 @@ class CollectioinSettingSection extends React.Component  {
   };
   popover = {
     position: 'absolute',
-    zIndex: 10000
+    zIndex: '1',
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -274,11 +282,9 @@ class CollectioinSettingSection extends React.Component  {
                 <input
                   type="text"
                   value={this.props.MainContainerBGColorValue}
-                  defaultValue={this.props.MainContainerBGColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.handleClick}
-                  onBlur={this.handleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -292,11 +298,12 @@ class CollectioinSettingSection extends React.Component  {
                   />
                 </div>
                 {this.state.displayColorPicker ? (
-                  <div style={this.popover}>
+                  <div style={this.popover} >
+                   <div style={ this.cover } onClick={ this.handleClose }/>
                     <ChromePicker
                       color={this.props.MainContainerBGColorValue}
                       onChange={this.handleChange}
-                    />
+                    />                    
                   </div>
                 ) : null}
               </div>
@@ -317,7 +324,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.cellhandleClick}
-                  onBlur={this.cellcolorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -332,6 +338,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.celldisplayColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.cellcolorhandleClose }/>
                     <ChromePicker
                       color={this.props.CellBGColorValue}
                       onChange={this.cellcolorhandleChange}
@@ -356,7 +363,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.cellseparatorhandleClick}
-                  onBlur={this.cellcolorseparatorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -372,6 +378,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.cellseparatorColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.cellcolorseparatorhandleClose }/>
                     <ChromePicker
                       color={this.props.CellseparatorColorValue}
                       onChange={this.cellcolorseparatorhandleChange}
@@ -413,7 +420,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.celliconhandleClick}
-                  onBlur={this.cellcoloriconhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -429,6 +435,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.cellicondisplayColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.cellcoloriconhandleClose }/>
                     <ChromePicker
                       color={this.props.CelliconColorValue}
                       onChange={this.cellcoloriconhandleChange}
@@ -450,7 +457,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.productborderhandleClick}
-                  onBlur={this.productborderhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -465,6 +471,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.productborderColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.productborderhandleClose }/>
                     <ChromePicker
                       color={this.props.productborderColorValue}
                       onChange={this.productborderhandleChange}
@@ -486,7 +493,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.producttitlehandleClick}
-                  onBlur={this.producttitlehandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -502,6 +508,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.producttitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.producttitlehandleClose }/>
                     <ChromePicker
                       color={this.props.producttitleColorValue}
                       onChange={this.producttitlehandleChange}
@@ -523,7 +530,6 @@ class CollectioinSettingSection extends React.Component  {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.pricetitlehandleClick}
-                  onBlur={this.pricetitlehandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -539,6 +545,7 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.pricetitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.pricetitlehandleClose }/>
                     <ChromePicker
                       color={this.props.pricetitleColorValue}
                       onChange={this.pricetitlehandleChange}

@@ -477,6 +477,13 @@ class ProductSettingsSection extends React.Component {
     position: 'absolute',
     zIndex: 99999,
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   DropDownGetIcon = e => {
     this.setState({ IconClassName: e.target.getAttribute('data-key') });
@@ -563,7 +570,6 @@ class ProductSettingsSection extends React.Component {
                 id="CollectionDropDown"
                 className="textColorCode"
                 onClick={this.SilderActiveColorhandleClick}
-                onBlur={this.SilderActiveColorhandleClose}
               />
               <div style={this.swatch}>
                 <div
@@ -578,6 +584,7 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderActiveColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.SilderActiveColorhandleClose }/>
                   <ChromePicker
                     color={this.props.SilderActiveColorValue}
                     onChange={this.SilderActiveColorhandleChange}
@@ -597,7 +604,6 @@ class ProductSettingsSection extends React.Component {
                 id="CollectionDropDown"
                 className="textColorCode"
                 onClick={this.SilderDotColorhandleClick}
-                onBlur={this.SilderDotColorhandleClose}
               />
               <div style={this.swatch}>
                 <div
@@ -612,6 +618,7 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderDotColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.SilderDotColorhandleClose }/>
                   <ChromePicker
                     color={this.props.SilderDotColorValue}
                     onChange={this.SilderDotColorhandleChange}
@@ -631,7 +638,6 @@ class ProductSettingsSection extends React.Component {
                 id="CollectionDropDown"
                 className="textColorCode"
                 onClick={this.SilderBGColorhandleClick}
-                onBlur={this.SilderBGColorhandleClose}
               />
               <div style={this.swatch}>
                 <div
@@ -646,6 +652,7 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderBGColorPicker ? (
                 <div style={this.popover}>
+                  <div style={ this.cover } onClick={ this.SilderBGColorhandleClose }/>
                   <ChromePicker
                     color={this.props.SilderBGColorValue}
                     onChange={this.SilderBGColorhandleChange}
@@ -679,7 +686,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.ProductTitleColorhandleClick}
-                  onBlur={this.ProductTitleColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -694,6 +700,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.ProductTitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.ProductTitleColorhandleClose }/>
                     <ChromePicker
                       color={this.props.ProductTitleColorValue}
                       onChange={this.ProductTitleColorhandleChange}
@@ -713,7 +720,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.ProductPriceColorhandleClick}
-                  onBlur={this.ProductPriceColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -728,6 +734,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.ProductPriceColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.ProductPriceColorhandleClose }/>
                     <ChromePicker
                       color={this.props.ProductPriceColorValue}
                       onChange={this.ProductPriceColorhandleChange}
@@ -747,7 +754,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.ProducttitlebarBGColorhandleClick}
-                  onBlur={this.ProducttitlebarBGColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -762,6 +768,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.ProducttitlebarBGColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.ProducttitlebarBGColorhandleClose }/>
                     <ChromePicker
                       color={this.props.ProducttitlebarBGColorValue}
                       onChange={this.ProducttitlebarBGColorhandleChange}
@@ -795,7 +802,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.ProductCellBGColorhandleClick}
-                  onBlur={this.ProductCellBGColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -810,6 +816,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.ProductCellBGColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.ProductCellBGColorhandleClose }/>
                     <ChromePicker
                       color={this.props.ProductCellBGColorValue}
                       onChange={this.ProductCellBGColorhandleChange}
@@ -830,7 +837,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.OptionTitleColorhandleClick}
-                  onBlur={this.OptionTitleColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -845,6 +851,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.OptionTitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.OptionTitleColorhandleClose }/>
                     <ChromePicker
                       color={this.props.OptionTitleColorValue}
                       onChange={this.OptionTitleColorhandleChange}
@@ -865,7 +872,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.OptionValueColorhandleClick}
-                  onBlur={this.OptionValueColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -880,6 +886,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.OptionValueColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.OptionValueColorhandleClose }/>
                     <ChromePicker
                       color={this.props.OptionValueColorValue}
                       onChange={this.OptionValueColorhandleChange}
@@ -900,7 +907,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.OptionIconColorhandleClick}
-                  onBlur={this.OptionIconColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -915,6 +921,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.OptionIconColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.OptionIconColorhandleClose }/>
                     <ChromePicker
                       color={this.props.OptionIconColorValue}
                       onChange={this.OptionIconColorhandleChange}
@@ -960,7 +967,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.DescTitleColorhandleClick}
-                  onBlur={this.DescTitleColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -975,6 +981,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.DescTitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.DescTitleColorhandleClose }/>
                     <ChromePicker
                       color={this.props.DescTitleColorValue}
                       onChange={this.DescTitleColorhandleChange}
@@ -995,7 +1002,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.DescHeaderBGColorhandleClick}
-                  onBlur={this.DescHeaderBGColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1010,6 +1016,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.DescHeaderBGColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.DescHeaderBGColorhandleClose }/>
                     <ChromePicker
                       color={this.props.DescHeaderBGColorValue}
                       onChange={this.DescHeaderBGColorhandleChange}
@@ -1030,7 +1037,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.DescBGColorhandleClick}
-                  onBlur={this.DescBGColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1045,6 +1051,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.DescBGColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.DescBGColorhandleClose }/>
                     <ChromePicker
                       color={this.props.DescBGColorValue}
                       onChange={this.DescBGColorhandleChange}
@@ -1065,7 +1072,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.DescTextColorhandleClick}
-                  onBlur={this.DescTextColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1080,6 +1086,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.DescTextColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.DescTextColorhandleClose }/>
                     <ChromePicker
                       color={this.props.DescTextColorValue}
                       onChange={this.DescTextColorhandleChange}
@@ -1125,7 +1132,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.CartTitleColorhandleClick}
-                  onBlur={this.CartTitleColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1140,6 +1146,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.CartTitleColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.CartTitleColorhandleClose }/>
                     <ChromePicker
                       color={this.props.CartTitleColorValue}
                       onChange={this.CartTitleColorhandleChange}
@@ -1160,7 +1167,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.CartButtonColorhandleClick}
-                  onBlur={this.CartButtonColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1175,6 +1181,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.CartButtonColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.CartButtonColorhandleClose }/>
                     <ChromePicker
                       color={this.props.CartButtonColorValue}
                       onChange={this.CartButtonColorhandleChange}
@@ -1195,7 +1202,6 @@ class ProductSettingsSection extends React.Component {
                   id="CollectionDropDown"
                   className="textColorCode"
                   onClick={this.CartBGColorhandleClick}
-                  onBlur={this.CartBGColorhandleClose}
                 />
                 <div style={this.swatch}>
                   <div
@@ -1210,6 +1216,7 @@ class ProductSettingsSection extends React.Component {
                 </div>
                 {this.state.CartBGColorPicker ? (
                   <div style={this.popover}>
+                    <div style={ this.cover } onClick={ this.CartBGColorhandleClose }/>
                     <ChromePicker
                       color={this.props.CartBGColorValue}
                       onChange={this.CartBGColorhandleChange}

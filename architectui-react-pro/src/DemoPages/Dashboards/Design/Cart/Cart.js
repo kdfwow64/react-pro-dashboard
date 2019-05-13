@@ -10,13 +10,15 @@ import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import CartLeftSection from './CartLeftSection';
+import Loader from 'react-loaders';
 import CartRightSection from './CartRightSection';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bannerImageUrl: ''
+      bannerImageUrl: '',
+      isLoaded: false,
     };
     this.homeTopTabsShowEditAlert = React.createRef();
   }
@@ -85,6 +87,7 @@ class Cart extends React.Component {
       this.setState({ navtitlecolor: res.data.CartSettings.navtitlecolor });
       this.setState({ NavTitle: res.data.CartSettings.NavTitle });
       this.setState({ bannerImageUrl: res.data.CartSettings.bannerImageUrl });
+      this.setState({ isLoaded:  true });
     });
   }
   onThemeOptionSelection = themName => {
@@ -175,6 +178,7 @@ class Cart extends React.Component {
   render() {
     return (
       <Fragment>
+      {this.state.isLoaded &&
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -260,6 +264,12 @@ class Cart extends React.Component {
               onSaveEditedItems={this.onSaveEditedItems} />
           </Row>
         </ReactCSSTransitionGroup>
+      }
+      {!this.state.isLoaded &&
+          <div>
+            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+          </div>
+        }
       </Fragment>
     );
   }

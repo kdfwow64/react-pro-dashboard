@@ -124,6 +124,14 @@ class SearchRightSection extends React.Component  {
     left: '0px'
   };
 
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
+
   bannerImageUrl = (value) => {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
@@ -208,7 +216,7 @@ class SearchRightSection extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navbghandleClick}
-                        onBlur={this.navbghandleClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -223,6 +231,7 @@ class SearchRightSection extends React.Component  {
                       </div>
                       {this.state.navbgdisplayColorPicker ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navbghandleClose }/>
                           <ChromePicker
                             color={this.props.navbgcolor || '#0E7C95'}
                             onChange={this.navbghandleChange}
@@ -231,7 +240,7 @@ class SearchRightSection extends React.Component  {
                       ) : null}
                     </div>
                   </div>
-                  <div className="CollectionMainEditIconColor">
+                 {/* <div className="CollectionMainEditIconColor">
                     <div className="col-sm-12 CollectionSettingEditIconColor">
                       <label>NAV BAR ICON COLOR </label>
                     </div>
@@ -243,7 +252,7 @@ class SearchRightSection extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.naviconhandleClick}
-                        onBlur={this.naviconhandleClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -258,6 +267,7 @@ class SearchRightSection extends React.Component  {
                       </div>
                       {this.state.navicondisplayColorPicker ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.naviconhandleClose }/>
                           <ChromePicker
                             color={this.props.naviconcolor || '#fff'}
                             onChange={this.naviconhandleChange}
@@ -265,7 +275,7 @@ class SearchRightSection extends React.Component  {
                         </div>
                       ) : null}
                     </div>
-                  </div>
+                  </div>*/}
 
                   <div
                     className="CollectionMainEditIconColor"
@@ -285,7 +295,7 @@ class SearchRightSection extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navtitlehandleClick}
-                        onBlur={this.navtitlehandleClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -300,6 +310,7 @@ class SearchRightSection extends React.Component  {
                       </div>
                       {this.state.navtitledisplayColorPicker ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
                           <ChromePicker
                             color={this.props.navtitlecolor || '#fff'}
                             onChange={this.navtitlehandleChange}

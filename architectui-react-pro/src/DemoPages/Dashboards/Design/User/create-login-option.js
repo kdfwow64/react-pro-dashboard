@@ -354,6 +354,13 @@ class CreateLoginOptions extends React.Component  {
     displayGeneralTextColor: false,
     displayTextLinkColor: false
   };
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     return (
@@ -373,7 +380,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginBGColorClick}
-                    onBlur={this.onloginBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -389,6 +396,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginBGColorClose }/>                      
                       <ChromePicker
                         color={this.props.loginBGColor}
                         onChange={this.onloginBGColorChangeComplete}
@@ -410,7 +418,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputBGColorClick}
-                    onBlur={this.onloginInputBGColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -426,6 +434,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginInputBGColorClose }/>
                       <ChromePicker
                         color={this.props.logininputBGColor}
                         onChange={this.onloginInputBGColorChangeComplete}
@@ -447,7 +456,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputIconColorClick}
-                    onBlur={this.onloginInputIconColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -463,6 +472,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputIconColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginInputIconColorClose }/>
                       <ChromePicker
                         color={this.props.logininputIconColor}
                         onChange={this.onloginInputIconColorChangeComplete}
@@ -484,7 +494,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputTitleColorClick}
-                    onBlur={this.onloginInputTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -500,6 +510,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginInputTitleColorClose }/>
                       <ChromePicker
                         color={this.props.logininputTitleColor}
                         onChange={this.onloginInputTitleColorChangeComplete}
@@ -519,7 +530,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginButtonColorClick}
-                    onBlur={this.onloginButtonColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -535,6 +546,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginButtonColorClose }/>
                       <ChromePicker
                         color={this.props.loginbuttonColor}
                         onChange={this.onloginButtonColorChangeComplete}
@@ -556,7 +568,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginButtonTitleColorClick}
-                    onBlur={this.onloginButtonTitleColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -572,6 +584,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginButtonTitleColorClose }/>
                       <ChromePicker
                         color={this.props.loginbuttonTitleColor}
                         onChange={this.onloginButtonTitleColorChangeComplete}
@@ -591,7 +604,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginGeneralTextColorClick}
-                    onBlur={this.onloginGeneralTextColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -607,6 +620,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginGeneralTextColorClose }/>
                       <ChromePicker
                         color={this.props.logingeneralTextColor}
                         onChange={this.onloginGeneralTextColorChangeComplete}
@@ -626,7 +640,7 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginTextLinkColorClick}
-                    onBlur={this.onloginTextLinkColorClose}
+                    
                   />
 
                   <div style={styles.swatch}>
@@ -642,6 +656,7 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
+                      <div style={ this.cover } onClick={ this.onloginTextLinkColorClose }/>
                       <ChromePicker
                         color={this.props.logintextLinkColor}
                         onChange={this.onloginTextLinkColorChangeComplete}

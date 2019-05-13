@@ -767,6 +767,13 @@ class ModalCollectionWithTitleContent extends React.Component {
         this.setState({ CollectionsProductsData: res.data });
       });
   }
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
 
   render() {
     const FullPxWidth = this.state.DefaultWidth + 'px';
@@ -781,6 +788,7 @@ class ModalCollectionWithTitleContent extends React.Component {
             >
               <div
                 className="FifthDropGridContainer"
+                style={{width: '260px'}}
               >
                 <div
                   className={
@@ -1354,7 +1362,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onCellTitleColorClick}
-                        onBlur={this.onCellTitleColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1369,6 +1377,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayCellTitleColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onCellTitleColorClose }/>
                           <ChromePicker
                             color={this.state.cellTitleColor}
                             onChange={this.onCellTitleColorClickComplete}
@@ -1389,7 +1398,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onCellSubTitleColorClick}
-                        onBlur={this.onCellSubTitleColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1404,6 +1413,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayCellSubTitleColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onCellSubTitleColorClose }/>
                           <ChromePicker
                             color={this.state.cellSubTitleColor}
                             onChange={this.onCellSubTitleColorClickComplete}
@@ -1424,7 +1434,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onProductTitleColorClick}
-                        onBlur={this.onProductTitleColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1439,6 +1449,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayProductTitleColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onProductTitleColorClose }/>
                           <ChromePicker
                             color={this.state.productTitleColor}
                             onChange={this.onProductTitleColorClickComplete}
@@ -1459,7 +1470,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPriceColorClick}
-                        onBlur={this.onPriceColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1474,6 +1485,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayPriceColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onPriceColorClose }/>
                           <ChromePicker
                             color={this.state.priceColor}
                             onChange={this.onPriceColorClickComplete}
@@ -1494,7 +1506,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onImageCellSubTitleColorClick}
-                        onBlur={this.onImageCellSubTitleColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1509,6 +1521,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayImageCellSubTitleColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onImageCellSubTitleColorClose }/>
                           <ChromePicker
                             color={this.state.imageCellSubTitleColor}
                             onChange={
@@ -1531,7 +1544,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onCellBGColorClick}
-                        onBlur={this.onCellBGColorClose}
+                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1546,6 +1559,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                       </div>
                       {this.state.displayCellBGColor ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.onCellBGColorClose }/>
                           <ChromePicker
                             color={this.state.cellBGColor}
                             onChange={this.onCellBGColorClickComplete}

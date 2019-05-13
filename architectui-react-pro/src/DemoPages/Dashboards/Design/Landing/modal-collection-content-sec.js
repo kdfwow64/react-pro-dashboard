@@ -375,7 +375,13 @@ class ModalSearchContentSec extends React.Component  {
         });
     }
   }
-
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
   render() {
     return (
       <div className="row">
@@ -659,7 +665,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onIconColorsecClick}
-                            onBlur={this.onIconColorsecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -674,6 +680,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayIconColor ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onIconColorsecClose }/>
                               <ChromePicker
                                 color={this.state.IconColor}
                                 onChange={this.onIconColorsecClickComplete}
@@ -709,7 +716,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onHeaderTitlesecClick}
-                            onBlur={this.onHeaderTitlesecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -724,6 +731,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayHeaderTitle ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onHeaderTitlesecClose }/>
                               <ChromePicker
                                 color={this.state.HeaderTitle}
                                 onChange={this.onHeaderTitlesecClickComplete}
@@ -744,7 +752,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onHeaderBGsecColorClick}
-                            onBlur={this.onHeaderBGsecColorClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -759,6 +767,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayHeaderBGColor ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onHeaderBGsecColorClose }/>
                               <ChromePicker
                                 color={this.state.HeaderBGColor}
                                 onChange={this.onHeaderBGsecColorClickComplete}
@@ -779,7 +788,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onProductBorderolorsecClick}
-                            onBlur={this.onProductBorderolorsecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -794,6 +803,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayProductBorderolor ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onProductBorderolorsecClose }/>
                               <ChromePicker
                                 color={this.state.productBorderColor}
                                 onChange={
@@ -837,7 +847,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onActionColorsecClick}
-                            onBlur={this.onActionColorsecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -852,6 +862,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayActionColor ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onActionColorsecClose }/>
                               <ChromePicker
                                 color={this.state.ActionColor}
                                 onChange={this.onActionColorsecClickComplete}
@@ -891,7 +902,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onActionTitleColorsecClick}
-                            onBlur={this.onActionTitleColorsecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -906,6 +917,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayActionTitleColor ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onActionTitleColorsecClose }/>
                               <ChromePicker
                                 color={this.state.ActionTitleColor}
                                 onChange={
@@ -930,7 +942,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onCollectionCellBGsecClick}
-                            onBlur={this.onCollectionCellBGsecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -945,6 +957,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayCollectionCellBG ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onCollectionCellBGsecClose }/>
                               <ChromePicker
                                 color={this.state.CollectionCellBG}
                                 onChange={
@@ -969,7 +982,7 @@ class ModalSearchContentSec extends React.Component  {
                             id="CollectionDropDown"
                             className="textColorCode"
                             onClick={this.onCollectionProductTitlesecClick}
-                            onBlur={this.onCollectionProductTitlesecClose}
+                            
                           />
                           <div style={this.swatch}>
                             <div
@@ -985,6 +998,7 @@ class ModalSearchContentSec extends React.Component  {
                           </div>
                           {this.state.displayCollectionProductTitle ? (
                             <div style={this.popover}>
+                              <div style={ this.cover } onClick={ this.onCollectionProductTitlesecClose }/>
                               <ChromePicker
                                 color={this.state.CollectionProductTitle}
                                 onChange={

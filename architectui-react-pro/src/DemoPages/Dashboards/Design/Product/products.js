@@ -11,6 +11,7 @@ import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import ProductcustomizePage from './product-customize-section';
 import ProductSettingsSection from './product-settings-section';
+import Loader from 'react-loaders';
 
 class Products extends React.Component {
 
@@ -21,6 +22,7 @@ class Products extends React.Component {
     this.homeTopTabsShowEditAlert = React.createRef();
     this.state = {
       bannerImageUrl: '',
+      isLoaded: false,
     };
 
   }
@@ -199,6 +201,7 @@ class Products extends React.Component {
         productselectedTitle: res.data.ProductSettings.productselectedTitle
       });
       this.setState({ bannerImageUrl: res.data.ProductSettings.bannerImageUrl });
+      this.setState({ isLoaded: true});
     });
   }
 
@@ -419,6 +422,7 @@ class Products extends React.Component {
   render() {
     return (
       <Fragment>
+      {this.state.isLoaded &&
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -591,6 +595,12 @@ class Products extends React.Component {
             ref={this.homeTopTabsShowEditAlert}
             onSaveEditedItems={this.onSaveEditedItems} />
         </ReactCSSTransitionGroup>
+       }
+      {!this.state.isLoaded &&
+        <div>
+          <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+        </div>
+      }
       </Fragment>
     );
   }

@@ -138,7 +138,13 @@ class ModalSearchContent extends React.Component  {
     position: 'absolute',
     zIndex: 10000
   };
-
+  cover = {
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px',
+  }
   render() {
     // let placehoder = this.state.searchPlaceholder;
     return (
@@ -193,7 +199,7 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onTitleColorClick}
-                      onBlur={this.onTitleColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -208,6 +214,7 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayTitleColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onTitleColorClose }/>
                         <ChromePicker
                           color={this.state.titleColor}
                           onChange={this.onTitleColorClickComplete}
@@ -229,7 +236,7 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onBorderColorClick}
-                      onBlur={this.onBorderColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -244,6 +251,7 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayBorderColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onBorderColorClose }/>
                         <ChromePicker
                           color={this.state.borderColor}
                           onChange={this.onBorderColorClickComplete}
@@ -265,7 +273,7 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onSearchBGClick}
-                      onBlur={this.onSearchBGClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -280,6 +288,7 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displaySearchBG ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onSearchBGClose }/>
                         <ChromePicker
                           color={this.state.searchBGColor}
                           onChange={this.onSearchBGClickComplete}
@@ -301,7 +310,7 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onSearchIconClick}
-                      onBlur={this.onSearchIconClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -316,6 +325,7 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayiconColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onSearchIconClose }/>
                         <ChromePicker
                           color={this.state.iconColor}
                           onChange={this.onSearchIconClickComplete}
@@ -337,7 +347,7 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onCellBGColorClick}
-                      onBlur={this.onCellBGColorClose}
+                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -352,6 +362,7 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displaycellBGColor ? (
                       <div style={this.popover}>
+                        <div style={ this.cover } onClick={ this.onCellBGColorClose }/>
                         <ChromePicker
                           color={this.state.cellBGColor}
                           onChange={this.onCellBGColorClickComplete}

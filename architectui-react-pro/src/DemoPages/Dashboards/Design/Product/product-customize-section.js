@@ -213,6 +213,7 @@ class ProductcustomizePage extends React.Component  {
   };
 
   cover = {
+    position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
@@ -394,17 +395,17 @@ class ProductcustomizePage extends React.Component  {
               className="ProductResult"
               style={{ display: this.state.DisplayProduct }}
             >
-              <input
+              {/*<input
                 type="text"
-                onKeyUp={this.SearchProduct}
+                onKeyPress={this.SearchProduct}
                 defaultValue=""
                 value={this.state.searchText}
-                style={{ border: 'unset' }}
-              />
+                style={{ margin: '5px', width: '96%' }}
+              />*/}
               <div className="mainProductListSearch">
                 {this.state.CollectionsProductsData.map((item3, index3) => {
                   return (
-                    <div // key={item3.id}
+                    <div key={item3.id}
                       className="collectionElementProductShowHide productCollection"
                       style={{
                         height: 'auto',
@@ -505,7 +506,6 @@ class ProductcustomizePage extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navbghandleClick}
-                        onBlur={this.navbghandleClose}
                       />
                       <div style={this.swatch}>
                         <div
@@ -520,6 +520,7 @@ class ProductcustomizePage extends React.Component  {
                       </div>
                       {this.state.navbgdisplayColorPicker ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navbghandleClose }/>
                           <ChromePicker
                             color={this.props.navbgcolorValue || '#0E7C95'}
                             onChange={this.navbghandleChange}
@@ -541,7 +542,7 @@ class ProductcustomizePage extends React.Component  {
                         IconClassName={this.props.DropDownGetIconheaderValue}
                       />
                     </div>
-                  </div> */}
+                  </div> 
 
                   <div className="CollectionMainEditIconColor">
                     <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -555,7 +556,6 @@ class ProductcustomizePage extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.naviconhandleClick}
-                        onBlur={this.naviconhandleClose}
                       />
                       <div style={this.swatch}>
                         <div
@@ -570,14 +570,15 @@ class ProductcustomizePage extends React.Component  {
                       </div>
                       {this.state.navicondisplayColorPicker ? (
                         <div style={this.popover}>
-                          <ChromePicker
+                        <div style={ this.cover } onClick={ this.naviconhandleClose }/>  
+                        <ChromePicker
                             color={this.props.naviconcolorValue || '#fff'}
                             onChange={this.naviconhandleChange}
                           />
                         </div>
                       ) : null}
                     </div>
-                  </div>
+                  </div>*/}
 
                   <div
                     className="CollectionMainEditIconColor"
@@ -597,7 +598,6 @@ class ProductcustomizePage extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navtitlehandleClick}
-                        onBlur={this.navtitlehandleClose}
                       />
                       <div style={this.swatch}>
                         <div
@@ -612,6 +612,7 @@ class ProductcustomizePage extends React.Component  {
                       </div>
                       {this.state.navtitledisplayColorPicker ? (
                         <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
                           <ChromePicker
                             color={this.props.navtitlecolorValue || '#fff'}
                             onChange={this.navtitlehandleChange}

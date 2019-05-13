@@ -15,6 +15,7 @@ import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import SearchLeftSection from './SearchLeftSection';
 import SearchRightSection from './SearchRightSection';
+import Loader from 'react-loaders';
 import { API_ROOT } from "../../../../utilities/api-config";
 
 class Cart extends React.Component {
@@ -25,6 +26,7 @@ class Cart extends React.Component {
     super(props);
     this.state = {
       bannerImageUrl: '',
+      isLoaded: false,
     };
     this.homeTopTabsShowEditAlert = React.createRef();
   }
@@ -105,6 +107,7 @@ class Cart extends React.Component {
       // this.setState({ NavTitle: res.data.SearchSettings.NavTitle });
       this.setState({ NavTitleValue: res.data.SearchSettings.NavTitleValue });
       this.setState({ bannerImageUrl: res.data.SearchSettings.bannerImageUrl });
+      this.setState({ isLoaded: true });
     });
   }
   onThemeOptionSelection = themName => {
@@ -197,6 +200,7 @@ class Cart extends React.Component {
   render() {
     return (
       <Fragment>
+      {this.state.isLoaded &&
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -283,6 +287,14 @@ class Cart extends React.Component {
               onSaveEditedItems={this.onSaveEditedItems} />
           </Row>
         </ReactCSSTransitionGroup>
+      }
+      {!this.state.isLoaded &&
+          <div>
+            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+          </div>
+        }
+      
+      
       </Fragment>
     );
   }
