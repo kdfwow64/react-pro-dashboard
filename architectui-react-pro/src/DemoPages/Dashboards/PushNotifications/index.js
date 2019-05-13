@@ -1,10 +1,24 @@
 import axios from "axios";
 import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Button, Card, CardBody, CardSubtitle, CardTitle, Col, Container, Form, FormGroup, FormText, Input, Label, Row } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardSubtitle,
+  CardTitle,
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  FormText,
+  Input,
+  Label,
+  Row
+} from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
 import { API_ROOT } from "../../../utilities/api-config";
-
 
 export default class PushNotifications extends React.Component {
   constructor(props) {
@@ -155,14 +169,14 @@ export default class PushNotifications extends React.Component {
           />
           <Container fluid>
             <Row>
-              <Col md="6">
+              <Col md="8">
                 <Card className="main-card mb-3">
+                  <CardHeader>Push Notification</CardHeader>
                   <CardBody>
-                    <CardTitle>Push Notification</CardTitle>
-                    <CardSubtitle>
+                    <CardTitle>
                       You can send push notifications after your app is
                       published.
-                    </CardSubtitle>
+                    </CardTitle>
                     <Form>
                       <FormGroup>
                         <Label for="exampleEmail">Notification Heading</Label>
@@ -210,7 +224,7 @@ export default class PushNotifications extends React.Component {
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6">
+              <Col md="4">
                 <div style={{ float: "left", position: "relative" }}>
                   <img
                     src={require("./device.png")}
