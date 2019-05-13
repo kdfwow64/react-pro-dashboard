@@ -152,7 +152,7 @@ class SettingsDashboard extends React.Component {
         >
           <PageTitle
             heading="Settings"
-            subheading="Example of a Dashboard page built with ArchitectUI."
+            subheading="App Settings"
             icon="pe-7s-video icon-gradient bg-sunny-morning"
           />
           <form ref={this.setFormRef} onSubmit={handleSubmit}>

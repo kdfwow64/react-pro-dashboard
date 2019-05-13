@@ -33,7 +33,7 @@ export default class Tutorials extends Component {
         >
           <PageTitle
             heading="Tutorials"
-            subheading="Example of a Dashboard page built with ArchitectUI."
+            subheading="Watch tutorial videos to learn more."
             icon="pe-7s-video icon-gradient bg-sunny-morning"
           />
           <div>
