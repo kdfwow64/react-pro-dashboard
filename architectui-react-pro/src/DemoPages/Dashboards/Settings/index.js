@@ -156,23 +156,6 @@ class SettingsDashboard extends React.Component {
             icon="pe-7s-video icon-gradient bg-sunny-morning"
           />
           <form ref={this.setFormRef} onSubmit={handleSubmit}>
-            <Card className="main-card mb-3">
-              <CardBody>
-                <Row>
-                  <Col md={6}>
-                    <CardTitle>Storefront Token</CardTitle>
-                    <p>
-                      Your storefront token from Private app. See how to create
-                      one.
-                    </p>
-                  </Col>
-                  <Col md={6}>
-                    <Input type="text" />
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-
             <Card>
               <CardBody>
                 <Row>
