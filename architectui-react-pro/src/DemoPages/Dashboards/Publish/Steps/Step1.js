@@ -23,12 +23,16 @@ export default class WizardStep1 extends React.Component {
                     {/* </Row> */}
                     <FormGroup>
                         <Label for="exampleAddress">Short description of the app</Label>
-                        <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
+                        <Input type="text" name="address" id="exampleAddress" placeholder=""/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleAddress2">Long description of the app</Label>
                         <Input type="textarea" name="address2" id="exampleAddress2"
-                               placeholder="Apartment, studio, or floor"/>
+                               placeholder=""/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>App Icon</Label>
+                        <Input type="file" />
                     </FormGroup>
                     {/* <Row form>
                         <Col md={6}>
