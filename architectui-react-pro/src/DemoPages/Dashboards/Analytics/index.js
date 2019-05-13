@@ -338,7 +338,7 @@ export default class AnalyticsDashboard extends Component {
         >
           <PageTitle
             heading="Analytics"
-            subheading="This is an example dashboard created using build-in elements and components."
+            subheading="Get insight on how your mobile app is performing."
             icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
           />
           <Container fluid>
@@ -351,34 +351,46 @@ export default class AnalyticsDashboard extends Component {
                 <Line data={activeUsersData} />
               </CardBody>
             </Card>
-            <Card className="main-card mb-3">
-              <CardBody>
-                <Row>
-                  <Col>
+
+            <Row>
+              <Col>
+                <Card className="main-card mb-3">
+                  <CardBody>
                     {/* <DisplayText size="small">Daily session per user <StatefulToolTip position="right" arrow="center"
                                                             id="dailySessionsToolTip"
                                                             text="Each point is the average number of sessions per unique user for that day." /></DisplayText> */}
                     <Line data={dailySessionsUsersData} />
-                    {/* <Stack distribution="fill"> */}
+                    
+                    <Row>
+                    <Col>
                     <div>
                       <p>TOTAL SESSIONS</p>
-                      {/* <p><DisplayText size="small">{this.state.sessionCount}</DisplayText></p> */}
+                      <p>{this.state.sessionCount}</p>
                     </div>
-                    <div>
+                    </Col>
+                    <Col>
+                    <div className="float-right">
                       <p>AVG. SESSIONS PER DAY</p>
-                      {/* <p><DisplayText size="small">{this.state.averageSessionsPerUser}</DisplayText></p> */}
+                      <p>{this.state.averageSessionsPerUser}</p>
                     </div>
-                    {/* </Stack> */}
-                  </Col>
-                  <Col>
+                    </Col>
+                    </Row>
+                  </CardBody>
+                </Card>
+              </Col>
+
+              <Col>
+                <Card className="main-card mb-3">
+                  <CardBody>
                     {/* <DisplayText size="small">Top devices <StatefulToolTip position="right" arrow="center"
                                                             id="topDevicesToolTip"
                                                             text="The number of active users for the top used models. OS Distribution: the distribution of top 4 OS version of active users." /></DisplayText> */}
                     <HorizontalBar data={topDevicesData} />
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+
             <Card className="main-card mb-3">
               <CardBody>
                 {/* <DisplayText size="small">Active users per version <StatefulToolTip position="right" arrow="center"
