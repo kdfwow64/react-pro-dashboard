@@ -682,7 +682,7 @@ class SearchLeftSection extends React.Component {
                 ) : null}
               </div>
 
-              <div
+              {/* <div
                 className="ProductSilderActiveColor"
                 id="SearchAction"
                 style={{ position: "relative", marginTop: "20px" }}
@@ -694,9 +694,9 @@ class SearchLeftSection extends React.Component {
                   }
                   IconClassName={this.props.searchActionValue}
                 />
-              </div>
+              </div> */}
 
-              <div
+              {/* <div
                 className="ProductSilderActiveColor"
                 style={{ position: "relative", marginTop: "20px" }}
               >
@@ -732,7 +732,7 @@ class SearchLeftSection extends React.Component {
                     />
                   </div>
                 ) : null}
-              </div>
+              </div> */}
             </Row>
             </Card>
         </ReactCSSTransitionGroup>

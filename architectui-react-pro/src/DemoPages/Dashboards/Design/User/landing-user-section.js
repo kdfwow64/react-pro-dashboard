@@ -1032,6 +1032,7 @@ class LandingUserSection extends React.Component {
               >
                 <PerfectScrollbar>
                   <div id="accordion" className="accordion-wrapper mb-3">
+                  <Card>
                     <CardHeader style={{ marginBottom: "10px" }}>
                       <h3 className="leftCardHeader"> User Settings </h3>{" "}
                     </CardHeader>
@@ -1392,6 +1393,7 @@ class LandingUserSection extends React.Component {
                           />
                         </div>
                       </Collapse>
+                    </Card>
                     </Card>
                   </div>
                 </PerfectScrollbar>

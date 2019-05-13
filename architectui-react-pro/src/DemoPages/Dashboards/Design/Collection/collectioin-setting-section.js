@@ -388,7 +388,7 @@ class CollectioinSettingSection extends React.Component  {
               </div>
             </div>
 
-            <div
+            {/* <div
               className="CollectionFullRowContainer"
               style={{ display: this.props.GridViewFieldOption }}
             >
@@ -403,7 +403,7 @@ class CollectioinSettingSection extends React.Component  {
                   IconClassName={this.props.IconAction || 'lnr-chevron-right'}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div
               className="CollectionFullRowContainer"
