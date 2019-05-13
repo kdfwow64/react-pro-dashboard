@@ -59,14 +59,14 @@ export default class MultiStep extends React.Component {
     }
 
     handleOnClick = evt => {
-        if (
-            evt.currentTarget.value === this.props.steps.length - 1 &&
-            this.state.compState === this.props.steps.length - 1
-        ) {
-            this.setNavState(this.props.steps.length)
-        } else {
-            this.setNavState(evt.currentTarget.value)
-        }
+        // if (
+        //     evt.currentTarget.value === this.props.steps.length - 1 &&
+        //     this.state.compState === this.props.steps.length - 1
+        // ) {
+        //     this.setNavState(this.props.steps.length)
+        // } else {
+        //     this.setNavState(evt.currentTarget.value)
+        // }
     }
 
     next = () => {
