@@ -14,7 +14,7 @@ import ThemeOptions from '../theme-options';
 import ProductcustomizePage from './product-customize-section';
 import ProductSettingsSection from './product-settings-section';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../utilities/api-config";
 
 class Products extends React.Component {
 

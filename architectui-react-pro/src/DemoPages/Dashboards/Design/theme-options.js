@@ -1,22 +1,16 @@
 // tslint:disable
 // @ts-nocheck
-import { faCog, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
-import SweetAlert from 'sweetalert-react';
-import Axios from 'axios';
-import { themeColorFromName } from './mobile-theme-utils';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCog, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Axios from 'axios';
+import * as React from 'react';
+import { toast } from 'react-toastify';
 import { Tooltip } from 'reactstrap';
-import {
-  toast,
-} from 'react-toastify';
-import {
-  Row, Col,
-  Card, CardBody, Button,
-} from 'reactstrap';
-var API_ROOT = 'https://thesearchit.com';
+import SweetAlert from 'sweetalert-react';
+import { API_ROOT } from "../../../utilities/api-config";
+import { themeColorFromName } from './mobile-theme-utils';
 
 library.add(
   fab,

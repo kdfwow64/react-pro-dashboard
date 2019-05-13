@@ -3,10 +3,9 @@
 import axios from 'axios';
 import React from 'react';
 import { ChromePicker } from 'react-color';
+import { Button, CardFooter } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 import IconList from '../icon-list';
-import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
-
-var API_ROOT = 'https://thesearchit.com';
 
 const ProductsCollections = {
   collections: [

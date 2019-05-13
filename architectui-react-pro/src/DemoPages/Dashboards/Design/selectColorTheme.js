@@ -4,7 +4,7 @@ import axios from "axios";
 import * as React from "react";
 import './index.css';
 import HomeTopTabs from "./home-tabs";
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../utilities/api-config";
 
 class SelectColorTheme extends React.Component  {
     constructor(props) {

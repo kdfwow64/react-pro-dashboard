@@ -2,7 +2,7 @@
 // @ts-nocheck
 import axios from 'axios';
 import React from 'react';
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../../utilities/api-config";
 
 const ProductsCollections = {
     collections: [

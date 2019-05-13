@@ -1,7 +1,7 @@
 // tslint:disable
 import axios from 'axios';
-import React, { Fragment } from 'react';
-var API_ROOT = 'https://thesearchit.com';
+import React from 'react';
+import { API_ROOT } from "../../../../utilities/api-config";
 
 const ProductsCollections = {
   collections: [

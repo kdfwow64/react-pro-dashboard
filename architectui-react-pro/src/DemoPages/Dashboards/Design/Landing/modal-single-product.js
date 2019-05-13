@@ -8,7 +8,7 @@ import 'react-switchery-component/react-switchery-component.css';
 import '../index.css';
 import {Button, CardFooter, Card, CardText, CardBody} from 'reactstrap';
 import Ionicon from 'react-ionicons'
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../utilities/api-config";
 const Placeholder = './Placeholder.png';
 const iconData = [
   "ios-add",

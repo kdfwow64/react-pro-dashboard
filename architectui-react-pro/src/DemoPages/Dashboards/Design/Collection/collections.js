@@ -3,21 +3,16 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Fragment } from 'react';
-import {
-  Button,
-  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
-  Collapse, Fade, Row
-} from 'reactstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
 import CollectioinSettingSection from './collectioin-setting-section';
 import CollectioinSettingSectionEffects from './collectioin-setting-section-effects';
-import ThemeOptions from '../theme-options';
-import { themeColorFromName } from '../mobile-theme-utils';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import Loader from 'react-loaders';
-
-var API_ROOT = 'https://thesearchit.com';
 
 class Collections extends React.Component {
   constructor(props) {

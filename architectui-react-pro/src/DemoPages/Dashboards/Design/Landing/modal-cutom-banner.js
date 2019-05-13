@@ -5,9 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React from 'react';
 import InputMask from 'react-input-mask';
-import { InputGroup, InputGroupAddon, Button, CardFooter, Card, CardText, CardBody } from 'reactstrap';
-
-var API_ROOT = 'https://thesearchit.com';
+import { Button, CardFooter, InputGroup, InputGroupAddon } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 
 class ModalCustomBanner extends React.Component {
   constructor(props) {

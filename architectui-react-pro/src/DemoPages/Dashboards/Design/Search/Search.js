@@ -15,7 +15,7 @@ import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import SearchLeftSection from './SearchLeftSection';
 import SearchRightSection from './SearchRightSection';
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../utilities/api-config";
 
 class Cart extends React.Component {
 

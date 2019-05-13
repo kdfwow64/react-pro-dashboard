@@ -5,7 +5,7 @@ import { RaisedButton } from "material-ui";
 import * as React from "react";
 import Dropzone from "react-dropzone";
 import * as S3Upload from "react-s3-uploader/s3upload";
-var API_ROOT = 'https://thesearchit.com';
+import { API_ROOT } from "../../../utilities/api-config";
 
 export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extends React.Component {
   constructor(props) {

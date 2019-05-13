@@ -4,11 +4,11 @@ import axios from "axios";
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import Modal from "react-responsive-modal";
-import {
-  Col, Row, Card, CardBody,
-  CardTitle, CardHeader
-} from 'reactstrap';
+import { CardHeader, Col, Row } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 //import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
@@ -29,10 +29,7 @@ import ProductSearchForm from "./search-form";
 import SearchNavigationSettings from "./search-navigation-settings";
 import SearchNavigationStyles from "./search-navigation-styles";
 import SingleProduct from "./single-product";
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import Loader from 'react-loaders';
 var Placeholder = './Placeholder.png';
-var API_ROOT = 'https://thesearchit.com';
 
 const homeLandingAllSettings = {
   landingBuildNavigationBarInitialSettings: {

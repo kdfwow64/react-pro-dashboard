@@ -3,9 +3,9 @@ import * as moment from 'moment';
 import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
-import { Card, CardBody, Container, CardTitle, Col, Row } from 'reactstrap';
+import { Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import { API_ROOT } from "../../../utilities/api-config";
 import PageTitle from '../../../Layout/AppMain/PageTitle';
-var API_ROOT = 'https://thesearchit.com';
 
 export default class AnalyticsDashboard extends Component {
 

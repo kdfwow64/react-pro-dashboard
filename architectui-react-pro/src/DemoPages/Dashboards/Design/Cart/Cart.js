@@ -3,18 +3,14 @@
 import axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import {
-  Button,
-  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
-  Collapse, Fade, Row
-} from 'reactstrap';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import CartLeftSection from './CartLeftSection';
 import CartRightSection from './CartRightSection';
-var API_ROOT = 'https://thesearchit.com';
 
 class Cart extends React.Component {
   constructor(props) {

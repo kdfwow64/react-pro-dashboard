@@ -1,14 +1,12 @@
 // tslint:disable
 // @ts-nocheck
 import axios from 'axios';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
-import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
 import 'react-switchery-component/react-switchery-component.css';
-import { DropdownList } from 'react-widgets'
-
-var API_ROOT = 'https://thesearchit.com';
+import { Button, CardFooter } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 
 const ProductsCollectionsCellsSettings = [
   {

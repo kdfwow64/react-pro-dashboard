@@ -3,12 +3,11 @@
 import axios from 'axios';
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
+import Loader from 'react-loaders';
+import { API_ROOT } from "../../../../utilities/api-config";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import CollectionSettingSingleSection from './collection-setting-grid-single-section';
 import CollectioinSettingListSectionEffects from './collection-setting-list-single-section';
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability';
-import Loader from 'react-loaders';
-var API_ROOT = 'https://thesearchit.com';
-
 
 const ProductsCollections = {
   collections: [
