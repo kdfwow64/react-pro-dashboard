@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Card, CardBody, CardTitle, Table } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from '../../../utilities/api-config';
+import { API_ROOT } from "../../../utilities/api-config";
 
 export default class ScheduledNotifications extends React.Component {
   constructor(props) {
@@ -40,7 +40,6 @@ export default class ScheduledNotifications extends React.Component {
       ]);
     }
 
-    notificationArray.push(["test", "test", "test"]);
     return (
       <Fragment>
         <ReactCSSTransitionGroup
@@ -73,9 +72,9 @@ export default class ScheduledNotifications extends React.Component {
                     return (
                       <tr>
                         <th scope="row">1</th>
-                        <td>{notification}</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                        <td>{notification[0]}</td>
+                        <td>{notification[1]}</td>
+                        <td>{notification[2]}</td>
                       </tr>
                     );
                   })}
