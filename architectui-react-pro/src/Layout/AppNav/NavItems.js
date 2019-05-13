@@ -91,7 +91,7 @@ export const ComponentsNav = [
     },
     {
         label: 'Get a Free Month',
-        to: '#/dashboards/preview-app',
+        to: '#/dashboards/get-a-free-month',
     },
 ];
 export const FormsNav = [
