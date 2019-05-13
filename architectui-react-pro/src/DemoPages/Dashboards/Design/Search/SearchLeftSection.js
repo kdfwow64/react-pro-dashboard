@@ -261,15 +261,12 @@ class SearchLeftSection extends React.Component {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <div
-            className="ProductSettingsMainContainer"
-            id="ProductSettingsBody"
-          >
-            <CardHeader style={{ marginBottom: "10px" }}>
-              <h3 className="leftCardHeader"> Search Settings </h3>{" "}
+          <Card className="mb-3">
+            <CardHeader>
+              <h3 className="leftCardHeader">Search Settings</h3>
             </CardHeader>
 
-            <Row style={{ padding: "0 30px", marginBottom: "10px" }}>
+            <Row>
               <div
                 className="ProductSilderActiveColor"
                 style={{ position: "relative" }}
@@ -737,7 +734,7 @@ class SearchLeftSection extends React.Component {
                 ) : null}
               </div>
             </Row>
-          </div>
+            </Card>
         </ReactCSSTransitionGroup>
       </Fragment>
     );

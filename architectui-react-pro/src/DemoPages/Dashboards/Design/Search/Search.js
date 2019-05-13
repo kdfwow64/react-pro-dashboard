@@ -1,32 +1,38 @@
 // tslint:disable
 // @ts-nocheck
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Fragment } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Fragment } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {
   Button,
-  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
-  Collapse, Fade, Row
-} from 'reactstrap';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import '../index.css';
-import { themeColorFromName } from '../mobile-theme-utils';
-import ThemeOptions from '../theme-options';
-import SearchLeftSection from './SearchLeftSection';
-import SearchRightSection from './SearchRightSection';
-import Loader from 'react-loaders';
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Col,
+  CardTitle,
+  Collapse,
+  Fade,
+  Row
+} from "reactstrap";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import "../index.css";
+import { themeColorFromName } from "../mobile-theme-utils";
+import ThemeOptions from "../theme-options";
+import SearchLeftSection from "./SearchLeftSection";
+import SearchRightSection from "./SearchRightSection";
+import Loader from "react-loaders";
 import { API_ROOT } from "../../../../utilities/api-config";
 
 class Cart extends React.Component {
-
   homeTopTabsShowEditAlert = null;
 
   constructor(props) {
     super(props);
     this.state = {
-      bannerImageUrl: '',
-      isLoaded: false,
+      bannerImageUrl: "",
+      isLoaded: false
     };
     this.homeTopTabsShowEditAlert = React.createRef();
   }
@@ -53,7 +59,7 @@ class Cart extends React.Component {
       navtitlecolor: this.state.navtitlecolor,
       //  NavTitle: this.state.NavTitle,
       NavTitleValue: this.state.NavTitleValue,
-      bannerImageUrl: this.state.bannerImageUrl,
+      bannerImageUrl: this.state.bannerImageUrl
     };
     axios
       .post(`${API_ROOT}/api/v2/app-search`, {
@@ -62,7 +68,7 @@ class Cart extends React.Component {
       .then(res => {
         res.data && this.homeTopTabsShowEditAlert.current.showSavedButton();
       });
-  }
+  };
   componentDidMount() {
     axios.get(`${API_ROOT}/api/v2/app-search`).then(res => {
       this.setState({ BGColor: res.data.SearchSettings.BGColor });
@@ -115,75 +121,75 @@ class Cart extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
     this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
     this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
-  }
+  };
   DropDownGetIconheader = color => {
     this.setState({ DropDownGetIconheader: color });
-  }
+  };
   naviconcolor = color => {
     this.setState({ naviconcolor: color.hex });
-  }
+  };
   navtitlecolor = color => {
     this.setState({ navtitlecolor: color.hex });
-  }
+  };
   navbgcolor = color => {
     this.setState({ navbgcolor: color.hex });
-  }
+  };
   NavTitle = color => {
     this.setState({ NavTitleValue: color });
-  }
+  };
 
   BGColorCallback = color => {
     this.setState({ BGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   SearchInputColorCallback = color => {
     this.setState({ SearchInputColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   SearchInputBorderCallback = color => {
     this.setState({ SearchInputBorder: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   SearchIconColorCallback = color => {
     this.setState({ SearchIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   SearchTitleColorCallback = color => {
     this.setState({ SearchTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   SearchBGColorCallback = color => {
     this.setState({ SearchBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   CellSeparatorColorCallback = color => {
     this.setState({ CellSeparatorColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   CellBGColorCallback = color => {
     this.setState({ CellBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   ProductBorderColorCallback = color => {
     this.setState({ ProductBorderColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   ProductTitleColorCallback = color => {
     this.setState({ ProductTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   PriceColorCallback = color => {
     this.setState({ PriceColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   ProductIconColorCallback = color => {
     this.setState({ ProductIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   searchAction = icon => {
     this.setState({ searchAction: icon });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
+  };
   DisplaySaveBtn = () => {
     /*this.setState({ navbgcolor: value.navbgcolor });
     this.setState({ DropDownGetIconheader: value.DropDownGetIconheader });
@@ -192,109 +198,113 @@ class Cart extends React.Component {
    // this.setState({ NavTitle: value.NavTitle });
     this.setState({ NavTitleValue: value.NavTitleValue });*/
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-  }
-  bannerImageUrlCallBack = (val) => {
+  };
+  bannerImageUrlCallBack = val => {
     this.setState({ bannerImageUrl: val });
-  }
+  };
 
   render() {
     return (
       <Fragment>
-      {this.state.isLoaded &&
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="TabsAnimation"
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnter={false}
-          transitionLeave={false}>
-          <Row>
-            <Col
-              md={4}
-              id="CollectionMainContainer"
-              style={{ border: '1px solid #efefef' }}
-            >
-              <PerfectScrollbar>
-                <SearchLeftSection
-                  BGColorCallback={this.BGColorCallback}
-                  SearchInputColorCallback={this.SearchInputColorCallback}
-                  SearchInputBorderCallback={this.SearchInputBorderCallback}
-                  SearchIconColorCallback={this.SearchIconColorCallback}
-                  SearchTitleColorCallback={this.SearchTitleColorCallback}
-                  SearchBGColorCallback={this.SearchBGColorCallback}
-                  CellSeparatorColorCallback={this.CellSeparatorColorCallback}
-                  CellBGColorCallback={this.CellBGColorCallback}
-                  ProductBorderColorCallback={this.ProductBorderColorCallback}
-                  ProductTitleColorCallback={this.ProductTitleColorCallback}
-                  PriceColorCallback={this.PriceColorCallback}
-                  ProductIconColorCallback={this.ProductIconColorCallback}
-                  searchAction={this.searchAction}
-                  BGColor={this.state.BGColor}
-                  SearchInputColor={this.state.SearchInputColor}
-                  SearchInputBorder={this.state.SearchInputBorder}
-                  SearchIconColor={this.state.SearchIconColor}
-                  SearchTitleColor={this.state.SearchTitleColor}
-                  SearchBGColor={this.state.SearchBGColor}
-                  CellSeparatorColor={this.state.CellSeparatorColor}
-                  CellBGColor={this.state.CellBGColor}
-                  ProductBorderColor={this.state.ProductBorderColor}
-                  ProductTitleColor={this.state.ProductTitleColor}
-                  PriceColor={this.state.PriceColor}
-                  ProductIconColor={this.state.ProductIconColor}
-                  searchActionValue={this.state.searchAction}
-                />
-              </PerfectScrollbar>
-            </Col>
-            <Col md={8} id="RightContainerScroll">
-              <div id="mbl_bg_rit">
-                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
-                  <PerfectScrollbar>
-                    <SearchRightSection
-                      DisplaySaveBtn={this.DisplaySaveBtn}
-                      BGColor={this.state.BGColor}
-                      SearchInputColor={this.state.SearchInputColor}
-                      SearchInputBorder={this.state.SearchInputBorder}
-                      SearchIconColor={this.state.SearchIconColor}
-                      SearchTitleColor={this.state.SearchTitleColor}
-                      SearchBGColor={this.state.SearchBGColor}
-                      CellSeparatorColor={this.state.CellSeparatorColor}
-                      CellBGColor={this.state.CellBGColor}
-                      ProductBorderColor={this.state.ProductBorderColor}
-                      ProductTitleColor={this.state.ProductTitleColor}
-                      PriceColor={this.state.PriceColor}
-                      ProductIconColor={this.state.ProductIconColor}
-                      searchAction={this.state.searchAction}
-                      navbgcolor={this.state.navbgcolor}
-                      DropDownGetIconheader={this.state.DropDownGetIconheader}
-                      naviconcolor={this.state.naviconcolor}
-                      navtitlecolor={this.state.navtitlecolor}
-                      // NavTitle={this.state.NavTitle}
-                      DropDownGetIconheaderCall={this.DropDownGetIconheader}
-                      naviconcolorCall={this.naviconcolor}
-                      navtitlecolorCall={this.navtitlecolor}
-                      navbgcolorCall={this.navbgcolor}
-                      NavTitleCall={this.NavTitle}
-                      NavTitleValue={this.state.NavTitleValue}
-                      bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                      bannerImageUrl={this.state.bannerImageUrl}
-                    />
-                  </PerfectScrollbar>
+        {this.state.isLoaded && (
+          <ReactCSSTransitionGroup
+            component="div"
+            transitionName="TabsAnimation"
+            transitionAppear={true}
+            transitionAppearTimeout={0}
+            transitionEnter={false}
+            transitionLeave={false}
+          >
+            <Row>
+              <Col md={4} id="CollectionMainContainer">
+                <PerfectScrollbar>
+                  <SearchLeftSection
+                    BGColorCallback={this.BGColorCallback}
+                    SearchInputColorCallback={this.SearchInputColorCallback}
+                    SearchInputBorderCallback={this.SearchInputBorderCallback}
+                    SearchIconColorCallback={this.SearchIconColorCallback}
+                    SearchTitleColorCallback={this.SearchTitleColorCallback}
+                    SearchBGColorCallback={this.SearchBGColorCallback}
+                    CellSeparatorColorCallback={this.CellSeparatorColorCallback}
+                    CellBGColorCallback={this.CellBGColorCallback}
+                    ProductBorderColorCallback={this.ProductBorderColorCallback}
+                    ProductTitleColorCallback={this.ProductTitleColorCallback}
+                    PriceColorCallback={this.PriceColorCallback}
+                    ProductIconColorCallback={this.ProductIconColorCallback}
+                    searchAction={this.searchAction}
+                    BGColor={this.state.BGColor}
+                    SearchInputColor={this.state.SearchInputColor}
+                    SearchInputBorder={this.state.SearchInputBorder}
+                    SearchIconColor={this.state.SearchIconColor}
+                    SearchTitleColor={this.state.SearchTitleColor}
+                    SearchBGColor={this.state.SearchBGColor}
+                    CellSeparatorColor={this.state.CellSeparatorColor}
+                    CellBGColor={this.state.CellBGColor}
+                    ProductBorderColor={this.state.ProductBorderColor}
+                    ProductTitleColor={this.state.ProductTitleColor}
+                    PriceColor={this.state.PriceColor}
+                    ProductIconColor={this.state.ProductIconColor}
+                    searchActionValue={this.state.searchAction}
+                  />
+                </PerfectScrollbar>
+              </Col>
+              <Col md={8} id="RightContainerScroll">
+                <div id="mbl_bg_rit">
+                  <div
+                    id="CollectionMainRightContainer"
+                    style={{ marginTop: "80px" }}
+                  >
+                    <PerfectScrollbar>
+                      <SearchRightSection
+                        DisplaySaveBtn={this.DisplaySaveBtn}
+                        BGColor={this.state.BGColor}
+                        SearchInputColor={this.state.SearchInputColor}
+                        SearchInputBorder={this.state.SearchInputBorder}
+                        SearchIconColor={this.state.SearchIconColor}
+                        SearchTitleColor={this.state.SearchTitleColor}
+                        SearchBGColor={this.state.SearchBGColor}
+                        CellSeparatorColor={this.state.CellSeparatorColor}
+                        CellBGColor={this.state.CellBGColor}
+                        ProductBorderColor={this.state.ProductBorderColor}
+                        ProductTitleColor={this.state.ProductTitleColor}
+                        PriceColor={this.state.PriceColor}
+                        ProductIconColor={this.state.ProductIconColor}
+                        searchAction={this.state.searchAction}
+                        navbgcolor={this.state.navbgcolor}
+                        DropDownGetIconheader={this.state.DropDownGetIconheader}
+                        naviconcolor={this.state.naviconcolor}
+                        navtitlecolor={this.state.navtitlecolor}
+                        // NavTitle={this.state.NavTitle}
+                        DropDownGetIconheaderCall={this.DropDownGetIconheader}
+                        naviconcolorCall={this.naviconcolor}
+                        navtitlecolorCall={this.navtitlecolor}
+                        navbgcolorCall={this.navbgcolor}
+                        NavTitleCall={this.NavTitle}
+                        NavTitleValue={this.state.NavTitleValue}
+                        bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                        bannerImageUrl={this.state.bannerImageUrl}
+                      />
+                    </PerfectScrollbar>
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <ThemeOptions selectTheme={this.onThemeOptionSelection}
-              ref={this.homeTopTabsShowEditAlert}
-              onSaveEditedItems={this.onSaveEditedItems} />
-          </Row>
-        </ReactCSSTransitionGroup>
-      }
-      {!this.state.isLoaded &&
+              </Col>
+              <ThemeOptions
+                selectTheme={this.onThemeOptionSelection}
+                ref={this.homeTopTabsShowEditAlert}
+                onSaveEditedItems={this.onSaveEditedItems}
+              />
+            </Row>
+          </ReactCSSTransitionGroup>
+        )}
+        {!this.state.isLoaded && (
           <div>
-            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+            <Loader
+              color="#0e7c95"
+              type="ball-scale-multiple"
+              style={{ marginTop: "15em", marginLeft: "30em" }}
+            />
           </div>
-        }
-      
-      
+        )}
       </Fragment>
     );
   }
