@@ -45,9 +45,9 @@ export default class ScheduledNotifications extends React.Component {
           transitionLeave={false}
         >
           <PageTitle
-            heading="Integrations"
+            heading="Scheduled Push Notifications"
             subheading="Wide range of integrations in multiple categories."
-            icon="pe-7s-plugin icon-gradient bg-amy-crisp"
+            icon="pe-7s-speaker icon-gradient bg-amy-crisp"
           />
           <Card className="main-card mb-3">
             <CardBody>
