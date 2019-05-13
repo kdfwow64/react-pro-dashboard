@@ -53,7 +53,7 @@ export default class PreviewApp extends React.Component {
         >
           <PageTitle
             heading="Preview Your App"
-            subheading="This is an example dashboard created using build-in elements and components."
+            subheading="Preview the mobile app on your device."
             icon="pe-7s-phone icon-gradient bg-mean-fruit"
           />
           <Card className="main-card mb-3">
