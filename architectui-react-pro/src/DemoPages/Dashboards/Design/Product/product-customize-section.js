@@ -11,7 +11,7 @@ import ProductOptionAvailable from './product-details-elements/product-option-av
 import ProductPicture from './product-details-elements/product-pictures';
 import ProducttitleAndPrice from './product-details-elements/product-title-price';
 // import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../Mobile/S3SingleFileUploaderWithPreviewAndFileNameCapability';
-import { API_ROOT } from "../../../utilities/api-config";
+import { API_ROOT } from "../../../../utilities/api-config";
 
 const CollectionsProducts = {
   collections: [

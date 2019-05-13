@@ -1,20 +1,16 @@
 // tslint:disable
 // @ts-nocheck
 import axios from 'axios';
-import {
-  Button,
-  Card, CardBody, CardFooter, CardHeader, Col, CardTitle,
-  Collapse, Fade, Row
-} from 'reactstrap';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 import '../index.css';
 import { themeColorFromName } from '../mobile-theme-utils';
 import ThemeOptions from '../theme-options';
 import ProductcustomizePage from './product-customize-section';
 import ProductSettingsSection from './product-settings-section';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { API_ROOT } from "../../../utilities/api-config";
 
 class Products extends React.Component {
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { submit } from 'redux-form';
 import { FAILURE, REQUEST, SUCCESS } from './action-type.util.js';
-import { API_ROOT } from "../../../utilities/api-config";
+import { API_ROOT } from "./api-config";
 
 export const ACTION_TYPES = {
     GET_APP_SETTINGS: 'app-settings/GET_APP_SETTINGS',

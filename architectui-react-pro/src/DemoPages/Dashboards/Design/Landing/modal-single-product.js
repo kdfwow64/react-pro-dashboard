@@ -1,14 +1,13 @@
 // tslint:disable
 // @ts-nocheck
 import axios from 'axios';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
 import 'react-switchery-component/react-switchery-component.css';
+import { Button, CardFooter } from 'reactstrap';
+import { API_ROOT } from "../../../../utilities/api-config";
 import '../index.css';
-import {Button, CardFooter, Card, CardText, CardBody} from 'reactstrap';
-import Ionicon from 'react-ionicons'
-import { API_ROOT } from "../../../utilities/api-config";
 const Placeholder = './Placeholder.png';
 const iconData = [
   "ios-add",

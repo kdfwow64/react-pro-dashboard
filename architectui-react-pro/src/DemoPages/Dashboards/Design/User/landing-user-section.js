@@ -25,7 +25,7 @@ import UserReview from './user-review-form';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import ThemeOptions from '../theme-options';
 import { themeColorFromName } from '../mobile-theme-utils';
-import { API_ROOT } from "../../../utilities/api-config";
+import { API_ROOT } from "../../../../utilities/api-config";
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
