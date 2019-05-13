@@ -177,8 +177,7 @@ export default class PushNotifications extends React.Component {
                       You can send push notifications after your app is
                       published.
                     </CardTitle>
-                    <Form>
-                      <FormGroup>
+                    
                         <Label for="exampleEmail">Notification Heading</Label>
                         <Input
                           type="text"
@@ -186,8 +185,7 @@ export default class PushNotifications extends React.Component {
                           id="exampleEmail"
                           placeholder=""
                         />
-                      </FormGroup>
-                      <FormGroup>
+                     
                         <Label for="examplePassword">Notification Body</Label>
                         <Input
                           type="textarea"
@@ -195,16 +193,14 @@ export default class PushNotifications extends React.Component {
                           id="examplePassword"
                           placeholder=""
                         />
-                      </FormGroup>
-                      <FormGroup>
+                      
                         <Label for="exampleSelect">Deeplink</Label>
                         <Input type="select" name="select" id="exampleSelect">
                           <option>None</option>
                           <option>Collection</option>
                           <option>Product</option>
                         </Input>
-                      </FormGroup>
-                      <FormGroup>
+                    
                         <Label for="exampleFile">Notification Image</Label>
                         <Input
                           type="file"
@@ -216,11 +212,10 @@ export default class PushNotifications extends React.Component {
                           Attaching an image will show up in notification in
                           mobile device.
                         </FormText>
-                      </FormGroup>
-                      <Button color="primary" className="mt-1">
+                     
+                      <Button color="primary" onClick={() => this.sendPushNotification} className="mt-1">
                         Send
                       </Button>
-                    </Form>
                   </CardBody>
                 </Card>
               </Col>
