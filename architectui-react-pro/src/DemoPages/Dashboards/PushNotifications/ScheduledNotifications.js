@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Card, CardBody, CardTitle, Table } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
-var API_ROOT = "https://thesearchit.com";
+import { API_ROOT } from '../../../utilities/api-config';
 
 export default class ScheduledNotifications extends React.Component {
   constructor(props) {
@@ -14,9 +14,16 @@ export default class ScheduledNotifications extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getScheduledNotifications();
+  }
+
   getScheduledNotifications = () => {
     axios.get(`${API_ROOT}/api/v1/get-notifications`).then(resp => {
-      this.setState({ scheduledNotifications: resp.data });
+      const data = resp.data;
+      this.setState({ scheduledNotifications: data });
+      console.log("scheduled notifications");
+      console.log(data);
     });
   };
 

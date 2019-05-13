@@ -3,7 +3,8 @@ import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Button, Card, CardBody, CardSubtitle, CardTitle, Col, Container, Form, FormGroup, FormText, Input, Label, Row } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
-var API_ROOT = "https://thesearchit.com";
+import { API_ROOT } from "../../../utilities/api-config";
+
 
 export default class PushNotifications extends React.Component {
   constructor(props) {

@@ -547,7 +547,7 @@ class SettingsDashboard extends React.Component {
             style={{ padding: "15px 0rem 2rem" }}
           >
             <Button
-              primary
+              color="primary"
               onClick={() => {
                 this.setState({ snackbarOpen: true });
               }}

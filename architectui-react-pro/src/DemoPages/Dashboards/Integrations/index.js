@@ -4,8 +4,9 @@ import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Button, Card, CardBody, CardTitle, Col, Input, Row } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
+import { API_ROOT } from "../../../utilities/api-config";
 
-var API_ROOT = "https://thesearchit.com";
+
 
 export default class Integrations extends React.Component {
   constructor(props) {
@@ -334,6 +335,7 @@ export default class Integrations extends React.Component {
             style={{ padding: "15px 0rem 2rem" }}
           >
             <Button
+              color="primary"
               onClick={() => {
                 this.setState({ snackbarOpen: true });
               }}
