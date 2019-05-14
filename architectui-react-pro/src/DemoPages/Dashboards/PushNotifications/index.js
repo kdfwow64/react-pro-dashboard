@@ -199,6 +199,42 @@ export default class PushNotifications extends React.Component {
                       <option>Product</option>
                     </Input>
 
+
+                    {/* <Label>Select {this.state.deeplinkType === 'collection' ? 'Collection' : 'Product'}</Label>
+                    <Autocomplete
+                      options={this.state.deeplinkList}
+                      selected={this.state.deeplinkSelected}
+                      onSelect={ selection => {
+                        const selectedText = selection.map(selectedItem => {
+                          const matchedOption = this.state.deeplinkList.filter(option => {
+                            return option.value === selectedItem;
+                          });
+                          return matchedOption[0] && matchedOption[0].label;
+                        });
+                        const selectedHandle = selection.map(selectedItem => {
+                          const matchedOption = this.state.deeplinkList.filter(option => {
+                            return option.value === selectedItem;
+                          });
+                          return matchedOption[0].handle;
+                        })[0];
+                        this.setState({ deeplinkSelected: selectedText, textFieldValue: selectedText, deeplinkHandle: selectedHandle });
+                      }}
+                      textField={
+                        <Autocomplete.TextField
+                          label=""
+                          value={this.state.textFieldValue}
+                          onChange={value => {
+                            this.setState({ textFieldValue: value });
+                            if (this.state.deeplinkType === 'collection') {
+                              this.searchCollection(value);
+                            } else if (this.state.deeplinkType === 'product') {
+                              this.searchProduct(value);
+                            }
+                          }}
+                        />
+                      }
+                    /> */}
+
                     <Label for="exampleFile">Notification Image</Label>
                     {/* <Input
                           type="file"
