@@ -275,7 +275,7 @@ export default class Integrations extends React.Component {
           </Card>
 
           <Card className="main-card mb-3">
-            <CardHeader>Reviews & Ratings</CardHeader>
+            <CardHeader>Messaging</CardHeader>
             <CardBody>
               <Card className="main-card mb-3">
                 <CardBody>
