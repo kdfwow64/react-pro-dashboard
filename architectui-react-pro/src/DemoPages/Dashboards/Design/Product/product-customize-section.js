@@ -10,8 +10,8 @@ import ProductExternalLink from './product-details-elements/product-external-lin
 import ProductOptionAvailable from './product-details-elements/product-option-available';
 import ProductPicture from './product-details-elements/product-pictures';
 import ProducttitleAndPrice from './product-details-elements/product-title-price';
-// import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../Mobile/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import { API_ROOT } from "../../../../utilities/api-config";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 const CollectionsProducts = {
   collections: [
@@ -633,7 +633,7 @@ class ProductcustomizePage extends React.Component  {
                     </div>
                     <div className="col-sm-12 CollectionMainEditIconImgView">
                       {/* <input type="file" /> */}
-                      {/* <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                      <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
                         acceptedFiles={[ 'image/jpeg', 'image/png' ]}
                         fileName={this.props.bannerImageUrl}
@@ -641,7 +641,7 @@ class ProductcustomizePage extends React.Component  {
                         previewImageWidth={'100px'}
                         imageFolder={"navTitleImage"}
                         onChange={ (value) => this.bannerImageUrl(value) }
-                      /> */}
+                      />
                     </div>
                   </div>
                   <div className="CollectionEditCancelButton CollectionEditButton">

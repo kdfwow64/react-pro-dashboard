@@ -29,11 +29,11 @@ import CreateSettingForm from "./setting-account-form";
 import SettingAccountOption from "./setting-account-option";
 import CreateContactForm from "./user-contact-form";
 import UserReview from "./user-review-form";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability";
 import ThemeOptions from "../theme-options";
 import { themeColorFromName } from "../mobile-theme-utils";
 import Loader from "react-loaders";
 import { API_ROOT } from "../../../../utilities/api-config";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
@@ -1032,368 +1032,376 @@ class LandingUserSection extends React.Component {
               >
                 <PerfectScrollbar>
                   <div id="accordion" className="accordion-wrapper mb-3">
-                  <Card>
-                    <CardHeader style={{ marginBottom: "10px" }}>
-                      <h3 className="leftCardHeader"> User Settings </h3>{" "}
-                    </CardHeader>
-
                     <Card>
-                      <CardHeader
-                        id="headingOne"
-                        onClick={() => this.onaccountclick(0)}
-                      >
-                        <Button
-                          className="m-0 p-0 ProductImgsTitle"
-                          color="link"
+                      <CardHeader style={{ marginBottom: "10px" }}>
+                        <h3 className="leftCardHeader"> User Settings </h3>{" "}
+                      </CardHeader>
+
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
                           onClick={() => this.onaccountclick(0)}
-                          aria-expanded={this.state.accordion[0]}
-                          aria-controls="exampleAccordion1"
                         >
-                          CREATE ACCOUNT
-                        </Button>
-                      </CardHeader>
-                      <Collapse
-                        isOpen={this.state.accordion[0]}
-                        data-parent="#accordion"
-                        id="exampleAccordion1"
-                        className="proPaddBtm"
-                      >
-                        <CreateAccountOptions
-                          onBGColorChangeComplete={this.onBGColorChangeComplete}
-                          onInputBGColorChangeComplete={
-                            this.onInputBGColorChangeComplete
-                          }
-                          onInputIconColorChangeComplete={
-                            this.onInputIconColorChangeComplete
-                          }
-                          onInputTitleColorChangeComplete={
-                            this.onInputTitleColorChangeComplete
-                          }
-                          onButtonColorChangeComplete={
-                            this.onButtonColorChangeComplete
-                          }
-                          onButtonTitleColorChangeComplete={
-                            this.onButtonTitleColorChangeComplete
-                          }
-                          onGeneralTextColorChangeComplete={
-                            this.onGeneralTextColorChangeComplete
-                          }
-                          onTextLinkColorChangeComplete={
-                            this.onTextLinkColorChangeComplete
-                          }
-                          UserAccountBGColor={this.state.UserAccountBGColor}
-                          UserAccountinputBGColor={
-                            this.state.UserAccountinputBGColor
-                          }
-                          UserAccountinputIconColor={
-                            this.state.UserAccountinputIconColor
-                          }
-                          UserAccountinputTitleColor={
-                            this.state.UserAccountinputTitleColor
-                          }
-                          UserAccountbuttonColor={
-                            this.state.UserAccountbuttonColor
-                          }
-                          UserAccountbuttonTitleColor={
-                            this.state.UserAccountbuttonTitleColor
-                          }
-                          UserAccountgeneralTextColor={
-                            this.state.UserAccountgeneralTextColor
-                          }
-                          UserAccounttextLinkColor={
-                            this.state.UserAccounttextLinkColor
-                          }
-                        />
-                      </Collapse>
-                    </Card>
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onaccountclick(0)}
+                            aria-expanded={this.state.accordion[0]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            CREATE ACCOUNT
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[0]}
+                          data-parent="#accordion"
+                          id="exampleAccordion1"
+                          className="proPaddBtm"
+                        >
+                          <CreateAccountOptions
+                            onBGColorChangeComplete={
+                              this.onBGColorChangeComplete
+                            }
+                            onInputBGColorChangeComplete={
+                              this.onInputBGColorChangeComplete
+                            }
+                            onInputIconColorChangeComplete={
+                              this.onInputIconColorChangeComplete
+                            }
+                            onInputTitleColorChangeComplete={
+                              this.onInputTitleColorChangeComplete
+                            }
+                            onButtonColorChangeComplete={
+                              this.onButtonColorChangeComplete
+                            }
+                            onButtonTitleColorChangeComplete={
+                              this.onButtonTitleColorChangeComplete
+                            }
+                            onGeneralTextColorChangeComplete={
+                              this.onGeneralTextColorChangeComplete
+                            }
+                            onTextLinkColorChangeComplete={
+                              this.onTextLinkColorChangeComplete
+                            }
+                            UserAccountBGColor={this.state.UserAccountBGColor}
+                            UserAccountinputBGColor={
+                              this.state.UserAccountinputBGColor
+                            }
+                            UserAccountinputIconColor={
+                              this.state.UserAccountinputIconColor
+                            }
+                            UserAccountinputTitleColor={
+                              this.state.UserAccountinputTitleColor
+                            }
+                            UserAccountbuttonColor={
+                              this.state.UserAccountbuttonColor
+                            }
+                            UserAccountbuttonTitleColor={
+                              this.state.UserAccountbuttonTitleColor
+                            }
+                            UserAccountgeneralTextColor={
+                              this.state.UserAccountgeneralTextColor
+                            }
+                            UserAccounttextLinkColor={
+                              this.state.UserAccounttextLinkColor
+                            }
+                          />
+                        </Collapse>
+                      </Card>
 
-                    <Card>
-                      <CardHeader
-                        id="headingOne"
-                        onClick={() => this.onloginclick(1)}
-                      >
-                        <Button
-                          className="m-0 p-0 ProductImgsTitle"
-                          color="link"
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
                           onClick={() => this.onloginclick(1)}
-                          aria-expanded={this.state.accordion[1]}
-                          aria-controls="exampleAccordion1"
                         >
-                          LOGIN
-                        </Button>
-                      </CardHeader>
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onloginclick(1)}
+                            aria-expanded={this.state.accordion[1]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            LOGIN
+                          </Button>
+                        </CardHeader>
 
-                      <Collapse
-                        isOpen={this.state.accordion[1]}
-                        data-parent="#accordion"
-                        id="exampleAccordion2"
-                        className="proPaddBtm"
-                      >
-                        <div className="">
-                          <CreateLoginOptions
-                            onloginBGColorChangeComplete={
-                              this.onloginBGColorChangeComplete
-                            }
-                            onloginInputBGColorChangeComplete={
-                              this.onloginInputBGColorChangeComplete
-                            }
-                            onloginInputIconColorChangeComplete={
-                              this.onloginInputIconColorChangeComplete
-                            }
-                            onloginInputTitleColorChangeComplete={
-                              this.onloginInputTitleColorChangeComplete
-                            }
-                            onloginButtonColorChangeComplete={
-                              this.onloginButtonColorChangeComplete
-                            }
-                            onloginButtonTitleColorChangeComplete={
-                              this.onloginButtonTitleColorChangeComplete
-                            }
-                            onloginGeneralTextColorChangeComplete={
-                              this.onloginGeneralTextColorChangeComplete
-                            }
-                            onloginTextLinkColorChangeComplete={
-                              this.onloginTextLinkColorChangeComplete
-                            }
-                            loginBGColor={this.state.loginBGColor}
-                            logininputBGColor={this.state.logininputBGColor}
-                            logininputIconColor={this.state.logininputIconColor}
-                            logininputTitleColor={
-                              this.state.logininputTitleColor
-                            }
-                            loginbuttonColor={this.state.loginbuttonColor}
-                            loginbuttonTitleColor={
-                              this.state.loginbuttonTitleColor
-                            }
-                            logingeneralTextColor={
-                              this.state.logingeneralTextColor
-                            }
-                            logintextLinkColor={this.state.logintextLinkColor}
-                          />
-                        </div>
-                      </Collapse>
-                    </Card>
+                        <Collapse
+                          isOpen={this.state.accordion[1]}
+                          data-parent="#accordion"
+                          id="exampleAccordion2"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <CreateLoginOptions
+                              onloginBGColorChangeComplete={
+                                this.onloginBGColorChangeComplete
+                              }
+                              onloginInputBGColorChangeComplete={
+                                this.onloginInputBGColorChangeComplete
+                              }
+                              onloginInputIconColorChangeComplete={
+                                this.onloginInputIconColorChangeComplete
+                              }
+                              onloginInputTitleColorChangeComplete={
+                                this.onloginInputTitleColorChangeComplete
+                              }
+                              onloginButtonColorChangeComplete={
+                                this.onloginButtonColorChangeComplete
+                              }
+                              onloginButtonTitleColorChangeComplete={
+                                this.onloginButtonTitleColorChangeComplete
+                              }
+                              onloginGeneralTextColorChangeComplete={
+                                this.onloginGeneralTextColorChangeComplete
+                              }
+                              onloginTextLinkColorChangeComplete={
+                                this.onloginTextLinkColorChangeComplete
+                              }
+                              loginBGColor={this.state.loginBGColor}
+                              logininputBGColor={this.state.logininputBGColor}
+                              logininputIconColor={
+                                this.state.logininputIconColor
+                              }
+                              logininputTitleColor={
+                                this.state.logininputTitleColor
+                              }
+                              loginbuttonColor={this.state.loginbuttonColor}
+                              loginbuttonTitleColor={
+                                this.state.loginbuttonTitleColor
+                              }
+                              logingeneralTextColor={
+                                this.state.logingeneralTextColor
+                              }
+                              logintextLinkColor={this.state.logintextLinkColor}
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
 
-                    <Card>
-                      <CardHeader
-                        id="headingOne"
-                        onClick={() => this.onhistoryclick(2)}
-                      >
-                        <Button
-                          className="m-0 p-0 ProductImgsTitle"
-                          color="link"
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
                           onClick={() => this.onhistoryclick(2)}
-                          aria-expanded={this.state.accordion[2]}
-                          aria-controls="exampleAccordion1"
                         >
-                          ORDER HISTORY LIST
-                        </Button>
-                      </CardHeader>
-                      <Collapse
-                        isOpen={this.state.accordion[2]}
-                        data-parent="#accordion"
-                        id="exampleAccordion3"
-                        className="proPaddBtm"
-                      >
-                        <div className="">
-                          <OrderHistoryOption
-                            onoptionBGColorChangeComplete={
-                              this.onoptionBGColorChangeComplete
-                            }
-                            ontabbgColorChangeComplete={
-                              this.ontabbgColorChangeComplete
-                            }
-                            ontabactiveColorChangeComplete={
-                              this.ontabactiveColorChangeComplete
-                            }
-                            ontabinactiveColorChangeComplete={
-                              this.ontabinactiveColorChangeComplete
-                            }
-                            onoptiontitleColorChangeComplete={
-                              this.onoptiontitleColorChangeComplete
-                            }
-                            onoptionpriceColorChangeComplete={
-                              this.onoptionpriceColorChangeComplete
-                            }
-                            onoptiondateColorChangeComplete={
-                              this.onoptiondateColorChangeComplete
-                            }
-                            onimageborderChangeComplete={
-                              this.onimageborderChangeComplete
-                            }
-                            oncellbgChangeComplete={this.oncellbgChangeComplete}
-                            oncellsepratorColorChangeComplete={
-                              this.oncellsepratorColorChangeComplete
-                            }
-                            optionBGColor={this.state.optionBGColor}
-                            tabbgColor={this.state.tabbgColor}
-                            tabactiveColor={this.state.tabactiveColor}
-                            tabinactiveColor={this.state.tabinactiveColor}
-                            optiontitleColor={this.state.optiontitleColor}
-                            optionpriceColor={this.state.optionpriceColor}
-                            optiondateColor={this.state.optiondateColor}
-                            imageborderColor={this.state.imageborderColor}
-                            cellBgColor={this.state.cellBgColor}
-                            cellsepratorColor={this.state.cellsepratorColor}
-                          />
-                        </div>
-                      </Collapse>
-                    </Card>
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onhistoryclick(2)}
+                            aria-expanded={this.state.accordion[2]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            ORDER HISTORY LIST
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[2]}
+                          data-parent="#accordion"
+                          id="exampleAccordion3"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <OrderHistoryOption
+                              onoptionBGColorChangeComplete={
+                                this.onoptionBGColorChangeComplete
+                              }
+                              ontabbgColorChangeComplete={
+                                this.ontabbgColorChangeComplete
+                              }
+                              ontabactiveColorChangeComplete={
+                                this.ontabactiveColorChangeComplete
+                              }
+                              ontabinactiveColorChangeComplete={
+                                this.ontabinactiveColorChangeComplete
+                              }
+                              onoptiontitleColorChangeComplete={
+                                this.onoptiontitleColorChangeComplete
+                              }
+                              onoptionpriceColorChangeComplete={
+                                this.onoptionpriceColorChangeComplete
+                              }
+                              onoptiondateColorChangeComplete={
+                                this.onoptiondateColorChangeComplete
+                              }
+                              onimageborderChangeComplete={
+                                this.onimageborderChangeComplete
+                              }
+                              oncellbgChangeComplete={
+                                this.oncellbgChangeComplete
+                              }
+                              oncellsepratorColorChangeComplete={
+                                this.oncellsepratorColorChangeComplete
+                              }
+                              optionBGColor={this.state.optionBGColor}
+                              tabbgColor={this.state.tabbgColor}
+                              tabactiveColor={this.state.tabactiveColor}
+                              tabinactiveColor={this.state.tabinactiveColor}
+                              optiontitleColor={this.state.optiontitleColor}
+                              optionpriceColor={this.state.optionpriceColor}
+                              optiondateColor={this.state.optiondateColor}
+                              imageborderColor={this.state.imageborderColor}
+                              cellBgColor={this.state.cellBgColor}
+                              cellsepratorColor={this.state.cellsepratorColor}
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
 
-                    <Card>
-                      <CardHeader
-                        id="headingOne"
-                        onClick={() => this.onorderclick(3)}
-                      >
-                        <Button
-                          className="m-0 p-0 ProductImgsTitle"
-                          color="link"
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
                           onClick={() => this.onorderclick(3)}
-                          aria-expanded={this.state.accordion[3]}
-                          aria-controls="exampleAccordion1"
                         >
-                          ORDER DETAILS
-                        </Button>
-                      </CardHeader>
-                      <Collapse
-                        isOpen={this.state.accordion[3]}
-                        data-parent="#accordion"
-                        id="exampleAccordion4"
-                        className="proPaddBtm"
-                      >
-                        <div className="">
-                          <Orderdetailoption
-                            onorderdetailBgColorChangeComplete={
-                              this.onorderdetailBgColorChangeComplete
-                            }
-                            onorderdetailnumberColorChangeComplete={
-                              this.onorderdetailnumberColorChangeComplete
-                            }
-                            onheadertitleBGColorChangeComplete={
-                              this.onheadertitleBGColorChangeComplete
-                            }
-                            onorderdetailheaderbgColorChangeComplete={
-                              this.onorderdetailheaderbgColorChangeComplete
-                            }
-                            onoptionaddresstextColorChangeComplete={
-                              this.onoptionaddresstextColorChangeComplete
-                            }
-                            onoptiondetailpriceColorChangeComplete={
-                              this.onoptiondetailpriceColorChangeComplete
-                            }
-                            onoptiondetailsproductColorChangeComplete={
-                              this.onoptiondetailsproductColorChangeComplete
-                            }
-                            onoptiondetailsopColorChangeComplete={
-                              this.onoptiondetailsopColorChangeComplete
-                            }
-                            onopriondetaildescChangeComplete={
-                              this.onopriondetaildescChangeComplete
-                            }
-                            onoptiondetailcellbgColorChangeComplete={
-                              this.onoptiondetailcellbgColorChangeComplete
-                            }
-                            onoptiondetailcellsepColorChangeComplete={
-                              this.onoptiondetailcellsepColorChangeComplete
-                            }
-                            orderdetailBgColor={this.state.orderdetailBgColor}
-                            orderdetailnumberColor={
-                              this.state.orderdetailnumberColor
-                            }
-                            headertitleBGColor={this.state.headertitleBGColor}
-                            orderdetailheaderbgColor={
-                              this.state.orderdetailheaderbgColor
-                            }
-                            optionaddresstextColor={
-                              this.state.optionaddresstextColor
-                            }
-                            optiondetailpriceColor={
-                              this.state.optiondetailpriceColor
-                            }
-                            optiondetailsproductColor={
-                              this.state.optiondetailsproductColor
-                            }
-                            optiondetailsopColor={
-                              this.state.optiondetailsopColor
-                            }
-                            opriondetaildescColor={
-                              this.state.opriondetaildescColor
-                            }
-                            optiondetailscellbgColor={
-                              this.state.optiondetailscellbgColor
-                            }
-                            optiondetailcellsepColor={
-                              this.state.optiondetailcellsepColor
-                            }
-                          />
-                        </div>
-                      </Collapse>
-                    </Card>
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onorderclick(3)}
+                            aria-expanded={this.state.accordion[3]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            ORDER DETAILS
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[3]}
+                          data-parent="#accordion"
+                          id="exampleAccordion4"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <Orderdetailoption
+                              onorderdetailBgColorChangeComplete={
+                                this.onorderdetailBgColorChangeComplete
+                              }
+                              onorderdetailnumberColorChangeComplete={
+                                this.onorderdetailnumberColorChangeComplete
+                              }
+                              onheadertitleBGColorChangeComplete={
+                                this.onheadertitleBGColorChangeComplete
+                              }
+                              onorderdetailheaderbgColorChangeComplete={
+                                this.onorderdetailheaderbgColorChangeComplete
+                              }
+                              onoptionaddresstextColorChangeComplete={
+                                this.onoptionaddresstextColorChangeComplete
+                              }
+                              onoptiondetailpriceColorChangeComplete={
+                                this.onoptiondetailpriceColorChangeComplete
+                              }
+                              onoptiondetailsproductColorChangeComplete={
+                                this.onoptiondetailsproductColorChangeComplete
+                              }
+                              onoptiondetailsopColorChangeComplete={
+                                this.onoptiondetailsopColorChangeComplete
+                              }
+                              onopriondetaildescChangeComplete={
+                                this.onopriondetaildescChangeComplete
+                              }
+                              onoptiondetailcellbgColorChangeComplete={
+                                this.onoptiondetailcellbgColorChangeComplete
+                              }
+                              onoptiondetailcellsepColorChangeComplete={
+                                this.onoptiondetailcellsepColorChangeComplete
+                              }
+                              orderdetailBgColor={this.state.orderdetailBgColor}
+                              orderdetailnumberColor={
+                                this.state.orderdetailnumberColor
+                              }
+                              headertitleBGColor={this.state.headertitleBGColor}
+                              orderdetailheaderbgColor={
+                                this.state.orderdetailheaderbgColor
+                              }
+                              optionaddresstextColor={
+                                this.state.optionaddresstextColor
+                              }
+                              optiondetailpriceColor={
+                                this.state.optiondetailpriceColor
+                              }
+                              optiondetailsproductColor={
+                                this.state.optiondetailsproductColor
+                              }
+                              optiondetailsopColor={
+                                this.state.optiondetailsopColor
+                              }
+                              opriondetaildescColor={
+                                this.state.opriondetaildescColor
+                              }
+                              optiondetailscellbgColor={
+                                this.state.optiondetailscellbgColor
+                              }
+                              optiondetailcellsepColor={
+                                this.state.optiondetailcellsepColor
+                              }
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
 
-                    <Card>
-                      <CardHeader
-                        id="headingOne"
-                        onClick={() => this.onsettingclick(4)}
-                      >
-                        <Button
-                          className="m-0 p-0 ProductImgsTitle"
-                          color="link"
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
                           onClick={() => this.onsettingclick(4)}
-                          aria-expanded={this.state.accordion[4]}
-                          aria-controls="exampleAccordion1"
                         >
-                          SETTINGS
-                        </Button>
-                      </CardHeader>
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onsettingclick(4)}
+                            aria-expanded={this.state.accordion[4]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            SETTINGS
+                          </Button>
+                        </CardHeader>
 
-                      <Collapse
-                        isOpen={this.state.accordion[4]}
-                        data-parent="#accordion"
-                        id="exampleAccordion5"
-                        className="proPaddBtm"
-                      >
-                        <div className="">
-                          <SettingAccountOption
-                            onsettingBGColorChangeComplete={
-                              this.onsettingBGColorChangeComplete
-                            }
-                            onsettingInputBGColorChangeComplete={
-                              this.onsettingInputBGColorChangeComplete
-                            }
-                            onsettingInputIconColorChangeComplete={
-                              this.onsettingInputIconColorChangeComplete
-                            }
-                            onsettingInputTitleColorChangeComplete={
-                              this.onsettingInputTitleColorChangeComplete
-                            }
-                            onsettingButtonColorChangeComplete={
-                              this.onsettingButtonColorChangeComplete
-                            }
-                            onsettingButtonTitleColorChangeComplete={
-                              this.onsettingButtonTitleColorChangeComplete
-                            }
-                            onsettingGeneralTextColorChangeComplete={
-                              this.onsettingGeneralTextColorChangeComplete
-                            }
-                            settingBGColor={this.state.settingBGColor}
-                            settinginputBGColor={this.state.settinginputBGColor}
-                            settinginputIconColor={
-                              this.state.settinginputIconColor
-                            }
-                            settinginputTitleColor={
-                              this.state.settinginputTitleColor
-                            }
-                            settingbuttonColor={this.state.settingbuttonColor}
-                            settingbuttonTitleColor={
-                              this.state.settingbuttonTitleColor
-                            }
-                            settinggeneralTextColor={
-                              this.state.settinggeneralTextColor
-                            }
-                          />
-                        </div>
-                      </Collapse>
-                    </Card>
+                        <Collapse
+                          isOpen={this.state.accordion[4]}
+                          data-parent="#accordion"
+                          id="exampleAccordion5"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <SettingAccountOption
+                              onsettingBGColorChangeComplete={
+                                this.onsettingBGColorChangeComplete
+                              }
+                              onsettingInputBGColorChangeComplete={
+                                this.onsettingInputBGColorChangeComplete
+                              }
+                              onsettingInputIconColorChangeComplete={
+                                this.onsettingInputIconColorChangeComplete
+                              }
+                              onsettingInputTitleColorChangeComplete={
+                                this.onsettingInputTitleColorChangeComplete
+                              }
+                              onsettingButtonColorChangeComplete={
+                                this.onsettingButtonColorChangeComplete
+                              }
+                              onsettingButtonTitleColorChangeComplete={
+                                this.onsettingButtonTitleColorChangeComplete
+                              }
+                              onsettingGeneralTextColorChangeComplete={
+                                this.onsettingGeneralTextColorChangeComplete
+                              }
+                              settingBGColor={this.state.settingBGColor}
+                              settinginputBGColor={
+                                this.state.settinginputBGColor
+                              }
+                              settinginputIconColor={
+                                this.state.settinginputIconColor
+                              }
+                              settinginputTitleColor={
+                                this.state.settinginputTitleColor
+                              }
+                              settingbuttonColor={this.state.settingbuttonColor}
+                              settingbuttonTitleColor={
+                                this.state.settingbuttonTitleColor
+                              }
+                              settinggeneralTextColor={
+                                this.state.settinggeneralTextColor
+                              }
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
                     </Card>
                   </div>
                 </PerfectScrollbar>
@@ -1405,9 +1413,7 @@ class LandingUserSection extends React.Component {
                 style={{ border: "1px solid #efefef" }}
               >
                 <div id="mbl_bg_rit">
-                  <div
-                    id="CollectionMainRightContainer"
-                  >
+                  <div id="CollectionMainRightContainer">
                     <div id="ProductRightBody">
                       <div
                         id="CollectionEffectNavBarContainer"
@@ -1621,15 +1627,18 @@ class LandingUserSection extends React.Component {
                                 <label>NAV IMAGE</label>
                               </div>
                               <div className="col-sm-12 CollectionMainEditIconImgView">
-                                {/*} <S3SingleFileUploaderWithPreviewAndFileNameCapability
-                                                        label="Choose file"
-                                                        acceptedFiles={['image/jpeg', 'image/png']}
-                                                        fileName={this.state.bannerImageUrl}
-                                                        previewImageHeight={'100px'}
-                                                        previewImageWidth={'100px'}
-                                                        imageFolder={"navTitleImage"}
-                                                        onChange={(value) => this.setState({ bannerImageUrl: value })}
-                                            />*/}
+                                }{" "}
+                                <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                                  label="Choose file"
+                                  acceptedFiles={["image/jpeg", "image/png"]}
+                                  fileName={this.state.bannerImageUrl}
+                                  previewImageHeight={"100px"}
+                                  previewImageWidth={"100px"}
+                                  imageFolder={"navTitleImage"}
+                                  onChange={value =>
+                                    this.setState({ bannerImageUrl: value })
+                                  }
+                                />
                                 <input type="file" />
                               </div>
                             </div>

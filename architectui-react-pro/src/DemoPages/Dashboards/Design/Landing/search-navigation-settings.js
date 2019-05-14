@@ -1,9 +1,8 @@
 // tslint:disable
 // @ts-nocheck
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ChromePicker } from 'react-color';
-import IconList from '../icon-list';
-//import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../Mobile/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 class SearchNavigationSettings extends React.Component  {
    constructor(props) {
@@ -326,7 +325,7 @@ class SearchNavigationSettings extends React.Component  {
               <label>NAV IMAGE</label>
             </div>
             <div className="col-sm-12 CollectionMainEditIconImgView">
-           {/*<S3SingleFileUploaderWithPreviewAndFileNameCapability
+           <S3SingleFileUploaderWithPreviewAndFileNameCapability
                   label="Choose file"
                   acceptedFiles={[ 'image/jpeg', 'image/png' ]}
                   fileName={this.props.bannerImageUrl}
@@ -334,7 +333,7 @@ class SearchNavigationSettings extends React.Component  {
                   previewImageWidth={'100px'}
                   imageFolder={"navTitleImage"}
                   onChange={ (value) => this.bannerImageUrl(value) }
-           />*/}
+           />
            <input type="file"></input>
             </div>
           </div>

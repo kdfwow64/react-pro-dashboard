@@ -34,6 +34,11 @@ export default class WizardStep1 extends React.Component {
                         <Label>App Icon</Label>
                         <Input type="file" />
                     </FormGroup>
+
+                    <FormGroup>
+                        <Label>Splash Screen</Label>
+                        <Input type="file" />
+                    </FormGroup>
                     {/* <Row form>
                         <Col md={6}>
                             <FormGroup>

@@ -9,7 +9,7 @@ import {
   Collapse, Fade, Row
 } from 'reactstrap';
 import Ionicon from 'react-ionicons';
-// import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../PushNotifications/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 const iconData = [
   "ios-cut-outline",
 ];
@@ -335,7 +335,7 @@ class CartRightSection extends React.Component {
                         <label>NAV IMAGE</label>
                       </div>
                       <div className="col-sm-12 CollectionMainEditIconImgView">
-                        {/* <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                        <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
                         acceptedFiles={[ 'image/jpeg', 'image/png' ]}
                         fileName={this.props.bannerImageUrl}
@@ -343,7 +343,7 @@ class CartRightSection extends React.Component {
                         previewImageWidth={'100px'}
                         imageFolder={"navTitleImage"}
                         onChange={ (value) => this.bannerImageUrl(value) }
-                      /> */}
+                      />
                       </div>
                     </div>
 
