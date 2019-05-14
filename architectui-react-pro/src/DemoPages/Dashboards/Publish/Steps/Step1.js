@@ -15,6 +15,7 @@ export default class WizardStep1 extends React.Component {
             <Label for="exampleEmail55">App Name</Label>
             <Input
               type="text"
+              value="app"
               name="app-name"
               id="exampleEmail55"
               placeholder="Your app name"
