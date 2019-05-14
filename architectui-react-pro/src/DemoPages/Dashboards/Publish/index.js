@@ -25,15 +25,13 @@ const steps = [
 ];
 
 class Publish extends React.Component {
-
   componentDidMount() {
     this.props.getGoLive();
   }
 
   setFormRef = element => {
     this.form = element;
-  }
-
+  };
   saveRef = ref => (this.ref = ref);
 
   render() {
