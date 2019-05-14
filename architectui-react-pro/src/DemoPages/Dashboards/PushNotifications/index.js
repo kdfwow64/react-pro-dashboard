@@ -4,14 +4,11 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
-  CardSubtitle,
+  CardHeader,
   CardTitle,
   Col,
   Container,
-  Form,
-  FormGroup,
   FormText,
   Input,
   Label,
@@ -19,6 +16,7 @@ import {
 } from "reactstrap";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
 import { API_ROOT } from "../../../utilities/api-config";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
 
 export default class PushNotifications extends React.Component {
   constructor(props) {
@@ -177,45 +175,60 @@ export default class PushNotifications extends React.Component {
                       You can send push notifications after your app is
                       published.
                     </CardTitle>
-                    
-                        <Label for="exampleEmail">Notification Heading</Label>
-                        <Input
-                          type="text"
-                          name="email"
-                          id="exampleEmail"
-                          placeholder=""
-                        />
-                     
-                        <Label for="examplePassword">Notification Body</Label>
-                        <Input
-                          type="textarea"
-                          name="password"
-                          id="examplePassword"
-                          placeholder=""
-                        />
-                      
-                        <Label for="exampleSelect">Deeplink</Label>
-                        <Input type="select" name="select" id="exampleSelect">
-                          <option>None</option>
-                          <option>Collection</option>
-                          <option>Product</option>
-                        </Input>
-                    
-                        <Label for="exampleFile">Notification Image</Label>
-                        <Input
+
+                    <Label for="exampleEmail">Notification Heading</Label>
+                    <Input
+                      type="text"
+                      name="email"
+                      id="exampleEmail"
+                      placeholder=""
+                    />
+
+                    <Label for="examplePassword">Notification Body</Label>
+                    <Input
+                      type="textarea"
+                      name="password"
+                      id="examplePassword"
+                      placeholder=""
+                    />
+
+                    <Label for="exampleSelect">Deeplink</Label>
+                    <Input type="select" name="select" id="exampleSelect">
+                      <option>None</option>
+                      <option>Collection</option>
+                      <option>Product</option>
+                    </Input>
+
+                    <Label for="exampleFile">Notification Image</Label>
+                    {/* <Input
                           type="file"
                           accept
                           name="file"
                           id="exampleFile"
-                        />
-                        <FormText color="muted">
-                          Attaching an image will show up in notification in
-                          mobile device.
-                        </FormText>
-                     
-                      <Button color="primary" onClick={() => this.sendPushNotification} className="mt-1">
-                        Send
-                      </Button>
+                        /> */}
+                    <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                      label={"Upload Image"}
+                      acceptedFiles={["image/jpeg", "image/png"]}
+                      fileName={this.state.image}
+                      previewImageHeight={"100px"}
+                      previewImageWidth={"100px"}
+                      imageFolder={"push_notification"}
+                      onChange={value => {
+                        this.setState({ image: value });
+                      }}
+                    />
+                    <FormText color="muted">
+                      Attaching an image will show up in notification in mobile
+                      device.
+                    </FormText>
+
+                    <Button
+                      color="primary"
+                      onClick={() => this.sendPushNotification}
+                      className="mt-1"
+                    >
+                      Send
+                    </Button>
                   </CardBody>
                 </Card>
               </Col>
