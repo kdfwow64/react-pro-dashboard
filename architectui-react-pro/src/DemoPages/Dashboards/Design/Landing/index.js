@@ -1887,7 +1887,7 @@ class HomePageContent extends React.Component {
                       // style={{ maxWidth: 'calc(100% - 390px)' }}
                     >
                       <div id="mbl_bg_rit">
-                        <div
+                        {/* <div
                           id="BuildCollectionsConstructor"
                           style={{
                             display:
@@ -1896,7 +1896,7 @@ class HomePageContent extends React.Component {
                           className={
                             this.state.displaybuildleft === 'block' ? 'activeSec' : ''
                           }
-                        >
+                        > */}
                           <div
                             id="CollectionMainRightContainer"
                           >
@@ -2217,9 +2217,7 @@ class HomePageContent extends React.Component {
                             )}
 
                           </div>
-
-
-                        </div>
+                        {/* </div> */}
                         <div
                           className={
                             this.state.displaybuildleft === 'block' ? '' : 'activeSec'
