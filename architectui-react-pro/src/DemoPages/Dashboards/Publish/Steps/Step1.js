@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class WizardStep1 extends React.Component {
     render() {
@@ -37,7 +38,16 @@ export default class WizardStep1 extends React.Component {
 
                     <FormGroup>
                         <Label>Splash Screen</Label>
-                        <Input type="file" />
+                        <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                          label="Add Splash Screen"
+                          acceptedFiles={["image/jpeg", "image/png"]}
+                        //   fileName='splash_screen'
+                          previewImageHeight={"150px"}
+                          previewImageWidth={"100px"}
+                          imageFolder={"splash_screen"}
+                          onChange={()=>{}}
+                        />
+                        {/* <Input type="file" /> */}
                     </FormGroup>
                     {/* <Row form>
                         <Col md={6}>

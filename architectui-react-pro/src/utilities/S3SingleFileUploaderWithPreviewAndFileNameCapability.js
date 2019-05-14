@@ -1,16 +1,19 @@
 // tslint:disable
 // import { Spinner } from "@shopify/polaris";
 import axios from "axios";
-import { RaisedButton } from "material-ui";
-import * as React from "react";
+import React from "react";
 import Dropzone from "react-dropzone";
 import * as S3Upload from "react-s3-uploader/s3upload";
+import { Button } from "reactstrap";
 import { API_ROOT } from "./api-config";
 
 export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { fileName: this.props.fileName, loading: false };
+    this.state = {
+      fileName: this.props.fileName,
+      loading: false
+    };
     this.onDrop = this.onDrop.bind(this);
     this.onDropRejected = this.onDropRejected.bind(this);
   }
@@ -112,7 +115,14 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
           onDropRejected={this.onDropRejected}
           multiple={false}
         >
-          <p>Drop files here.</p>
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {/* <div className="dropzone-content">
+                <p>Drop files here.</p>
+              </div> */}
+            </div>
+          )}
         </Dropzone>
         {fileName ? (
           <div
@@ -125,7 +135,10 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
               <img
                 src={fileName}
                 alt=""
-                style={{maxWidth: previewImageWidth, maxHeight: previewImageHeight}}
+                style={{
+                  maxWidth: previewImageWidth,
+                  maxHeight: previewImageHeight
+                }}
               />
             )}
 
@@ -138,7 +151,7 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
                                 this.props.onChange(null);
                             }} />*/}
             <i
-              className="fa fa-close"
+              className="pe-7s-close"
               style={{
                 position: "absolute",
                 top: 0,
@@ -155,16 +168,16 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
           </div>
         ) : (
           <div>
-            {loading ? (
-              null
-            ) : (
-              <RaisedButton
-                style={style.addFileBtn}
-                label={label}
+            {loading ? null : (
+              <Button
+                // style={style.addFileBtn}
+                color="primary"
                 onClick={() => {
                   dropzoneRef.open();
                 }}
-              />
+              >
+                {label}
+              </Button>
             )}
           </div>
         )}
