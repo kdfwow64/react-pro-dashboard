@@ -1,5 +1,7 @@
 import { combineReducers, createStore } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
 import reducers from '../reducers';
+import authentication from '../utilities/authentication';
 // import appDesign from '../utilities/app-design';
 // import appHomePage from '../utilities/app-home-page';
 // import appMiscSettings from '../utilities/app-misc-settings';
@@ -13,6 +15,7 @@ export default function configureStore() {
   return createStore(
     combineReducers({
       ...reducers,
+      authentication,
       goLive,
       appSettings,
       // appMiscSettings,
@@ -21,6 +24,7 @@ export default function configureStore() {
       triggerBuild,
       // providerShopDetails,
       // appHomePage
+      form: reduxFormReducer
     }),
     {},
   );

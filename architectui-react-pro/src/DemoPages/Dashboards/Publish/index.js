@@ -38,6 +38,8 @@ class Publish extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
+    console.log("go live");
+    console.log(this.props.initialValues);
     return (
       <Fragment>
         <ReactCSSTransitionGroup
