@@ -1407,7 +1407,6 @@ class LandingUserSection extends React.Component {
                 <div id="mbl_bg_rit">
                   <div
                     id="CollectionMainRightContainer"
-                    style={{ marginTop: "80px" }}
                   >
                     <div id="ProductRightBody">
                       <div

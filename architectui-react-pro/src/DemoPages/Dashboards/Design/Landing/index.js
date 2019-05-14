@@ -1794,7 +1794,7 @@ class HomePageContent extends React.Component {
                     <Col md={4}
                       id="CollectionMainContainer"
                       className="HomeRightLeftContainer"
-                      style={{ maxWidth: '390px' }}
+                      // style={{ maxWidth: '390px' }}
                     >
                       <PerfectScrollbar>
                         <div
@@ -1884,7 +1884,7 @@ class HomePageContent extends React.Component {
                     </Col>
                     <Col md={8}
                       id="RightContainerScroll"
-                      style={{ maxWidth: 'calc(100% - 390px)' }}
+                      // style={{ maxWidth: 'calc(100% - 390px)' }}
                     >
                       <div id="mbl_bg_rit">
                         <div

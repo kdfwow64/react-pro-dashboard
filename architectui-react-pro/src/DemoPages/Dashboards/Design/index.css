@@ -893,9 +893,10 @@ input.search_input {
   float: right;
 }
 #CollectionMainRightContainer {
-  width: 250px;
+  width: 322px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 105px;
+  /* margin-left: -1px; */
   background-color: #fff;
   min-height: 400px;
   height: auto;
