@@ -371,6 +371,7 @@ export default class Integrations extends React.Component {
             style={{ padding: "15px 0rem 2rem" }}
           >
             <Button
+              className="btn-shadow"
               color="primary"
               onClick={() => {
                 this.setState({ snackbarOpen: true });

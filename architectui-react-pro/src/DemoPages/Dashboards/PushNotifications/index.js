@@ -261,7 +261,7 @@ export default class PushNotifications extends React.Component {
                     <Button
                       color="primary"
                       onClick={() => this.sendPushNotification}
-                      className="mt-1"
+                      className="mt-1 btn-shadow"
                     >
                       Send
                     </Button>
