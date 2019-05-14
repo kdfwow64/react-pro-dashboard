@@ -363,7 +363,7 @@ class Collections extends React.Component {
               </Col>
               <Col md={8} id="RightContainerScroll">
                 <div id="mbl_bg_rit">
-                  <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                  <div id="CollectionMainRightContainer">
                     <PerfectScrollbar>
                       <CollectioinSettingSectionEffects
                         ref={this.refCollectioinSettingSectionEffects}

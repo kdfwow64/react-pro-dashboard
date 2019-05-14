@@ -227,7 +227,7 @@ class Cart extends React.Component {
               style={{ border: '1px solid #efefef' }}
             >
               <div id="mbl_bg_rit">
-                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                <div id="CollectionMainRightContainer">
                     <CartRightSection
                       DisplaySaveBtn={this.DisplaySaveBtn}
                       CartBGColor={this.state.CartBGColor}

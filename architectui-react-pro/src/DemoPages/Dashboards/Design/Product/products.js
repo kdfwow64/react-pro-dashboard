@@ -525,7 +525,7 @@ class Products extends React.Component {
             </Col>
             <Col md={8} id="RightContainerScroll" >
               <div id="mbl_bg_rit">
-                <div id="CollectionMainRightContainer" style={{ marginTop: '80px' }}>
+                <div id="CollectionMainRightContainer">
                   <PerfectScrollbar>
                     <ProductcustomizePage
                       navBarTitle={this.navBarTitle}
