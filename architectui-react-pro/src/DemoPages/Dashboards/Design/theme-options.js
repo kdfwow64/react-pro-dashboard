@@ -206,7 +206,7 @@ class ThemeOptions extends React.Component {
             onConfirm={() => window.location.reload()}
             onCancel={() => this.setState({ reloadConfirmation: false })}
           />
-          <div
+          {/* <div
             className="Fixedthemebutton"
             style={{
               display: this.state.DisplayThemeBar === false ? "block" : "none"
@@ -340,7 +340,7 @@ class ThemeOptions extends React.Component {
             <div id="closeThemeIcon" onClick={this.CloseThemeBar}>
               <i className="pe-7s-close-circle" />
             </div>
-          </div>
+          </div> */}
         </div>
     );
   }
