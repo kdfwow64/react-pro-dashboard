@@ -14,6 +14,7 @@ import {
   FormFeedback,
   FormText
 } from "reactstrap";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
 
 export default class WizardStep3 extends React.Component {
   constructor(props) {
@@ -117,11 +118,14 @@ export default class WizardStep3 extends React.Component {
 
           <FormGroup>
             <Label for="examplePassword">Google JSON File</Label>
-            <Input
-              type="text"
-              name="password"
-              id="examplePassword"
-              placeholder="Google JSON File"
+            <S3SingleFileUploaderWithPreviewAndFileNameCapability
+              label="Add Play Store JSON File"
+              acceptedFiles={["application/json"]}
+              // fileName={this.props.bannerImageUrl}
+              previewImageHeight={"100px"}
+              previewImageWidth={"100px"}
+              imageFolder={"play_store_json_file"}
+              // onChange={value => this.bannerImageUrl(value)}
             />
           </FormGroup>
 
