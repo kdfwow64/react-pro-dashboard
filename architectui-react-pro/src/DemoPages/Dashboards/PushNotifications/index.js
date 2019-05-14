@@ -199,7 +199,6 @@ export default class PushNotifications extends React.Component {
                       <option>Product</option>
                     </Input>
 
-
                     {/* <Label>Select {this.state.deeplinkType === 'collection' ? 'Collection' : 'Product'}</Label>
                     <Autocomplete
                       options={this.state.deeplinkList}
