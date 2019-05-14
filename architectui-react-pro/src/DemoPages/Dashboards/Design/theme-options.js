@@ -181,21 +181,21 @@ class ThemeOptions extends React.Component {
             </div>
           )}
 
-          <div
+          {/* <div
             id="Tooltip-refresh"
             className="UndoThemebutton"
             onClick={() => this.setState({ reloadConfirmation: true })}
           >
             <i className="pe-7s-refresh" />
-          </div>
-          <Tooltip
+          </div> */}
+          {/* <Tooltip
             placement="auto"
             isOpen={this.state.tooltipRefresh}
             target="Tooltip-refresh"
             toggle={this.toggleTwo.bind(this)}
           >
             Click to refresh page!
-          </Tooltip>
+          </Tooltip> */}
 
           <SweetAlert
             title="Are you sure?"
