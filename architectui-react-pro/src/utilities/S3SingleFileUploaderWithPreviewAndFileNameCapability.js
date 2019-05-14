@@ -170,6 +170,7 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
           <div>
             {loading ? null : (
               <Button
+                className="btn-shadow"
                 // style={style.addFileBtn}
                 color="primary"
                 onClick={() => {
