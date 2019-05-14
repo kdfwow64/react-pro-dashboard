@@ -1,3 +1,12 @@
+import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
+import { saveForm } from "../../../utilities/app-settings";
+import { getGoLive, saveGoLive } from "../../../utilities/go-live";
+import {
+  triggerBuildAndroid,
+  triggerBuildiOS
+} from "../../../utilities/trigger-build";
+// import { onChangeSubmit } from "../../../../shared/util/save-form-util";
 import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Card, CardBody, Col, Row } from "reactstrap";
@@ -15,8 +24,20 @@ const steps = [
   { name: "Final", component: <Step4 /> }
 ];
 
-export default class Publish extends React.Component {
+class Publish extends React.Component {
+
+  componentDidMount() {
+    this.props.getGoLive();
+  }
+
+  setFormRef = element => {
+    this.form = element;
+  }
+
+  saveRef = ref => (this.ref = ref);
+
   render() {
+    const { handleSubmit } = this.props;
     return (
       <Fragment>
         <ReactCSSTransitionGroup
@@ -38,7 +59,9 @@ export default class Publish extends React.Component {
                 <Card className="main-card mb-3">
                   <CardBody>
                     <div className="forms-wizard-vertical">
-                      <MultiStep showNavigation={true} steps={steps} />
+                      <form ref={this.setFormRef} onSubmit={handleSubmit}>
+                        <MultiStep showNavigation={true} steps={steps} />
+                      </form>
                     </div>
                   </CardBody>
                 </Card>
@@ -50,3 +73,36 @@ export default class Publish extends React.Component {
     );
   }
 }
+
+const mapStateToProps = storeState => ({
+  initialValues: storeState.goLive.goLive,
+  credentialsDisabled: storeState.goLive.goLive.credentialsSaved,
+  snackbarOpen: storeState.goLive.saved,
+  loading: storeState.goLive.loading,
+  triggerBuildResponseiOS: storeState.triggerBuild.triggerBuildResponseiOS,
+  triggerBuildResponseAndroid:
+    storeState.triggerBuild.triggerBuildResponseAndroid,
+  loadingiOS: storeState.triggerBuild.loadingiOS,
+  loadingAndroid: storeState.triggerBuild.loadingAndroid
+});
+
+const mapDispatchToProps = {
+  getGoLive,
+  saveGoLive,
+  saveForm,
+  triggerBuildiOS,
+  triggerBuildAndroid
+};
+
+const goLiveForm = reduxForm({
+  form: "goLive",
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
+    dispatch(saveGoLive(values));
+  }
+})(Publish);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(goLiveForm);

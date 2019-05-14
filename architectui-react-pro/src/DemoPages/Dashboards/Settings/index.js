@@ -7,7 +7,7 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { connect } from "react-redux";
 import { Field, formValueSelector, reduxForm } from "redux-form";
 // import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
-import { getAppSettings } from '../../../utilities/app-settings';
+import { getAppSettings, saveAppSettings, saveForm } from '../../../utilities/app-settings';
 // import { onChangeSubmit } from '../../../../shared/util/save-form-util';
 import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
 import StatefulToolTip from "../../../utilities/StatefulToolTip";
@@ -557,25 +557,25 @@ class SettingsDashboard extends React.Component {
 
 const selector = formValueSelector("appSettings"); // <-- same as form name
 const mapStateToProps = storeState => ({
-    // initialValues: storeState.appSettings.appSettings,
-    // snackbarOpen: storeState.appSettings.saved,
-    // loading: storeState.appSettings.loading,
-    // hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
-    // androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
+    initialValues: storeState.appSettings.appSettings,
+    snackbarOpen: storeState.appSettings.saved,
+    loading: storeState.appSettings.loading,
+    hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
+    androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
 });
 
 const mapDispatchToProps = {
     getAppSettings,
-    // saveAppSettings,
-    // saveForm
+    saveAppSettings,
+    saveForm
 };
 
 const appSettingsForm = reduxForm({
   form: "appSettings",
   enableReinitialize: true
-  //   onSubmit: (values, dispatch) => {
-  //     dispatch(saveAppSettings(values));
-  //   }
+    // onSubmit: (values, dispatch) => {
+    //   dispatch(saveAppSettings(values));
+    // }
 })(SettingsDashboard);
 
 const reduxConnect = connect(
