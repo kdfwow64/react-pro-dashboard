@@ -7,6 +7,10 @@ export default class WizardStep1 extends React.Component {
     return (
       <Fragment>
         <div className="form-wizard-content">
+          <h3 className="form-heading pt-3 pb-3">
+            App Information
+            <p>Enter your app information below</p>
+          </h3>
           <FormGroup>
             <Label for="exampleEmail55">App Name</Label>
             <Input
