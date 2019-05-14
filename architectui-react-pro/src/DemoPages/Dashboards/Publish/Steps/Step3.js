@@ -1,85 +1,96 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from "react";
 
 import {
-    Button,
-    Card, CardBody, CardHeader, Col,
-    Collapse, Row, FormGroup, Label, Input, FormFeedback, FormText
-} from 'reactstrap';
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
+  Collapse,
+  Row,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback,
+  FormText
+} from "reactstrap";
 
 export default class WizardStep3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onEntering = this.onEntering.bind(this);
+    this.onEntered = this.onEntered.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.toggleAccordion = this.toggleAccordion.bind(this);
+    this.toggleCustom = this.toggleCustom.bind(this);
+    this.toggleFade = this.toggleFade.bind(this);
+    this.state = {
+      collapse: false,
+      accordion: [true, false, false],
+      custom: [true, false],
+      status: "Closed",
+      fadeIn: true,
+      timeout: 300
+    };
+  }
 
-    constructor(props) {
-        super(props);
-        this.onEntering = this.onEntering.bind(this);
-        this.onEntered = this.onEntered.bind(this);
-        this.onExiting = this.onExiting.bind(this);
-        this.onExited = this.onExited.bind(this);
-        this.toggle = this.toggle.bind(this);
-        this.toggleAccordion = this.toggleAccordion.bind(this);
-        this.toggleCustom = this.toggleCustom.bind(this);
-        this.toggleFade = this.toggleFade.bind(this);
-        this.state = {
-            collapse: false,
-            accordion: [true, false, false],
-            custom: [true, false],
-            status: 'Closed',
-            fadeIn: true,
-            timeout: 300,
-        };
-    }
+  onEntering() {
+    this.setState({ status: "Opening..." });
+  }
 
-    onEntering() {
-        this.setState({status: 'Opening...'});
-    }
+  onEntered() {
+    this.setState({ status: "Opened" });
+  }
 
-    onEntered() {
-        this.setState({status: 'Opened'});
-    }
+  onExiting() {
+    this.setState({ status: "Closing..." });
+  }
 
-    onExiting() {
-        this.setState({status: 'Closing...'});
-    }
+  onExited() {
+    this.setState({ status: "Closed" });
+  }
 
-    onExited() {
-        this.setState({status: 'Closed'});
-    }
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
 
-    toggle() {
-        this.setState({collapse: !this.state.collapse});
-    }
+  toggleAccordion(tab) {
+    const prevState = this.state.accordion;
+    const state = prevState.map((x, index) => (tab === index ? !x : false));
 
-    toggleAccordion(tab) {
+    this.setState({
+      accordion: state
+    });
+  }
 
-        const prevState = this.state.accordion;
-        const state = prevState.map((x, index) => tab === index ? !x : false);
+  toggleCustom(tab) {
+    const prevState = this.state.custom;
+    const state = prevState.map((x, index) => (tab === index ? !x : false));
 
-        this.setState({
-            accordion: state,
-        });
-    }
+    this.setState({
+      custom: state
+    });
+  }
 
-    toggleCustom(tab) {
+  toggleFade() {
+    this.setState({ fadeIn: !this.state.fadeIn });
+  }
 
-        const prevState = this.state.custom;
-        const state = prevState.map((x, index) => tab === index ? !x : false);
+  render() {
+    return (
+      <Fragment>
+        <div className="form-wizard-content">
+          <h3 className="form-heading pt-3 pb-3">
+            Account Information
+            {/* <p>Enter your user informations below</p> */}
+          </h3>
 
-        this.setState({
-            custom: state,
-        });
-    }
-
-    toggleFade() {
-        this.setState({fadeIn: !this.state.fadeIn});
-    }
-
-    render() {
-        return (
-            <Fragment>
-                <div className="form-wizard-content">
-                    {/* <div id="accordion" className="accordion-wrapper mb-3"> */}
-                        {/* <Card>
+          {/* <div id="accordion" className="accordion-wrapper mb-3"> */}
+          {/* <Card>
                             <CardHeader id="headingOne"> */}
-                                {/* <Button block color="link" className="text-left m-0 p-0"
+          {/* <Button block color="link" className="text-left m-0 p-0"
                                         onClick={() => this.toggleAccordion(0)}
                                         aria-expanded={this.state.accordion[0]}
                                         aria-controls="collapseOne">
@@ -89,57 +100,73 @@ export default class WizardStep3 extends React.Component {
                                     </h3>
                                 </Button>
                             </CardHeader> */}
-                            
-                                {/* <CardBody> */}
-                                    <Row form>
-                                        <Col md={6}>
-                                            <FormGroup>
-                                                <Label for="exampleEmail2">Email</Label>
-                                                <Input type="email" name="email" id="exampleEmail2"
-                                                       placeholder="with a placeholder"/>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md={6}>
-                                            <FormGroup>
-                                                <Label for="examplePassword">Password</Label>
-                                                <Input type="password" name="password" id="examplePassword"
-                                                       placeholder="password placeholder"/>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                    <FormGroup>
-                                        <Label for="exampleAddress">Address</Label>
-                                        <Input type="text" name="address" id="exampleAddress"
-                                               placeholder="1234 Main St"/>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label for="exampleAddress2">Address 2</Label>
-                                        <Input type="text" name="address2" id="exampleAddress2"
-                                               placeholder="Apartment, studio, or floor"/>
-                                    </FormGroup>
-                                    <Row form>
-                                        <Col md={6}>
-                                            <FormGroup>
-                                                <Label for="exampleCity">City</Label>
-                                                <Input type="text" name="city" id="exampleCity"/>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md={4}>
-                                            <FormGroup>
-                                                <Label for="exampleState">State</Label>
-                                                <Input type="text" name="state" id="exampleState"/>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md={2}>
-                                            <FormGroup>
-                                                <Label for="exampleZip">Zip</Label>
-                                                <Input type="text" name="zip" id="exampleZip"/>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                {/* </CardBody>
+
+          {/* <CardBody> */}
+          <Row form>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleEmail2">Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  id="exampleEmail2"
+                  placeholder="with a placeholder"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  id="examplePassword"
+                  placeholder="password placeholder"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <FormGroup>
+            <Label for="exampleAddress">Address</Label>
+            <Input
+              type="text"
+              name="address"
+              id="exampleAddress"
+              placeholder="1234 Main St"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleAddress2">Address 2</Label>
+            <Input
+              type="text"
+              name="address2"
+              id="exampleAddress2"
+              placeholder="Apartment, studio, or floor"
+            />
+          </FormGroup>
+          <Row form>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleCity">City</Label>
+                <Input type="text" name="city" id="exampleCity" />
+              </FormGroup>
+            </Col>
+            <Col md={4}>
+              <FormGroup>
+                <Label for="exampleState">State</Label>
+                <Input type="text" name="state" id="exampleState" />
+              </FormGroup>
+            </Col>
+            <Col md={2}>
+              <FormGroup>
+                <Label for="exampleZip">Zip</Label>
+                <Input type="text" name="zip" id="exampleZip" />
+              </FormGroup>
+            </Col>
+          </Row>
+          {/* </CardBody>
                         </Card> */}
-                        {/* <Card>
+          {/* <Card>
                             <CardHeader className="b-radius-0" id="headingTwo">
                                 <Button block color="link" className="text-left m-0 p-0"
                                         onClick={() => this.toggleAccordion(1)}
@@ -248,9 +275,9 @@ export default class WizardStep3 extends React.Component {
                                 </CardBody>
                             </Collapse>
                         </Card> */}
-                    {/* </div> */}
-                </div>
-            </Fragment>
-        );
-    }
+          {/* </div> */}
+        </div>
+      </Fragment>
+    );
+  }
 }
