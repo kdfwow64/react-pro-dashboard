@@ -84,7 +84,10 @@ export default class WizardStep3 extends React.Component {
         <div className="form-wizard-content">
           <h3 className="form-heading pt-3 pb-3">
             Account Information
-            {/* <p>Enter your user informations below</p> */}
+            <p>
+              Your Apple and Google account information is needed so we can
+              start the app submission process.
+            </p>
           </h3>
 
           {/* <div id="accordion" className="accordion-wrapper mb-3"> */}
@@ -102,68 +105,26 @@ export default class WizardStep3 extends React.Component {
                             </CardHeader> */}
 
           {/* <CardBody> */}
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="exampleEmail2">Email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  id="exampleEmail2"
-                  placeholder="with a placeholder"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="examplePassword">Password</Label>
-                <Input
-                  type="password"
-                  name="password"
-                  id="examplePassword"
-                  placeholder="password placeholder"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
           <FormGroup>
-            <Label for="exampleAddress">Address</Label>
+            <Label for="exampleEmail2">Apple Team Name</Label>
             <Input
               type="text"
-              name="address"
-              id="exampleAddress"
-              placeholder="1234 Main St"
+              name="email"
+              id="exampleEmail2"
+              placeholder="Provide your Apple Team name"
             />
           </FormGroup>
+
           <FormGroup>
-            <Label for="exampleAddress2">Address 2</Label>
+            <Label for="examplePassword">Google JSON File</Label>
             <Input
               type="text"
-              name="address2"
-              id="exampleAddress2"
-              placeholder="Apartment, studio, or floor"
+              name="password"
+              id="examplePassword"
+              placeholder="Google JSON File"
             />
           </FormGroup>
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="exampleCity">City</Label>
-                <Input type="text" name="city" id="exampleCity" />
-              </FormGroup>
-            </Col>
-            <Col md={4}>
-              <FormGroup>
-                <Label for="exampleState">State</Label>
-                <Input type="text" name="state" id="exampleState" />
-              </FormGroup>
-            </Col>
-            <Col md={2}>
-              <FormGroup>
-                <Label for="exampleZip">Zip</Label>
-                <Input type="text" name="zip" id="exampleZip" />
-              </FormGroup>
-            </Col>
-          </Row>
+
           {/* </CardBody>
                         </Card> */}
           {/* <Card>

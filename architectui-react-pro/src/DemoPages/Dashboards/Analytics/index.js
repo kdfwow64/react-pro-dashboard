@@ -3,9 +3,10 @@ import * as moment from "moment";
 import React, { Component, Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Bar, HorizontalBar, Line } from "react-chartjs-2";
+import CountUp from 'react-countup';
 import { Card, CardBody, CardTitle, Col, Container, Row } from "reactstrap";
-import { API_ROOT } from "../../../utilities/api-config";
 import PageTitle from "../../../Layout/AppMain/PageTitle";
+import { API_ROOT } from "../../../utilities/api-config";
 
 export default class AnalyticsDashboard extends Component {
   constructor(props) {
@@ -365,13 +366,13 @@ export default class AnalyticsDashboard extends Component {
                     <Col>
                     <div>
                       <p>TOTAL SESSIONS</p>
-                      <p>{this.state.sessionCount}</p>
+                      <p><CountUp end={this.state.sessionCount} duration="5"/></p>
                     </div>
                     </Col>
                     <Col>
                     <div className="float-right">
                       <p>AVG. SESSIONS PER DAY</p>
-                      <p>{this.state.averageSessionsPerUser}</p>
+                      <p><CountUp end={this.state.averageSessionsPerUser} duration="5"/></p>
                     </div>
                     </Col>
                     </Row>

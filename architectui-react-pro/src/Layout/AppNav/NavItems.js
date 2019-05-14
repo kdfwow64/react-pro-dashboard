@@ -34,11 +34,11 @@ export const MainNav = [
         label: 'Publish',
         to: '#/dashboards/publish'
     },
-    {
-        icon: 'pe-7s-tools',
-        label: 'Settings',
-        to: '#/dashboards/settings'
-    },
+    // {
+    //     icon: 'pe-7s-tools',
+    //     label: 'Settings',
+    //     to: '#/dashboards/settings'
+    // },
     {
         icon: 'pe-7s-plugin',
         label: 'Integrations',
