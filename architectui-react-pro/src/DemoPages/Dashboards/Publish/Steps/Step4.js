@@ -16,7 +16,7 @@ export default class WizardStep4 extends React.Component {
             </div>
             <div className="results-subtitle mt-4">Finished!</div>
             <div className="results-title">
-              You are ready to submit the app!
+              Your app submission request has been receieved!
             </div>
             <div className="mt-3 mb-3" />
             <div className="text-center">
