@@ -2,8 +2,8 @@
 // @ts-nocheck
 import React, { Fragment } from 'react';
 
-class CustomBanner extends React.Component  {
-   constructor(props) {
+class CustomBanner extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       bannerImageUrl: this.props.settings.bannerImageUrl,
@@ -16,9 +16,9 @@ class CustomBanner extends React.Component  {
     };
   }
 
-  setAllSettingsOnApply = (settings ) => {
+  setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
 
   render() {
     return (
@@ -27,10 +27,19 @@ class CustomBanner extends React.Component  {
         id="SixthDropContainer"
         style={{ height: 'auto' }}
       >
-        <div className="HoverEffectDragDrop" id="FourthDropContainer"
-        style={{paddingTop: this.state.bannerImageUrl === '' ? '20%' : '0' }}
+        <div
+          className="HoverEffectDragDrop"
+          id="FourthDropContainer"
+          style={{ paddingTop: this.state.bannerImageUrl === '' ? '20%' : '0' }}
         >
-          {this.state.bannerImageUrl === '' ? (" CUSTOM BANNER ") : (<img style={{ maxWidth: '100%', maxHeight: '100%'}} src={this.state.bannerImageUrl} />)}
+          {this.state.bannerImageUrl === '' ? (
+            ' CUSTOM BANNER '
+          ) : (
+            <img
+              style={{ maxWidth: '100%', maxHeight: '100%' }}
+              src={this.state.bannerImageUrl}
+            />
+          )}
         </div>
       </div>
     );
