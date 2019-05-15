@@ -162,7 +162,7 @@ class CartRightSection extends React.Component {
                   {this.props.NavTitleValue === "img" && (
                     <img
                       src={this.props.bannerImageUrl}
-                      style={{ maxHeight: "30px", maxWidth: "90px" }}
+                      style={{ maxHeight: "40px", maxWidth: "90px" }}
                     />
                   )}
                   {this.props.NavTitleValue === "text" && "CART"}

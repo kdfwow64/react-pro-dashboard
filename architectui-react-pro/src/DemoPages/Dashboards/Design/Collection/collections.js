@@ -318,7 +318,7 @@ class Collections extends React.Component {
             transitionEnter={false}
             transitionLeave={false}>
             <Row>
-              <Col md={4}
+              <Col md={4} sm={6}
                 id="CollectionMainContainer"
                 style={{ border: '1px solid #efefef' }}
               >
@@ -361,7 +361,7 @@ class Collections extends React.Component {
                   />
                 </PerfectScrollbar>
               </Col>
-              <Col md={8} id="RightContainerScroll">
+              <Col md={8} sm={6} id="RightContainerScroll">
                 <div id="mbl_bg_rit">
                   <div id="CollectionMainRightContainer">
                     <PerfectScrollbar>
@@ -423,12 +423,12 @@ class Collections extends React.Component {
             <ThemeOptions selectTheme={this.onThemeOptionSelection}
               ref={this.homeTopTabsShowEditAlert}
               onSaveEditedItems={this.onSaveEditedItems} />
-          </ReactCSSTransitionGroup>
-        }
+          </ReactCSSTransitionGroup>   
+         }
         {!this.state.isLoaded &&
-          <div>
-            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
-          </div>
+        <div md={12} id="mainPageLoading">
+          <Loader color="#0e7c95" type="ball-scale-multiple" />
+        </div>
         }
       </Fragment>
     );

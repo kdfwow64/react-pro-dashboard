@@ -118,8 +118,7 @@ class ThemeOptions extends React.Component {
   render() {
     return (
       <div
-        // className="themeOptionContainer"
-        // style={{ position: "absolute", right: 100, bottom: 0 }}
+         className="themeOptionContainer"
       >
           {this.state.isEdited && !this.state.clicked && !this.state.saved && (
             <div>
@@ -181,21 +180,21 @@ class ThemeOptions extends React.Component {
             </div>
           )}
 
-          {/* <div
+           <div
             id="Tooltip-refresh"
             className="UndoThemebutton"
             onClick={() => this.setState({ reloadConfirmation: true })}
           >
             <i className="pe-7s-refresh" />
-          </div> */}
-          {/* <Tooltip
+          </div> 
+           <Tooltip
             placement="auto"
             isOpen={this.state.tooltipRefresh}
             target="Tooltip-refresh"
             toggle={this.toggleTwo.bind(this)}
           >
             Click to refresh page!
-          </Tooltip> */}
+          </Tooltip> 
 
           <SweetAlert
             title="Are you sure?"
@@ -206,7 +205,8 @@ class ThemeOptions extends React.Component {
             onConfirm={() => window.location.reload()}
             onCancel={() => this.setState({ reloadConfirmation: false })}
           />
-          {/* <div
+
+          <div
             className="Fixedthemebutton"
             style={{
               display: this.state.DisplayThemeBar === false ? "block" : "none"
@@ -340,7 +340,7 @@ class ThemeOptions extends React.Component {
             <div id="closeThemeIcon" onClick={this.CloseThemeBar}>
               <i className="pe-7s-close-circle" />
             </div>
-          </div> */}
+          </div>
         </div>
     );
   }

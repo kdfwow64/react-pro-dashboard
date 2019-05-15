@@ -632,7 +632,6 @@ class ProductcustomizePage extends React.Component  {
                       <label>NAV IMAGE</label>
                     </div>
                     <div className="col-sm-12 CollectionMainEditIconImgView">
-                      {/* <input type="file" /> */}
                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
                         acceptedFiles={[ 'image/jpeg', 'image/png' ]}

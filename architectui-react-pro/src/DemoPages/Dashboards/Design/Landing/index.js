@@ -1791,10 +1791,10 @@ class HomePageContent extends React.Component {
                 <DragDropContext onDragEnd={this.onDragEnd}>
 
                   <Row>
-                    <Col md={4}
+                    <Col md={4} sm={6}
                       id="CollectionMainContainer"
                       className="HomeRightLeftContainer"
-                      // style={{ maxWidth: '390px' }}
+                    // style={{ maxWidth: '390px' }}
                     >
                       <PerfectScrollbar>
                         <div
@@ -1882,120 +1882,111 @@ class HomePageContent extends React.Component {
                         )}
                       </PerfectScrollbar>
                     </Col>
-                    <Col md={8}
+                    <Col md={8} sm={6}
                       id="RightContainerScroll"
-                      // style={{ maxWidth: 'calc(100% - 390px)' }}
+                    // style={{ maxWidth: 'calc(100% - 390px)' }}
                     >
                       <div id="mbl_bg_rit">
-                        {/* <div
-                          id="BuildCollectionsConstructor"
-                          style={{
-                            display:
-                              this.state.displaybuildleft === 'block' ? 'block' : 'none'
-                          }}
-                          className={
-                            this.state.displaybuildleft === 'block' ? 'activeSec' : ''
-                          }
-                        > */}
-                          <div
-                            id="CollectionMainRightContainer"
-                          >
-                            <div className="buildStoreContainer">
-                              {this.state.NavTitle === 'text' &&
-                                <div className="BuildCollectionsTitleHint">
-                                  <span>CLICK THE TITLE BELOW TO EDIT</span>
+                        <div
+                          id="CollectionMainRightContainer"
+                        >
+                          <div className="buildStoreContainer">
+                            {this.state.NavTitle === 'text' &&
+                              <div className="BuildCollectionsTitleHint">
+                                <span>CLICK THE TITLE BELOW TO EDIT</span>
+                              </div>
+                            }
+                            <div
+                              id="BuildCollectionEffectNavBarContainer"
+                              style={{
+                                backgroundColor: this.state
+                                  .navbarBackgroundColorValue
+                              }}
+                            >
+                              <div id="CollectionEffectNavBarContainer">
+                                <div
+                                  id="CollectionEffectnavBars"
+                                  style={{ color: this.state.navbgiconcolorValue }}
+                                >
                                 </div>
-                              }
-                              <div
-                                id="BuildCollectionEffectNavBarContainer"
-                                style={{
-                                  backgroundColor: this.state
-                                    .navbarBackgroundColorValue
-                                }}
-                              >
-                                <div id="CollectionEffectNavBarContainer">
-                                  <div
-                                    id="CollectionEffectnavBars"
-                                    style={{ color: this.state.navbgiconcolorValue }}
-                                  >
+
+                                {this.state.NavTitle === 'img' &&
+                                  <div id="CollectionEffectMyStoreTitle">
+                                    <img src={this.state.bannerImageUrl} style={{ maxHeight: "40px", maxWidth: "90px" }} />
                                   </div>
-
-                                  {this.state.NavTitle === 'img' &&
-                                    <div id="CollectionEffectMyStoreTitle">
-                                      <img src={this.state.bannerImageUrl} style={{ maxHeight: "30px", maxWidth: "90px" }} />
-                                    </div>
-                                  }
-                                  {this.state.NavTitle === 'text' &&
-                                    <div
-                                      style={{ color: this.state.navbartitleValue }}
-                                      id="CollectionEffectMyStoreTitle">
-                                      <label
-                                        style={{ display: this.state.showMyLabel }}
-                                        onClick={this.changeMyStoreLabel}> {this.state.NavBarTitleText} </label>
-                                      <input
-                                        onBlur={this.showStoreNameLable}
-                                        onChange={this.changeMyStoreName}
-                                        className="NavTextEdit"
-                                        onKeyPress={this.hideTextshowLabel}
-                                        style={{
-                                          display: this.state.showMyStoreTextBox
-                                        }}
-                                        type="text"
-                                        value={this.state.NavBarTitleText}
-                                      />
-                                    </div>
-                                  }
-
+                                }
+                                {this.state.NavTitle === 'text' &&
                                   <div
-                                    id="CollectionEditMainSlider"
-                                    onClick={this.CollectionMainSectionEditOption}
-                                  >
-                                    <div id="CollectionEditOption">
-                                      <i className="lnr-pencil" />
-                                    </div>
+                                    style={{ color: this.state.navbartitleValue }}
+                                    id="CollectionEffectMyStoreTitle">
+                                    <label
+                                      style={{ display: this.state.showMyLabel }}
+                                      onClick={this.changeMyStoreLabel}> {this.state.NavBarTitleText} </label>
+                                    <input
+                                      onBlur={this.showStoreNameLable}
+                                      onChange={this.changeMyStoreName}
+                                      className="NavTextEdit"
+                                      onKeyPress={this.hideTextshowLabel}
+                                      style={{
+                                        display: this.state.showMyStoreTextBox
+                                      }}
+                                      type="text"
+                                      value={this.state.NavBarTitleText}
+                                    />
+                                  </div>
+                                }
+
+                                <div
+                                  id="CollectionEditMainSlider"
+                                  onClick={this.CollectionMainSectionEditOption}
+                                >
+                                  <div id="CollectionEditOption">
+                                    <i className="lnr-pencil" />
                                   </div>
                                 </div>
                               </div>
                             </div>
+                          </div>
 
-                            <div
-                              id="CollectionEffectBody"
-                              style={{ display: this.state.SettingStoreHide, height: '60vh' }}
-                            >
-                              <SearchNavigationSettings
-                                navbarTitleColorCodeCallback={
-                                  this.navbarTitleColorCode
-                                }
-                                navbarBackgroundColorCallback={
-                                  this.navbarBackgroundColorCode
-                                }
-                                navbarIconColorCallback={this.navbarIconColorCode}
-                                HideSettingSection={this.HideSettingSection}
-                                CollectionBarIcon={this.CollectionBarIcon}
-                                BuildStyleColor={this.state.BuildStyleColor}
-                                StyleStyleColor={this.state.StyleStyleColor}
-                                onApplySettings={this.onSearchNavigationSettingsApply}
-                                DisplySaveBtn={this.DisplySaveBtn}
-                                DropDownGetIconheader={
-                                  this.state.DropDownGetIconheader
-                                }
-                                navbarBackgroundColorValue={
-                                  this.state.navbarBackgroundColorValue
-                                }
-                                navbartitleValue={this.state.navbartitleValue}
-                                navbgiconcolorValue={this.state.navbgiconcolorValue}
-                                NavTitle={this.NavTitle}
-                                NavTitleVal={this.state.NavTitle}
-                                bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                                bannerImageUrl={this.state.bannerImageUrl}
+                          <div
+                            id="CollectionEffectBody"
+                            style={{ display: this.state.SettingStoreHide, height: '60vh' }}
+                          >
+                            <SearchNavigationSettings
+                              navbarTitleColorCodeCallback={
+                                this.navbarTitleColorCode
+                              }
+                              navbarBackgroundColorCallback={
+                                this.navbarBackgroundColorCode
+                              }
+                              navbarIconColorCallback={this.navbarIconColorCode}
+                              HideSettingSection={this.HideSettingSection}
+                              CollectionBarIcon={this.CollectionBarIcon}
+                              BuildStyleColor={this.state.BuildStyleColor}
+                              StyleStyleColor={this.state.StyleStyleColor}
+                              onApplySettings={this.onSearchNavigationSettingsApply}
+                              DisplySaveBtn={this.DisplySaveBtn}
+                              DropDownGetIconheader={
+                                this.state.DropDownGetIconheader
+                              }
+                              navbarBackgroundColorValue={
+                                this.state.navbarBackgroundColorValue
+                              }
+                              navbartitleValue={this.state.navbartitleValue}
+                              navbgiconcolorValue={this.state.navbgiconcolorValue}
+                              NavTitle={this.NavTitle}
+                              NavTitleVal={this.state.NavTitle}
+                              bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                              bannerImageUrl={this.state.bannerImageUrl}
 
-                              />
-                            </div>
+                            />
+                          </div>
 
-                            {!this.state.isLoaded && (
-                              <Loader color="#0e7c95" type="ball-scale-multiple" />
-                            )}
-                            {this.state.isLoaded && (
+                          {!this.state.isLoaded && (
+                            <Loader color="#0e7c95" type="ball-scale-multiple" />
+                          )}
+                          {this.state.isLoaded && (
+                            <PerfectScrollbar>
                               <div className="main_droppable_div" style={{ display: this.state.DragStoreDisplay }}>
 
                                 <Droppable droppableId="droppable2">
@@ -2214,9 +2205,10 @@ class HomePageContent extends React.Component {
                                   )}
                                 </Droppable>
                               </div>
-                            )}
+                            </PerfectScrollbar>
+                          )}
 
-                          </div>
+                        </div>
                         {/* </div> */}
                         <div
                           className={
@@ -2262,8 +2254,8 @@ class HomePageContent extends React.Component {
           </ReactCSSTransitionGroup>
         }
         {!this.state.isLoaded &&
-          <div>
-            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+          <div md={12} id="mainPageLoading">
+            <Loader color="#0e7c95" type="ball-scale-multiple" />
           </div>
         }
 

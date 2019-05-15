@@ -6,6 +6,7 @@ import axios from 'axios';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import { Button, CardFooter, InputGroup, InputGroupAddon } from 'reactstrap';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
 import { API_ROOT } from "../../../../utilities/api-config";
 
 class ModalCustomBanner extends React.Component {
@@ -182,16 +183,19 @@ class ModalCustomBanner extends React.Component {
                       className="CollectionEffectResultDropDown SingleModalProduct"
                       style={{ marginTop: 'unset', width: '150px' }}
                     >
-                      {/* <FileUploader
-                        label="Choose file"
-                        acceptedFiles={[ 'image/jpeg', 'image/png' ]}
-                        fileName={this.state.bannerImageUrl}
-                        previewImageHeight={'100px'}
-                        previewImageWidth={'100px'}
-                        imageFolder={"homepagev2"}
-                        onChange={value => this.setState({ bannerImageUrl: value })}
-    />*/}
-                      <input type="file"></input>
+                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                                  label="Choose file"
+                                  acceptedFiles={["image/jpeg", "image/png"]}
+                                  fileName={this.state.bannerImageUrl}
+                                  previewImageHeight={"100px"}
+                                  previewImageWidth={"100px"}
+                                  imageFolder={"navTitleImage"}
+                                  onChange={value =>
+                                    this.setState({ bannerImageUrl: value })
+                                  }
+                                />
+
+                      
                     </div>
                   </div>
                   <div className="SingleProductMainEdit">

@@ -87,7 +87,7 @@ class Cart extends React.Component {
       this.setState({ navtitlecolor: res.data.CartSettings.navtitlecolor });
       this.setState({ NavTitle: res.data.CartSettings.NavTitle });
       this.setState({ bannerImageUrl: res.data.CartSettings.bannerImageUrl });
-      this.setState({ isLoaded:  true });
+      this.setState({ isLoaded: true });
     });
   }
   onThemeOptionSelection = themName => {
@@ -178,56 +178,56 @@ class Cart extends React.Component {
   render() {
     return (
       <Fragment>
-      {this.state.isLoaded &&
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="TabsAnimation"
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnter={false}
-          transitionLeave={false}>
-          <Row>
-            <Col md={4}
-              id="CollectionMainContainer"
-              style={{ border: '1px solid #efefef' }}
-            >
-              <PerfectScrollbar>
-                <CartLeftSection
-                  CartBGColorCallback={this.CartBGColorCallback}
-                  CellBGColorCallback={this.CellBGColorCallback}
-                  ProductTitleCallback={this.ProductTitleCallback}
-                  ProductOptionColorCallback={this.ProductOptionColorCallback}
-                  CellPriceColorCallback={this.CellPriceColorCallback}
-                  QuantityIconColorCallback={this.QuantityIconColorCallback}
-                  QuantityTextColorCallback={this.QuantityTextColorCallback}
-                  ApplyBGColorCallback={this.ApplyBGColorCallback}
-                  ApplyIconColorCallback={this.ApplyIconColorCallback}
-                  ApplyTextColorCallback={this.ApplyTextColorCallback}
-                  PriceTextColorCallback={this.PriceTextColorCallback}
-                  ButtonBGColorCallback={this.ButtonBGColorCallback}
-                  ButtonTextColorCallback={this.ButtonTextColorCallback}
-                  CartBGColor={this.state.CartBGColor}
-                  CellBGColor={this.state.CellBGColor}
-                  ProductTitle={this.state.ProductTitle}
-                  ProductOptionColor={this.state.ProductOptionColor}
-                  CellPriceColor={this.state.CellPriceColor}
-                  QuantityIconColor={this.state.QuantityIconColor}
-                  QuantityTextColor={this.state.QuantityTextColor}
-                  ApplyBGColor={this.state.ApplyBGColor}
-                  ApplyIconColor={this.state.ApplyIconColor}
-                  ApplyTextColor={this.state.ApplyTextColor}
-                  PriceTextColor={this.state.PriceTextColor}
-                  ButtonBGColor={this.state.ButtonBGColor}
-                  ButtonTextColor={this.state.ButtonTextColor}
-                />
-              </PerfectScrollbar>
-            </Col>
-            <Col md={8}
-              id="RightContainerScroll"
-              style={{ border: '1px solid #efefef' }}
-            >
-              <div id="mbl_bg_rit">
-                <div id="CollectionMainRightContainer">
+        {this.state.isLoaded &&
+          <ReactCSSTransitionGroup
+            component="div"
+            transitionName="TabsAnimation"
+            transitionAppear={true}
+            transitionAppearTimeout={0}
+            transitionEnter={false}
+            transitionLeave={false}>
+            <Row>
+              <Col md={4} sm={6}
+                id="CollectionMainContainer"
+                style={{ border: '1px solid #efefef' }}
+              >
+                <PerfectScrollbar>
+                  <CartLeftSection
+                    CartBGColorCallback={this.CartBGColorCallback}
+                    CellBGColorCallback={this.CellBGColorCallback}
+                    ProductTitleCallback={this.ProductTitleCallback}
+                    ProductOptionColorCallback={this.ProductOptionColorCallback}
+                    CellPriceColorCallback={this.CellPriceColorCallback}
+                    QuantityIconColorCallback={this.QuantityIconColorCallback}
+                    QuantityTextColorCallback={this.QuantityTextColorCallback}
+                    ApplyBGColorCallback={this.ApplyBGColorCallback}
+                    ApplyIconColorCallback={this.ApplyIconColorCallback}
+                    ApplyTextColorCallback={this.ApplyTextColorCallback}
+                    PriceTextColorCallback={this.PriceTextColorCallback}
+                    ButtonBGColorCallback={this.ButtonBGColorCallback}
+                    ButtonTextColorCallback={this.ButtonTextColorCallback}
+                    CartBGColor={this.state.CartBGColor}
+                    CellBGColor={this.state.CellBGColor}
+                    ProductTitle={this.state.ProductTitle}
+                    ProductOptionColor={this.state.ProductOptionColor}
+                    CellPriceColor={this.state.CellPriceColor}
+                    QuantityIconColor={this.state.QuantityIconColor}
+                    QuantityTextColor={this.state.QuantityTextColor}
+                    ApplyBGColor={this.state.ApplyBGColor}
+                    ApplyIconColor={this.state.ApplyIconColor}
+                    ApplyTextColor={this.state.ApplyTextColor}
+                    PriceTextColor={this.state.PriceTextColor}
+                    ButtonBGColor={this.state.ButtonBGColor}
+                    ButtonTextColor={this.state.ButtonTextColor}
+                  />
+                </PerfectScrollbar>
+              </Col>
+              <Col md={8} sm={6}
+                id="RightContainerScroll"
+                style={{ border: '1px solid #efefef' }}
+              >
+                <div id="mbl_bg_rit">
+                  <div id="CollectionMainRightContainer">
                     <CartRightSection
                       DisplaySaveBtn={this.DisplaySaveBtn}
                       CartBGColor={this.state.CartBGColor}
@@ -256,18 +256,18 @@ class Cart extends React.Component {
                       bannerImageUrlCallBack={this.bannerImageUrlCallBack}
                       bannerImageUrl={this.state.bannerImageUrl}
                     />
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <ThemeOptions selectTheme={this.onThemeOptionSelection}
-              ref={this.homeTopTabsShowEditAlert}
-              onSaveEditedItems={this.onSaveEditedItems} />
-          </Row>
-        </ReactCSSTransitionGroup>
-      }
-      {!this.state.isLoaded &&
-          <div>
-            <Loader color="#0e7c95" type="ball-scale-multiple" style={{ marginTop: '15em', marginLeft: '30em' }} />
+              </Col>
+              <ThemeOptions selectTheme={this.onThemeOptionSelection}
+                ref={this.homeTopTabsShowEditAlert}
+                onSaveEditedItems={this.onSaveEditedItems} />
+            </Row>
+          </ReactCSSTransitionGroup>
+        }
+        {!this.state.isLoaded &&
+          <div md={12} id="mainPageLoading">
+            <Loader color="#0e7c95" type="ball-scale-multiple" />
           </div>
         }
       </Fragment>

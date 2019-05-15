@@ -1025,7 +1025,7 @@ class LandingUserSection extends React.Component {
           >
             <Row>
               <Col
-                md={4}
+                md={4} sm={6}
                 className="user_section_main"
                 id="CollectionMainContainer"
                 style={{ border: "1px solid #efefef" }}
@@ -1408,7 +1408,7 @@ class LandingUserSection extends React.Component {
               </Col>
 
               <Col
-                md={8}
+                md={8} sm={6}
                 id="RightContainerScroll"
                 style={{ border: "1px solid #efefef" }}
               >
@@ -1429,11 +1429,10 @@ class LandingUserSection extends React.Component {
                           id="CollectionEffectMyStoreTitle"
                           style={{ color: this.state.navtitlecolor || "#fff" }}
                         >
-                          {console.log(this.state.NavTitle)}
                           {this.state.NavTitle === "img" && (
                             <img
                               src={this.state.bannerImageUrl}
-                              style={{ maxHeight: "30px", maxWidth: "90px" }}
+                              style={{ maxHeight: "40px", maxWidth: "90px" }}
                             />
                           )}
                           {this.state.NavTitle === "Text" ||
@@ -1528,42 +1527,6 @@ class LandingUserSection extends React.Component {
                               </div>
                             </div>
 
-                            {/* <div className="CollectionMainEditIconColor">
-                                                            <div className="col-sm-12 CollectionSettingEditIconColor">
-                                                                <label>NAV BAR ICON COLOR</label>
-                                                            </div>
-                                                            <div className="col-sm-12 CollectionMainEditIconColorView">
-                                                                <input
-                                                                    type="text"
-                                                                    value={this.state.naviconcolor || '#fff'}
-                                                                    defaultValue={this.state.naviconcolor || '#fff'}
-                                                                    id="CollectionDropDown"
-                                                                    className="textColorCode"
-                                                                    onClick={this.naviconhandleClick}
-                                                                />
-                                                                <div style={styles.swatch}>
-                                                                    <div
-                                                                        className="colorPickerBorder"
-                                                                        style={{
-                                                                            width: '20px',
-                                                                            height: '20px',
-                                                                            backgroundColor: this.state.naviconcolor || '#fff'
-                                                                        }}
-                                                                        onClick={this.naviconhandleClick}
-                                                                    />
-                                                                </div>
-                                                                {this.state.navicondisplayColorPicker ? (
-                                                                    <div style={styles.popover}>
-                                                                        <div style={ this.cover } onClick={ this.handleClose }/>
-                                                                        <ChromePicker
-                                                                            color={this.state.naviconcolor || '#fff'}
-                                                                            onChange={this.naviconhandleChange}
-                                                                        />
-                                                                    </div>
-                                                                ) : null}
-                                                            </div>
-                                                        </div>*/}
-
                             <div
                               className="CollectionMainEditIconColor"
                               style={{
@@ -1639,7 +1602,6 @@ class LandingUserSection extends React.Component {
                                     this.setState({ bannerImageUrl: value })
                                   }
                                 />
-                                <input type="file" />
                               </div>
                             </div>
 
@@ -1877,12 +1839,8 @@ class LandingUserSection extends React.Component {
           </ReactCSSTransitionGroup>
         )}
         {!this.state.isLoaded && (
-          <div>
-            <Loader
-              color="#0e7c95"
-              type="ball-scale-multiple"
-              style={{ marginTop: "15em", marginLeft: "30em" }}
-            />
+          <div md={12} id="mainPageLoading">
+            <Loader color="#0e7c95" type="ball-scale-multiple" />
           </div>
         )}
       </Fragment>

@@ -216,7 +216,7 @@ class Cart extends React.Component {
             transitionLeave={false}
           >
             <Row>
-              <Col md={4} id="CollectionMainContainer">
+              <Col md={4} sm={6} id="CollectionMainContainer">
                 <PerfectScrollbar>
                   <SearchLeftSection
                     BGColorCallback={this.BGColorCallback}
@@ -248,7 +248,7 @@ class Cart extends React.Component {
                   />
                 </PerfectScrollbar>
               </Col>
-              <Col md={8} id="RightContainerScroll">
+              <Col md={8} sm={6} id="RightContainerScroll">
                 <div id="mbl_bg_rit">
                   <div
                     id="CollectionMainRightContainer"
@@ -296,12 +296,8 @@ class Cart extends React.Component {
           </ReactCSSTransitionGroup>
         )}
         {!this.state.isLoaded && (
-          <div>
-            <Loader
-              color="#0e7c95"
-              type="ball-scale-multiple"
-              style={{ marginTop: "15em", marginLeft: "30em" }}
-            />
+          <div md={12} id="mainPageLoading">
+            <Loader color="#0e7c95" type="ball-scale-multiple" />
           </div>
         )}
       </Fragment>
