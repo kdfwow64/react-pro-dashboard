@@ -49,6 +49,7 @@ const Dashboards = ({ match }) => (
                         <p>Sorry, our designer needs a wider screen. If you're on a mobile device, please login using a desktop computer.</p>
                     </div>
                 }
+    {window.innerWidth >= 767 &&
                 <div className='app-main__inner'>
                     <Route path={`${match.url}/analytics`} component={AnalyticsDashboard} />
                     <Route path={`${match.url}/sales`} component={SalesDashboard} />
@@ -65,7 +66,7 @@ const Dashboards = ({ match }) => (
                     <Route path={`${match.url}/minimal-dashboard-1`} component={MinimalDashboard1} />
                     <Route path={`${match.url}/minimal-dashboard-2`} component={MinimalDashboard2} />
                 </div>
-
+    }
                 {/* <AppFooter/> */}
             </div>
         </div>
