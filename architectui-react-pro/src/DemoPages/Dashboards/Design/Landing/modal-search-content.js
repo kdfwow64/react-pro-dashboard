@@ -2,10 +2,10 @@
 // @ts-nocheck
 import React, { Fragment } from 'react';
 import { ChromePicker } from 'react-color';
-import { Button, CardFooter, Card, CardText, CardBody, } from 'reactstrap';
+import { Button, CardFooter, Card, CardText, CardBody } from 'reactstrap';
 
-class ModalSearchContent extends React.Component  {
-   constructor(props) {
+class ModalSearchContent extends React.Component {
+  constructor(props) {
     super(props);
 
     this.onTitleColorClick = this.onTitleColorClick.bind(this);
@@ -37,28 +37,29 @@ class ModalSearchContent extends React.Component  {
     this.onApplySetting = this.onApplySetting.bind(this);
 
     this.state = {
-        titleColor: this.props.defaultSettings.titleColor,
-        displayTitleColor: false,
+      titleColor: this.props.defaultSettings.titleColor,
+      displayTitleColor: false,
 
-        borderColor: this.props.defaultSettings.borderColor,
-        displayBorderColor: false,
+      borderColor: this.props.defaultSettings.borderColor,
+      displayBorderColor: false,
 
-        searchBGColor: this.props.defaultSettings.searchBGColor,
-        displaySearchBG: false,
+      searchBGColor: this.props.defaultSettings.searchBGColor,
+      displaySearchBG: false,
 
-        iconColor: this.props.defaultSettings.iconColor,
-        displayIconColor: false,
+      iconColor: this.props.defaultSettings.iconColor,
+      displayIconColor: false,
 
-        cellBGColor: this.props.defaultSettings.cellBGColor,
-        displayCellBGColor: false,
+      cellBGColor: this.props.defaultSettings.cellBGColor,
+      displayCellBGColor: false,
 
-        searchPlaceholder: this.props.defaultSettings.searchPlaceholder
-      };
+      searchPlaceholder: this.props.defaultSettings.searchPlaceholder
+    };
   }
 
   onCloseModal = () => {
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
+
   onApplySetting = e => {
     e.preventDefault();
     const allSettings = {
@@ -74,58 +75,73 @@ class ModalSearchContent extends React.Component  {
 
     this.props.onApply(allSettings);
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
 
   applyAppliedSetting = settings => {};
 
   onTitleColorClick = () => {
     this.setState({ displayTitleColor: true });
-  }
+  };
+
   onTitleColorClose = () => {
     this.setState({ displayTitleColor: false });
-  }
+  };
+
   onTitleColorClickComplete = color => {
     this.setState({ titleColor: color.hex });
-  }
+  };
+
   onBorderColorClick = () => {
     this.setState({ displayBorderColor: true });
-  }
+  };
+
   onBorderColorClose = () => {
     this.setState({ displayBorderColor: false });
-  }
+  };
+
   onBorderColorClickComplete = color => {
     this.setState({ borderColor: color.hex });
-  }
+  };
+
   onSearchBGClick = () => {
     this.setState({ displaySearchBG: true });
-  }
+  };
+
   onSearchBGClose = () => {
     this.setState({ displaySearchBG: false });
-  }
+  };
+
   onSearchBGClickComplete = color => {
     this.setState({ searchBGColor: color.hex });
-  }
+  };
+
   onSearchIconClick = () => {
     this.setState({ displayiconColor: true });
-  }
+  };
+
   onSearchIconClose = () => {
     this.setState({ displayiconColor: false });
-  }
+  };
+
   onSearchIconClickComplete = color => {
     this.setState({ iconColor: color.hex });
-  }
+  };
+
   onCellBGColorClick = () => {
     this.setState({ displaycellBGColor: true });
-  }
+  };
+
   onCellBGColorClose = () => {
     this.setState({ displaycellBGColor: false });
-  }
+  };
+
   onCellBGColorClickComplete = color => {
     this.setState({ cellBGColor: color.hex });
-  }
+  };
+
   onTextPlaceholderClick = e => {
     this.setState({ searchPlaceholder: e.target.value });
-  }
+  };
 
   swatch = {
     padding: '5px',
@@ -134,17 +150,20 @@ class ModalSearchContent extends React.Component  {
     left: '2px',
     top: '2px'
   };
+
   popover = {
     position: 'absolute',
     zIndex: 10000
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
+
   render() {
     // let placehoder = this.state.searchPlaceholder;
     return (
@@ -169,7 +188,7 @@ class ModalSearchContent extends React.Component  {
                   style={{
                     paddingLeft: '25px',
                     color: this.state.titleColor,
-                    border: '1px solid' + this.state.borderColor,
+                    border: `1px solid${this.state.borderColor}`,
                     backgroundColor: this.state.searchBGColor
                   }}
                   id="search_product"
@@ -199,7 +218,6 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onTitleColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -214,7 +232,10 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayTitleColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onTitleColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onTitleColorClose}
+                        />
                         <ChromePicker
                           color={this.state.titleColor}
                           onChange={this.onTitleColorClickComplete}
@@ -236,7 +257,6 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onBorderColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -251,7 +271,10 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayBorderColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onBorderColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onBorderColorClose}
+                        />
                         <ChromePicker
                           color={this.state.borderColor}
                           onChange={this.onBorderColorClickComplete}
@@ -273,7 +296,6 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onSearchBGClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -288,7 +310,10 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displaySearchBG ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onSearchBGClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onSearchBGClose}
+                        />
                         <ChromePicker
                           color={this.state.searchBGColor}
                           onChange={this.onSearchBGClickComplete}
@@ -310,7 +335,6 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onSearchIconClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -325,7 +349,10 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displayiconColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onSearchIconClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onSearchIconClose}
+                        />
                         <ChromePicker
                           color={this.state.iconColor}
                           onChange={this.onSearchIconClickComplete}
@@ -347,7 +374,6 @@ class ModalSearchContent extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onCellBGColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -362,7 +388,10 @@ class ModalSearchContent extends React.Component  {
                     </div>
                     {this.state.displaycellBGColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onCellBGColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onCellBGColorClose}
+                        />
                         <ChromePicker
                           color={this.state.cellBGColor}
                           onChange={this.onCellBGColorClickComplete}
@@ -389,10 +418,22 @@ class ModalSearchContent extends React.Component  {
                 </div>
               </div>
               <CardFooter className="d-block text-right">
-                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
-                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+                <Button
+                  size="sm"
+                  className="mr-2"
+                  color="link"
+                  onClick={this.onCloseModal}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="btn-wide btn-shadow"
+                  color="primary"
+                  onClick={this.onApplySetting}
+                >
+                  Apply
+                </Button>
               </CardFooter>
-
             </div>
           </div>
         </div>

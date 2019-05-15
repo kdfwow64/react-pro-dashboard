@@ -1,8 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-
-class UserReview extends React.Component  {
+class UserReview extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -109,8 +108,9 @@ class UserReview extends React.Component  {
                         <div
                           className="review_mainText"
                           style={{
-                            borderBottom:
-                              '1px solid' + this.props.reviewcellColor,
+                            borderBottom: `1px solid${
+                              this.props.reviewcellColor
+                            }`,
                             color: this.props.reviewtextColor
                           }}
                         >
@@ -150,8 +150,9 @@ class UserReview extends React.Component  {
                         <div
                           className="review_mainText"
                           style={{
-                            borderBottom:
-                              '1px solid' + this.props.reviewcellColor,
+                            borderBottom: `1px solid${
+                              this.props.reviewcellColor
+                            }`,
                             color: this.props.reviewtextColor
                           }}
                         >

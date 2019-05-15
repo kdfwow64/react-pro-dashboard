@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Card, Col, Modal, ModalBody, Row } from "reactstrap";
-import bg1 from "../../../assets/utils/images/dropdown-header/abstract1.jpg";
-import bg2 from "../../../assets/utils/images/dropdown-header/city2.jpg";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
+import React, { Component, Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Card, Col, Modal, ModalBody, Row } from 'reactstrap';
+import bg1 from '../../../assets/utils/images/dropdown-header/abstract1.jpg';
+import bg2 from '../../../assets/utils/images/dropdown-header/city2.jpg';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
 
 export default class Tutorials extends Component {
   constructor(props) {
@@ -20,13 +20,14 @@ export default class Tutorials extends Component {
       modal: !this.state.modal
     });
   }
+
   render() {
     return (
       <Fragment>
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}

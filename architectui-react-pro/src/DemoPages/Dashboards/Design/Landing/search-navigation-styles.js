@@ -3,8 +3,8 @@
 import React, { Fragment } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
-class SearchNavigationStyles extends React.Component  {
-   constructor(props) {
+class SearchNavigationStyles extends React.Component {
+  constructor(props) {
     super(props);
 
     this.changeMyStoreName1 = this.changeMyStoreName1.bind(this);
@@ -67,6 +67,7 @@ class SearchNavigationStyles extends React.Component  {
       contact: 'CONTACT'
     };
   }
+
   getAllMenuItems = () => {
     const allMenuItem = [
       {
@@ -97,15 +98,15 @@ class SearchNavigationStyles extends React.Component  {
     ];
 
     return allMenuItem;
-  }
+  };
 
   reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
-    const [ removed ] = result.splice(startIndex, 1);
+    const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
 
     return result;
-  }
+  };
 
   onDragEnd = result => {
     const { source, destination } = result;
@@ -120,14 +121,15 @@ class SearchNavigationStyles extends React.Component  {
         source.index,
         destination.index
       );
-      let state= { items };
+      let state = { items };
       if (source.droppableId === 'droppable') {
         state = { allMenuItem: items };
       }
       this.setState(state);
     }
     this.props.DisplaySaveBtn();
-  }
+  };
+
   getNavigationContent = e => {
     if (e.id === 1) {
       return (
@@ -361,102 +363,117 @@ class SearchNavigationStyles extends React.Component  {
         </div>
       );
     }
-  }
+  };
 
   changeMyStoreLabel1 = () => {
     this.setState({ showMyStoreTextBox1: 'inline-block' });
     this.setState({ showMyLabel1: 'none' });
-  }
+  };
+
   changeMyStoreName1 = e => {
     this.setState({ homeText: e.target.value });
     this.props.HomeValue(e.target.value);
-  }
+  };
+
   hideTextshowLabel1 = e => {
     if (e.key === 'Enter') {
       this.setState({ showMyStoreTextBox1: 'none' });
       this.setState({ showMyLabel1: 'inline-block' });
     }
-  }
+  };
+
   showStoreNameLable1 = () => {
     this.setState({ showMyStoreTextBox1: 'none' });
     this.setState({ showMyLabel1: 'inline-block' });
-  }
+  };
 
   changeMyStoreLabel2 = () => {
     this.setState({ showMyStoreTextBox2: 'inline-block' });
     this.setState({ showMyLabel2: 'none' });
-  }
+  };
+
   changeMyStoreName2 = e => {
     this.setState({ searchin: e.target.value });
     this.props.SearchValue(e.target.value);
-  }
+  };
+
   hideTextshowLabel2 = e => {
     if (e.key === 'Enter') {
       this.setState({ showMyStoreTextBox2: 'none' });
       this.setState({ showMyLabel2: 'inline-block' });
     }
-  }
+  };
+
   showStoreNameLable2 = () => {
     this.setState({ showMyStoreTextBox2: 'none' });
     this.setState({ showMyLabel2: 'inline-block' });
-  }
+  };
 
   changeMyStoreLabel3 = () => {
     this.setState({ showMyStoreTextBox3: 'inline-block' });
     this.setState({ showMyLabel3: 'none' });
-  }
+  };
+
   changeMyStoreName3 = e => {
     this.setState({ account: e.target.value });
     this.props.AccountValue(e.target.value);
-  }
+  };
+
   hideTextshowLabel3 = e => {
     if (e.key === 'Enter') {
       this.setState({ showMyStoreTextBox3: 'none' });
       this.setState({ showMyLabel3: 'inline-block' });
     }
-  }
+  };
+
   showStoreNameLable3 = () => {
     this.setState({ showMyStoreTextBox3: 'none' });
     this.setState({ showMyLabel3: 'inline-block' });
-  }
+  };
 
   changeMyStoreLabel4 = () => {
     this.setState({ showMyStoreTextBox4: 'inline-block' });
     this.setState({ showMyLabel4: 'none' });
-  }
+  };
+
   changeMyStoreName4 = e => {
     this.setState({ myCart: e.target.value });
     this.props.CartValue(e.target.value);
-  }
+  };
+
   hideTextshowLabel4 = e => {
     if (e.key === 'Enter') {
       this.setState({ showMyStoreTextBox4: 'none' });
       this.setState({ showMyLabel4: 'inline-block' });
     }
-  }
+  };
+
   showStoreNameLable4 = () => {
     this.setState({ showMyStoreTextBox4: 'none' });
     this.setState({ showMyLabel4: 'inline-block' });
-  }
+  };
 
   changeMyStoreLabel5 = () => {
     this.setState({ showMyStoreTextBox5: 'inline-block' });
     this.setState({ showMyLabel5: 'none' });
-  }
+  };
+
   changeMyStoreName5 = e => {
     this.setState({ contact: e.target.value });
     this.props.ContactValue(e.target.value);
-  }
+  };
+
   hideTextshowLabel5 = e => {
     if (e.key === 'Enter') {
       this.setState({ showMyStoreTextBox5: 'none' });
       this.setState({ showMyLabel5: 'inline-block' });
     }
-  }
+  };
+
   showStoreNameLable5 = () => {
     this.setState({ showMyStoreTextBox5: 'none' });
     this.setState({ showMyLabel5: 'inline-block' });
-  }
+  };
 
   render() {
     return (

@@ -20,7 +20,7 @@ const styles = {
   }
 };
 
-class ReviewOptions extends React.Component  {
+class ReviewOptions extends React.Component {
   constructor(props) {
     super(props);
 
@@ -127,29 +127,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewBgColorClose = () => {
     this.setState({ displayBGColor: false });
-  }
+  };
+
   get onreviewBgColorClose() {
     return this._onreviewBgColorClose;
   }
+
   set onreviewBgColorClose(value) {
     this._onreviewBgColorClose = value;
   }
+
   _onreviewBgColorClick = () => {
     this.setState({ displayBGColor: true });
-  }
+  };
+
   get onreviewBgColorClick() {
     return this._onreviewBgColorClick;
   }
+
   set onreviewBgColorClick(value) {
     this._onreviewBgColorClick = value;
   }
+
   _onreviewBgColorChangeComplete = color => {
     this.setState({ reviewBgColor: color.hex });
     this.props.onreviewBgColorChangeComplete(color);
-  }
+  };
+
   get onreviewBgColorChangeComplete() {
     return this._onreviewBgColorChangeComplete;
   }
+
   set onreviewBgColorChangeComplete(value) {
     this._onreviewBgColorChangeComplete = value;
   }
@@ -157,29 +165,37 @@ class ReviewOptions extends React.Component  {
   /* RATING COLOR */
   _onreviewRatingColorClose = () => {
     this.setState({ displayreviewRatingColor: false });
-  }
+  };
+
   get onreviewRatingColorClose() {
     return this._onreviewRatingColorClose;
   }
+
   set onreviewRatingColorClose(value) {
     this._onreviewRatingColorClose = value;
   }
+
   _onreviewRatingColorClick = () => {
     this.setState({ displayreviewRatingColor: true });
-  }
+  };
+
   get onreviewRatingColorClick() {
     return this._onreviewRatingColorClick;
   }
+
   set onreviewRatingColorClick(value) {
     this._onreviewRatingColorClick = value;
   }
+
   _onreviewRatingColorChangeComplete = color => {
     this.setState({ reviewRatingColor: color.hex });
     this.props.onreviewRatingColorChangeComplete(color);
-  }
+  };
+
   get onreviewRatingColorChangeComplete() {
     return this._onreviewRatingColorChangeComplete;
   }
+
   set onreviewRatingColorChangeComplete(value) {
     this._onreviewRatingColorChangeComplete = value;
   }
@@ -188,29 +204,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewInputBGColorClose = () => {
     this.setState({ displayInputBGColor: false });
-  }
+  };
+
   get onreviewInputBGColorClose() {
     return this._onreviewInputBGColorClose;
   }
+
   set onreviewInputBGColorClose(value) {
     this._onreviewInputBGColorClose = value;
   }
+
   _onreviewInputBGColorClick = () => {
     this.setState({ displayInputBGColor: true });
-  }
+  };
+
   get onreviewInputBGColorClick() {
     return this._onreviewInputBGColorClick;
   }
+
   set onreviewInputBGColorClick(value) {
     this._onreviewInputBGColorClick = value;
   }
+
   _onreviewInputBGColorChangeComplete = color => {
     this.setState({ reviewinputBGColor: color.hex });
     this.props.onreviewInputBGColorChangeComplete(color);
-  }
+  };
+
   get onreviewInputBGColorChangeComplete() {
     return this._onreviewInputBGColorChangeComplete;
   }
+
   set onreviewInputBGColorChangeComplete(value) {
     this._onreviewInputBGColorChangeComplete = value;
   }
@@ -219,29 +243,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewInputTitleColorClose = () => {
     this.setState({ displayInputTitleColor: false });
-  }
+  };
+
   get onreviewInputTitleColorClose() {
     return this._onreviewInputTitleColorClose;
   }
+
   set onreviewInputTitleColorClose(value) {
     this._onreviewInputTitleColorClose = value;
   }
+
   _onreviewInputTitleColorClick = () => {
     this.setState({ displayInputTitleColor: true });
-  }
+  };
+
   get onreviewInputTitleColorClick() {
     return this._onreviewInputTitleColorClick;
   }
+
   set onreviewInputTitleColorClick(value) {
     this._onreviewInputTitleColorClick = value;
   }
+
   _onreviewInputTitleColorChangeComplete = color => {
     this.setState({ reviewinputTitleColor: color.hex });
     this.props.onreviewInputTitleColorChangeComplete(color);
-  }
+  };
+
   get onreviewInputTitleColorChangeComplete() {
     return this._onreviewInputTitleColorChangeComplete;
   }
+
   set onreviewInputTitleColorChangeComplete(value) {
     this._onreviewInputTitleColorChangeComplete = value;
   }
@@ -250,29 +282,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewButtonColorClose = () => {
     this.setState({ displayButtonColor: false });
-  }
+  };
+
   get onreviewButtonColorClose() {
     return this._onreviewButtonColorClose;
   }
+
   set onreviewButtonColorClose(value) {
     this._onreviewButtonColorClose = value;
   }
+
   _onreviewButtonColorClick = () => {
     this.setState({ displayButtonColor: true });
-  }
+  };
+
   get onreviewButtonColorClick() {
     return this._onreviewButtonColorClick;
   }
+
   set onreviewButtonColorClick(value) {
     this._onreviewButtonColorClick = value;
   }
+
   _onreviewButtonColorChangeComplete = color => {
     this.setState({ reviewbuttonColor: color.hex });
     this.props.onreviewButtonColorChangeComplete(color);
-  }
+  };
+
   get onreviewButtonColorChangeComplete() {
     return this._onreviewButtonColorChangeComplete;
   }
+
   set onreviewButtonColorChangeComplete(value) {
     this._onreviewButtonColorChangeComplete = value;
   }
@@ -281,29 +321,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewButtonTitleColorClose = () => {
     this.setState({ displayButtonTitleColor: false });
-  }
+  };
+
   get onreviewButtonTitleColorClose() {
     return this._onreviewButtonTitleColorClose;
   }
+
   set onreviewButtonTitleColorClose(value) {
     this._onreviewButtonTitleColorClose = value;
   }
+
   _onreviewButtonTitleColorClick = () => {
     this.setState({ displayButtonTitleColor: true });
-  }
+  };
+
   get onreviewButtonTitleColorClick() {
     return this._onreviewButtonTitleColorClick;
   }
+
   set onreviewButtonTitleColorClick(value) {
     this._onreviewButtonTitleColorClick = value;
   }
+
   _onreviewButtonTitleColorChangeComplete = color => {
     this.setState({ reviewbuttonTitleColor: color.hex });
     this.props.onreviewButtonTitleColorChangeComplete(color);
-  }
+  };
+
   get onreviewButtonTitleColorChangeComplete() {
     return this._onreviewButtonTitleColorChangeComplete;
   }
+
   set onreviewButtonTitleColorChangeComplete(value) {
     this._onreviewButtonTitleColorChangeComplete = value;
   }
@@ -312,29 +360,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewGeneralTextColorClose = () => {
     this.setState({ displayGeneralTextColor: false });
-  }
+  };
+
   get onreviewGeneralTextColorClose() {
     return this._onreviewGeneralTextColorClose;
   }
+
   set onreviewGeneralTextColorClose(value) {
     this._onreviewGeneralTextColorClose = value;
   }
+
   _onreviewGeneralTextColorClick = () => {
     this.setState({ displayGeneralTextColor: true });
-  }
+  };
+
   get onreviewGeneralTextColorClick() {
     return this._onreviewGeneralTextColorClick;
   }
+
   set onreviewGeneralTextColorClick(value) {
     this._onreviewGeneralTextColorClick = value;
   }
+
   _onreviewGeneralTextColorChangeComplete = color => {
     this.setState({ reviewgeneralTextColor: color.hex });
     this.props.onreviewGeneralTextColorChangeComplete(color);
-  }
+  };
+
   get onreviewGeneralTextColorChangeComplete() {
     return this._onreviewGeneralTextColorChangeComplete;
   }
+
   set onreviewGeneralTextColorChangeComplete(value) {
     this._onreviewGeneralTextColorChangeComplete = value;
   }
@@ -343,29 +399,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewTextLinkColorClose = () => {
     this.setState({ displayTextLinkColor: false });
-  }
+  };
+
   get onreviewTextLinkColorClose() {
     return this._onreviewTextLinkColorClose;
   }
+
   set onreviewTextLinkColorClose(value) {
     this._onreviewTextLinkColorClose = value;
   }
+
   _onreviewTextLinkColorClick = () => {
     this.setState({ displayTextLinkColor: true });
-  }
+  };
+
   get onreviewTextLinkColorClick() {
     return this._onreviewTextLinkColorClick;
   }
+
   set onreviewTextLinkColorClick(value) {
     this._onreviewTextLinkColorClick = value;
   }
+
   _onreviewTextLinkColorChangeComplete = color => {
     this.setState({ reviewtextLinkColor: color.hex });
     this.props.onreviewTextLinkColorChangeComplete(color);
-  }
+  };
+
   get onreviewTextLinkColorChangeComplete() {
     return this._onreviewTextLinkColorChangeComplete;
   }
+
   set onreviewTextLinkColorChangeComplete(value) {
     this._onreviewTextLinkColorChangeComplete = value;
   }
@@ -374,29 +438,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewcellColorClose = () => {
     this.setState({ displaycellColor: false });
-  }
+  };
+
   get onreviewcellColorClose() {
     return this._onreviewcellColorClose;
   }
+
   set onreviewcellColorClose(value) {
     this._onreviewcellColorClose = value;
   }
+
   _onreviewcellColorClick = () => {
     this.setState({ displaycellColor: true });
-  }
+  };
+
   get onreviewcellColorClick() {
     return this._onreviewcellColorClick;
   }
+
   set onreviewcellColorClick(value) {
     this._onreviewcellColorClick = value;
   }
+
   _onreviewcellChangeComplete = color => {
     this.setState({ reviewtextLinkColor: color.hex });
     this.props.onreviewcellChangeComplete(color);
-  }
+  };
+
   get onreviewcellChangeComplete() {
     return this._onreviewcellChangeComplete;
   }
+
   set onreviewcellChangeComplete(value) {
     this._onreviewcellChangeComplete = value;
   }
@@ -405,29 +477,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewpostColorClose = () => {
     this.setState({ displayreviewpostColor: false });
-  }
+  };
+
   get onreviewpostColorClose() {
     return this._onreviewpostColorClose;
   }
+
   set onreviewpostColorClose(value) {
     this._onreviewpostColorClose = value;
   }
+
   _onreviewpostColorClick = () => {
     this.setState({ displayreviewpostColor: true });
-  }
+  };
+
   get onreviewpostColorClick() {
     return this._onreviewpostColorClick;
   }
+
   set onreviewpostColorClick(value) {
     this._onreviewpostColorClick = value;
   }
+
   _onreviewpostColorChangeComplete = color => {
     this.setState({ reviewpostedColor: color.hex });
     this.props.onreviewpostColorChangeComplete(color);
-  }
+  };
+
   get onreviewpostColorChangeComplete() {
     return this._onreviewpostColorChangeComplete;
   }
+
   set onreviewpostColorChangeComplete(value) {
     this._onreviewpostColorChangeComplete = value;
   }
@@ -436,29 +516,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewdateColorClose = () => {
     this.setState({ displayreviewdateColor: false });
-  }
+  };
+
   get onreviewdateColorClose() {
     return this._onreviewdateColorClose;
   }
+
   set onreviewdateColorClose(value) {
     this._onreviewdateColorClose = value;
   }
+
   _onreviewdateColorClick = () => {
     this.setState({ displayreviewdateColor: true });
-  }
+  };
+
   get onreviewdateColorClick() {
     return this._onreviewdateColorClick;
   }
+
   set onreviewdateColorClick(value) {
     this._onreviewdateColorClick = value;
   }
+
   _onreviewdateColorChangeComplete = color => {
     this.setState({ reviewdateColor: color.hex });
     this.props.onreviewdateColorChangeComplete(color);
-  }
+  };
+
   get onreviewdateColorChangeComplete() {
     return this._onreviewdateColorChangeComplete;
   }
+
   set onreviewdateColorChangeComplete(value) {
     this._onreviewdateColorChangeComplete = value;
   }
@@ -467,29 +555,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewtextColorClose = () => {
     this.setState({ displaytextColor: false });
-  }
+  };
+
   get onreviewtextColorClose() {
     return this._onreviewtextColorClose;
   }
+
   set onreviewtextColorClose(value) {
     this._onreviewtextColorClose = value;
   }
+
   _onreviewtextColorClick = () => {
     this.setState({ displaytextColor: true });
-  }
+  };
+
   get onreviewtextColorClick() {
     return this._onreviewtextColorClick;
   }
+
   set onreviewtextColorClick(value) {
     this._onreviewtextColorClick = value;
   }
+
   _onreviewtextColorChangeComplete = color => {
     this.setState({ reviewtextColor: color.hex });
     this.props.onreviewtextColorChangeComplete(color);
-  }
+  };
+
   get onreviewtextColorChangeComplete() {
     return this._onreviewtextColorChangeComplete;
   }
+
   set onreviewtextColorChangeComplete(value) {
     this._onreviewtextColorChangeComplete = value;
   }
@@ -498,29 +594,37 @@ class ReviewOptions extends React.Component  {
 
   _onreviewreadmoreColorClose = () => {
     this.setState({ displayreadmoreColor: false });
-  }
+  };
+
   get onreviewreadmoreColorClose() {
     return this._onreviewreadmoreColorClose;
   }
+
   set onreviewreadmoreColorClose(value) {
     this._onreviewreadmoreColorClose = value;
   }
+
   _onreviewreadmoreColorClick = () => {
     this.setState({ displayreadmoreColor: true });
-  }
+  };
+
   get onreviewreadmoreColorClick() {
     return this._onreviewreadmoreColorClick;
   }
+
   set onreviewreadmoreColorClick(value) {
     this._onreviewreadmoreColorClick = value;
   }
+
   _onreviewreadmoreColorChangeComplete = color => {
     this.setState({ reviewreadmoreColor: color.hex });
     this.props.onreviewreadmoreColorChangeComplete(color);
-  }
+  };
+
   get onreviewreadmoreColorChangeComplete() {
     return this._onreviewreadmoreColorChangeComplete;
   }
+
   set onreviewreadmoreColorChangeComplete(value) {
     this._onreviewreadmoreColorChangeComplete = value;
   }
@@ -555,13 +659,14 @@ class ReviewOptions extends React.Component  {
     displaytextColor: false,
     displayreadmoreColor: false
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
@@ -596,7 +701,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewBgColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewBgColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewBgColor}
                         onChange={this.onreviewBgColorChangeComplete}
@@ -630,7 +738,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreviewRatingColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewRatingColorClose}/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewRatingColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewRatingColor}
                         onChange={this.onreviewRatingColorChangeComplete}
@@ -667,7 +778,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewInputBGColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewInputBGColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewinputBGColor}
                         onChange={this.onreviewInputBGColorChangeComplete}
@@ -689,7 +803,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewInputTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -705,7 +818,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewInputTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewInputTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewinputTitleColor}
                         onChange={this.onreviewInputTitleColorChangeComplete}
@@ -725,7 +841,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewButtonColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -741,7 +856,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewButtonColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewButtonColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewbuttonColor}
                         onChange={this.onreviewButtonColorChangeComplete}
@@ -763,7 +881,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewButtonTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -779,7 +896,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewButtonTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewButtonTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewbuttonTitleColor}
                         onChange={this.onreviewButtonTitleColorChangeComplete}
@@ -801,7 +921,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewGeneralTextColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -817,7 +936,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewGeneralTextColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewGeneralTextColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewgeneralTextColor}
                         onChange={this.onreviewGeneralTextColorChangeComplete}
@@ -840,7 +962,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewTextLinkColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -856,7 +977,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewTextLinkColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewTextLinkColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewtextLinkColor}
                         onChange={this.onreviewTextLinkColorChangeComplete}
@@ -879,7 +1003,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewcellColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -895,7 +1018,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displaycellColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewcellColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewcellColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewcellColor}
                         onChange={this.onreviewcellChangeComplete}
@@ -918,7 +1044,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewpostColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -934,7 +1059,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreviewpostColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewpostColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewpostColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewpostedColor}
                         onChange={this.onreviewpostColorChangeComplete}
@@ -957,7 +1085,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewdateColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -973,7 +1100,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreviewdateColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewdateColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewdateColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewdateColor}
                         onChange={this.onreviewdateColorChangeComplete}
@@ -996,7 +1126,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewtextColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -1012,7 +1141,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displaytextColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewtextColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewtextColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewtextColor}
                         onChange={this.onreviewtextColorChangeComplete}
@@ -1035,7 +1167,6 @@ class ReviewOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onreviewreadmoreColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -1051,7 +1182,10 @@ class ReviewOptions extends React.Component  {
                   </div>
                   {this.state.displayreadmoreColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onreviewreadmoreColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onreviewreadmoreColorClose}
+                      />
                       <ChromePicker
                         color={this.props.reviewreadmoreColor}
                         onChange={this.onreviewreadmoreColorChangeComplete}

@@ -1,7 +1,7 @@
 // tslint:disable
 import axios from 'axios';
 import React from 'react';
-import { API_ROOT } from "../../../../utilities/api-config";
+import { API_ROOT } from '../../../../utilities/api-config';
 
 const ProductsCollections = {
   collections: [
@@ -50,8 +50,8 @@ function getSelectedCollectionProducts() {
   });
   return products;
 }
-class ProductCollection2 extends React.Component  {
-   constructor(props) {
+class ProductCollection2 extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       IconColor: this.props.settings.IconColor,
@@ -81,7 +81,7 @@ class ProductCollection2 extends React.Component  {
 
   setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
 
   componentWillMount() {
     if (
@@ -90,10 +90,9 @@ class ProductCollection2 extends React.Component  {
     ) {
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            this.props.settings.collectionType +
-            `/` +
-            this.props.settings.selectedProductId
+          `${API_ROOT}/api/v2/collection/products/${
+            this.props.settings.collectionType
+          }/${this.props.settings.selectedProductId}`
         )
         .then(res1 => {
           this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -156,15 +155,13 @@ class ProductCollection2 extends React.Component  {
                   <div
                     className="SecondDropProduct"
                     style={{
-                      border: '1px solid' + this.state.productBorderColor
+                      border: `1px solid${this.state.productBorderColor}`
                     }}
                   >
-                  {item.imageUrl &&
-                    <img src={item.imageUrl} alt={item.title} />
-                  }
-                  {!item.imageUrl &&
-                    <i className="pe-7s-photo"></i>
-                  }
+                    {item.imageUrl && (
+                      <img src={item.imageUrl} alt={item.title} />
+                    )}
+                    {!item.imageUrl && <i className="pe-7s-photo" />}
                   </div>
                   <div
                     className="SecondDropProductTitle"
@@ -194,10 +191,10 @@ class ProductCollection2 extends React.Component  {
                   <div
                     className="SecondDropProduct"
                     style={{
-                      border: '1px solid' + this.state.productBorderColor
+                      border: `1px solid${this.state.productBorderColor}`
                     }}
                   >
-                    <i className="pe-7s-photo"></i>
+                    <i className="pe-7s-photo" />
                   </div>
                   <div
                     className="SecondDropProductTitle"
@@ -232,15 +229,13 @@ class ProductCollection2 extends React.Component  {
                   <div
                     className="SecondDropProduct"
                     style={{
-                      border: '1px solid' + this.state.productBorderColor
+                      border: `1px solid${this.state.productBorderColor}`
                     }}
                   >
-                  {item.imageUrl &&
-                    <img src={item.imageUrl} alt={item.title} />
-                  }
-                  {!item.imageUrl &&
-                    <i className="pe-7s-photo"></i>
-                  }
+                    {item.imageUrl && (
+                      <img src={item.imageUrl} alt={item.title} />
+                    )}
+                    {!item.imageUrl && <i className="pe-7s-photo" />}
                   </div>
                   <div
                     className="SecondDropProductTitle"

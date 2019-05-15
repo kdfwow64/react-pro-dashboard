@@ -1,11 +1,11 @@
-import { Snackbar } from "@material-ui/core";
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import LaddaButton, { EXPAND_RIGHT } from "react-ladda";
-import { Card, CardBody } from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from "../../../utilities/api-config";
+import { Snackbar } from '@material-ui/core';
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import LaddaButton, { EXPAND_RIGHT } from 'react-ladda';
+import { Card, CardBody } from 'reactstrap';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
 
 export default class PreviewApp extends React.Component {
   constructor(props) {
@@ -25,11 +25,11 @@ export default class PreviewApp extends React.Component {
         const data = response.data;
         this.setState({ loading: false });
         this.setState({ snackbarOpen: true });
-        this.toggle("expRight");
+        this.toggle('expRight');
       })
       .catch(error => {
         this.setState({ loading: false });
-        this.toggle("expRight");
+        this.toggle('expRight');
       });
   };
 
@@ -46,7 +46,7 @@ export default class PreviewApp extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -66,7 +66,7 @@ export default class PreviewApp extends React.Component {
                   className="mb-2 mr-2 btn btn-shadow btn-primary"
                   loading={this.state.expRight}
                   onClick={() => {
-                    this.toggle("expRight");
+                    this.toggle('expRight');
                     this.handleButtonClick();
                   }}
                   data-style={EXPAND_RIGHT}
@@ -83,9 +83,9 @@ export default class PreviewApp extends React.Component {
             </CardBody>
           </Card>
           <Snackbar
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: '10px' }}
             open={this.state.snackbarOpen}
-            ContentProps={{ style: { fontSize: "20px" } }}
+            ContentProps={{ style: { fontSize: '20px' } }}
             // eslint-disable-next-line jsx-a11y/accessible-emoji
             message={<span>Email sent ✅</span>}
             onClose={() => {

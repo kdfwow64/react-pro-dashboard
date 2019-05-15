@@ -5,7 +5,6 @@ import { SketchPicker } from 'react-color';
 import reactCSS from 'reactcss';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-
 class OrderDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +49,8 @@ class OrderDetails extends React.Component {
                     className="order_SectionTitles"
                     style={{
                       color: this.props.headertitleBGColor,
-                      backgroundColor: this.props.orderdetailheaderbgColor || '#0e7c95',
+                      backgroundColor:
+                        this.props.orderdetailheaderbgColor || '#0e7c95'
                     }}
                   >
                     Order Summary
@@ -59,8 +59,9 @@ class OrderDetails extends React.Component {
                     className="order_cellHolder"
                     style={{
                       backgroundColor: this.props.optiondetailscellbgColor,
-                      borderBottom:
-                        '1px solid' + this.props.optiondetailcellsepColor
+                      borderBottom: `1px solid${
+                        this.props.optiondetailcellsepColor
+                      }`
                     }}
                   >
                     <div className="detail_image_sec">
@@ -93,8 +94,9 @@ class OrderDetails extends React.Component {
                     className="order_cellHolder"
                     style={{
                       backgroundColor: this.props.optiondetailscellbgColor,
-                      borderBottom:
-                        '1px solid' + this.props.optiondetailcellsepColor
+                      borderBottom: `1px solid${
+                        this.props.optiondetailcellsepColor
+                      }`
                     }}
                   >
                     <div className="detail_image_sec">
@@ -127,8 +129,9 @@ class OrderDetails extends React.Component {
                     className="order_cellHolder"
                     style={{
                       backgroundColor: this.props.optiondetailscellbgColor,
-                      borderBottom:
-                        '1px solid' + this.props.optiondetailcellsepColor
+                      borderBottom: `1px solid${
+                        this.props.optiondetailcellsepColor
+                      }`
                     }}
                   >
                     <div className="detail_image_sec">
@@ -161,8 +164,9 @@ class OrderDetails extends React.Component {
                   <div
                     className="cell_sep"
                     style={{
-                      borderBottom:
-                        '1px solid' + this.props.optiondetailcellsepColor
+                      borderBottom: `1px solid${
+                        this.props.optiondetailcellsepColor
+                      }`
                     }}
                   >
                     <div>
@@ -227,21 +231,22 @@ class OrderDetails extends React.Component {
                         style={{ color: this.props.opriondetaildescColor }}
                       >
                         Total
-                    </div>
+                      </div>
                       <div
                         className="order_priceColorssec"
                         style={{ color: this.props.optiondetailpriceColor }}
                       >
                         $31.99
-                    </div>
+                      </div>
                     </div>
                   </div>
-                 
+
                   <div
                     className="order_SectionTitles"
                     style={{
                       color: this.props.headertitleBGColor,
-                      backgroundColor: this.props.orderdetailheaderbgColor || '#0e7c95',
+                      backgroundColor:
+                        this.props.orderdetailheaderbgColor || '#0e7c95'
                     }}
                   >
                     Billing Address
@@ -262,7 +267,8 @@ class OrderDetails extends React.Component {
                     className="order_SectionTitles"
                     style={{
                       color: this.props.headertitleBGColor,
-                      backgroundColor: this.props.orderdetailheaderbgColor || '#0e7c95',
+                      backgroundColor:
+                        this.props.orderdetailheaderbgColor || '#0e7c95'
                     }}
                   >
                     Shipping Address

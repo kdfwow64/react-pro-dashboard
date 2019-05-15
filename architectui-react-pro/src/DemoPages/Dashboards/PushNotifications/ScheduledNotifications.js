@@ -1,9 +1,9 @@
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Card, CardBody, CardTitle, Table } from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from "../../../utilities/api-config";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Card, CardBody, CardTitle, Table } from 'reactstrap';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
 
 export default class ScheduledNotifications extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class ScheduledNotifications extends React.Component {
     axios.get(`${API_ROOT}/api/v1/get-notifications`).then(resp => {
       const data = resp.data;
       this.setState({ scheduledNotifications: data });
-      console.log("scheduled notifications");
+      console.log('scheduled notifications');
       console.log(data);
     });
   };
@@ -31,8 +31,8 @@ export default class ScheduledNotifications extends React.Component {
     const notificationArray = [];
     for (const notification of this.state.scheduledNotifications) {
       const d = new Date(0).setUTCSeconds(notification.send_after);
-      const dateFormat = require("dateformat");
-      const ds = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+      const dateFormat = require('dateformat');
+      const ds = dateFormat(d, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
       notificationArray.push([
         notification.headings.en,
         notification.contents.en,
@@ -45,7 +45,7 @@ export default class ScheduledNotifications extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}

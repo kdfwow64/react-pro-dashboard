@@ -1,11 +1,11 @@
 // tslint:disable
 // import { Spinner } from "@shopify/polaris";
-import axios from "axios";
-import React from "react";
-import Dropzone from "react-dropzone";
-import * as S3Upload from "react-s3-uploader/s3upload";
-import { Button } from "reactstrap";
-import { API_ROOT } from "./api-config";
+import axios from 'axios';
+import React from 'react';
+import Dropzone from 'react-dropzone';
+import * as S3Upload from 'react-s3-uploader/s3upload';
+import { Button } from 'reactstrap';
+import { API_ROOT } from './api-config';
 
 export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
     const { label } = this.props;
 
     this.props.onProgress && this.props.onProgress(progress, textState, file);
-    if (textState === "Upload completed") {
+    if (textState === 'Upload completed') {
       this.setState({ loading: false });
     } else {
       this.setState({ loading: true });
@@ -63,24 +63,22 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
       .then(data => {
         callback(data.data);
       })
-      .catch(error => {
-        console.error(error);
-      });
+      .catch(error => {});
   };
 
   onDrop(files) {
     const options = {
       files,
-      signingUrl: "/api/s3/sign",
-      /*scrubFilename: (filename) => {
+      signingUrl: '/api/s3/sign',
+      /* scrubFilename: (filename) => {
                 return this.props.
-            },*/
+            }, */
       getSignedUrl: this.getSignedUrl,
       server: API_ROOT,
-      signingUrlQueryParams: { uploadType: "avatar" },
-      s3path: "",
-      contentDisposition: "auto",
-      uploadRequestHeaders: { "x-amz-acl": "public-read" },
+      signingUrlQueryParams: { uploadType: 'avatar' },
+      s3path: '',
+      contentDisposition: 'auto',
+      uploadRequestHeaders: { 'x-amz-acl': 'public-read' },
       onFinishS3Put: this.handleFinish,
       onProgress: this.handleProgress,
       onError: this.handleError
@@ -95,7 +93,7 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
     // If we already saved files they will be shown again in modal preview.
     const style = {
       addFileBtn: {
-        marginTop: "15px"
+        marginTop: '15px'
       }
     };
 
@@ -106,11 +104,11 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
     return (
       <div>
         <Dropzone
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           ref={node => {
             dropzoneRef = node;
           }}
-          accept={this.props.acceptedFiles.join(",")}
+          accept={this.props.acceptedFiles.join(',')}
           onDrop={this.onDrop}
           onDropRejected={this.onDropRejected}
           multiple={false}
@@ -126,10 +124,10 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
         </Dropzone>
         {fileName ? (
           <div
-            style={{ position: "relative" }}
+            style={{ position: 'relative' }}
             className="home-popup-upload-sec"
           >
-            {this.props.acceptedFiles.includes("application/json") ? (
+            {this.props.acceptedFiles.includes('application/json') ? (
               <span>File Uploaded</span>
             ) : (
               <img
@@ -142,23 +140,23 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
               />
             )}
 
-            {/*} <img
+            {/* } <img
                             src={require('./close_icon.png')}
                             height={'25px'} width={'25px'}
                             style={{ position: 'absolute', top: 0, cursor: 'pointer' }}
                             onClick={event => {
                                 this.setState({ fileName: null });
                                 this.props.onChange(null);
-                            }} />*/}
+                            }} /> */}
             <i
               className="pe-7s-close"
               style={{
-                position: "absolute",
+                position: 'absolute',
                 top: 0,
-                cursor: "pointer",
-                border: "1px solid #000",
-                padding: "2px",
-                fontSize: "10px"
+                cursor: 'pointer',
+                border: '1px solid #000',
+                padding: '2px',
+                fontSize: '10px'
               }}
               onClick={event => {
                 this.setState({ fileName: null });

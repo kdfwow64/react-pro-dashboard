@@ -3,12 +3,11 @@
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import reactCSS from 'reactcss';
+import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
 import IconList from '../icon-list';
-import { Col, Row, Card, CardBody,
-  CardTitle, CardHeader } from 'reactstrap';
 
-class CollectioinSettingSection extends React.Component  {
-   constructor(props) {
+class CollectioinSettingSection extends React.Component {
+  constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.cellcolorhandleChange = this.cellcolorhandleChange.bind(this);
@@ -46,106 +45,127 @@ class CollectioinSettingSection extends React.Component  {
       pricetitleColorPicker: false,
       producttitleColorPicker: false,
       DropDownGetIconheader: this.props.IconAction,
-      MainContainerBGColorValue:"#ff0000"
+      MainContainerBGColorValue: '#ff0000'
       // SelectedOption: this.props.SelectedOption,
     };
   }
 
-  gridSelectOptionCallback = (e ) => {
+  gridSelectOptionCallback = e => {
     this.setState({ SelectedOption: e.target.value });
     this.props.SelectedOption(e.target.value);
-  }
+  };
 
-  gridSelectProductTitleCallback = (e ) => {
+  gridSelectProductTitleCallback = e => {
     this.setState({ gridSelectProductTitle: e.target.value });
     this.props.gridSelectProductTitleCall(e.target.value);
-  }
-  gridSelectPiceCallback = (e ) => {
-    this.props.gridSelectPriceTitleCallback(e.target.value);
-  }
+  };
 
-  DropDownGetIconCellectionListActionCallback = (icon ) => {
+  gridSelectPiceCallback = e => {
+    this.props.gridSelectPriceTitleCallback(e.target.value);
+  };
+
+  DropDownGetIconCellectionListActionCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.IconCollectionAction(icon);
-  }
+  };
 
   handleClose = () => {
     this.setState({ displayColorPicker: false });
-  }
+  };
+
   cellcolorhandleClose = () => {
     this.setState({ celldisplayColorPicker: false });
-  }
+  };
+
   cellcolorseparatorhandleClose = () => {
     this.setState({ cellseparatorColorPicker: false });
-  }
+  };
+
   cellcoloriconhandleClose = () => {
     this.setState({ cellicondisplayColorPicker: false });
-  }
+  };
+
   productborderhandleClose = () => {
     this.setState({ productborderColorPicker: false });
-  }
+  };
+
   producttitlehandleClose = () => {
     this.setState({ producttitleColorPicker: false });
-  }
+  };
+
   pricetitlehandleClose = () => {
     this.setState({ pricetitleColorPicker: false });
-  }
+  };
 
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
-  }
+  };
+
   cellhandleClick = () => {
-    this.setState({ celldisplayColorPicker: !this.state.celldisplayColorPicker });
-  }
+    this.setState({
+      celldisplayColorPicker: !this.state.celldisplayColorPicker
+    });
+  };
+
   cellseparatorhandleClick = () => {
     this.setState({
       cellseparatorColorPicker: !this.state.cellseparatorColorPicker
     });
-  }
+  };
+
   celliconhandleClick = () => {
     this.setState({
       cellicondisplayColorPicker: !this.state.cellicondisplayColorPicker
     });
-  }
+  };
+
   productborderhandleClick = () => {
     this.setState({
       productborderColorPicker: !this.state.productborderColorPicker
     });
-  }
+  };
+
   producttitlehandleClick = () => {
     this.setState({
       producttitleColorPicker: !this.state.producttitleColorPicker
     });
-  }
+  };
+
   pricetitlehandleClick = () => {
     this.setState({ pricetitleColorPicker: !this.state.pricetitleColorPicker });
-  }
+  };
 
   handleChange(color) {
     this.setState({ MainContainerBGColorValue: color.hex });
     this.props.MainContainerBGColor(color);
   }
-  cellcolorhandleChange(cellcolor ) {
+
+  cellcolorhandleChange(cellcolor) {
     this.setState({ cellcolor: cellcolor.hex });
     this.props.CellBGColor(cellcolor);
   }
-  cellcolorseparatorhandleChange(cellseparatorcolor ) {
+
+  cellcolorseparatorhandleChange(cellseparatorcolor) {
     this.setState({ cellseparatorcolor: cellseparatorcolor.hex });
     this.props.cellseparatorcolor(cellseparatorcolor);
   }
-  cellcoloriconhandleChange(celliconcolor ) {
+
+  cellcoloriconhandleChange(celliconcolor) {
     this.setState({ celliconcolor: celliconcolor.hex });
     this.props.celliconcolor(celliconcolor);
   }
-  productborderhandleChange(productbordercolor ) {
+
+  productborderhandleChange(productbordercolor) {
     this.setState({ productbordercolor: productbordercolor.hex });
     this.props.productbordercolor(productbordercolor);
   }
-  producttitlehandleChange(producttitlecolor ) {
+
+  producttitlehandleChange(producttitlecolor) {
     this.setState({ producttitlecolor: producttitlecolor.hex });
     this.props.producttitlecolor(producttitlecolor);
   }
-  pricetitlehandleChange(pricetitlecolor ) {
+
+  pricetitlehandleChange(pricetitlecolor) {
     this.setState({ pricetitlecolor: pricetitlecolor.hex });
     this.props.pricetitlecolor(pricetitlecolor);
   }
@@ -157,22 +177,26 @@ class CollectioinSettingSection extends React.Component  {
     left: '4px',
     top: '2px'
   };
+
   popover = {
     position: 'absolute',
-    zIndex: '1',
+    zIndex: '1'
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
       <div id="collectionContainer">
-        <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Collection Settings </h3> </CardHeader>
+        <CardHeader style={{ marginBottom: '10px' }}>
+          <h3 className="leftCardHeader"> Collection Settings </h3>{' '}
+        </CardHeader>
         <div className="row CollectionPageStyle">
           <div className="CollectionViewStyle">
             <div className="CollectionFullRowContainer">
@@ -264,7 +288,9 @@ class CollectioinSettingSection extends React.Component  {
                 <select
                   name=""
                   id="CollectionDropDown"
-                  onChange={(e) => this.props.gridtitleAlignCallback(e.target.value)}
+                  onChange={e =>
+                    this.props.gridtitleAlignCallback(e.target.value)
+                  }
                   value={this.props.gridTitleValue}
                 >
                   <option value="Center">Center</option>
@@ -298,12 +324,12 @@ class CollectioinSettingSection extends React.Component  {
                   />
                 </div>
                 {this.state.displayColorPicker ? (
-                  <div style={this.popover} >
-                   <div style={ this.cover } onClick={ this.handleClose }/>
+                  <div style={this.popover}>
+                    <div style={this.cover} onClick={this.handleClose} />
                     <ChromePicker
                       color={this.props.MainContainerBGColorValue}
                       onChange={this.handleChange}
-                    />                    
+                    />
                   </div>
                 ) : null}
               </div>
@@ -338,7 +364,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.celldisplayColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.cellcolorhandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.cellcolorhandleClose}
+                    />
                     <ChromePicker
                       color={this.props.CellBGColorValue}
                       onChange={this.cellcolorhandleChange}
@@ -378,7 +407,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.cellseparatorColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.cellcolorseparatorhandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.cellcolorseparatorhandleClose}
+                    />
                     <ChromePicker
                       color={this.props.CellseparatorColorValue}
                       onChange={this.cellcolorseparatorhandleChange}
@@ -435,7 +467,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.cellicondisplayColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.cellcoloriconhandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.cellcoloriconhandleClose}
+                    />
                     <ChromePicker
                       color={this.props.CelliconColorValue}
                       onChange={this.cellcoloriconhandleChange}
@@ -471,7 +506,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.productborderColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.productborderhandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.productborderhandleClose}
+                    />
                     <ChromePicker
                       color={this.props.productborderColorValue}
                       onChange={this.productborderhandleChange}
@@ -508,7 +546,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.producttitleColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.producttitlehandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.producttitlehandleClose}
+                    />
                     <ChromePicker
                       color={this.props.producttitleColorValue}
                       onChange={this.producttitlehandleChange}
@@ -545,7 +586,10 @@ class CollectioinSettingSection extends React.Component  {
                 </div>
                 {this.state.pricetitleColorPicker ? (
                   <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.pricetitlehandleClose }/>
+                    <div
+                      style={this.cover}
+                      onClick={this.pricetitlehandleClose}
+                    />
                     <ChromePicker
                       color={this.props.pricetitleColorValue}
                       onChange={this.pricetitlehandleChange}

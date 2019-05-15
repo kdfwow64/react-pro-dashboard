@@ -6,8 +6,8 @@ import axios from 'axios';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import { Button, CardFooter, InputGroup, InputGroupAddon } from 'reactstrap';
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
-import { API_ROOT } from "../../../../utilities/api-config";
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import { API_ROOT } from '../../../../utilities/api-config';
 
 class ModalCustomBanner extends React.Component {
   constructor(props) {
@@ -38,43 +38,42 @@ class ModalCustomBanner extends React.Component {
       isLoaded: false,
       handle: this.props.defaultSettings.handle,
       productHandle: this.props.defaultSettings.productHandle,
-      productCollectionName: this.props.defaultSettings.productCollectionName,
+      productCollectionName: this.props.defaultSettings.productCollectionName
     };
   }
 
   componentWillMount() {
-    axios
-      .get(`${API_ROOT}/api/v2/collection-listings`)
-      .then(res => {
-        this.setState({ ProductsCollectionsData: res.data });
-      });
-    axios
-      .get(
-        `${API_ROOT}/api/products`
-      )
-      .then(res1 => {
-        this.setState({ CollectionsProductsData: res1.data });
-        this.setState({ isLoaded: true });
-      });
+    axios.get(`${API_ROOT}/api/v2/collection-listings`).then(res => {
+      this.setState({ ProductsCollectionsData: res.data });
+    });
+    axios.get(`${API_ROOT}/api/products`).then(res1 => {
+      this.setState({ CollectionsProductsData: res1.data });
+      this.setState({ isLoaded: true });
+    });
   }
 
   BannerUrl = e => {
     this.setState({ BannerUrl: e.target.value });
-  }
+  };
+
   BannerPhone = e => {
     this.setState({ BannerPhone: e.target.value });
-  }
+  };
+
   BannerOption = e => {
     this.setState({ Bannerselectoption: e.target.value });
     this.setState({ BannerOptionValue: e.target.value });
     this.setState({ prodCollectionname: '' });
-  }
+  };
+
   BannerEmail = e => {
     this.setState({ BannerEmail: e.target.value });
-  }
+  };
+
   onCloseModal = () => {
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
+
   onApplySetting = e => {
     e.preventDefault();
     const allSettings = {
@@ -91,15 +90,16 @@ class ModalCustomBanner extends React.Component {
       BannerOptionValue: this.state.BannerOptionValue,
       handle: this.state.handle,
       productHandle: this.state.productHandle,
-      productCollectionName: this.state.productCollectionName,
+      productCollectionName: this.state.productCollectionName
       // CollectionsProductsData: this.state.CollectionsProductsData,
       // ProductsCollectionsData: this.state.ProductsCollectionsData,
     };
 
     this.props.onApply(allSettings);
     this.props.onCloseModal(this.props.modalId);
-  }
-  applyAppliedSetting = defaultSettings => { };
+  };
+
+  applyAppliedSetting = defaultSettings => {};
 
   DisplayCollection = e => {
     if (this.state.DisplayCollectionValue === 'none') {
@@ -107,14 +107,15 @@ class ModalCustomBanner extends React.Component {
     } else {
       this.setState({ DisplayCollectionValue: 'none' });
     }
-  }
+  };
+
   DisplayProduct = e => {
     if (this.state.DisplayProductValue === 'none') {
       this.setState({ DisplayProductValue: 'block' });
     } else {
       this.setState({ DisplayProductValue: 'none' });
     }
-  }
+  };
 
   setProductsForCollection = collectionDetails => {
     this.setState({ selectedCollectionProducts: collectionDetails });
@@ -123,7 +124,7 @@ class ModalCustomBanner extends React.Component {
     this.setState({ prodCollectionname: collectionDetails.title });
     this.setState({ handle: collectionDetails.handle });
     this.setState({ productCollectionName: collectionDetails.handle });
-  }
+  };
 
   setCollectionForProduct = collectionDetails => {
     // console.log(collectionDetails);
@@ -133,13 +134,16 @@ class ModalCustomBanner extends React.Component {
     this.setState({ prodCollectionname: collectionDetails.title });
     this.setState({ productHandle: collectionDetails.handle });
     this.setState({ productCollectionName: collectionDetails.handle });
-  }
+  };
 
-  handleDropdownChange = selectedItems => { };
+  handleDropdownChange = selectedItems => {};
+
   SearchProduct(e) {
     const searchText = e.target.value;
     const CollectionsProducts = this.state.CollectionsProductsData;
-    const updatedCollectionsProducts = CollectionsProducts.filter(function (item) {
+    const updatedCollectionsProducts = CollectionsProducts.filter(function(
+      item
+    ) {
       return (
         item.title.toLowerCase().search(e.target.value.toLowerCase()) !== -1
       );
@@ -160,12 +164,22 @@ class ModalCustomBanner extends React.Component {
               id="SixthDropContainer"
               style={{ height: 'auto', position: 'relative', top: '10em' }}
             >
-              <div className="HoverEffectDragDrop" id="FourthDropContainer"
-                style={{ paddingTop: this.state.bannerImageUrl === '' ? '20%' : '0' }}
+              <div
+                className="HoverEffectDragDrop"
+                id="FourthDropContainer"
+                style={{
+                  paddingTop: this.state.bannerImageUrl === '' ? '20%' : '0'
+                }}
               >
-                {this.state.bannerImageUrl === '' ? (" CUSTOM BANNER ") : (<img style={{ maxWidth: '100%', maxHeight: '100%' }} src={this.state.bannerImageUrl} />)}
+                {this.state.bannerImageUrl === '' ? (
+                  ' CUSTOM BANNER '
+                ) : (
+                  <img
+                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    src={this.state.bannerImageUrl}
+                  />
+                )}
               </div>
-
             </div>
           </div>
           <div className="col-lg-8 col-sm-8 setting_right_col setting_comman_col">
@@ -183,19 +197,17 @@ class ModalCustomBanner extends React.Component {
                       className="CollectionEffectResultDropDown SingleModalProduct"
                       style={{ marginTop: 'unset', width: '150px' }}
                     >
-                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
-                                  label="Choose file"
-                                  acceptedFiles={["image/jpeg", "image/png"]}
-                                  fileName={this.state.bannerImageUrl}
-                                  previewImageHeight={"100px"}
-                                  previewImageWidth={"100px"}
-                                  imageFolder={"navTitleImage"}
-                                  onChange={value =>
-                                    this.setState({ bannerImageUrl: value })
-                                  }
-                                />
-
-                      
+                      <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                        label="Choose file"
+                        acceptedFiles={['image/jpeg', 'image/png']}
+                        fileName={this.state.bannerImageUrl}
+                        previewImageHeight="100px"
+                        previewImageWidth="100px"
+                        imageFolder="navTitleImage"
+                        onChange={value =>
+                          this.setState({ bannerImageUrl: value })
+                        }
+                      />
                     </div>
                   </div>
                   <div className="SingleProductMainEdit">
@@ -373,7 +385,7 @@ class ModalCustomBanner extends React.Component {
                                     this.setCollectionForProduct(item3);
                                   }}
                                   id={
-                                    this.state.selectedProductName == item3.id
+                                    this.state.selectedProductName === item3.id
                                       ? 'Active'
                                       : ''
                                   }
@@ -425,20 +437,22 @@ class ModalCustomBanner extends React.Component {
                       ENTER URL
                     </div>
                     <div className="SingleModalProduct">
-                      {/*} <input
+                      {/* } <input
                         type="text"
                         value={this.state.BannerUrl}
                         onChange={this.BannerUrl.bind(this)}
-                  />*/}
+                  /> */}
                       <InputGroup>
                         <InputGroupAddon addonType="prepend">
                           <div className="input-group-text">
                             <FontAwesomeIcon icon={faLink} />
                           </div>
                         </InputGroupAddon>
-                        <InputMask className="form-control"
+                        <InputMask
+                          className="form-control"
                           value={this.state.BannerEmail}
-                          onChange={this.BannerEmail.bind(this)} />
+                          onChange={this.BannerEmail.bind(this)}
+                        />
                       </InputGroup>
                     </div>
                   </div>
@@ -456,20 +470,22 @@ class ModalCustomBanner extends React.Component {
                       ENTER PHONE NUMBER
                     </div>
                     <div className="SingleModalProduct">
-                      {/*<input
+                      {/* <input
                         type="text"
                         value={this.state.BannerPhone}
                         onChange={this.BannerPhone.bind(this)}
-                      />*/}
+                      /> */}
                       <InputGroup>
                         <InputGroupAddon addonType="prepend">
                           <div className="input-group-text">
                             <FontAwesomeIcon icon={faPhone} />
                           </div>
                         </InputGroupAddon>
-                        <InputMask className="form-control"
+                        <InputMask
+                          className="form-control"
                           value={this.state.BannerPhone}
-                          onChange={this.BannerPhone.bind(this)} />
+                          onChange={this.BannerPhone.bind(this)}
+                        />
                       </InputGroup>
                     </div>
                   </div>
@@ -487,28 +503,43 @@ class ModalCustomBanner extends React.Component {
                       ENTER EMAIL ADDRESS
                     </div>
                     <div className="SingleModalProduct">
-                      {/*} <input
+                      {/* } <input
                         type="text"
                         value={this.state.BannerEmail}
                         onChange={this.BannerEmail.bind(this)}
-                  />*/}
+                  /> */}
                       <InputGroup>
                         <InputGroupAddon addonType="prepend">
                           <div className="input-group-text">
                             <FontAwesomeIcon icon={faAt} />
                           </div>
                         </InputGroupAddon>
-                        <InputMask className="form-control"
+                        <InputMask
+                          className="form-control"
                           value={this.state.BannerEmail}
-                          onChange={this.BannerEmail.bind(this)} />
+                          onChange={this.BannerEmail.bind(this)}
+                        />
                       </InputGroup>
                     </div>
                   </div>
                 </div>
               </div>
               <CardFooter className="d-block text-right">
-                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
-                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+                <Button
+                  size="sm"
+                  className="mr-2"
+                  color="link"
+                  onClick={this.onCloseModal}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="btn-wide btn-shadow"
+                  color="primary"
+                  onClick={this.onApplySetting}
+                >
+                  Apply
+                </Button>
               </CardFooter>
             </div>
           </div>

@@ -1,8 +1,8 @@
 // tslint:disable
 // @ts-nocheck
-import React, { Fragment } from "react";
-import { ChromePicker } from "react-color";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import React, { Fragment } from 'react';
+import { ChromePicker } from 'react-color';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   Button,
   Card,
@@ -14,10 +14,11 @@ import {
   Collapse,
   Fade,
   Row
-} from "reactstrap";
-import Ionicon from "react-ionicons";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
-const iconData = ["ios-cut-outline"];
+} from 'reactstrap';
+import Ionicon from 'react-ionicons';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+
+const iconData = ['ios-cut-outline'];
 
 class CartRightSection extends React.Component {
   constructor(props) {
@@ -36,18 +37,18 @@ class CartRightSection extends React.Component {
     this.OnCollectionEditClick = this.OnCollectionEditClick.bind(this);
 
     this.state = {
-      CollectionMainSectionEditOptionValue: "none",
-      navbgcolor: "#2ecc71",
-      navtitlecolor: "#ffffff",
-      naviconcolor: "#ffffff",
-      NavTitle: "Text",
+      CollectionMainSectionEditOptionValue: 'none',
+      navbgcolor: '#2ecc71',
+      navtitlecolor: '#ffffff',
+      naviconcolor: '#ffffff',
+      NavTitle: 'Text',
 
-      ShowHideGridListView: "block",
+      ShowHideGridListView: 'block',
       navtitledisplayColorPicker: false,
       navicondisplayColorPicker: false,
       navbgdisplayColorPicker: false,
-      OnCollectionEditValue: "none",
-      bannerImageUrl: ""
+      OnCollectionEditValue: 'none',
+      bannerImageUrl: ''
     };
   }
 
@@ -55,34 +56,41 @@ class CartRightSection extends React.Component {
     this.setState({ navtitlecolor: navtitlecolor.hex });
     this.props.navtitlecolor(navtitlecolor);
   }
+
   naviconhandleChange(naviconcolor) {
     this.setState({ naviconcolor: naviconcolor.hex });
     this.props.naviconcolor(naviconcolor);
   }
+
   naviconhandleClick = () => {
     this.setState({
       navicondisplayColorPicker: !this.navicondisplayColorPicker
     });
   };
+
   CollectionMainSectionEditOption() {
-    this.setState({ CollectionMainSectionEditOptionValue: "block" });
-    this.setState({ ShowHideGridListView: "none" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'block' });
+    this.setState({ ShowHideGridListView: 'none' });
   }
+
   navtitlehandleClose = () => {
     this.setState({ navtitledisplayColorPicker: false });
   };
+
   navbghandleChange(navbgcolor) {
     this.setState({ navbgcolor: navbgcolor.hex });
     this.props.navbgcolorVall(navbgcolor);
   }
+
   navbghandleClose = () => {
     this.setState({ navbgdisplayColorPicker: false });
   };
 
   CollectionCloseEditSection() {
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
   }
+
   OnCollectionEditClick = e => {
     this.setState({ NavTitleValue: e.target.value });
     this.props.NavTitle(e.target.value);
@@ -91,48 +99,54 @@ class CartRightSection extends React.Component {
   navbghandleClick = () => {
     this.setState({ navbgdisplayColorPicker: !this.navbgdisplayColorPicker });
   };
+
   navtitlehandleClick = () => {
     this.setState({
       navtitledisplayColorPicker: !this.navtitledisplayColorPicker
     });
   };
+
   naviconhandleClose = () => {
     this.setState({ navicondisplayColorPicker: false });
   };
+
   swatch = {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "15px",
-    top: "2px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '15px',
+    top: '2px'
   };
 
   popover = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2
   };
 
   cover = {
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
+
   ApplyNavSettings = () => {
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
     this.props.DisplaySaveBtn();
   };
+
   bannerImageUrl = value => {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
   };
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   render() {
@@ -141,7 +155,7 @@ class CartRightSection extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -152,21 +166,21 @@ class CartRightSection extends React.Component {
               <div
                 id="CollectionEffectNavBarContainer"
                 style={{
-                  backgroundColor: this.props.navbgcolorValue || "#0E7C95"
+                  backgroundColor: this.props.navbgcolorValue || '#0E7C95'
                 }}
               >
                 <div
                   id="CollectionEffectMyStoreTitle"
                   style={{ color: this.props.navtitlecolorValue }}
                 >
-                  {this.props.NavTitleValue === "img" && (
+                  {this.props.NavTitleValue === 'img' && (
                     <img
                       src={this.props.bannerImageUrl}
-                      style={{ maxHeight: "40px", maxWidth: "90px" }}
+                      style={{ maxHeight: '40px', maxWidth: '90px' }}
                     />
                   )}
-                  {this.props.NavTitleValue === "text" && "CART"}
-                  {this.props.NavTitleValue === undefined && "CART"}
+                  {this.props.NavTitleValue === 'text' && 'CART'}
+                  {this.props.NavTitleValue === undefined && 'CART'}
                 </div>
                 <div
                   id="CollectionEditMainSlider"
@@ -178,7 +192,7 @@ class CartRightSection extends React.Component {
                 </div>
               </div>
 
-              <div id="CollectionEffectBody" style={{ height: "60vh" }}>
+              <div id="CollectionEffectBody" style={{ height: '60vh' }}>
                 <div
                   className="CollectionMainEditOptionContainer"
                   style={{
@@ -203,7 +217,7 @@ class CartRightSection extends React.Component {
                         <select
                           name=""
                           id="CollectionMainEditSelect"
-                          value={this.props.NavTitleValue || "text"}
+                          value={this.props.NavTitleValue || 'text'}
                         >
                           <option value="img">Use Image</option>
                           <option value="text">Use Text</option>
@@ -218,7 +232,7 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditBGIconView">
                         <input
                           type="text"
-                          value={this.props.navbgcolorValue || "#0E7C95"}
+                          value={this.props.navbgcolorValue || '#0E7C95'}
                           defaultValue={this.navbgcolor}
                           id="CollectionDropDown"
                           className="textColorCode"
@@ -228,10 +242,10 @@ class CartRightSection extends React.Component {
                           <div
                             className="colorPickerBorder"
                             style={{
-                              width: "20px",
-                              height: "20px",
+                              width: '20px',
+                              height: '20px',
                               backgroundColor:
-                                this.props.navbgcolorValue || "#0E7C95"
+                                this.props.navbgcolorValue || '#0E7C95'
                             }}
                             onClick={this.navbghandleClick}
                           />
@@ -243,7 +257,7 @@ class CartRightSection extends React.Component {
                               onClick={this.navbghandleClose}
                             />
                             <ChromePicker
-                              color={this.props.navbgcolorValue || "#0E7C95"}
+                              color={this.props.navbgcolorValue || '#0E7C95'}
                               onChange={this.navbghandleChange}
                             />
                           </div>
@@ -251,7 +265,7 @@ class CartRightSection extends React.Component {
                       </div>
                     </div>
 
-                    {/*} <div className="CollectionMainEditIconColor">
+                    {/* } <div className="CollectionMainEditIconColor">
                       <div className="col-sm-12 CollectionSettingEditIconColor">
                         <label>NAV BAR ICON COLOR</label>
                       </div>
@@ -286,13 +300,13 @@ class CartRightSection extends React.Component {
                           </div>
                         ) : null}
                       </div>
-                    </div>*/}
+                    </div> */}
 
                     <div
                       className="CollectionMainEditIconColor"
                       style={{
                         display:
-                          this.props.NavTitleValue === "img" ? "none" : "block"
+                          this.props.NavTitleValue === 'img' ? 'none' : 'block'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -301,7 +315,7 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditIconColorView">
                         <input
                           type="text"
-                          value={this.props.navtitlecolorValue || "#fff"}
+                          value={this.props.navtitlecolorValue || '#fff'}
                           defaultValue={this.navtitlecolor}
                           id="CollectionDropDown"
                           className="textColorCode"
@@ -311,10 +325,10 @@ class CartRightSection extends React.Component {
                           <div
                             className="colorPickerBorder"
                             style={{
-                              width: "20px",
-                              height: "20px",
+                              width: '20px',
+                              height: '20px',
                               backgroundColor:
-                                this.props.navtitlecolorValue || "#fff"
+                                this.props.navtitlecolorValue || '#fff'
                             }}
                             onClick={this.navtitlehandleClick}
                           />
@@ -326,7 +340,7 @@ class CartRightSection extends React.Component {
                               onClick={this.navtitlehandleClose}
                             />
                             <ChromePicker
-                              color={this.props.navtitlecolorValue || "#fff"}
+                              color={this.props.navtitlecolorValue || '#fff'}
                               onChange={this.navtitlehandleChange}
                             />
                           </div>
@@ -338,7 +352,7 @@ class CartRightSection extends React.Component {
                       className="CollectionMainEditImg"
                       style={{
                         display:
-                          this.props.NavTitleValue === "img" ? "block" : "none"
+                          this.props.NavTitleValue === 'img' ? 'block' : 'none'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditImg">
@@ -347,11 +361,11 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditIconImgView">
                         <S3SingleFileUploaderWithPreviewAndFileNameCapability
                           label="Choose file"
-                          acceptedFiles={["image/jpeg", "image/png"]}
+                          acceptedFiles={['image/jpeg', 'image/png']}
                           fileName={this.props.bannerImageUrl}
-                          previewImageHeight={"100px"}
-                          previewImageWidth={"100px"}
-                          imageFolder={"navTitleImage"}
+                          previewImageHeight="100px"
+                          previewImageWidth="100px"
+                          imageFolder="navTitleImage"
                           onChange={value => this.bannerImageUrl(value)}
                         />
                       </div>

@@ -152,10 +152,18 @@
     "window-resize-listener-react": "^1.1.0"
   },
   "scripts": {
+    "precommit": "NODE_ENV=production lint-staged",
     "start": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick",
+      "eslint src/utilities src/reducers src/DemoPages/Dashboards/ --fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -165,5 +173,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0"
+  }
 }

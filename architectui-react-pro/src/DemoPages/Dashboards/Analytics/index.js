@@ -1,18 +1,18 @@
-import axios from "axios";
-import * as moment from "moment";
-import React, { Component, Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Bar, HorizontalBar, Line } from "react-chartjs-2";
+import axios from 'axios';
+import * as moment from 'moment';
+import React, { Component, Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
 import CountUp from 'react-countup';
-import { Card, CardBody, CardTitle, Col, Container, Row } from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from "../../../utilities/api-config";
+import { Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
 
 export default class AnalyticsDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latestVersion: "",
+      latestVersion: '',
       activeUserCountsLabels: [],
       activeUserCountsDatasetDaily: [],
       activeUserCountsDatasetWeekly: [],
@@ -135,14 +135,14 @@ export default class AnalyticsDashboard extends Component {
   }
 
   formatDateString(string) {
-    const formattedDateString = moment(string).format("d MMM");
+    const formattedDateString = moment(string).format('d MMM');
     return formattedDateString;
   }
 
   ifAnyNonZero(array) {
     if (array !== undefined) {
       for (const iterator of array) {
-        if (iterator !== 0 && iterator !== "0") {
+        if (iterator !== 0 && iterator !== '0') {
           return true;
         }
       }
@@ -155,78 +155,75 @@ export default class AnalyticsDashboard extends Component {
       labels: this.state.activeUserCountsLabels,
       datasets: [
         {
-          label:
-            "Daily (" +
+          label: `Daily (${
             this.state.activeUserCountsDatasetDaily[
               this.state.activeUserCountsDatasetDaily.length - 1
-            ] +
-            ")",
+            ]
+          })`,
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(118,183,167,1)",
-          borderColor: "rgba(118,183,167,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(118,183,167,1)',
+          borderColor: 'rgba(118,183,167,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
           data: this.state.activeUserCountsDatasetDaily
         },
         {
-          label:
-            "Weekly (" +
+          label: `Weekly (${
             this.state.activeUserCountsDatasetWeekly[
               this.state.activeUserCountsDatasetWeekly.length - 1
-            ] +
-            ")",
+            ]
+          })`,
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(120,107,188,1)",
-          borderColor: "rgba(120,107,188,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(120,107,188,1)',
+          borderColor: 'rgba(120,107,188,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
           data: this.state.activeUserCountsDatasetWeekly
         },
         {
-          label:
-            "Monthly (" +
+          label: `Monthly (${
             this.state.activeUserCountsDatasetMonthly[
               this.state.activeUserCountsDatasetMonthly.length - 1
-            ] +
-            ")",
+            ]
+          })`,
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(103,173,203,1)",
-          borderColor: "rgba(103,173,203,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(103,173,203,1)',
+          borderColor: 'rgba(103,173,203,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -239,21 +236,21 @@ export default class AnalyticsDashboard extends Component {
       labels: this.state.sessionPerDeviceLabels,
       datasets: [
         {
-          label: "",
+          label: '',
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(217,112,85,1)",
-          borderColor: "rgba(217,112,85,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(217,112,85,1)',
+          borderColor: 'rgba(217,112,85,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -266,21 +263,21 @@ export default class AnalyticsDashboard extends Component {
       labels: this.state.modelNameLabels,
       datasets: [
         {
-          label: "",
+          label: '',
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(101,172,204,1)",
-          borderColor: "rgba(101,172,204,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(101,172,204,1)',
+          borderColor: 'rgba(101,172,204,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -293,21 +290,21 @@ export default class AnalyticsDashboard extends Component {
       labels: this.state.versionDetailsLabels,
       datasets: [
         {
-          label: "",
+          label: '',
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(255,220,73,1)",
-          borderColor: "rgba(75,192,192,1)",
-          borderCapStyle: "butt",
+          backgroundColor: 'rgba(255,220,73,1)',
+          borderColor: 'rgba(75,192,192,1)',
+          borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -332,7 +329,7 @@ export default class AnalyticsDashboard extends Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -361,20 +358,30 @@ export default class AnalyticsDashboard extends Component {
                                                             id="dailySessionsToolTip"
                                                             text="Each point is the average number of sessions per unique user for that day." /></DisplayText> */}
                     <Line data={dailySessionsUsersData} />
-                    
+
                     <Row>
-                    <Col>
-                    <div>
-                      <p>TOTAL SESSIONS</p>
-                      <p><CountUp end={this.state.sessionCount} duration="5"/></p>
-                    </div>
-                    </Col>
-                    <Col>
-                    <div className="float-right">
-                      <p>AVG. SESSIONS PER DAY</p>
-                      <p><CountUp end={this.state.averageSessionsPerUser} duration="5"/></p>
-                    </div>
-                    </Col>
+                      <Col>
+                        <div>
+                          <p>TOTAL SESSIONS</p>
+                          <p>
+                            <CountUp
+                              end={this.state.sessionCount}
+                              duration="5"
+                            />
+                          </p>
+                        </div>
+                      </Col>
+                      <Col>
+                        <div className="float-right">
+                          <p>AVG. SESSIONS PER DAY</p>
+                          <p>
+                            <CountUp
+                              end={this.state.averageSessionsPerUser}
+                              duration="5"
+                            />
+                          </p>
+                        </div>
+                      </Col>
                     </Row>
                   </CardBody>
                 </Card>

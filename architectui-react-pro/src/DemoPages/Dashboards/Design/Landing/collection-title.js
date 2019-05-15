@@ -1,7 +1,7 @@
 // tslint:disable
 // @ts-nocheck
 import React, { Fragment } from 'react';
-//const Placeholder = './Placeholder.png';
+// const Placeholder = './Placeholder.png';
 
 const LeftProductsCollectionsCellsSettings = {
   collections: [
@@ -24,7 +24,7 @@ const LeftProductsCollectionsCellsSettings = {
     {
       id: 'unique3',
       content: 'Default',
-     imageUrl: '',
+      imageUrl: '',
       title: 'PRODUCT',
       price: 'Price',
       showPrice: 'true'
@@ -40,8 +40,8 @@ const LeftProductsCollectionsCellsSettings = {
   ]
 };
 
-class CollectionTitle extends React.Component  {
-   constructor(props) {
+class CollectionTitle extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       cellStyle: this.props.settings.cellStyle,
@@ -88,12 +88,12 @@ class CollectionTitle extends React.Component  {
     };
   }
 
-  setAllSettingsOnApply = (settings ) => {
+  setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
 
   render() {
-    const FullPxWidth = this.state.DefaultWidth + 'px';
+    const FullPxWidth = `${this.state.DefaultWidth}px`;
     return (
       <div
         className="HoverEffectDragDrop"
@@ -146,7 +146,7 @@ class CollectionTitle extends React.Component  {
                   : ''
             }}
           >
-            {this.state.leftcellContents.map((item , index ) => {
+            {this.state.leftcellContents.map((item, index) => {
               return (
                 <div
                   className={

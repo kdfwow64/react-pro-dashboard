@@ -20,7 +20,7 @@ const styles = {
   }
 };
 
-class CreateAccountOptions extends React.Component  {
+class CreateAccountOptions extends React.Component {
   constructor(props) {
     super(props);
 
@@ -75,29 +75,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onBGColorClose = () => {
     this.setState({ displayBGColor: false });
-  }
+  };
+
   get onBGColorClose() {
     return this._onBGColorClose;
   }
+
   set onBGColorClose(value) {
     this._onBGColorClose = value;
   }
+
   _onBGColorClick = () => {
     this.setState({ displayBGColor: true });
-  }
+  };
+
   get onBGColorClick() {
     return this._onBGColorClick;
   }
+
   set onBGColorClick(value) {
     this._onBGColorClick = value;
   }
+
   _onBGColorChangeComplete = color => {
     this.setState({ BGColor: color.hex });
     this.props.onBGColorChangeComplete(color);
-  }
+  };
+
   get onBGColorChangeComplete() {
     return this._onBGColorChangeComplete;
   }
+
   set onBGColorChangeComplete(value) {
     this._onBGColorChangeComplete = value;
   }
@@ -106,29 +114,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onInputBGColorClose = () => {
     this.setState({ displayInputBGColor: false });
-  }
+  };
+
   get onInputBGColorClose() {
     return this._onInputBGColorClose;
   }
+
   set onInputBGColorClose(value) {
     this._onInputBGColorClose = value;
   }
+
   _onInputBGColorClick = () => {
     this.setState({ displayInputBGColor: true });
-  }
+  };
+
   get onInputBGColorClick() {
     return this._onInputBGColorClick;
   }
+
   set onInputBGColorClick(value) {
     this._onInputBGColorClick = value;
   }
+
   _onInputBGColorChangeComplete = color => {
     this.setState({ inputBGColor: color.hex });
     this.props.onInputBGColorChangeComplete(color);
-  }
+  };
+
   get onInputBGColorChangeComplete() {
     return this._onInputBGColorChangeComplete;
   }
+
   set onInputBGColorChangeComplete(value) {
     this._onInputBGColorChangeComplete = value;
   }
@@ -137,29 +153,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onInputIconColorClose = () => {
     this.setState({ displayInputIconColor: false });
-  }
+  };
+
   get onInputIconColorClose() {
     return this._onInputIconColorClose;
   }
+
   set onInputIconColorClose(value) {
     this._onInputIconColorClose = value;
   }
+
   _onInputIconColorClick = () => {
     this.setState({ displayInputIconColor: true });
-  }
+  };
+
   get onInputIconColorClick() {
     return this._onInputIconColorClick;
   }
+
   set onInputIconColorClick(value) {
     this._onInputIconColorClick = value;
   }
+
   _onInputIconColorChangeComplete = color => {
     this.setState({ inputIconColor: color.hex });
     this.props.onInputIconColorChangeComplete(color);
-  }
+  };
+
   get onInputIconColorChangeComplete() {
     return this._onInputIconColorChangeComplete;
   }
+
   set onInputIconColorChangeComplete(value) {
     this._onInputIconColorChangeComplete = value;
   }
@@ -168,29 +192,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onInputTitleColorClose = () => {
     this.setState({ displayInputTitleColor: false });
-  }
+  };
+
   get onInputTitleColorClose() {
     return this._onInputTitleColorClose;
   }
+
   set onInputTitleColorClose(value) {
     this._onInputTitleColorClose = value;
   }
+
   _onInputTitleColorClick = () => {
     this.setState({ displayInputTitleColor: true });
-  }
+  };
+
   get onInputTitleColorClick() {
     return this._onInputTitleColorClick;
   }
+
   set onInputTitleColorClick(value) {
     this._onInputTitleColorClick = value;
   }
+
   _onInputTitleColorChangeComplete = color => {
     this.setState({ inputTitleColor: color.hex });
     this.props.onInputTitleColorChangeComplete(color);
-  }
+  };
+
   get onInputTitleColorChangeComplete() {
     return this._onInputTitleColorChangeComplete;
   }
+
   set onInputTitleColorChangeComplete(value) {
     this._onInputTitleColorChangeComplete = value;
   }
@@ -199,29 +231,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onButtonColorClose = () => {
     this.setState({ displayButtonColor: false });
-  }
+  };
+
   get onButtonColorClose() {
     return this._onButtonColorClose;
   }
+
   set onButtonColorClose(value) {
     this._onButtonColorClose = value;
   }
+
   _onButtonColorClick = () => {
     this.setState({ displayButtonColor: true });
-  }
+  };
+
   get onButtonColorClick() {
     return this._onButtonColorClick;
   }
+
   set onButtonColorClick(value) {
     this._onButtonColorClick = value;
   }
+
   _onButtonColorChangeComplete = color => {
     this.setState({ buttonColor: color.hex });
     this.props.onButtonColorChangeComplete(color);
-  }
+  };
+
   get onButtonColorChangeComplete() {
     return this._onButtonColorChangeComplete;
   }
+
   set onButtonColorChangeComplete(value) {
     this._onButtonColorChangeComplete = value;
   }
@@ -230,29 +270,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onButtonTitleColorClose = () => {
     this.setState({ displayButtonTitleColor: false });
-  }
+  };
+
   get onButtonTitleColorClose() {
     return this._onButtonTitleColorClose;
   }
+
   set onButtonTitleColorClose(value) {
     this._onButtonTitleColorClose = value;
   }
+
   _onButtonTitleColorClick = () => {
     this.setState({ displayButtonTitleColor: true });
-  }
+  };
+
   get onButtonTitleColorClick() {
     return this._onButtonTitleColorClick;
   }
+
   set onButtonTitleColorClick(value) {
     this._onButtonTitleColorClick = value;
   }
+
   _onButtonTitleColorChangeComplete = color => {
     this.setState({ buttonTitleColor: color.hex });
     this.props.onButtonTitleColorChangeComplete(color);
-  }
+  };
+
   get onButtonTitleColorChangeComplete() {
     return this._onButtonTitleColorChangeComplete;
   }
+
   set onButtonTitleColorChangeComplete(value) {
     this._onButtonTitleColorChangeComplete = value;
   }
@@ -261,29 +309,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onGeneralTextColorClose = () => {
     this.setState({ displayGeneralTextColor: false });
-  }
+  };
+
   get onGeneralTextColorClose() {
     return this._onGeneralTextColorClose;
   }
+
   set onGeneralTextColorClose(value) {
     this._onGeneralTextColorClose = value;
   }
+
   _onGeneralTextColorClick = () => {
     this.setState({ displayGeneralTextColor: true });
-  }
+  };
+
   get onGeneralTextColorClick() {
     return this._onGeneralTextColorClick;
   }
+
   set onGeneralTextColorClick(value) {
     this._onGeneralTextColorClick = value;
   }
+
   _onGeneralTextColorChangeComplete = color => {
     this.setState({ generalTextColor: color.hex });
     this.props.onGeneralTextColorChangeComplete(color);
-  }
+  };
+
   get onGeneralTextColorChangeComplete() {
     return this._onGeneralTextColorChangeComplete;
   }
+
   set onGeneralTextColorChangeComplete(value) {
     this._onGeneralTextColorChangeComplete = value;
   }
@@ -292,29 +348,37 @@ class CreateAccountOptions extends React.Component  {
 
   _onTextLinkColorClose = () => {
     this.setState({ displayTextLinkColor: false });
-  }
+  };
+
   get onTextLinkColorClose() {
     return this._onTextLinkColorClose;
   }
+
   set onTextLinkColorClose(value) {
     this._onTextLinkColorClose = value;
   }
+
   _onTextLinkColorClick = () => {
     this.setState({ displayTextLinkColor: true });
-  }
+  };
+
   get onTextLinkColorClick() {
     return this._onTextLinkColorClick;
   }
+
   set onTextLinkColorClick(value) {
     this._onTextLinkColorClick = value;
   }
+
   _onTextLinkColorChangeComplete = color => {
     this.setState({ textLinkColor: color.hex });
     this.props.onTextLinkColorChangeComplete(color);
-  }
+  };
+
   get onTextLinkColorChangeComplete() {
     return this._onTextLinkColorChangeComplete;
   }
+
   set onTextLinkColorChangeComplete(value) {
     this._onTextLinkColorChangeComplete = value;
   }
@@ -338,13 +402,14 @@ class CreateAccountOptions extends React.Component  {
     displayGeneralTextColor: false,
     displayTextLinkColor: false
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
@@ -364,7 +429,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onBGColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -380,7 +444,7 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
-                     <div style={ this.cover } onClick={ this.onBGColorClose }/>                      
+                      <div style={this.cover} onClick={this.onBGColorClose} />
                       <ChromePicker
                         color={this.props.UserAccountBGColor}
                         onChange={this.onBGColorChangeComplete}
@@ -402,7 +466,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputBGColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -418,7 +481,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onInputBGColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onInputBGColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountinputBGColor}
                         onChange={this.onInputBGColorChangeComplete}
@@ -440,7 +506,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputIconColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -456,7 +521,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputIconColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onInputIconColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onInputIconColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountinputIconColor}
                         onChange={this.onInputIconColorChangeComplete}
@@ -478,7 +546,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onInputTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -494,7 +561,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onInputTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onInputTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountinputTitleColor}
                         onChange={this.onInputTitleColorChangeComplete}
@@ -514,7 +584,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onButtonColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -530,7 +599,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onButtonColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onButtonColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountbuttonColor}
                         onChange={this.onButtonColorChangeComplete}
@@ -552,7 +624,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onButtonTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -568,7 +639,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onButtonTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onButtonTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountbuttonTitleColor}
                         onChange={this.onButtonTitleColorChangeComplete}
@@ -588,7 +662,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onGeneralTextColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -604,7 +677,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onGeneralTextColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onGeneralTextColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccountgeneralTextColor}
                         onChange={this.onGeneralTextColorChangeComplete}
@@ -624,7 +700,6 @@ class CreateAccountOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onTextLinkColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -640,7 +715,10 @@ class CreateAccountOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onTextLinkColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onTextLinkColorClose}
+                      />
                       <ChromePicker
                         color={this.props.UserAccounttextLinkColor}
                         onChange={this.onTextLinkColorChangeComplete}

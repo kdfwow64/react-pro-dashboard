@@ -1,23 +1,23 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { Col, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import "../index.css";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import CartLeftSection from "./CartLeftSection";
-import CartRightSection from "./CartRightSection";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import CartLeftSection from './CartLeftSection';
+import CartRightSection from './CartRightSection';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bannerImageUrl: "",
+      bannerImageUrl: '',
       isLoaded: false
     };
     this.homeTopTabsShowEditAlert = React.createRef();
@@ -88,21 +88,26 @@ class Cart extends React.Component {
       this.setState({ isLoaded: true });
     });
   }
+
   onThemeOptionSelection = themName => {
     this.setState({ navbgcolor: themeColorFromName(themName) });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
     this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
     this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
   };
+
   DropDownGetIconheader = color => {
     this.setState({ DropDownGetIconheader: color });
   };
+
   naviconcolor = color => {
     this.setState({ naviconcolor: color.hex });
   };
+
   navtitlecolor = color => {
     this.setState({ navtitlecolor: color.hex });
   };
+
   NavTitle = val => {
     this.setState({ NavTitle: val });
   };
@@ -111,64 +116,79 @@ class Cart extends React.Component {
     this.setState({ CartBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CellBGColorCallback = color => {
     this.setState({ CellBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductTitleCallback = color => {
     this.setState({ ProductTitle: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductOptionColorCallback = color => {
     this.setState({ ProductOptionColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CellPriceColorCallback = color => {
     this.setState({ CellPriceColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   QuantityIconColorCallback = color => {
     this.setState({ QuantityIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   QuantityTextColorCallback = color => {
     this.setState({ QuantityTextColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ApplyBGColorCallback = color => {
     this.setState({ ApplyBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ApplyIconColorCallback = color => {
     this.setState({ ApplyIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ApplyTextColorCallback = color => {
     this.setState({ ApplyTextColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   PriceTextColorCallback = color => {
     this.setState({ PriceTextColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ButtonBGColorCallback = color => {
     this.setState({ ButtonBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ButtonTextColorCallback = color => {
     this.setState({ ButtonTextColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DisplaySaveBtn = () => {
     /*   this.setState({ DropDownGetIconheader: val.DropDownGetIconheader });
        this.setState({ naviconcolor: val.naviconcolor });
-       this.setState({ navtitlecolor: val.navtitlecolor });*/
+       this.setState({ navtitlecolor: val.navtitlecolor }); */
 
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   navbgcolorVall = color => {
     this.setState({ navbgcolor: color.hex });
   };
+
   bannerImageUrlCallBack = val => {
     this.setState({ bannerImageUrl: val });
   };
@@ -180,7 +200,7 @@ class Cart extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             transitionLeave={false}
@@ -198,7 +218,7 @@ class Cart extends React.Component {
                   md={4}
                   sm={6}
                   id="CollectionMainContainer"
-                  style={{ border: "1px solid #efefef" }}
+                  style={{ border: '1px solid #efefef' }}
                 >
                   <PerfectScrollbar>
                     <CartLeftSection
@@ -237,7 +257,7 @@ class Cart extends React.Component {
                   md={8}
                   sm={6}
                   id="RightContainerScroll"
-                  style={{ border: "1px solid #efefef" }}
+                  style={{ border: '1px solid #efefef' }}
                 >
                   <div id="mbl_bg_rit">
                     <div id="CollectionMainRightContainer">

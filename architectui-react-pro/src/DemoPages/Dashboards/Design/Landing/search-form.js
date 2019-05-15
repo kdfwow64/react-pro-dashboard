@@ -2,8 +2,8 @@
 // @ts-nocheck
 import React, { Fragment } from 'react';
 
-class ProductSearchForm extends React.Component  {
-   constructor(props) {
+class ProductSearchForm extends React.Component {
+  constructor(props) {
     super(props);
     this.onTitleColorChange = this.onTitleColorChange.bind(this);
     this.state = {
@@ -18,10 +18,12 @@ class ProductSearchForm extends React.Component  {
       titleColor: this.props.settings.titleColor
     };
   }
+
   onTitleColorChange = () => {};
+
   setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
 
   render() {
     return (

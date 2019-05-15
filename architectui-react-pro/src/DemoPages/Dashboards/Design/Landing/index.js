@@ -1,104 +1,105 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import Modal from "react-responsive-modal";
-import { CardHeader, Col, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-//import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
-import "../index.css";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import BrowseCollection from "./browse-collection";
-import CollectionTitle from "./collection-title";
-import CustomBanner from "./custom-banner";
-import ModalBrowseProductCollections from "./modal-browse-product-collections";
-import ModalCollectionContent from "./modal-collection-content";
-import ModalSearchContentSec from "./modal-collection-content-sec";
-import ModalCollectionWithTitleContent from "./modal-collection-with-title-content";
-import ModalCustomBanner from "./modal-cutom-banner";
-import ModalSearchContent from "./modal-search-content";
-import ModalSingleProduct from "./modal-single-product";
-import ProductCollection1 from "./product-collection-1";
-import ProductCollection2 from "./product-collection-2";
-import ProductSearchForm from "./search-form";
-import SearchNavigationSettings from "./search-navigation-settings";
-import SearchNavigationStyles from "./search-navigation-styles";
-import SingleProduct from "./single-product";
-var Placeholder = "./Placeholder.png";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import Modal from 'react-responsive-modal';
+import { CardHeader, Col, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+// import { getDaysFromToday } from "../../../../../../../shared/util/date-utils";
+import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import BrowseCollection from './browse-collection';
+import CollectionTitle from './collection-title';
+import CustomBanner from './custom-banner';
+import ModalBrowseProductCollections from './modal-browse-product-collections';
+import ModalCollectionContent from './modal-collection-content';
+import ModalSearchContentSec from './modal-collection-content-sec';
+import ModalCollectionWithTitleContent from './modal-collection-with-title-content';
+import ModalCustomBanner from './modal-cutom-banner';
+import ModalSearchContent from './modal-search-content';
+import ModalSingleProduct from './modal-single-product';
+import ProductCollection1 from './product-collection-1';
+import ProductCollection2 from './product-collection-2';
+import ProductSearchForm from './search-form';
+import SearchNavigationSettings from './search-navigation-settings';
+import SearchNavigationStyles from './search-navigation-styles';
+import SingleProduct from './single-product';
+
+const Placeholder = './Placeholder.png';
 
 const homeLandingAllSettings = {
   landingBuildNavigationBarInitialSettings: {
-    navbarTitleColor: "#ffff00",
-    navbartitleValue: "#ffffff",
-    navbarBackgroundColorValue: "#0E7C95",
-    navbgiconcolorValue: "#ffffff",
-    BuildStyleColor: "#ff0000",
-    StyleStyleColor: "#ff0000"
+    navbarTitleColor: '#ffff00',
+    navbartitleValue: '#ffffff',
+    navbarBackgroundColorValue: '#0E7C95',
+    navbgiconcolorValue: '#ffffff',
+    BuildStyleColor: '#ff0000',
+    StyleStyleColor: '#ff0000'
   },
   HomeElementSettings: [
     {
-      id: "productCollection10",
-      content: "item productCollection12",
-      elementtype: "productCollection1",
+      id: 'productCollection10',
+      content: 'item productCollection12',
+      elementtype: 'productCollection1',
       settings: {
-        IconColor: "#ffffff",
-        HeaderText: "COLLECTION",
-        HeaderTitle: "#ffffff",
-        HeaderBGColor: "#0E7C95",
-        productBorderColor: "#000000",
-        ActionColor: "#ffffff",
-        ActionText: "SHOP",
-        ActionTitleColor: "#ffffff",
-        CollectionCellBG: "#ffffff",
-        CollectionProductTitle: "#000000",
+        IconColor: '#ffffff',
+        HeaderText: 'COLLECTION',
+        HeaderTitle: '#ffffff',
+        HeaderBGColor: '#0E7C95',
+        productBorderColor: '#000000',
+        ActionColor: '#ffffff',
+        ActionText: 'SHOP',
+        ActionTitleColor: '#ffffff',
+        CollectionCellBG: '#ffffff',
+        CollectionProductTitle: '#000000',
         value: 10,
-        DropDownGetIconheader: "pe-7s-plugin",
-        DropDownGetIconaction: "lnr-arrow-right",
+        DropDownGetIconheader: 'pe-7s-plugin',
+        DropDownGetIconaction: 'lnr-arrow-right',
         selectedProductName: 111,
-        prodCollectionname: "",
-        SelectedCollectionId: "111"
+        prodCollectionname: '',
+        SelectedCollectionId: '111'
       }
     },
     {
-      id: "productCollection20",
-      content: "item productCollection12",
-      elementtype: "productCollection2",
+      id: 'productCollection20',
+      content: 'item productCollection12',
+      elementtype: 'productCollection2',
       settings: {
-        IconColor: "#ffffff",
-        HeaderText: "COLLECTION",
-        HeaderTitle: "#ffffff",
-        HeaderBGColor: "#0E7C95",
-        productBorderColor: "#000000",
-        ActionColor: "#ffffff",
-        ActionText: "SHOP",
-        ActionTitleColor: "#ffffff",
-        CollectionCellBG: "#ffffff",
-        CollectionProductTitle: "#000000",
+        IconColor: '#ffffff',
+        HeaderText: 'COLLECTION',
+        HeaderTitle: '#ffffff',
+        HeaderBGColor: '#0E7C95',
+        productBorderColor: '#000000',
+        ActionColor: '#ffffff',
+        ActionText: 'SHOP',
+        ActionTitleColor: '#ffffff',
+        CollectionCellBG: '#ffffff',
+        CollectionProductTitle: '#000000',
         value: 5,
-        DropDownGetIconheader: "lnr-bookmark",
-        DropDownGetIconaction: "lnr-arrow-right",
+        DropDownGetIconheader: 'lnr-bookmark',
+        DropDownGetIconaction: 'lnr-arrow-right',
         selectedProductName: 111,
-        prodCollectionname: "",
-        SelectedCollectionId: "111"
+        prodCollectionname: '',
+        SelectedCollectionId: '111'
       }
     },
     {
-      id: "singleProduct0",
-      content: "item productCollection12",
-      elementtype: "singleProduct",
+      id: 'singleProduct0',
+      content: 'item productCollection12',
+      elementtype: 'singleProduct',
       settings: {
-        titleColor: "#000000",
-        priceColor: "#333333",
-        productBorderColor: "#ffffff",
-        cellBGColor: "#ffffff",
-        pageCircleActiveColor: "#0E7C95",
-        pageCircleInactiveColor: "#cccccc",
-        customTitle: "PRODUCT",
+        titleColor: '#000000',
+        priceColor: '#333333',
+        productBorderColor: '#ffffff',
+        cellBGColor: '#ffffff',
+        pageCircleActiveColor: '#0E7C95',
+        pageCircleInactiveColor: '#cccccc',
+        customTitle: 'PRODUCT',
         isChecked: true,
         displayTitleColor: false,
         displayPriceColor: false,
@@ -106,167 +107,167 @@ const homeLandingAllSettings = {
         displayCellBGColor: false,
         displayPageCircleActiveColor: false,
         displayPageCircleInactiveColor: false,
-        DisplayCollectionValue: "none",
-        ProductDisplay: "none",
-        CollectionDisplay: "none",
-        ShowCollectionProduct: "none",
-        postVal: "",
+        DisplayCollectionValue: 'none',
+        ProductDisplay: 'none',
+        CollectionDisplay: 'none',
+        ShowCollectionProduct: 'none',
+        postVal: '',
         isCheckedFirst: true,
         counterOfPicture: 2,
         selectedProductName: 111,
-        prodcollection: "default",
-        prodCollectionname: ""
+        prodcollection: 'default',
+        prodCollectionname: ''
       }
     },
     {
-      elementtype: "customBanner",
-      id: "customBanner0",
-      content: "item productCollection12",
+      elementtype: 'customBanner',
+      id: 'customBanner0',
+      content: 'item productCollection12',
       settings: {
-        bannerImageUrl: "",
-        DisplayCollectionValue: "none",
-        DisplayProductValue: "none",
-        Bannerselectoption: "none",
-        BannerUrl: "",
-        BannerPhone: "",
-        BannerEmail: "",
-        prodCollectionname: "",
-        selectedProductName: "111",
-        BannerOptionValue: ""
+        bannerImageUrl: '',
+        DisplayCollectionValue: 'none',
+        DisplayProductValue: 'none',
+        Bannerselectoption: 'none',
+        BannerUrl: '',
+        BannerPhone: '',
+        BannerEmail: '',
+        prodCollectionname: '',
+        selectedProductName: '111',
+        BannerOptionValue: ''
       }
     },
     {
-      id: "collectionWithTitle0",
-      content: "item productCollection12",
-      elementtype: "collectionWithTitle",
+      id: 'collectionWithTitle0',
+      content: 'item productCollection12',
+      elementtype: 'collectionWithTitle',
 
       settings: {
-        cellStyle: "Grid",
-        cellTitleStyle: "center",
-        subTitleStyle: "Please Set",
-        leftcellContentsType: "vertical",
-        cellTitle: "Collection Title",
-        cellSubTitle: "Collection Description",
-        cellTitleColor: "#000000",
-        cellSubTitleColor: "#0E7C95",
-        productTitleColor: "#000000",
-        priceColor: "#333333",
-        imageCellSubTitleColor: "#ffffff",
-        cellBGColor: "#ffffff",
-        productList: "",
-        ProductDisplay: "none",
-        CollectionDisplay: "none",
-        ShowCollectionProduct: "none",
-        ProductTitleValue: "PRODUCT",
-        DisplayCollectionValue: "none",
-        CellVertical: "block",
-        Cellhorizontal: "none",
-        HideTitleSection: "block",
-        ShowHideSubTitle: "block",
+        cellStyle: 'Grid',
+        cellTitleStyle: 'center',
+        subTitleStyle: 'Please Set',
+        leftcellContentsType: 'vertical',
+        cellTitle: 'Collection Title',
+        cellSubTitle: 'Collection Description',
+        cellTitleColor: '#000000',
+        cellSubTitleColor: '#0E7C95',
+        productTitleColor: '#000000',
+        priceColor: '#333333',
+        imageCellSubTitleColor: '#ffffff',
+        cellBGColor: '#ffffff',
+        productList: '',
+        ProductDisplay: 'none',
+        CollectionDisplay: 'none',
+        ShowCollectionProduct: 'none',
+        ProductTitleValue: 'PRODUCT',
+        DisplayCollectionValue: 'none',
+        CellVertical: 'block',
+        Cellhorizontal: 'none',
+        HideTitleSection: 'block',
+        ShowHideSubTitle: 'block',
         isChecked: true,
-        Subtitle: "show"
+        Subtitle: 'show'
       }
     },
     {
-      id: "collectionset0",
-      content: "item productCollection12",
-      elementtype: "collectionSet",
+      id: 'collectionset0',
+      content: 'item productCollection12',
+      elementtype: 'collectionSet',
       settings: {
-        iconColor: "#ffffff",
-        titleColor: "#ffffff",
-        footerBGColor: "#0E7C95",
-        imageSpacingColor: "#ffffff",
-        title: "BROWSE COLLECTION",
-        DropDownGetIconheader: "lnr-chevron-right",
-        prodCollectionname: "",
-        selectedProductName: "111",
+        iconColor: '#ffffff',
+        titleColor: '#ffffff',
+        footerBGColor: '#0E7C95',
+        imageSpacingColor: '#ffffff',
+        title: 'BROWSE COLLECTION',
+        DropDownGetIconheader: 'lnr-chevron-right',
+        prodCollectionname: '',
+        selectedProductName: '111',
         ProductsCollections: {
           collections: [
             {
-              id: "111",
+              id: '111',
 
-              name: "Default",
+              name: 'Default',
               image: Placeholder,
               products: [
                 {
-                  id: "234",
+                  id: '234',
                   image: Placeholder
                 },
                 {
-                  id: "2343",
+                  id: '2343',
                   image: Placeholder
                 },
                 {
-                  id: "2324",
+                  id: '2324',
                   image: Placeholder
                 },
                 {
-                  id: "23334",
+                  id: '23334',
                   image: Placeholder
                 }
               ]
             },
             {
-              id: "123",
-              name: "Under $50",
+              id: '123',
+              name: 'Under $50',
               image:
-                "https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg",
+                'https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg',
               products: [
                 {
-                  id: "234",
+                  id: '234',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg'
                 },
 
                 {
-                  id: "2343",
+                  id: '2343',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg'
                 },
                 {
-                  id: "2324",
+                  id: '2324',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg'
                 },
                 {
-                  id: "23334",
+                  id: '23334',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-408740517.jpg'
                 }
               ]
             },
             {
-              id: "1233",
-              name: "All",
+              id: '1233',
+              name: 'All',
               image:
-                "https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/womens-SUNGLASSES-banner-left.jpg",
+                'https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/womens-SUNGLASSES-banner-left.jpg',
               products: [
                 {
-                  id: "2345",
+                  id: '2345',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg'
                 },
 
                 {
-                  id: "23435",
+                  id: '23435',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg'
                 },
                 {
-                  id: "23245",
+                  id: '23245',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg'
                 },
                 {
-                  id: "233345",
+                  id: '233345',
                   image:
-                    "https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg"
+                    'https://cdn.shopify.com/s/files/1/0015/4655/1384/products/product-image-694525306.jpg'
                 }
               ]
             }
           ],
 
-          SelectedCollectionId: "111"
+          SelectedCollectionId: '111'
         }
       }
     }
@@ -275,319 +276,319 @@ const homeLandingAllSettings = {
 const draggableElements = [
   {
     id: 2,
-    elementtype: "productCollection1"
+    elementtype: 'productCollection1'
   },
   {
     id: 3,
-    elementtype: "productCollection2"
+    elementtype: 'productCollection2'
   },
   {
     id: 4,
-    elementtype: "singleProduct"
+    elementtype: 'singleProduct'
   },
   {
     id: 5,
-    elementtype: "customBanner"
+    elementtype: 'customBanner'
   },
   {
     id: 6,
-    elementtype: "collectionWithTitle"
+    elementtype: 'collectionWithTitle'
   },
   {
     id: 7,
-    elementtype: "collectionSet"
+    elementtype: 'collectionSet'
   }
 ];
 
 const themeSettings = {
   productSearchForm: {
     default: {
-      cellBGColor: "#0ebed0"
+      cellBGColor: '#0ebed0'
     },
     ice: {
-      cellBGColor: "#7ee0db"
+      cellBGColor: '#7ee0db'
     },
     moonlight: {
-      cellBGColor: "#CCCCCC"
+      cellBGColor: '#CCCCCC'
     },
     bee: {
-      cellBGColor: "#fff700"
+      cellBGColor: '#fff700'
     },
     lavender: {
-      cellBGColor: "#9B59B6"
+      cellBGColor: '#9B59B6'
     },
     fire: {
-      cellBGColor: "#f3234a"
+      cellBGColor: '#f3234a'
     },
     emerald: {
-      cellBGColor: "#2ecc71"
+      cellBGColor: '#2ecc71'
     },
     night: {
-      cellBGColor: "#000000"
+      cellBGColor: '#000000'
     },
     flamingo: {
-      cellBGColor: "#EF4836"
+      cellBGColor: '#EF4836'
     }
   },
   productCollection1: {
     default: {
-      HeaderBGColor: "#0ebed0"
+      HeaderBGColor: '#0ebed0'
     },
     ice: {
-      HeaderBGColor: "#7ee0db"
+      HeaderBGColor: '#7ee0db'
     },
     moonlight: {
-      HeaderBGColor: "#CCCCCC"
+      HeaderBGColor: '#CCCCCC'
     },
     bee: {
-      HeaderBGColor: "#fff700"
+      HeaderBGColor: '#fff700'
     },
     lavender: {
-      HeaderBGColor: "#9B59B6"
+      HeaderBGColor: '#9B59B6'
     },
     fire: {
-      HeaderBGColor: "#f3234a"
+      HeaderBGColor: '#f3234a'
     },
     emerald: {
-      HeaderBGColor: "#2ecc71"
+      HeaderBGColor: '#2ecc71'
     },
     night: {
-      HeaderBGColor: "#000000"
+      HeaderBGColor: '#000000'
     },
     flamingo: {
-      HeaderBGColor: "#EF4836"
+      HeaderBGColor: '#EF4836'
     }
   },
   productCollection2: {
     default: {
-      HeaderBGColor: "#0ebed0"
+      HeaderBGColor: '#0ebed0'
     },
     ice: {
-      HeaderBGColor: "#7ee0db"
+      HeaderBGColor: '#7ee0db'
     },
     moonlight: {
-      HeaderBGColor: "#CCCCCC"
+      HeaderBGColor: '#CCCCCC'
     },
     bee: {
-      HeaderBGColor: "#fff700"
+      HeaderBGColor: '#fff700'
     },
     lavender: {
-      HeaderBGColor: "#9B59B6"
+      HeaderBGColor: '#9B59B6'
     },
     fire: {
-      HeaderBGColor: "#f3234a"
+      HeaderBGColor: '#f3234a'
     },
     emerald: {
-      HeaderBGColor: "#2ecc71"
+      HeaderBGColor: '#2ecc71'
     },
     night: {
-      HeaderBGColor: "#000000"
+      HeaderBGColor: '#000000'
     },
     flamingo: {
-      HeaderBGColor: "#EF4836"
+      HeaderBGColor: '#EF4836'
     }
   },
   singleProduct: {
     default: {
-      pageCircleActiveColor: "#0ebed0"
+      pageCircleActiveColor: '#0ebed0'
     },
     ice: {
-      pageCircleActiveColor: "#7ee0db"
+      pageCircleActiveColor: '#7ee0db'
     },
     moonlight: {
-      pageCircleActiveColor: "#CCCCCC"
+      pageCircleActiveColor: '#CCCCCC'
     },
     bee: {
-      pageCircleActiveColor: "#fff700"
+      pageCircleActiveColor: '#fff700'
     },
     lavender: {
-      pageCircleActiveColor: "#9B59B6"
+      pageCircleActiveColor: '#9B59B6'
     },
     fire: {
-      pageCircleActiveColor: "#f3234a"
+      pageCircleActiveColor: '#f3234a'
     },
     emerald: {
-      pageCircleActiveColor: "#2ecc71"
+      pageCircleActiveColor: '#2ecc71'
     },
     night: {
-      pageCircleActiveColor: "#000000"
+      pageCircleActiveColor: '#000000'
     },
     flamingo: {
-      pageCircleActiveColor: "#EF4836"
+      pageCircleActiveColor: '#EF4836'
     }
   },
   collectionWithTitle: {
     default: {
-      cellSubTitleColor: "#0ebed0"
+      cellSubTitleColor: '#0ebed0'
     },
     ice: {
-      cellSubTitleColor: "#7ee0db"
+      cellSubTitleColor: '#7ee0db'
     },
     moonlight: {
-      cellSubTitleColor: "#CCCCCC"
+      cellSubTitleColor: '#CCCCCC'
     },
     bee: {
-      cellSubTitleColor: "#fff700"
+      cellSubTitleColor: '#fff700'
     },
     lavender: {
-      cellSubTitleColor: "#9B59B6"
+      cellSubTitleColor: '#9B59B6'
     },
     fire: {
-      cellSubTitleColor: "#f3234a"
+      cellSubTitleColor: '#f3234a'
     },
     emerald: {
-      cellSubTitleColor: "#2ecc71"
+      cellSubTitleColor: '#2ecc71'
     },
     night: {
-      cellSubTitleColor: "#000000"
+      cellSubTitleColor: '#000000'
     },
     flamingo: {
-      cellSubTitleColor: "#EF4836"
+      cellSubTitleColor: '#EF4836'
     }
   },
   collectionSet: {
     default: {
-      footerBGColor: "#0ebed0"
+      footerBGColor: '#0ebed0'
     },
     ice: {
-      footerBGColor: "#7ee0db"
+      footerBGColor: '#7ee0db'
     },
     moonlight: {
-      footerBGColor: "#CCCCCC"
+      footerBGColor: '#CCCCCC'
     },
     bee: {
-      footerBGColor: "#fff700"
+      footerBGColor: '#fff700'
     },
     lavender: {
-      footerBGColor: "#9B59B6"
+      footerBGColor: '#9B59B6'
     },
     fire: {
-      footerBGColor: "#f3234a"
+      footerBGColor: '#f3234a'
     },
     emerald: {
-      footerBGColor: "#2ecc71"
+      footerBGColor: '#2ecc71'
     },
     night: {
-      footerBGColor: "#000000"
+      footerBGColor: '#000000'
     },
     flamingo: {
-      footerBGColor: "#EF4836"
+      footerBGColor: '#EF4836'
     }
   }
 };
 
 function getElementDefaultObject(e) {
-  if (e.elementtype === "productSearchForm") {
+  if (e.elementtype === 'productSearchForm') {
     return {
-      borderColor: "#d6d6d6",
-      searchBGColor: "#fafafa",
-      iconColor: "#d6d6d6",
-      cellBGColor: "#0E7C95",
-      searchPlaceholder: "SEARCH PRODUCTS",
-      titleColor: "#d6d6d6",
-      elementtype: "productSearchForm"
+      borderColor: '#d6d6d6',
+      searchBGColor: '#fafafa',
+      iconColor: '#d6d6d6',
+      cellBGColor: '#0E7C95',
+      searchPlaceholder: 'SEARCH PRODUCTS',
+      titleColor: '#d6d6d6',
+      elementtype: 'productSearchForm'
     };
   }
-  if (e.elementtype === "productCollection1") {
+  if (e.elementtype === 'productCollection1') {
     return {
-      IconColor: "#ffffff",
-      HeaderText: "COLLECTION",
-      HeaderTitle: "#ffffff",
-      HeaderBGColor: "#0E7C95",
-      productBorderColor: "#000000",
-      ActionColor: "#ffffff",
-      ActionText: "SHOP",
-      ActionTitleColor: "#ffffff",
-      CollectionCellBG: "#ffffff",
-      CollectionProductTitle: "#000000",
+      IconColor: '#ffffff',
+      HeaderText: 'COLLECTION',
+      HeaderTitle: '#ffffff',
+      HeaderBGColor: '#0E7C95',
+      productBorderColor: '#000000',
+      ActionColor: '#ffffff',
+      ActionText: 'SHOP',
+      ActionTitleColor: '#ffffff',
+      CollectionCellBG: '#ffffff',
+      CollectionProductTitle: '#000000',
       value: 10,
-      DropDownGetIconheader: "pe-7s-plugin",
-      DropDownGetIconaction: "lnr-arrow-right",
-      elementtype: "productCollection1"
+      DropDownGetIconheader: 'pe-7s-plugin',
+      DropDownGetIconaction: 'lnr-arrow-right',
+      elementtype: 'productCollection1'
     };
   }
-  if (e.elementtype === "productCollection2") {
+  if (e.elementtype === 'productCollection2') {
     return {
-      IconColor: "#ffffff",
-      HeaderText: "COLLECTION",
-      HeaderTitle: "#ffffff",
-      HeaderBGColor: "#0E7C95",
-      productBorderColor: "#000000",
-      ActionColor: "#ffffff",
-      ActionText: "SHOP",
-      ActionTitleColor: "#ffffff",
-      CollectionCellBG: "#ffffff",
-      CollectionProductTitle: "#000000",
+      IconColor: '#ffffff',
+      HeaderText: 'COLLECTION',
+      HeaderTitle: '#ffffff',
+      HeaderBGColor: '#0E7C95',
+      productBorderColor: '#000000',
+      ActionColor: '#ffffff',
+      ActionText: 'SHOP',
+      ActionTitleColor: '#ffffff',
+      CollectionCellBG: '#ffffff',
+      CollectionProductTitle: '#000000',
       value: 5,
-      DropDownGetIconheader: "lnr-bookmark",
-      DropDownGetIconaction: "lnr-arrow-right",
-      elementtype: "productCollection2"
+      DropDownGetIconheader: 'lnr-bookmark',
+      DropDownGetIconaction: 'lnr-arrow-right',
+      elementtype: 'productCollection2'
     };
   }
-  if (e.elementtype === "singleProduct") {
+  if (e.elementtype === 'singleProduct') {
     return {
-      titleColor: "#000000",
-      priceColor: "#333333",
-      productBorderColor: "#ffffff",
-      cellBGColor: "#ffffff",
-      pageCircleActiveColor: "#0E7C95",
-      pageCircleInactiveColor: "#cccccc",
-      customTitle: "PRODUCT",
+      titleColor: '#000000',
+      priceColor: '#333333',
+      productBorderColor: '#ffffff',
+      cellBGColor: '#ffffff',
+      pageCircleActiveColor: '#0E7C95',
+      pageCircleInactiveColor: '#cccccc',
+      customTitle: 'PRODUCT',
       isChecked: true,
-      elementtype: "singleProduct"
+      elementtype: 'singleProduct'
     };
   }
-  if (e.elementtype === "customBanner") {
+  if (e.elementtype === 'customBanner') {
     return {
-      bannerImageUrl: "",
-      DisplayCollectionValue: "none",
-      DisplayProductValue: "none",
-      Bannerselectoption: "none",
-      BannerUrl: "",
-      BannerPhone: "",
-      BannerEmail: "",
-      elementtype: "singleProduct"
+      bannerImageUrl: '',
+      DisplayCollectionValue: 'none',
+      DisplayProductValue: 'none',
+      Bannerselectoption: 'none',
+      BannerUrl: '',
+      BannerPhone: '',
+      BannerEmail: '',
+      elementtype: 'singleProduct'
     };
   }
-  if (e.elementtype === "collectionWithTitle") {
+  if (e.elementtype === 'collectionWithTitle') {
     return {
-      cellStyle: "Grid",
-      cellTitleStyle: "center",
-      subTitleStyle: "Please Set",
-      leftcellContentsType: "vertical",
-      cellTitle: "Collection Title",
-      cellSubTitle: "Collection Description",
-      cellTitleColor: "#000000",
-      cellSubTitleColor: "#0E7C95",
-      productTitleColor: "#000000",
-      priceColor: "#333333",
-      imageCellSubTitleColor: "#ffffff",
-      cellBGColor: "#ffffff",
-      productList: "",
-      ProductDisplay: "none",
-      CollectionDisplay: "none",
-      ShowCollectionProduct: "none",
+      cellStyle: 'Grid',
+      cellTitleStyle: 'center',
+      subTitleStyle: 'Please Set',
+      leftcellContentsType: 'vertical',
+      cellTitle: 'Collection Title',
+      cellSubTitle: 'Collection Description',
+      cellTitleColor: '#000000',
+      cellSubTitleColor: '#0E7C95',
+      productTitleColor: '#000000',
+      priceColor: '#333333',
+      imageCellSubTitleColor: '#ffffff',
+      cellBGColor: '#ffffff',
+      productList: '',
+      ProductDisplay: 'none',
+      CollectionDisplay: 'none',
+      ShowCollectionProduct: 'none',
       ProductTitleValue:
-        "Female Fashion Frame Cat Eyes Shades Sunglasses Integrated UV Glasses",
-      DisplayCollectionValue: "none",
-      CellVertical: "block",
-      Cellhorizontal: "none",
-      HideTitleSection: "block",
-      ShowHideSubTitle: "block",
+        'Female Fashion Frame Cat Eyes Shades Sunglasses Integrated UV Glasses',
+      DisplayCollectionValue: 'none',
+      CellVertical: 'block',
+      Cellhorizontal: 'none',
+      HideTitleSection: 'block',
+      ShowHideSubTitle: 'block',
       isChecked: true,
-      Subtitle: "show",
-      elementtype: "collectionWithTitle"
+      Subtitle: 'show',
+      elementtype: 'collectionWithTitle'
     };
   }
-  if (e.elementtype === "collectionSet") {
+  if (e.elementtype === 'collectionSet') {
     return {
-      iconColor: "#ffffff",
-      titleColor: "#ffffff",
-      footerBGColor: "#0E7C95",
-      imageSpacingColor: "#ffffff",
-      title: "BROWSE COLLECTION",
-      DropDownGetIconheader: "lnr-chevron-right",
-      elementtype: "collectionWithTitle"
+      iconColor: '#ffffff',
+      titleColor: '#ffffff',
+      footerBGColor: '#0E7C95',
+      imageSpacingColor: '#ffffff',
+      title: 'BROWSE COLLECTION',
+      DropDownGetIconheader: 'lnr-chevron-right',
+      elementtype: 'collectionWithTitle'
     };
   }
 }
@@ -617,22 +618,27 @@ const getCounter = () => {
 };
 const grid = 8;
 const getItemStyle = (isDragging, draggableStyle) => ({
-  userSelect: "none",
+  userSelect: 'none',
   margin: `0 0 ${grid}px 0`,
   ...draggableStyle
 });
 const getListStyle = isDraggingOver => ({
   padding: grid,
-  margin: "0 auto"
+  margin: '0 auto'
 });
 class HomePageContent extends React.Component {
   homeTopTabsShowEditAlert = null;
+
   currentSelectedSection = null;
+
   allModalReferencesById = [];
+
   allReferencesById = {};
+
   HideSettingsValue = null;
+
   navbarBackgroundColorCodeStyle = null;
-  //productSearchFormRef = null;
+  // productSearchFormRef = null;
 
   constructor(props) {
     super(props);
@@ -709,7 +715,7 @@ class HomePageContent extends React.Component {
     this.state = {
       landingTabAllDraggableItems: getDraggableHTMLItems(),
       landingTabDraggedItems: homeLandingAllSettings.HomeElementSettings,
-      ShowHideGridListView: "block",
+      ShowHideGridListView: 'block',
       navbartitleValue:
         homeLandingAllSettings.landingBuildNavigationBarInitialSettings
           .navbartitleValue,
@@ -726,10 +732,10 @@ class HomePageContent extends React.Component {
         homeLandingAllSettings.landingBuildNavigationBarInitialSettings
           .StyleStyleColor,
       hoverDeleteStyle: {
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
-        backgroundColor: "#000000"
+        backgroundColor: '#000000'
       },
       openModal: false,
       allModalIds: {},
@@ -738,42 +744,42 @@ class HomePageContent extends React.Component {
       saved: false,
       isLoaded: false,
       clicked: false,
-      bannerImageUrl: "",
+      bannerImageUrl: '',
       trialDays: null,
-      NavTitle: "text",
-      showMyStoreTextBox: "none"
+      NavTitle: 'text',
+      showMyStoreTextBox: 'none'
     };
   }
 
   onThemeOptionSelection = themName => {
-    let themeColor = themeColorFromName(themName);
-    let landingTab = [];
+    const themeColor = themeColorFromName(themName);
+    const landingTab = [];
     this.state.landingTabDraggedItems &&
       this.state.landingTabDraggedItems.map((item, index) => {
         const elementId = item.id;
         const elementtype = item.elementtype;
-        if (elementtype === "productSearchForm") {
+        if (elementtype === 'productSearchForm') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.cellBGColor = defaultSettings.cellBGColor;
           this.allReferencesById[elementId].current.setAllSettingsOnApply(
             defaultSettings
           );
         }
-        if (elementtype === "productCollection1") {
+        if (elementtype === 'productCollection1') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.HeaderBGColor = defaultSettings.HeaderBGColor;
           this.allReferencesById[elementId].current.setAllSettingsOnApply(
             defaultSettings
           );
         }
-        if (elementtype === "productCollection2") {
+        if (elementtype === 'productCollection2') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.HeaderBGColor = defaultSettings.HeaderBGColor;
           this.allReferencesById[elementId].current.setAllSettingsOnApply(
             defaultSettings
           );
         }
-        if (elementtype === "singleProduct") {
+        if (elementtype === 'singleProduct') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.pageCircleActiveColor =
             defaultSettings.pageCircleActiveColor;
@@ -781,14 +787,14 @@ class HomePageContent extends React.Component {
             defaultSettings
           );
         }
-        if (elementtype === "collectionWithTitle") {
+        if (elementtype === 'collectionWithTitle') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.cellSubTitleColor = defaultSettings.cellSubTitleColor;
           this.allReferencesById[elementId].current.setAllSettingsOnApply(
             defaultSettings
           );
         }
-        if (elementtype === "collectionSet") {
+        if (elementtype === 'collectionSet') {
           const defaultSettings = themeSettings[elementtype][themName];
           item.settings.footerBGColor = defaultSettings.footerBGColor;
           this.allReferencesById[elementId].current.setAllSettingsOnApply(
@@ -798,19 +804,19 @@ class HomePageContent extends React.Component {
         landingTab.push(item);
       });
     this.setState({ landingTabDraggedItems: landingTab });
-    let landingTabDraggable = [];
+    const landingTabDraggable = [];
     this.state.landingTabAllDraggableItems.map((item, index) => {
-      if (item.elementtype === "productSearchForm") {
+      if (item.elementtype === 'productSearchForm') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
         item.settings.cellBGColor = defaultSettings.cellBGColor;
         this.setState({ SearchCellBGColor: defaultSettings.cellBGColor });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
-      if (item.elementtype === "productCollection1") {
+      if (item.elementtype === 'productCollection1') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
@@ -819,10 +825,10 @@ class HomePageContent extends React.Component {
           Collection1HeaderBGColor: defaultSettings.HeaderBGColor
         });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
-      if (item.elementtype === "productCollection2") {
+      if (item.elementtype === 'productCollection2') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
@@ -831,10 +837,10 @@ class HomePageContent extends React.Component {
           Collection2HeaderBGsecColor: defaultSettings.HeaderBGColor
         });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
-      if (item.elementtype === "singleProduct") {
+      if (item.elementtype === 'singleProduct') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
@@ -844,10 +850,10 @@ class HomePageContent extends React.Component {
           SingleActiveDotColor: defaultSettings.pageCircleActiveColor
         });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
-      if (item.elementtype === "collectionWithTitle") {
+      if (item.elementtype === 'collectionWithTitle') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
@@ -856,17 +862,17 @@ class HomePageContent extends React.Component {
           CollectioncellSubTitleColor: defaultSettings.cellSubTitleColor
         });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
-      if (item.elementtype === "collectionSet") {
+      if (item.elementtype === 'collectionSet') {
         const elementId = item.id;
         const elementtype = item.elementtype;
         const defaultSettings = themeSettings[elementtype][themName];
         item.settings.footerBGColor = defaultSettings.footerBGColor;
         this.setState({ BrowsefooterBGColor: defaultSettings.footerBGColor });
         this.allReferencesById[
-          "draggable" + elementId
+          `draggable${elementId}`
         ].current.setAllSettingsOnApply(defaultSettings);
       }
       landingTabDraggable.push(item);
@@ -881,47 +887,59 @@ class HomePageContent extends React.Component {
   };
 
   changeMyStoreLabel = () => {
-    this.setState({ showMyStoreTextBox: "block" });
-    this.setState({ showMyLabel: "none" });
+    this.setState({ showMyStoreTextBox: 'block' });
+    this.setState({ showMyLabel: 'none' });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   changeMyStoreName = e => {
     this.setState({ NavBarTitleText: e.target.value });
   };
+
   hideTextshowLabel = e => {
-    if (e.key === "Enter") {
-      this.setState({ showMyStoreTextBox: "none" });
-      this.setState({ showMyLabel: "block" });
+    if (e.key === 'Enter') {
+      this.setState({ showMyStoreTextBox: 'none' });
+      this.setState({ showMyLabel: 'block' });
     }
   };
+
   showStoreNameLable = () => {
-    this.setState({ showMyStoreTextBox: "none" });
-    this.setState({ showMyLabel: "block" });
+    this.setState({ showMyStoreTextBox: 'none' });
+    this.setState({ showMyLabel: 'block' });
   };
+
   DisplaySaveBtn = () => {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   handleNavStyleMenuIconColorChangeComplete = color => {
     this.setState({ menuIconColor: color.hex });
   };
+
   handleNavStyleMenuTitleColorChangeComplete = color => {
     this.setState({ menuTitleColor: color.hex });
   };
+
   handleNavStyleMenuTabActveColorChangeComplete = color => {
     this.setState({ menuTabActiveColor: color.hex });
   };
+
   handleNavStyleMenuTabInactiveColorChangeComplete = color => {
     this.setState({ menuTabInactiveColor: color.hex });
   };
+
   handleNavStyleMenuSeparaterColorChangeComplete = color => {
     this.setState({ menuSeparatorColor: color.hex });
   };
+
   onSearchNavigationSettingsApply = settings => {};
+
   onCustomBannerCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onCustomBannerSettingApply = allSetting => {
     this.allModalReferencesById[allSetting.itemId].current.applyAppliedSetting(
       allSetting
@@ -939,20 +957,21 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onBrowseProductCollectionCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onBrowseProductCollectionSettingApply = allSetting => {
     if (allSetting.collectionType && allSetting.selectedProductName) {
       this.setState({ isLoaded: false });
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            allSetting.collectionType +
-            `/` +
-            allSetting.selectedProductName
+          `${API_ROOT}/api/v2/collection/products/${
+            allSetting.collectionType
+          }/${allSetting.selectedProductName}`
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
@@ -974,11 +993,13 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onCollectionWithTitleModalCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onCollectionWithTitleSettingApply = allSetting => {
     this.allModalReferencesById[allSetting.itemId].current.applyAppliedSetting(
       allSetting
@@ -996,11 +1017,13 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onSingleProductModalCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onSingleProductSettingApply = allSetting => {
     if (allSetting.prodCollectionname) {
       this.setState({ isLoaded: false });
@@ -1028,20 +1051,21 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onCollection1ModalCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onCollection1SettingApply = allSetting => {
     if (allSetting.collectionType && allSetting.selectedProductId) {
       this.setState({ isLoaded: false });
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            allSetting.collectionType +
-            `/` +
-            allSetting.selectedProductId
+          `${API_ROOT}/api/v2/collection/products/${
+            allSetting.collectionType
+          }/${allSetting.selectedProductId}`
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
@@ -1065,20 +1089,21 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onCollection2ModalCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onCollection2SettingApply = allSetting => {
     if (allSetting.collectionType && allSetting.selectedProductId) {
       this.setState({ isLoaded: false });
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            allSetting.collectionType +
-            `/` +
-            allSetting.selectedProductId
+          `${API_ROOT}/api/v2/collection/products/${
+            allSetting.collectionType
+          }/${allSetting.selectedProductId}`
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
@@ -1102,11 +1127,13 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onProductModalCloseClick = stateVaribleName => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onProductSearchSettingApply = allSetting => {
     this.allModalReferencesById[allSetting.itemId].current.applyAppliedSetting(
       allSetting
@@ -1124,12 +1151,13 @@ class HomePageContent extends React.Component {
     this.setState({ landingTabDraggedItems });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   move = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
 
     const [removed] = sourceClone.splice(droppableSource.index, 1);
-    removed["id"] = removed.elementtype + getCounter();
+    removed.id = removed.elementtype + getCounter();
     destClone.splice(droppableDestination.index, 0, removed);
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
@@ -1142,31 +1170,33 @@ class HomePageContent extends React.Component {
     newAllModalIds[stateVaribleName] = false;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   showEditSettingPopup = (componentName, stateVaribleName, itemId) => {
     const newAllModalIds = { ...this.state.allModalIds };
     newAllModalIds[stateVaribleName] = true;
     this.setState({ allModalIds: newAllModalIds });
   };
+
   onModalCloseCallback = () => {
     this.setState({ openModal: false });
   };
 
-  getElementContent = (e, callType = "draggable") => {
+  getElementContent = (e, callType = 'draggable') => {
     let referenceId = e.id;
-    if (callType === "draggable") {
-      referenceId = "draggable" + e.id;
+    if (callType === 'draggable') {
+      referenceId = `draggable${e.id}`;
     }
     this.allReferencesById[referenceId] = React.createRef();
     this.allModalReferencesById[referenceId] = React.createRef();
 
-    if (e.elementtype === "productSearchForm") {
+    if (e.elementtype === 'productSearchForm') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
-          <div id="searchTextContainer" style={{ position: "relative" }}>
+          <div id="searchTextContainer" style={{ position: 'relative' }}>
             <ProductSearchForm
               ref={this.allReferencesById[referenceId]}
               settings={e.settings}
@@ -1175,7 +1205,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1183,8 +1213,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "productSearchForm",
-                    "show" + e.id,
+                    'productSearchForm',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1194,18 +1224,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "productCollection1") {
+    }
+    if (e.elementtype === 'productCollection1') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1217,7 +1248,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1225,8 +1256,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "productCollection1",
-                    "show" + e.id,
+                    'productCollection1',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1236,18 +1267,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "productCollection2") {
+    }
+    if (e.elementtype === 'productCollection2') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1261,7 +1293,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1269,8 +1301,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "productCollection2",
-                    "show" + e.id,
+                    'productCollection2',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1280,18 +1312,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "singleProduct") {
+    }
+    if (e.elementtype === 'singleProduct') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1303,7 +1336,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1311,8 +1344,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "singleProduct",
-                    "show" + e.id,
+                    'singleProduct',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1322,18 +1355,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "customBanner") {
+    }
+    if (e.elementtype === 'customBanner') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1343,14 +1377,14 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
               <div
                 className="editIcon"
                 onClick={() =>
-                  this.showEditSettingPopup("customBanner", "show" + e.id, e.id)
+                  this.showEditSettingPopup('customBanner', `show${e.id}`, e.id)
                 }
               >
                 <i className="lnr-pencil" />
@@ -1358,18 +1392,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "collectionWithTitle") {
+    }
+    if (e.elementtype === 'collectionWithTitle') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1383,7 +1418,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1391,8 +1426,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "collectionWithTitle",
-                    "show" + e.id,
+                    'collectionWithTitle',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1402,18 +1437,19 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
         </div>
       );
       return content;
-    } else if (e.elementtype === "collectionSet") {
+    }
+    if (e.elementtype === 'collectionSet') {
       const content = (
         <div
           id="searchBarContainer"
-          style={{ position: "relative" }}
+          style={{ position: 'relative' }}
           className="hoverContainerForEditIcon"
         >
           <div id="searchTextContainer">
@@ -1425,7 +1461,7 @@ class HomePageContent extends React.Component {
             />
             <div className="editIconContainer">
               <div className="hoverEffectContainer">
-                <span style={{ color: "#ffffff" }} className="onDragRemove">
+                <span style={{ color: '#ffffff' }} className="onDragRemove">
                   Drag Left to Remove
                 </span>
               </div>
@@ -1433,8 +1469,8 @@ class HomePageContent extends React.Component {
                 className="editIcon"
                 onClick={() =>
                   this.showEditSettingPopup(
-                    "collectionSet",
-                    "show" + e.id,
+                    'collectionSet',
+                    `show${e.id}`,
                     e.id
                   )
                 }
@@ -1444,7 +1480,7 @@ class HomePageContent extends React.Component {
             </div>
           </div>
           <div className="hoverEffectContainer">
-            <span style={{ color: "#ffffff" }} className="onDragAdd">
+            <span style={{ color: '#ffffff' }} className="onDragAdd">
               Drag Right to Add
             </span>
           </div>
@@ -1453,6 +1489,7 @@ class HomePageContent extends React.Component {
       return content;
     }
   };
+
   async getData() {
     const res = await axios(`${API_ROOT}/api/v2/app-home-page`);
     return await res.data;
@@ -1558,8 +1595,8 @@ class HomePageContent extends React.Component {
         this.setState({ isLoaded: true });
       });
 
-    /*Trial details*/
-    /*this.getTrialData()
+    /* Trial details */
+    /* this.getTrialData()
     .then(data => {
       const chargeObject = data[0];
       if (chargeObject !== undefined) {
@@ -1568,74 +1605,89 @@ class HomePageContent extends React.Component {
           this.setState({ trialDays: days });
         }
       }
-    })*/
+    }) */
   }
 
   HomeValue = val => {
     this.setState({ HomeValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchValue = val => {
     this.setState({ SearchValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CartValue = val => {
     this.setState({ CartValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ContactValue = val => {
     this.setState({ ContactValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   AccountValue = val => {
     this.setState({ AccountValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   handleNavStyleMenuCellColorChangeComplete = color => {
     this.setState({ menuCellBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   HideSettingSection(HideSettingValue) {
-    this.setState({ SettingStoreHide: "none" });
-    this.setState({ DragStoreDisplay: "block" });
+    this.setState({ SettingStoreHide: 'none' });
+    this.setState({ DragStoreDisplay: 'block' });
   }
+
   CollectionMainSectionEditOption() {
-    this.setState({ SettingStoreHide: "block" });
-    this.setState({ DragStoreDisplay: "none" });
+    this.setState({ SettingStoreHide: 'block' });
+    this.setState({ DragStoreDisplay: 'none' });
   }
+
   LandingStyleDisplay = () => {
-    this.setState({ displaybuildleft: "none" });
-    this.setState({ LandingStyleDisplay: "block" });
-    this.setState({ LandingPreviewDisplay: "none" });
+    this.setState({ displaybuildleft: 'none' });
+    this.setState({ LandingStyleDisplay: 'block' });
+    this.setState({ LandingPreviewDisplay: 'none' });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   LandingBuildDisplay = () => {
-    this.setState({ displaybuildleft: "block" });
-    this.setState({ LandingStyleDisplay: "none" });
-    this.setState({ LandingPreviewDisplay: "none" });
+    this.setState({ displaybuildleft: 'block' });
+    this.setState({ LandingStyleDisplay: 'none' });
+    this.setState({ LandingPreviewDisplay: 'none' });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   LandingPreviewDisplay = () => {
-    this.setState({ displaybuildleft: "none" });
-    this.setState({ LandingStyleDisplay: "none" });
-    this.setState({ LandingPreviewDisplay: "block" });
+    this.setState({ displaybuildleft: 'none' });
+    this.setState({ LandingStyleDisplay: 'none' });
+    this.setState({ LandingPreviewDisplay: 'block' });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   navbarTitleColorCode = navbartitle => {
     this.setState({ navbartitleValue: navbartitle.hex });
     this.setState({ isEdited: true });
   };
+
   navbarBackgroundColorCode = navbgcolor => {
     this.setState({ navbarBackgroundColorValue: navbgcolor.hex });
   };
+
   navbarIconColorCode = navbgiconcolor => {
     this.setState({ navbgiconcolorValue: navbgiconcolor.hex });
   };
+
   onDragStart = (ev, id) => {
-    ev.dataTransfer.setData("id", id);
+    ev.dataTransfer.setData('id', id);
   };
+
   onDrop = (ev, cat) => {
-    const id = ev.dataTransfer.getData("id");
+    const id = ev.dataTransfer.getData('id');
     const tasks = this.state.tasks.filter(task => {
       if (task.name === id) {
         task.category = cat;
@@ -1647,14 +1699,18 @@ class HomePageContent extends React.Component {
       tasks
     });
   };
+
   onDragOver = ev => {
     ev.preventDefault();
   };
+
   id2List = {
-    droppable: "landingTabAllDraggableItems",
-    droppable2: "landingTabDraggedItems"
+    droppable: 'landingTabAllDraggableItems',
+    droppable2: 'landingTabDraggedItems'
   };
+
   getList = id => this.state[this.id2List[id]];
+
   onDragEnd = result => {
     const { source, destination } = result;
     if (!destination) {
@@ -1667,7 +1723,7 @@ class HomePageContent extends React.Component {
         destination.index
       );
       let state = { items };
-      if (source.droppableId === "droppable2") {
+      if (source.droppableId === 'droppable2') {
         state = { landingTabDraggedItems: items };
       }
       this.setState(state);
@@ -1685,7 +1741,7 @@ class HomePageContent extends React.Component {
 
       const statesForModalBoxes = {};
       for (let i = 0; i < destinationDroppable.length; i++) {
-        statesForModalBoxes["show" + destinationDroppable[i].id] = false;
+        statesForModalBoxes[`show${destinationDroppable[i].id}`] = false;
       }
       this.setState({ allModalIds: statesForModalBoxes });
       this.setState({
@@ -1696,30 +1752,36 @@ class HomePageContent extends React.Component {
       this.homeTopTabsShowEditAlert.current.showSaveButton();
     }
   };
+
   onRemoveDragStart = result => {
     const hoverDeleteStyle = {
-      position: "absolute",
+      position: 'absolute',
       top: 0,
       left: 0,
-      backgroundColor: "#000000",
-      zIndex: "10000"
+      backgroundColor: '#000000',
+      zIndex: '10000'
     };
     this.setState({ hoverDeleteStyle });
   };
+
   CollectionBarIcon = icon => {
     this.setState({ DropDownGetIconheader: icon });
   };
+
   DisplySaveBtn = () => {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   navigationType = val => {
     this.setState({ navigationTypeValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   NavTitle = val => {
     this.setState({ NavTitle: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   onSaveEditedItems = () => {
     const LandingSettings = {
       NavBarTitleText: this.state.NavBarTitleText,
@@ -1766,6 +1828,7 @@ class HomePageContent extends React.Component {
         res.data && this.homeTopTabsShowEditAlert.current.showSavedButton();
       });
   };
+
   bannerImageUrlCallBack = val => {
     this.setState({ bannerImageUrl: val });
   };
@@ -1777,7 +1840,7 @@ class HomePageContent extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             transitionLeave={false}
@@ -1804,15 +1867,15 @@ class HomePageContent extends React.Component {
                         <PerfectScrollbar>
                           <div
                             className={
-                              this.state.displaybuildleft === "block"
-                                ? ""
-                                : "activeSec"
+                              this.state.displaybuildleft === 'block'
+                                ? ''
+                                : 'activeSec'
                             }
                             style={{
                               display:
-                                this.state.displaybuildleft === "block"
-                                  ? "none"
-                                  : "block"
+                                this.state.displaybuildleft === 'block'
+                                  ? 'none'
+                                  : 'block'
                             }}
                           >
                             <div className="">
@@ -1847,26 +1910,26 @@ class HomePageContent extends React.Component {
                             <div
                               style={{ display: this.state.displaybuildleft }}
                               className={
-                                this.state.displaybuildleft === "block"
-                                  ? " activeSec"
-                                  : ""
+                                this.state.displaybuildleft === 'block'
+                                  ? ' activeSec'
+                                  : ''
                               }
                             >
                               {this.state.trialDays === null ? null : (
                                 <div className="trail_period_container">
                                   <p>
-                                    Trial Period:{" "}
+                                    Trial Period:{' '}
                                     <span>
                                       {this.state.trialDays} days remaining
                                     </span>
                                   </p>
                                 </div>
                               )}
-                              <CardHeader style={{ marginBottom: "10px" }}>
+                              <CardHeader style={{ marginBottom: '10px' }}>
                                 <h3 className="leftCardHeader">
-                                  {" "}
-                                  DRAG AND DROP{" "}
-                                </h3>{" "}
+                                  {' '}
+                                  DRAG AND DROP{' '}
+                                </h3>{' '}
                               </CardHeader>
                               <Droppable droppableId="droppable">
                                 {(provided, snapshot) => (
@@ -1897,7 +1960,7 @@ class HomePageContent extends React.Component {
                                                 >
                                                   {this.getElementContent(
                                                     item,
-                                                    "draggable"
+                                                    'draggable'
                                                   )}
                                                 </div>
                                               )}
@@ -1923,7 +1986,7 @@ class HomePageContent extends React.Component {
                         <div id="mbl_bg_rit">
                           <div id="CollectionMainRightContainer">
                             <div className="buildStoreContainer">
-                              {this.state.NavTitle === "text" && (
+                              {this.state.NavTitle === 'text' && (
                                 <div className="BuildCollectionsTitleHint">
                                   <span>CLICK THE TITLE BELOW TO EDIT</span>
                                 </div>
@@ -1943,18 +2006,18 @@ class HomePageContent extends React.Component {
                                     }}
                                   />
 
-                                  {this.state.NavTitle === "img" && (
+                                  {this.state.NavTitle === 'img' && (
                                     <div id="CollectionEffectMyStoreTitle">
                                       <img
                                         src={this.state.bannerImageUrl}
                                         style={{
-                                          maxHeight: "40px",
-                                          maxWidth: "90px"
+                                          maxHeight: '40px',
+                                          maxWidth: '90px'
                                         }}
                                       />
                                     </div>
                                   )}
-                                  {this.state.NavTitle === "text" && (
+                                  {this.state.NavTitle === 'text' && (
                                     <div
                                       style={{
                                         color: this.state.navbartitleValue
@@ -1967,8 +2030,8 @@ class HomePageContent extends React.Component {
                                         }}
                                         onClick={this.changeMyStoreLabel}
                                       >
-                                        {" "}
-                                        {this.state.NavBarTitleText}{" "}
+                                        {' '}
+                                        {this.state.NavBarTitleText}{' '}
                                       </label>
                                       <input
                                         onBlur={this.showStoreNameLable}
@@ -2002,7 +2065,7 @@ class HomePageContent extends React.Component {
                               id="CollectionEffectBody"
                               style={{
                                 display: this.state.SettingStoreHide,
-                                height: "60vh"
+                                height: '60vh'
                               }}
                             >
                               <SearchNavigationSettings
@@ -2065,7 +2128,7 @@ class HomePageContent extends React.Component {
                                         <div>
                                           {this.state.landingTabDraggedItems &&
                                             this.state.landingTabDraggedItems
-                                              .length != 0 &&
+                                              .length !== 0 &&
                                             this.state.landingTabDraggedItems.map(
                                               (item, index) => (
                                                 <Draggable
@@ -2096,7 +2159,7 @@ class HomePageContent extends React.Component {
                                                       >
                                                         {this.getElementContent(
                                                           item,
-                                                          "droppable"
+                                                          'droppable'
                                                         )}
                                                       </div>
                                                       <Modal
@@ -2106,24 +2169,24 @@ class HomePageContent extends React.Component {
                                                         open={
                                                           this.state
                                                             .allModalIds[
-                                                            "show" + item.id
+                                                            `show${item.id}`
                                                           ] || false
                                                         }
                                                         onClose={() =>
                                                           this.hideEditSettingPopup(
-                                                            "show" + item.id
+                                                            `show${item.id}`
                                                           )
                                                         }
                                                         center
                                                         classNames={{
                                                           overlay:
-                                                            "videoModalOverlay",
-                                                          modal: "modal-general"
+                                                            'videoModalOverlay',
+                                                          modal: 'modal-general'
                                                         }}
                                                       >
                                                         <div className="modal_effect_in">
                                                           {item.elementtype ===
-                                                            "productSearchForm" && (
+                                                            'productSearchForm' && (
                                                             <ModalSearchContent
                                                               ref={
                                                                 this
@@ -2138,9 +2201,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onProductModalCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2149,7 +2212,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "productCollection1" && (
+                                                            'productCollection1' && (
                                                             <ModalCollectionContent
                                                               ref={
                                                                 this
@@ -2164,9 +2227,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onCollection1ModalCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2175,7 +2238,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "singleProduct" && (
+                                                            'singleProduct' && (
                                                             <ModalSingleProduct
                                                               ref={
                                                                 this
@@ -2190,9 +2253,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onSingleProductModalCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2201,7 +2264,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "productCollection2" && (
+                                                            'productCollection2' && (
                                                             <ModalSearchContentSec
                                                               ref={
                                                                 this
@@ -2216,9 +2279,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onCollection2ModalCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2227,7 +2290,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "collectionWithTitle" && (
+                                                            'collectionWithTitle' && (
                                                             <ModalCollectionWithTitleContent
                                                               ref={
                                                                 this
@@ -2242,9 +2305,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onCollectionWithTitleModalCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2253,7 +2316,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "collectionSet" && (
+                                                            'collectionSet' && (
                                                             <ModalBrowseProductCollections
                                                               ref={
                                                                 this
@@ -2268,9 +2331,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onBrowseProductCollectionCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2279,7 +2342,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                           {item.elementtype ===
-                                                            "customBanner" && (
+                                                            'customBanner' && (
                                                             <ModalCustomBanner
                                                               ref={
                                                                 this
@@ -2294,9 +2357,9 @@ class HomePageContent extends React.Component {
                                                                 this
                                                                   .onCustomBannerCloseClick
                                                               }
-                                                              modalId={
-                                                                "show" + item.id
-                                                              }
+                                                              modalId={`show${
+                                                                item.id
+                                                              }`}
                                                               itemId={item.id}
                                                               onApply={
                                                                 this
@@ -2323,15 +2386,15 @@ class HomePageContent extends React.Component {
                           {/* </div> */}
                           <div
                             className={
-                              this.state.displaybuildleft === "block"
-                                ? ""
-                                : "activeSec"
+                              this.state.displaybuildleft === 'block'
+                                ? ''
+                                : 'activeSec'
                             }
                             style={{
                               display:
-                                this.state.displaybuildleft === "block"
-                                  ? "none"
-                                  : "block"
+                                this.state.displaybuildleft === 'block'
+                                  ? 'none'
+                                  : 'block'
                             }}
                           >
                             <div id="BuildCollectionsConstructor">

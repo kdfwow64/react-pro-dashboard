@@ -153,269 +153,341 @@ class ProductSettingsSection extends React.Component {
     } else {
       this.setState({ showIconsList: 'none' });
     }
-  }
+  };
+
   HideExternalSec = () => {
     this.setState({ AddLinkSecShow: 'none' });
     this.props.AddLinkSecCallback('none');
     this.props.RemoveLinkDetail();
-  }
+  };
+
   AddLinkClick = () => {
     this.setState({ AddLinkSecShow: 'block' });
     this.props.AddLinkSecCallback('block');
-  }
+  };
 
   ExternalLinkTitleChange = e => {
     this.setState({ ExternalLinkTitle: e.target.value });
     this.props.ExternalLinkTitleCallback(e.target.value);
-  }
+  };
+
   ExternalLinkUrlChange = e => {
     this.setState({ ExternalLinkUrl: e.target.value });
     this.props.ExternalLinkUrlCallback(e.target.value);
-  }
+  };
+
   SilderActiveColorhandleClose = () => {
     this.setState({ SilderActiveColorPicker: false });
-  }
+  };
+
   SilderDotColorhandleClose = () => {
     this.setState({ SilderDotColorPicker: false });
-  }
+  };
+
   SilderBGColorhandleClose = () => {
     this.setState({ SilderBGColorPicker: false });
-  }
+  };
+
   FavBtnColorhandleClose = () => {
     this.setState({ FavBtnColorPicker: false });
-  }
+  };
+
   ProductTitleColorhandleClose = () => {
     this.setState({ ProductTitleColorPicker: false });
-  }
+  };
+
   ProductPriceColorhandleClose = () => {
     this.setState({ ProductPriceColorPicker: false });
-  }
+  };
+
   ProductRatingColorhandleClose = () => {
     this.setState({ ProductRatingColorPicker: false });
-  }
+  };
+
   ProducttitlebarBGColorhandleClose = () => {
     this.setState({ ProducttitlebarBGColorPicker: false });
-  }
+  };
+
   ExternalIconColorhandleClose = () => {
     this.setState({ ExternalIconColorPicker: false });
-  }
+  };
+
   ExternalLinkColorhandleClose = () => {
     this.setState({ ExternalLinkColorPicker: false });
-  }
+  };
+
   ExternalBGColorhandleClose = () => {
     this.setState({ ExternalBGColorPicker: false });
-  }
+  };
+
   ProductCellBGColorhandleClose = () => {
     this.setState({ ProductCellBGColorPicker: false });
-  }
+  };
+
   OptionTitleColorhandleClose = () => {
     this.setState({ OptionTitleColorPicker: false });
-  }
+  };
+
   OptionValueColorhandleClose = () => {
     this.setState({ OptionValueColorPicker: false });
-  }
+  };
+
   OptionIconColorhandleClose = () => {
     this.setState({ OptionIconColorPicker: false });
-  }
+  };
+
   DescTitleColorhandleClose = () => {
     this.setState({ DescTitleColorPicker: false });
-  }
+  };
+
   DescHeaderBGColorhandleClose = () => {
     this.setState({ DescHeaderBGColorPicker: false });
-  }
+  };
+
   DescBGColorhandleClose = () => {
     this.setState({ DescBGColorPicker: false });
-  }
+  };
+
   DescTextColorhandleClose = () => {
     this.setState({ DescTextColorPicker: false });
-  }
+  };
+
   CartTitleColorhandleClose = () => {
     this.setState({ CartTitleColorPicker: false });
-  }
+  };
+
   CartButtonColorhandleClose = () => {
     this.setState({ CartButtonColorPicker: false });
-  }
+  };
+
   CartBGColorhandleClose = () => {
     this.setState({ CartBGColorPicker: false });
-  }
+  };
+
   SilderActiveColorhandleClick = e => {
     this.setState({
       SilderActiveColorPicker: !this.state.SilderActiveColorPicker
     });
-  }
+  };
+
   SilderDotColorhandleClick = e => {
     this.setState({ SilderDotColorPicker: !this.state.SilderDotColorPicker });
-  }
+  };
+
   SilderBGColorhandleClick = e => {
     this.setState({ SilderBGColorPicker: !this.state.SilderBGColorPicker });
-  }
+  };
+
   FavBtnColorhandleClick = e => {
     this.setState({ FavBtnColorPicker: !this.state.FavBtnColorPicker });
-  }
+  };
+
   ProductTitleColorhandleClick = e => {
     this.setState({
       ProductTitleColorPicker: !this.state.ProductTitleColorPicker
     });
-  }
+  };
+
   ProductPriceColorhandleClick = e => {
     this.setState({
       ProductPriceColorPicker: !this.state.ProductPriceColorPicker
     });
-  }
+  };
+
   ProductRatingColorhandleClick = e => {
     this.setState({
       ProductRatingColorPicker: !this.state.ProductRatingColorPicker
     });
-  }
+  };
+
   ProducttitlebarBGColorhandleClick = e => {
     this.setState({
       ProducttitlebarBGColorPicker: !this.state.ProducttitlebarBGColorPicker
     });
-  }
+  };
+
   ExternalIconColorhandleClick = e => {
     this.setState({
       ExternalIconColorPicker: !this.state.ExternalIconColorPicker
     });
-  }
+  };
+
   ExternalLinkColorhandleClick = e => {
     this.setState({
       ExternalLinkColorPicker: !this.state.ExternalLinkColorPicker
     });
-  }
+  };
+
   ExternalBGColorhandleClick = e => {
     this.setState({ ExternalBGColorPicker: !this.state.ExternalBGColorPicker });
-  }
+  };
+
   ProductCellBGColorhandleClick = e => {
     this.setState({
       ProductCellBGColorPicker: !this.state.ProductCellBGColorPicker
     });
-  }
+  };
+
   OptionTitleColorhandleClick = e => {
     this.setState({ OptionTitleColorPicker: !this.OptionTitleColorPicker });
-  }
+  };
+
   OptionValueColorhandleClick = e => {
     this.setState({ OptionValueColorPicker: !this.OptionValueColorPicker });
-  }
+  };
+
   OptionIconColorhandleClick = e => {
     this.setState({ OptionIconColorPicker: !this.OptionIconColorPicker });
-  }
+  };
+
   DescTitleColorhandleClick = e => {
     this.setState({ DescTitleColorPicker: !this.DescTitleColorPicker });
-  }
+  };
+
   DescHeaderBGColorhandleClick = e => {
     this.setState({ DescHeaderBGColorPicker: !this.DescHeaderBGColorPicker });
-  }
+  };
+
   DescBGColorhandleClick = e => {
     this.setState({ DescBGColorPicker: !this.DescBGColorPicker });
-  }
+  };
+
   DescTextColorhandleClick = e => {
     this.setState({ DescTextColorPicker: !this.DescTextColorPicker });
-  }
+  };
+
   CartTitleColorhandleClick = e => {
     this.setState({ CartTitleColorPicker: !this.CartTitleColorPicker });
-  }
+  };
+
   CartButtonColorhandleClick = e => {
     this.setState({ CartButtonColorPicker: !this.CartButtonColorPicker });
-  }
+  };
+
   CartBGColorhandleClick = e => {
     this.setState({ CartBGColorPicker: !this.CartBGColorPicker });
-  }
+  };
+
   SilderActiveColorhandleChange(SilderActiveColor) {
     this.setState({ SilderActiveColor: SilderActiveColor.hex });
     this.props.SilderActiveColorCallback(SilderActiveColor);
   }
+
   SilderDotColorhandleChange(SilderDotColor) {
     this.setState({ SilderDotColor: SilderDotColor.hex });
     this.props.SilderDotColorCallback(SilderDotColor);
   }
+
   SilderBGColorhandleChange(SilderBGColor) {
     this.setState({ SilderBGColor: SilderBGColor.hex });
     this.props.SilderBGColorCallback(SilderBGColor);
   }
+
   FavBtnColorhandleChange(FavBtnColor) {
     this.setState({ FavBtnColor: FavBtnColor.hex });
     this.props.FavBtnColorCallback(FavBtnColor);
   }
+
   ProductTitleColorhandleChange(ProductTitleColor) {
     this.setState({ ProductTitleColor: ProductTitleColor.hex });
     this.props.ProductTitleColorCallback(ProductTitleColor);
   }
+
   ProductPriceColorhandleChange(ProductPriceColor) {
     this.setState({ ProductPriceColor: ProductPriceColor.hex });
     this.props.ProductPriceColorCallback(ProductPriceColor);
   }
+
   ProductRatingColorhandleChange(ProductRatingColor) {
     this.setState({ ProductRatingColor: ProductRatingColor.hex });
     this.props.ProductRatingColorCallback(ProductRatingColor);
   }
+
   ProducttitlebarBGColorhandleChange(ProducttitlebarBGColor) {
     this.setState({ ProducttitlebarBGColor: ProducttitlebarBGColor.hex });
     this.props.ProducttitlebarBGColorCallback(ProducttitlebarBGColor);
   }
+
   ExternalIconColorhandleChange(ExternalIconColor) {
     this.setState({ ExternalIconColor: ExternalIconColor.hex });
     this.props.ExternalIconColorCallback(ExternalIconColor);
   }
+
   ExternalLinkColorhandleChange(ExternalLinkColor) {
     this.setState({ ExternalLinkColor: ExternalLinkColor.hex });
     this.props.ExternalLinkColorCallback(ExternalLinkColor);
   }
+
   ExternalBGColorhandleChange(ExternalBGColor) {
     this.setState({ ExternalBGColor: ExternalBGColor.hex });
     this.props.ExternalBGColorCallback(ExternalBGColor);
   }
+
   ProductCellBGColorhandleChange(ProductCellBGColor) {
     this.setState({ ProductCellBGColor: ProductCellBGColor.hex });
     this.props.ProductCellBGColorCallback(ProductCellBGColor);
   }
+
   OptionTitleColorhandleChange(OptionTitleColor) {
     this.setState({ OptionTitleColor: OptionTitleColor.hex });
     this.props.OptionTitleColorCallback(OptionTitleColor);
   }
+
   OptionValueColorhandleChange(OptionValueColor) {
     this.setState({ OptionValueColor: OptionValueColor.hex });
     this.props.OptionValueColorCallback(OptionValueColor);
   }
+
   OptionIconColorhandleChange(OptionIconColor) {
     this.setState({ OptionIconColor: OptionIconColor.hex });
     this.props.OptionIconColorCallback(OptionIconColor);
   }
+
   DescTitleColorhandleChange(DescTitleColor) {
     this.setState({ DescTitleColor: DescTitleColor.hex });
     this.props.DescTitleColorCallback(DescTitleColor);
   }
+
   DescTitleTexthandleChange(DescTitleText) {
     this.setState({ DescTitleText });
     this.props.DescTitleTextCallback(DescTitleText);
   }
+
   DescHeaderBGColorhandleChange(DescHeaderBGColor) {
     this.setState({ DescHeaderBGColor: DescHeaderBGColor.hex });
     this.props.DescHeaderBGColorCallback(DescHeaderBGColor);
   }
+
   DescBGColorhandleChange(DescBGColor) {
     this.setState({ DescBGColor: DescBGColor.hex });
     this.props.DescBGColorCallback(DescBGColor);
   }
+
   DescTextColorhandleChange(DescTextColor) {
     this.setState({ DescTextColor: DescTextColor.hex });
     this.props.DescTextColorCallback(DescTextColor);
   }
+
   CartTitleTexthandleChange(CartTitleText) {
     this.setState({ CartTitleText });
     this.props.CartTitleTextCallback(CartTitleText);
   }
+
   CartTitleColorhandleChange(CartTitleColor) {
     this.setState({ CartTitleColor: CartTitleColor.hex });
     this.props.CartTitleColorCallback(CartTitleColor);
   }
+
   CartButtonColorhandleChange(CartButtonColor) {
     this.setState({ CartButtonColor: CartButtonColor.hex });
     this.props.CartButtonColorCallback(CartButtonColor);
   }
+
   CartBGColorhandleChange(CartBGColor) {
     this.setState({ CartBGColor: CartBGColor.hex });
     this.props.CartBGColorCallback(CartBGColor);
   }
+
   CartButtonLink(e) {
     // this.setState({CartButtonLink: e.target.value});
     this.props.CartButtonAction(e.target.value);
@@ -465,7 +537,8 @@ class ProductSettingsSection extends React.Component {
       this.props.MarginLeftTitleSection('50px');
     }
     this.props.FavButtonPos(e.target.value);
-  }
+  };
+
   swatch = {
     padding: '5px',
     display: 'inline-block',
@@ -473,46 +546,51 @@ class ProductSettingsSection extends React.Component {
     left: '2px',
     top: '40px'
   };
+
   popover = {
     position: 'absolute',
-    zIndex: 99999,
+    zIndex: 99999
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   DropDownGetIcon = e => {
     this.setState({ IconClassName: e.target.getAttribute('data-key') });
     this.props.DropDownGetIconCallback(e.target.getAttribute('data-key'));
     this.setState({ showIconsList: 'none' });
     // this.setState({IconColor: '#fff'});
-  }
+  };
+
   CloseIconDrop() {
     if (this.state.showIconsList === 'block') {
       this.setState({ showIconsList: 'none' });
     }
   }
+
   DropDownGetIconProductExternalCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.ExternalIcon(icon);
-  }
+  };
+
   cartBtnPhoneValue = e => {
     this.props.cartBtnPhoneValue(e.target.value);
-  }
+  };
 
   toggleAccordion(tab) {
-
     const prevState = this.state.accordion;
-    const state = prevState.map((x, index) => tab === index ? !x : false);
+    const state = prevState.map((x, index) => (tab === index ? !x : false));
 
     this.setState({
-        accordion: state,
+      accordion: state
     });
   }
+
   render() {
     const IconArry = [
       { name: 'lnr-heart' },
@@ -546,18 +624,28 @@ class ProductSettingsSection extends React.Component {
 
     return (
       <div id="accordion" className="accordion-wrapper mb-3">
-      <CardHeader style={{marginBottom: '10px'}}><h3 className="leftCardHeader"> Product Settings </h3> </CardHeader>
+        <CardHeader style={{ marginBottom: '10px' }}>
+          <h3 className="leftCardHeader"> Product Settings </h3>{' '}
+        </CardHeader>
 
         <Card>
           <CardHeader id="headingOne" onClick={() => this.toggleAccordion(0)}>
-            <Button className="m-0 p-0" color="link"
+            <Button
+              className="m-0 p-0"
+              color="link"
               onClick={() => this.toggleAccordion(0)}
               aria-expanded={this.state.accordion[0]}
-              aria-controls="exampleAccordion1">
+              aria-controls="exampleAccordion1"
+            >
               PRODUCT IMAGES
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion" id="exampleAccordion1" className="proPaddBtm">
+          <Collapse
+            isOpen={this.state.accordion[0]}
+            data-parent="#accordion"
+            id="exampleAccordion1"
+            className="proPaddBtm"
+          >
             <div
               className="ProductSilderActiveColor"
               style={{ position: 'relative' }}
@@ -584,7 +672,10 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderActiveColorPicker ? (
                 <div style={this.popover}>
-                  <div style={ this.cover } onClick={ this.SilderActiveColorhandleClose }/>
+                  <div
+                    style={this.cover}
+                    onClick={this.SilderActiveColorhandleClose}
+                  />
                   <ChromePicker
                     color={this.props.SilderActiveColorValue}
                     onChange={this.SilderActiveColorhandleChange}
@@ -618,7 +709,10 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderDotColorPicker ? (
                 <div style={this.popover}>
-                  <div style={ this.cover } onClick={ this.SilderDotColorhandleClose }/>
+                  <div
+                    style={this.cover}
+                    onClick={this.SilderDotColorhandleClose}
+                  />
                   <ChromePicker
                     color={this.props.SilderDotColorValue}
                     onChange={this.SilderDotColorhandleChange}
@@ -652,7 +746,10 @@ class ProductSettingsSection extends React.Component {
               </div>
               {this.state.SilderBGColorPicker ? (
                 <div style={this.popover}>
-                  <div style={ this.cover } onClick={ this.SilderBGColorhandleClose }/>
+                  <div
+                    style={this.cover}
+                    onClick={this.SilderBGColorhandleClose}
+                  />
                   <ChromePicker
                     color={this.props.SilderBGColorValue}
                     onChange={this.SilderBGColorhandleChange}
@@ -662,571 +759,655 @@ class ProductSettingsSection extends React.Component {
             </div>
           </Collapse>
         </Card>
-        
+
         <Card>
-          <CardHeader className="b-radius-0" id="headingTwo" onClick={() => this.toggleAccordion(1)}>
-            <Button className="m-0 p-0" color="link"
+          <CardHeader
+            className="b-radius-0"
+            id="headingTwo"
+            onClick={() => this.toggleAccordion(1)}
+          >
+            <Button
+              className="m-0 p-0"
+              color="link"
               onClick={() => this.toggleAccordion(1)}
               aria-expanded={this.state.accordion[1]}
-              aria-controls="exampleAccordion2">
+              aria-controls="exampleAccordion2"
+            >
               TITLE & PRICE
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[1]} data-parent="#accordion"
-              id="exampleAccordion2"  className="proPaddBtm">
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>TITLE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.ProductTitleColorValue}
-                  defaultValue={this.ProductTitleColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+          <Collapse
+            isOpen={this.state.accordion[1]}
+            data-parent="#accordion"
+            id="exampleAccordion2"
+            className="proPaddBtm"
+          >
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>TITLE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.ProductTitleColorValue}
+                defaultValue={this.ProductTitleColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.ProductTitleColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.ProductTitleColorValue
+                  }}
                   onClick={this.ProductTitleColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.ProductTitleColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.ProductTitleColorValue
-                    }}
-                    onClick={this.ProductTitleColorhandleClick}
+                    style={this.cover}
+                    onClick={this.ProductTitleColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.ProductTitleColorValue}
+                    onChange={this.ProductTitleColorhandleChange}
                   />
                 </div>
-                {this.state.ProductTitleColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.ProductTitleColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.ProductTitleColorValue}
-                      onChange={this.ProductTitleColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>PRICE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.ProductPriceColorValue}
-                  defaultValue={this.ProductPriceColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+              ) : null}
+            </div>
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>PRICE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.ProductPriceColorValue}
+                defaultValue={this.ProductPriceColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.ProductPriceColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.ProductPriceColorValue
+                  }}
                   onClick={this.ProductPriceColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.ProductPriceColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.ProductPriceColorValue
-                    }}
-                    onClick={this.ProductPriceColorhandleClick}
+                    style={this.cover}
+                    onClick={this.ProductPriceColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.ProductPriceColorValue}
+                    onChange={this.ProductPriceColorhandleChange}
                   />
                 </div>
-                {this.state.ProductPriceColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.ProductPriceColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.ProductPriceColorValue}
-                      onChange={this.ProductPriceColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>CELL BACKGROUND</h5>
-                <input
-                  type="text"
-                  value={this.props.ProducttitlebarBGColorValue}
-                  defaultValue={this.ProducttitlebarBGColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+              ) : null}
+            </div>
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>CELL BACKGROUND</h5>
+              <input
+                type="text"
+                value={this.props.ProducttitlebarBGColorValue}
+                defaultValue={this.ProducttitlebarBGColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.ProducttitlebarBGColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.ProducttitlebarBGColorValue
+                  }}
                   onClick={this.ProducttitlebarBGColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.ProducttitlebarBGColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.ProducttitlebarBGColorValue
-                    }}
-                    onClick={this.ProducttitlebarBGColorhandleClick}
+                    style={this.cover}
+                    onClick={this.ProducttitlebarBGColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.ProducttitlebarBGColorValue}
+                    onChange={this.ProducttitlebarBGColorhandleChange}
                   />
                 </div>
-                {this.state.ProducttitlebarBGColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.ProducttitlebarBGColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.ProducttitlebarBGColorValue}
-                      onChange={this.ProducttitlebarBGColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            </Collapse>
+              ) : null}
+            </div>
+          </Collapse>
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingThree" onClick={() => this.toggleAccordion(2)}>
-            <Button className="m-0 p-0" color="link"
+          <CardHeader
+            className="b-radius-0"
+            id="headingThree"
+            onClick={() => this.toggleAccordion(2)}
+          >
+            <Button
+              className="m-0 p-0"
+              color="link"
               onClick={() => this.toggleAccordion(2)}
               aria-expanded={this.state.accordion[2]}
-              aria-controls="exampleAccordion3">
+              aria-controls="exampleAccordion3"
+            >
               PRODUCT OPTIONS
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[2]} data-parent="#accordion"
-              id="exampleAccordion3"  className="proPaddBtm" >
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>CELL BACKGROUND COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.ProductCellBGColorValue}
-                  defaultValue={this.ProductCellBGColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+          <Collapse
+            isOpen={this.state.accordion[2]}
+            data-parent="#accordion"
+            id="exampleAccordion3"
+            className="proPaddBtm"
+          >
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>CELL BACKGROUND COLOR</h5>
+              <input
+                type="text"
+                value={this.props.ProductCellBGColorValue}
+                defaultValue={this.ProductCellBGColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.ProductCellBGColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.ProductCellBGColorValue
+                  }}
                   onClick={this.ProductCellBGColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.ProductCellBGColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.ProductCellBGColorValue
-                    }}
-                    onClick={this.ProductCellBGColorhandleClick}
+                    style={this.cover}
+                    onClick={this.ProductCellBGColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.ProductCellBGColorValue}
+                    onChange={this.ProductCellBGColorhandleChange}
                   />
                 </div>
-                {this.state.ProductCellBGColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.ProductCellBGColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.ProductCellBGColorValue}
-                      onChange={this.ProductCellBGColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>OPTION TITLE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.OptionTitleColorValue}
-                  defaultValue={this.OptionTitleColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>OPTION TITLE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.OptionTitleColorValue}
+                defaultValue={this.OptionTitleColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.OptionTitleColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.OptionTitleColorValue
+                  }}
                   onClick={this.OptionTitleColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.OptionTitleColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.OptionTitleColorValue
-                    }}
-                    onClick={this.OptionTitleColorhandleClick}
+                    style={this.cover}
+                    onClick={this.OptionTitleColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.OptionTitleColorValue}
+                    onChange={this.OptionTitleColorhandleChange}
                   />
                 </div>
-                {this.state.OptionTitleColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.OptionTitleColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.OptionTitleColorValue}
-                      onChange={this.OptionTitleColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>OPTION VALUE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.OptionValueColorValue}
-                  defaultValue={this.OptionValueColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>OPTION VALUE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.OptionValueColorValue}
+                defaultValue={this.OptionValueColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.OptionValueColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.OptionValueColorValue
+                  }}
                   onClick={this.OptionValueColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.OptionValueColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.OptionValueColorValue
-                    }}
-                    onClick={this.OptionValueColorhandleClick}
+                    style={this.cover}
+                    onClick={this.OptionValueColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.OptionValueColorValue}
+                    onChange={this.OptionValueColorhandleChange}
                   />
                 </div>
-                {this.state.OptionValueColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.OptionValueColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.OptionValueColorValue}
-                      onChange={this.OptionValueColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>OPTION ICON COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.OptionIconColorValue}
-                  defaultValue={this.OptionIconColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>OPTION ICON COLOR</h5>
+              <input
+                type="text"
+                value={this.props.OptionIconColorValue}
+                defaultValue={this.OptionIconColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.OptionIconColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.OptionIconColorValue
+                  }}
                   onClick={this.OptionIconColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.OptionIconColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.OptionIconColorValue
-                    }}
-                    onClick={this.OptionIconColorhandleClick}
+                    style={this.cover}
+                    onClick={this.OptionIconColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.OptionIconColorValue}
+                    onChange={this.OptionIconColorhandleChange}
                   />
                 </div>
-                {this.state.OptionIconColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.OptionIconColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.OptionIconColorValue}
-                      onChange={this.OptionIconColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            </Collapse>
+              ) : null}
+            </div>
+          </Collapse>
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingFour" onClick={() => this.toggleAccordion(3)}>
-            <Button className="m-0 p-0" color="link"
+          <CardHeader
+            className="b-radius-0"
+            id="headingFour"
+            onClick={() => this.toggleAccordion(3)}
+          >
+            <Button
+              className="m-0 p-0"
+              color="link"
               onClick={() => this.toggleAccordion(3)}
               aria-expanded={this.state.accordion[3]}
-              aria-controls="exampleAccordion4">
+              aria-controls="exampleAccordion4"
+            >
               DESCRIPTION
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[3]} data-parent="#accordion"
-                id="exampleAccordion4"  className="proPaddBtm">
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>HEADER TITLE</h5>
-                <input
-                  type="text"
-                  defaultValue={this.props.DescTitleTextValue}
-                  onChange={this.DescTitleTexthandleChange}
-                />
-              </div>
+          <Collapse
+            isOpen={this.state.accordion[3]}
+            data-parent="#accordion"
+            id="exampleAccordion4"
+            className="proPaddBtm"
+          >
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>HEADER TITLE</h5>
+              <input
+                type="text"
+                defaultValue={this.props.DescTitleTextValue}
+                onChange={this.DescTitleTexthandleChange}
+              />
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>HEADER TITLE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.DescTitleColorValue}
-                  defaultValue={this.DescTitleColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>HEADER TITLE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.DescTitleColorValue}
+                defaultValue={this.DescTitleColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.DescTitleColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.DescTitleColorValue
+                  }}
                   onClick={this.DescTitleColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.DescTitleColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.DescTitleColorValue
-                    }}
-                    onClick={this.DescTitleColorhandleClick}
+                    style={this.cover}
+                    onClick={this.DescTitleColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.DescTitleColorValue}
+                    onChange={this.DescTitleColorhandleChange}
                   />
                 </div>
-                {this.state.DescTitleColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.DescTitleColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.DescTitleColorValue}
-                      onChange={this.DescTitleColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>HEADER BACKGROUND COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.DescHeaderBGColorValue}
-                  defaultValue={this.DescHeaderBGColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>HEADER BACKGROUND COLOR</h5>
+              <input
+                type="text"
+                value={this.props.DescHeaderBGColorValue}
+                defaultValue={this.DescHeaderBGColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.DescHeaderBGColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.DescHeaderBGColorValue
+                  }}
                   onClick={this.DescHeaderBGColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.DescHeaderBGColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.DescHeaderBGColorValue
-                    }}
-                    onClick={this.DescHeaderBGColorhandleClick}
+                    style={this.cover}
+                    onClick={this.DescHeaderBGColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.DescHeaderBGColorValue}
+                    onChange={this.DescHeaderBGColorhandleChange}
                   />
                 </div>
-                {this.state.DescHeaderBGColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.DescHeaderBGColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.DescHeaderBGColorValue}
-                      onChange={this.DescHeaderBGColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>DESCRIPTION BACKGROUND COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.DescBGColorValue}
-                  defaultValue={this.DescBGColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>DESCRIPTION BACKGROUND COLOR</h5>
+              <input
+                type="text"
+                value={this.props.DescBGColorValue}
+                defaultValue={this.DescBGColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.DescBGColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.DescBGColorValue
+                  }}
                   onClick={this.DescBGColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.DescBGColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.DescBGColorValue
-                    }}
-                    onClick={this.DescBGColorhandleClick}
+                    style={this.cover}
+                    onClick={this.DescBGColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.DescBGColorValue}
+                    onChange={this.DescBGColorhandleChange}
                   />
                 </div>
-                {this.state.DescBGColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.DescBGColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.DescBGColorValue}
-                      onChange={this.DescBGColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>DESCRIPTION TEXT COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.DescTextColorValue}
-                  defaultValue={this.DescTextColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>DESCRIPTION TEXT COLOR</h5>
+              <input
+                type="text"
+                value={this.props.DescTextColorValue}
+                defaultValue={this.DescTextColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.DescTextColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.DescTextColorValue
+                  }}
                   onClick={this.DescTextColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.DescTextColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.DescTextColorValue
-                    }}
-                    onClick={this.DescTextColorhandleClick}
+                    style={this.cover}
+                    onClick={this.DescTextColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.DescTextColorValue}
+                    onChange={this.DescTextColorhandleChange}
                   />
                 </div>
-                {this.state.DescTextColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.DescTextColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.DescTextColorValue}
-                      onChange={this.DescTextColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            </Collapse>
+              ) : null}
+            </div>
+          </Collapse>
         </Card>
 
         <Card>
-          <CardHeader className="b-radius-0" id="headingFive" onClick={() => this.toggleAccordion(4)}>
-            <Button className="m-0 p-0" color="link"
+          <CardHeader
+            className="b-radius-0"
+            id="headingFive"
+            onClick={() => this.toggleAccordion(4)}
+          >
+            <Button
+              className="m-0 p-0"
+              color="link"
               onClick={() => this.toggleAccordion(4)}
               aria-expanded={this.state.accordion[4]}
-              aria-controls="exampleAccordion5">
+              aria-controls="exampleAccordion5"
+            >
               ADD TO CART
             </Button>
           </CardHeader>
-          <Collapse isOpen={this.state.accordion[4]} data-parent="#accordion"
-              id="exampleAccordion5">
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>TITLE</h5>
-                <input
-                  type="text"
-                  defaultValue={this.props.CartTitleTextValue}
-                  onChange={this.CartTitleTexthandleChange}
-                />
-              </div>
+          <Collapse
+            isOpen={this.state.accordion[4]}
+            data-parent="#accordion"
+            id="exampleAccordion5"
+          >
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>TITLE</h5>
+              <input
+                type="text"
+                defaultValue={this.props.CartTitleTextValue}
+                onChange={this.CartTitleTexthandleChange}
+              />
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>TITLE COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.CartTitleColorValue}
-                  defaultValue={this.CartTitleColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>TITLE COLOR</h5>
+              <input
+                type="text"
+                value={this.props.CartTitleColorValue}
+                defaultValue={this.CartTitleColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.CartTitleColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.CartTitleColorValue
+                  }}
                   onClick={this.CartTitleColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.CartTitleColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.CartTitleColorValue
-                    }}
-                    onClick={this.CartTitleColorhandleClick}
+                    style={this.cover}
+                    onClick={this.CartTitleColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.CartTitleColorValue}
+                    onChange={this.CartTitleColorhandleChange}
                   />
                 </div>
-                {this.state.CartTitleColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.CartTitleColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.CartTitleColorValue}
-                      onChange={this.CartTitleColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>BUTTON COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.CartButtonColorValue}
-                  defaultValue={this.CartButtonColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>BUTTON COLOR</h5>
+              <input
+                type="text"
+                value={this.props.CartButtonColorValue}
+                defaultValue={this.CartButtonColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.CartButtonColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.CartButtonColorValue
+                  }}
                   onClick={this.CartButtonColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.CartButtonColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.CartButtonColorValue
-                    }}
-                    onClick={this.CartButtonColorhandleClick}
+                    style={this.cover}
+                    onClick={this.CartButtonColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.CartButtonColorValue}
+                    onChange={this.CartButtonColorhandleChange}
                   />
                 </div>
-                {this.state.CartButtonColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.CartButtonColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.CartButtonColorValue}
-                      onChange={this.CartButtonColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
+              ) : null}
+            </div>
 
-              <div
-                className="ProductSilderActiveColor"
-                style={{ position: 'relative', marginTop: '20px' }}
-              >
-                <h5>CELL BACKGROUND COLOR</h5>
-                <input
-                  type="text"
-                  value={this.props.CartBGColorValue}
-                  defaultValue={this.CartBGColor}
-                  id="CollectionDropDown"
-                  className="textColorCode"
+            <div
+              className="ProductSilderActiveColor"
+              style={{ position: 'relative', marginTop: '20px' }}
+            >
+              <h5>CELL BACKGROUND COLOR</h5>
+              <input
+                type="text"
+                value={this.props.CartBGColorValue}
+                defaultValue={this.CartBGColor}
+                id="CollectionDropDown"
+                className="textColorCode"
+                onClick={this.CartBGColorhandleClick}
+              />
+              <div style={this.swatch}>
+                <div
+                  className="colorPickerBorder"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: this.props.CartBGColorValue
+                  }}
                   onClick={this.CartBGColorhandleClick}
                 />
-                <div style={this.swatch}>
+              </div>
+              {this.state.CartBGColorPicker ? (
+                <div style={this.popover}>
                   <div
-                    className="colorPickerBorder"
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      backgroundColor: this.props.CartBGColorValue
-                    }}
-                    onClick={this.CartBGColorhandleClick}
+                    style={this.cover}
+                    onClick={this.CartBGColorhandleClose}
+                  />
+                  <ChromePicker
+                    color={this.props.CartBGColorValue}
+                    onChange={this.CartBGColorhandleChange}
                   />
                 </div>
-                {this.state.CartBGColorPicker ? (
-                  <div style={this.popover}>
-                    <div style={ this.cover } onClick={ this.CartBGColorhandleClose }/>
-                    <ChromePicker
-                      color={this.props.CartBGColorValue}
-                      onChange={this.CartBGColorhandleChange}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            </Collapse>
+              ) : null}
+            </div>
+          </Collapse>
         </Card>
-    
       </div>
     );
   }

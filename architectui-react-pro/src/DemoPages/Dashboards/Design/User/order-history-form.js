@@ -1,8 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-
-class Orderhistory extends React.Component  {
+class Orderhistory extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,14 +32,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -71,14 +70,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -109,14 +108,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -147,14 +146,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -185,14 +184,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -223,14 +222,14 @@ class Orderhistory extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.cellBgColor,
-                    borderBottom: '1px solid' + this.props.cellsepratorColor
+                    borderBottom: `1px solid${this.props.cellsepratorColor}`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.imageborderColor
+                        border: `1px solid${this.props.imageborderColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />

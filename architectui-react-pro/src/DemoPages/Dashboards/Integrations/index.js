@@ -1,7 +1,7 @@
-import { Snackbar } from "@material-ui/core";
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { Snackbar } from '@material-ui/core';
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   Button,
   Card,
@@ -11,9 +11,9 @@ import {
   Col,
   Input,
   Row
-} from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from "../../../utilities/api-config";
+} from 'reactstrap';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
 
 export default class Integrations extends React.Component {
   constructor(props) {
@@ -22,14 +22,14 @@ export default class Integrations extends React.Component {
     this.state = {
       snackbarOpen: false,
       appIntegrations: {
-        searchaniseKey: "",
-        yotpoAPIKey: "",
-        yotpoAPISecret: "",
-        judgeMeAPIToken: "",
-        jivoChatWidgetId: "",
-        intercomAppId: "",
-        intercomAPIKeyiOS: "",
-        intercomAPIKeyAndroid: ""
+        searchaniseKey: '',
+        yotpoAPIKey: '',
+        yotpoAPISecret: '',
+        judgeMeAPIToken: '',
+        jivoChatWidgetId: '',
+        intercomAppId: '',
+        intercomAPIKeyiOS: '',
+        intercomAPIKeyAndroid: ''
       }
     };
   }
@@ -39,13 +39,13 @@ export default class Integrations extends React.Component {
   }
 
   getAppIntegrations = () => {
-    axios.get(API_ROOT + "/api/mobile-integration").then(res => {
+    axios.get(`${API_ROOT}/api/mobile-integration`).then(res => {
       this.setState({ appIntegrations: res.data });
     });
   };
 
   saveSearchanise = value => {
-    var appIntegrations = this.state.appIntegrations;
+    const appIntegrations = this.state.appIntegrations;
     appIntegrations.searchaniseKey = value;
     this.setState({ appIntegrations });
     this.setState({ snackbarOpen: true });
@@ -62,7 +62,7 @@ export default class Integrations extends React.Component {
   };
 
   saveYotpo = value => {
-    var appIntegrations = this.state.appIntegrations;
+    const appIntegrations = this.state.appIntegrations;
     appIntegrations.yotpoAPIKey = value;
     this.setState({ appIntegrations });
     this.setState({ snackbarOpen: true });
@@ -77,7 +77,7 @@ export default class Integrations extends React.Component {
   };
 
   saveJudgeMe = value => {
-    var appIntegrations = this.state.appIntegrations;
+    const appIntegrations = this.state.appIntegrations;
     appIntegrations.judgeMeAPIToken = value;
     this.setState({ appIntegrations });
     this.setState({ snackBackOpen: true });
@@ -94,7 +94,7 @@ export default class Integrations extends React.Component {
   };
 
   saveGATrackingId = value => {
-    var appIntegrations = this.state.appIntegrations;
+    const appIntegrations = this.state.appIntegrations;
     appIntegrations.gaTrackingId = value;
     this.setState({ appIntegrations });
     this.setState({ snackBackOpen: true });
@@ -111,7 +111,7 @@ export default class Integrations extends React.Component {
   };
 
   saveJivoChatWidgetId = value => {
-    var appIntegrations = this.state.appIntegrations;
+    const appIntegrations = this.state.appIntegrations;
     appIntegrations.jivoChatWidgetId = value;
     this.setState({ appIntegrations });
     this.setState({ snackBackOpen: true });
@@ -149,7 +149,7 @@ export default class Integrations extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -294,24 +294,24 @@ export default class Integrations extends React.Component {
                       </p>
                     </Col>
                     <Col md={6}>
-                      <div style={{ paddingBottom: "20px" }}>
+                      <div style={{ paddingBottom: '20px' }}>
                         <Input
                           label="Intercom App Id"
                           value={this.state.appIntegrations.intercomAppId}
                           onChange={value => {
-                            var appIntegrations = this.state.appIntegrations;
+                            const appIntegrations = this.state.appIntegrations;
                             appIntegrations.intercomAppId = value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
                           }}
                         />
                       </div>
-                      <div style={{ paddingBottom: "20px" }}>
+                      <div style={{ paddingBottom: '20px' }}>
                         <Input
                           label="Intercom API Key iOS"
                           value={this.state.appIntegrations.intercomAPIKeyiOS}
                           onChange={value => {
-                            var appIntegrations = this.state.appIntegrations;
+                            const appIntegrations = this.state.appIntegrations;
                             appIntegrations.intercomAPIKeyiOS = value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
@@ -325,7 +325,7 @@ export default class Integrations extends React.Component {
                             this.state.appIntegrations.intercomAPIKeyAndroid
                           }
                           onChange={value => {
-                            var appIntegrations = this.state.appIntegrations;
+                            const appIntegrations = this.state.appIntegrations;
                             appIntegrations.intercomAPIKeyAndroid = value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
@@ -367,8 +367,8 @@ export default class Integrations extends React.Component {
           </Card>
 
           <div
-            className={"Polaris-Card__Footer"}
-            style={{ padding: "15px 0rem 2rem" }}
+            className="Polaris-Card__Footer"
+            style={{ padding: '15px 0rem 2rem' }}
           >
             <Button
               className="btn-shadow"
@@ -382,9 +382,9 @@ export default class Integrations extends React.Component {
             </Button>
           </div>
           <Snackbar
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: '10px' }}
             open={this.state.snackbarOpen}
-            ContentProps={{ style: { fontSize: "20px" } }}
+            ContentProps={{ style: { fontSize: '20px' } }}
             message={<span>Saving...</span>}
             autoHideDuration={3000}
             onClose={() => {

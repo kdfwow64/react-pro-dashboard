@@ -18,7 +18,7 @@ const styles = {
     zIndex: 10000
   }
 };
-class CreateLoginOptions extends React.Component  {
+class CreateLoginOptions extends React.Component {
   constructor(props) {
     super(props);
 
@@ -91,29 +91,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginBGColorClose = () => {
     this.setState({ displayBGColor: false });
-  }
+  };
+
   get onloginBGColorClose() {
     return this._onloginBGColorClose;
   }
+
   set onloginBGColorClose(value) {
     this._onloginBGColorClose = value;
   }
+
   _onloginBGColorClick = () => {
     this.setState({ displayBGColor: true });
-  }
+  };
+
   get onloginBGColorClick() {
     return this._onloginBGColorClick;
   }
+
   set onloginBGColorClick(value) {
     this._onloginBGColorClick = value;
   }
+
   _onloginBGColorChangeComplete = color => {
     this.setState({ loginBGColor: color.hex });
     this.props.onloginBGColorChangeComplete(color);
-  }
+  };
+
   get onloginBGColorChangeComplete() {
     return this._onloginBGColorChangeComplete;
   }
+
   set onloginBGColorChangeComplete(value) {
     this._onloginBGColorChangeComplete = value;
   }
@@ -122,29 +130,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginInputBGColorClose = () => {
     this.setState({ displayInputBGColor: false });
-  }
+  };
+
   get onloginInputBGColorClose() {
     return this._onloginInputBGColorClose;
   }
+
   set onloginInputBGColorClose(value) {
     this._onloginInputBGColorClose = value;
   }
+
   _onloginInputBGColorClick = () => {
     this.setState({ displayInputBGColor: true });
-  }
+  };
+
   get onloginInputBGColorClick() {
     return this._onloginInputBGColorClick;
   }
+
   set onloginInputBGColorClick(value) {
     this._onloginInputBGColorClick = value;
   }
+
   _onloginInputBGColorChangeComplete = color => {
     this.setState({ logininputBGColor: color.hex });
     this.props.onloginInputBGColorChangeComplete(color);
-  }
+  };
+
   get onloginInputBGColorChangeComplete() {
     return this._onloginInputBGColorChangeComplete;
   }
+
   set onloginInputBGColorChangeComplete(value) {
     this._onloginInputBGColorChangeComplete = value;
   }
@@ -153,29 +169,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginInputIconColorClose = () => {
     this.setState({ displayInputIconColor: false });
-  }
+  };
+
   get onloginInputIconColorClose() {
     return this._onloginInputIconColorClose;
   }
+
   set onloginInputIconColorClose(value) {
     this._onloginInputIconColorClose = value;
   }
+
   _onloginInputIconColorClick = () => {
     this.setState({ displayInputIconColor: true });
-  }
+  };
+
   get onloginInputIconColorClick() {
     return this._onloginInputIconColorClick;
   }
+
   set onloginInputIconColorClick(value) {
     this._onloginInputIconColorClick = value;
   }
+
   _onloginInputIconColorChangeComplete = color => {
     this.setState({ logininputIconColor: color.hex });
     this.props.onloginInputIconColorChangeComplete(color);
-  }
+  };
+
   get onloginInputIconColorChangeComplete() {
     return this._onloginInputIconColorChangeComplete;
   }
+
   set onloginInputIconColorChangeComplete(value) {
     this._onloginInputIconColorChangeComplete = value;
   }
@@ -184,29 +208,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginInputTitleColorClose = () => {
     this.setState({ displayInputTitleColor: false });
-  }
+  };
+
   get onloginInputTitleColorClose() {
     return this._onloginInputTitleColorClose;
   }
+
   set onloginInputTitleColorClose(value) {
     this._onloginInputTitleColorClose = value;
   }
+
   _onloginInputTitleColorClick = () => {
     this.setState({ displayInputTitleColor: true });
-  }
+  };
+
   get onloginInputTitleColorClick() {
     return this._onloginInputTitleColorClick;
   }
+
   set onloginInputTitleColorClick(value) {
     this._onloginInputTitleColorClick = value;
   }
+
   _onloginInputTitleColorChangeComplete = color => {
     this.setState({ logininputTitleColor: color.hex });
     this.props.onloginInputTitleColorChangeComplete(color);
-  }
+  };
+
   get onloginInputTitleColorChangeComplete() {
     return this._onloginInputTitleColorChangeComplete;
   }
+
   set onloginInputTitleColorChangeComplete(value) {
     this._onloginInputTitleColorChangeComplete = value;
   }
@@ -215,29 +247,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginButtonColorClose = () => {
     this.setState({ displayButtonColor: false });
-  }
+  };
+
   get onloginButtonColorClose() {
     return this._onloginButtonColorClose;
   }
+
   set onloginButtonColorClose(value) {
     this._onloginButtonColorClose = value;
   }
+
   _onloginButtonColorClick = () => {
     this.setState({ displayButtonColor: true });
-  }
+  };
+
   get onloginButtonColorClick() {
     return this._onloginButtonColorClick;
   }
+
   set onloginButtonColorClick(value) {
     this._onloginButtonColorClick = value;
   }
+
   _onloginButtonColorChangeComplete = color => {
     this.setState({ loginbuttonColor: color.hex });
     this.props.onloginButtonColorChangeComplete(color);
-  }
+  };
+
   get onloginButtonColorChangeComplete() {
     return this._onloginButtonColorChangeComplete;
   }
+
   set onloginButtonColorChangeComplete(value) {
     this._onloginButtonColorChangeComplete = value;
   }
@@ -246,29 +286,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginButtonTitleColorClose = () => {
     this.setState({ displayButtonTitleColor: false });
-  }
+  };
+
   get onloginButtonTitleColorClose() {
     return this._onloginButtonTitleColorClose;
   }
+
   set onloginButtonTitleColorClose(value) {
     this._onloginButtonTitleColorClose = value;
   }
+
   _onloginButtonTitleColorClick = () => {
     this.setState({ displayButtonTitleColor: true });
-  }
+  };
+
   get onloginButtonTitleColorClick() {
     return this._onloginButtonTitleColorClick;
   }
+
   set onloginButtonTitleColorClick(value) {
     this._onloginButtonTitleColorClick = value;
   }
+
   _onloginButtonTitleColorChangeComplete = color => {
     this.setState({ loginbuttonTitleColor: color.hex });
     this.props.onloginButtonTitleColorChangeComplete(color);
-  }
+  };
+
   get onloginButtonTitleColorChangeComplete() {
     return this._onloginButtonTitleColorChangeComplete;
   }
+
   set onloginButtonTitleColorChangeComplete(value) {
     this._onloginButtonTitleColorChangeComplete = value;
   }
@@ -277,29 +325,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginGeneralTextColorClose = () => {
     this.setState({ displayGeneralTextColor: false });
-  }
+  };
+
   get onloginGeneralTextColorClose() {
     return this._onloginGeneralTextColorClose;
   }
+
   set onloginGeneralTextColorClose(value) {
     this._onloginGeneralTextColorClose = value;
   }
+
   _onloginGeneralTextColorClick = () => {
     this.setState({ displayGeneralTextColor: true });
-  }
+  };
+
   get onloginGeneralTextColorClick() {
     return this._onloginGeneralTextColorClick;
   }
+
   set onloginGeneralTextColorClick(value) {
     this._onloginGeneralTextColorClick = value;
   }
+
   _onloginGeneralTextColorChangeComplete = color => {
     this.setState({ logingeneralTextColor: color.hex });
     this.props.onloginGeneralTextColorChangeComplete(color);
-  }
+  };
+
   get onloginGeneralTextColorChangeComplete() {
     return this._onloginGeneralTextColorChangeComplete;
   }
+
   set onloginGeneralTextColorChangeComplete(value) {
     this._onloginGeneralTextColorChangeComplete = value;
   }
@@ -308,29 +364,37 @@ class CreateLoginOptions extends React.Component  {
 
   _onloginTextLinkColorClose = () => {
     this.setState({ displayTextLinkColor: false });
-  }
+  };
+
   get onloginTextLinkColorClose() {
     return this._onloginTextLinkColorClose;
   }
+
   set onloginTextLinkColorClose(value) {
     this._onloginTextLinkColorClose = value;
   }
+
   _onloginTextLinkColorClick = () => {
     this.setState({ displayTextLinkColor: true });
-  }
+  };
+
   get onloginTextLinkColorClick() {
     return this._onloginTextLinkColorClick;
   }
+
   set onloginTextLinkColorClick(value) {
     this._onloginTextLinkColorClick = value;
   }
+
   _onloginTextLinkColorChangeComplete = color => {
     this.setState({ logintextLinkColor: color.hex });
     this.props.onloginTextLinkColorChangeComplete(color);
-  }
+  };
+
   get onloginTextLinkColorChangeComplete() {
     return this._onloginTextLinkColorChangeComplete;
   }
+
   set onloginTextLinkColorChangeComplete(value) {
     this._onloginTextLinkColorChangeComplete = value;
   }
@@ -354,13 +418,14 @@ class CreateLoginOptions extends React.Component  {
     displayGeneralTextColor: false,
     displayTextLinkColor: false
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
@@ -380,7 +445,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginBGColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -396,7 +460,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginBGColorClose }/>                      
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginBGColorClose}
+                      />
                       <ChromePicker
                         color={this.props.loginBGColor}
                         onChange={this.onloginBGColorChangeComplete}
@@ -418,7 +485,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputBGColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -434,7 +500,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginInputBGColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginInputBGColorClose}
+                      />
                       <ChromePicker
                         color={this.props.logininputBGColor}
                         onChange={this.onloginInputBGColorChangeComplete}
@@ -456,7 +525,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputIconColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -472,7 +540,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputIconColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginInputIconColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginInputIconColorClose}
+                      />
                       <ChromePicker
                         color={this.props.logininputIconColor}
                         onChange={this.onloginInputIconColorChangeComplete}
@@ -494,7 +565,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginInputTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -510,7 +580,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayInputTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginInputTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginInputTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.logininputTitleColor}
                         onChange={this.onloginInputTitleColorChangeComplete}
@@ -530,7 +603,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginButtonColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -546,7 +618,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginButtonColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginButtonColorClose}
+                      />
                       <ChromePicker
                         color={this.props.loginbuttonColor}
                         onChange={this.onloginButtonColorChangeComplete}
@@ -568,7 +643,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginButtonTitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -584,7 +658,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayButtonTitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginButtonTitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginButtonTitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.loginbuttonTitleColor}
                         onChange={this.onloginButtonTitleColorChangeComplete}
@@ -604,7 +681,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginGeneralTextColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -620,7 +696,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayGeneralTextColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginGeneralTextColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginGeneralTextColorClose}
+                      />
                       <ChromePicker
                         color={this.props.logingeneralTextColor}
                         onChange={this.onloginGeneralTextColorChangeComplete}
@@ -640,7 +719,6 @@ class CreateLoginOptions extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onloginTextLinkColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -656,7 +734,10 @@ class CreateLoginOptions extends React.Component  {
                   </div>
                   {this.state.displayTextLinkColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onloginTextLinkColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onloginTextLinkColorClose}
+                      />
                       <ChromePicker
                         color={this.props.logintextLinkColor}
                         onChange={this.onloginTextLinkColorChangeComplete}

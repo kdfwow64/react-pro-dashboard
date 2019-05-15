@@ -1,17 +1,9 @@
 /* tslint:disable */
-import * as React from "react";
+import * as React from 'react';
 
 export default class ExternalLink extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const {
-        url,
-        text,
-        onClick
-    } = this.props;
+    const { url, text, onClick } = this.props;
 
     const style = {
       style: {
@@ -26,12 +18,7 @@ export default class ExternalLink extends React.Component {
 
     return (
       <span>
-        <a
-          href={url}
-          target="_blank"
-          style={style.style}
-          onClick={onClick}
-        >
+        <a href={url} target="_blank" style={style.style} onClick={onClick}>
           {text}
         </a>
       </span>

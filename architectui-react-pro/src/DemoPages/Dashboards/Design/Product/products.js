@@ -1,17 +1,17 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { Col, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import "../index.css";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import ProductcustomizePage from "./product-customize-section";
-import ProductSettingsSection from "./product-settings-section";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import ProductcustomizePage from './product-customize-section';
+import ProductSettingsSection from './product-settings-section';
 
 class Products extends React.Component {
   homeTopTabsShowEditAlert = null;
@@ -20,7 +20,7 @@ class Products extends React.Component {
     super(props);
     this.homeTopTabsShowEditAlert = React.createRef();
     this.state = {
-      bannerImageUrl: "",
+      bannerImageUrl: '',
       isLoaded: false
     };
   }
@@ -208,12 +208,15 @@ class Products extends React.Component {
   DropDownGetIconheader = color => {
     this.setState({ DropDownGetIconheader: color });
   };
+
   naviconcolor = color => {
     this.setState({ naviconcolor: color.hex });
   };
+
   navtitlecolor = color => {
     this.setState({ navtitlecolor: color.hex });
   };
+
   NavTitle = color => {
     this.setState({ NavTitle: color });
   };
@@ -232,144 +235,178 @@ class Products extends React.Component {
     this.setState({ SilderActiveColor: SilderActiveColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SilderDotColorCallback = SilderDotColor => {
     this.setState({ SilderDotColor: SilderDotColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SilderBGColorCallback = SilderBGColor => {
     this.setState({ SilderBGColor: SilderBGColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavBtnColorCallback = FavBtnColor => {
     this.setState({ FavBtnColor: FavBtnColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductTitleColorCallback = ProductTitleColor => {
     this.setState({ ProductTitleColor: ProductTitleColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductPriceColorCallback = ProductPriceColor => {
     this.setState({ ProductPriceColor: ProductPriceColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavButtonPosCallback = FavButtonPosVal => {
     this.setState({ FavButtonPos: FavButtonPosVal });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductRatingColorCallback = color => {
     this.setState({ ProductRatingColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProducttitlebarBGColorCallback = color => {
     this.setState({ ProducttitlebarBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalIconColorCallback = color => {
     this.setState({ ExternalIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalLinkColorCallback = color => {
     this.setState({ ExternalLinkColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalBGColorCallback = color => {
     this.setState({ ExternalBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductCellBGColorCallback = color => {
     this.setState({ ProductCellBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   OptionTitleColorCallback = color => {
     this.setState({ OptionTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   OptionValueColorCallback = color => {
     this.setState({ OptionValueColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   OptionIconColorCallback = color => {
     this.setState({ OptionIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DescTitleTextCallback = text => {
     this.setState({ DescTitleText: text.target.value });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DescTitleColorCallback = color => {
     this.setState({ DescTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DescHeaderBGColorCallback = color => {
     this.setState({ DescHeaderBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DescBGColorCallback = color => {
     this.setState({ DescBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DescTextColorCallback = color => {
     this.setState({ DescTextColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CartTitleTextCallback = text => {
     this.setState({ CartTitleText: text.target.value });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CartTitleColorCallback = color => {
     this.setState({ CartTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CartButtonColorCallback = color => {
     this.setState({ CartButtonColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CartBGColorCallback = color => {
     this.setState({ CartBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavButtonBottom = bottom => {
     this.setState({ FavButtonBottom: bottom });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavButtonTop = top => {
     this.setState({ FavButtonTop: top });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavButtonRight = right => {
     this.setState({ FavButtonRight: right });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   FavButtonLeft = left => {
     this.setState({ FavButtonLeft: left });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   MarginLeftTitleSection = margin => {
     this.setState({ MarginLeftTitleSection: margin });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DropDownGetIconCallback = icon => {
     this.setState({ DropDownGetIcon: icon });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalIcon = icon => {
     this.setState({ DropDownGetExternalIcon: icon });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalLinkTitleCallback = title => {
     this.setState({ ExternalLinkTitle: title });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ExternalLinkUrlCallback = url => {
     this.setState({ ExternalLinkUrl: url });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DisplaySaveBtn = val => {
     /* this.setState({ navbgcolor: val.navbgcolor });
         this.setState({ DropDownGetIconheader: val.DropDownGetIconheader });
         this.setState({ naviconcolor: val.naviconcolor });
         this.setState({ navtitlecolor: val.navtitlecolor });
-        this.setState({ NavTitle: val.NavTitle });*/
+        this.setState({ NavTitle: val.NavTitle }); */
 
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
@@ -377,48 +414,60 @@ class Products extends React.Component {
   FavButtonPos = val => {
     this.setState({ FavButtonPos: val });
   };
+
   DropDownGetIconFavouriteCallback = icon => {
     this.setState({ FavIconValue: icon });
   };
+
   cartBtnPhoneValue = val => {
     this.setState({ cartBtnPhoneValue: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   navBarTitle = val => {
     this.setState({ navBarTitle: val });
   };
+
   RemoveLinkDetail = () => {
-    this.setState({ ExternalLinkTitle: "" });
-    this.setState({ ExternalLinkUrl: "" });
+    this.setState({ ExternalLinkTitle: '' });
+    this.setState({ ExternalLinkUrl: '' });
   };
+
   productImage = val => {
     this.setState({ productImage: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   productName = val => {
     this.setState({ productName: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   productRate = val => {
     this.setState({ productRate: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   productselectedTitle = val => {
     this.setState({ productselectedTitle: val });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   navbgcolorClick = color => {
     this.setState({ navbgcolor: color.hex });
   };
+
   bannerImageUrlCallBack = val => {
     this.setState({ bannerImageUrl: val });
   };
+
   onThemeOptionSelection = themName => {
     this.setState({ navbgcolor: themeColorFromName(themName) });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
     this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
     this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
   };
+
   render() {
     return (
       <Fragment>
@@ -426,7 +475,7 @@ class Products extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             transitionLeave={false}
@@ -445,7 +494,7 @@ class Products extends React.Component {
                     md={4}
                     sm={6}
                     id="CollectionMainContainer"
-                    style={{ border: "1px solid #efefef" }}
+                    style={{ border: '1px solid #efefef' }}
                   >
                     <PerfectScrollbar>
                       <ProductSettingsSection

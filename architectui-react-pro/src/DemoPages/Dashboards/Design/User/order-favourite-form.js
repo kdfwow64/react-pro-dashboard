@@ -1,8 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-
-class Orderfavorite extends React.Component  {
+class Orderfavorite extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -40,7 +39,7 @@ class Orderfavorite extends React.Component  {
                     <div
                       className="ordersFavoritesOrdersTab ordersFavoritesActive"
                       style={{
-                        borderBottom: '2px solid' + this.props.tabactiveColor
+                        borderBottom: `2px solid${this.props.tabactiveColor}`
                       }}
                     >
                       FAVORITES
@@ -51,15 +50,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -84,15 +84,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -117,15 +118,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -150,15 +152,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -183,15 +186,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
@@ -216,15 +220,16 @@ class Orderfavorite extends React.Component  {
                   className="ordersContainer"
                   style={{
                     backgroundColor: this.props.favouritecellBgColor,
-                    borderBottom:
-                      '1px solid' + this.props.favouritecellsepratorColor
+                    borderBottom: `1px solid${
+                      this.props.favouritecellsepratorColor
+                    }`
                   }}
                 >
                   <div className="ordersIconContainer">
                     <div
                       className="ordersPicture"
                       style={{
-                        border: '1px solid' + this.props.favoriteimageColor
+                        border: `1px solid${this.props.favoriteimageColor}`
                       }}
                     >
                       <i className="pe-7s-photo" />
