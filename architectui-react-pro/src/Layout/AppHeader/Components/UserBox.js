@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import { Bounce, toast } from "react-toastify";
-import { Button } from "reactstrap";
-import { getShop } from "../../../utilities/shop-utils";
+import React, { Fragment } from 'react';
+import { Bounce, toast } from 'react-toastify';
+import { Button } from 'reactstrap';
+import getShop from '../../../utilities/shop-utils';
 
 class UserBox extends React.Component {
   constructor(props) {
@@ -18,8 +18,8 @@ class UserBox extends React.Component {
         transition: Bounce,
         closeButton: true,
         autoClose: 5000,
-        position: "bottom-center",
-        type: "success"
+        position: 'bottom-center',
+        type: 'success'
       }
     ));
 
@@ -153,7 +153,7 @@ class UserBox extends React.Component {
                   className="btn-shadow p-1"
                   size="sm"
                   onClick={() => {
-                    window.open("mailto:support@appit.app");
+                    window.open('mailto:support@appit.app');
                   }}
                   color="info"
                   id="Tooltip-1"
