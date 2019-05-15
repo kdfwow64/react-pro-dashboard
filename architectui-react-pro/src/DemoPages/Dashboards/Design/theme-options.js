@@ -180,7 +180,7 @@ class ThemeOptions extends React.Component {
             </div>
           )}
 
-           <div
+           {/* <div
             id="Tooltip-refresh"
             className="UndoThemebutton"
             onClick={() => this.setState({ reloadConfirmation: true })}
@@ -194,7 +194,7 @@ class ThemeOptions extends React.Component {
             toggle={this.toggleTwo.bind(this)}
           >
             Click to refresh page!
-          </Tooltip> 
+          </Tooltip>  */}
 
           <SweetAlert
             title="Are you sure?"
@@ -206,7 +206,7 @@ class ThemeOptions extends React.Component {
             onCancel={() => this.setState({ reloadConfirmation: false })}
           />
 
-          <div
+          {/* <div
             className="Fixedthemebutton"
             style={{
               display: this.state.DisplayThemeBar === false ? "block" : "none"
@@ -227,7 +227,7 @@ class ThemeOptions extends React.Component {
             toggle={this.toggleThree.bind(this)}
           >
             Open Theming Configuration!
-          </Tooltip>
+          </Tooltip> */}
 
           <div
             className="themeContainer"
