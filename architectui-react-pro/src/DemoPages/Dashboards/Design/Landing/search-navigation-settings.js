@@ -334,7 +334,6 @@ class SearchNavigationSettings extends React.Component  {
                   imageFolder={"navTitleImage"}
                   onChange={ (value) => this.bannerImageUrl(value) }
            />
-           <input type="file"></input>
             </div>
           </div>
 

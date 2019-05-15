@@ -4,26 +4,15 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Col,
-  CardTitle,
-  Collapse,
-  Fade,
-  Row
-} from "reactstrap";
+import Loader from "react-loaders";
 import PerfectScrollbar from "react-perfect-scrollbar";
+import { Col, Row } from "reactstrap";
+import { API_ROOT } from "../../../../utilities/api-config";
 import "../index.css";
 import { themeColorFromName } from "../mobile-theme-utils";
 import ThemeOptions from "../theme-options";
 import SearchLeftSection from "./SearchLeftSection";
 import SearchRightSection from "./SearchRightSection";
-import Loader from "react-loaders";
-import { API_ROOT } from "../../../../utilities/api-config";
 
 class Cart extends React.Component {
   homeTopTabsShowEditAlert = null;
@@ -215,93 +204,102 @@ class Cart extends React.Component {
             transitionEnter={false}
             transitionLeave={false}
           >
-            <Row>
-              <Col md={4} id="CollectionMainContainer">
-                <PerfectScrollbar>
-                  <SearchLeftSection
-                    BGColorCallback={this.BGColorCallback}
-                    SearchInputColorCallback={this.SearchInputColorCallback}
-                    SearchInputBorderCallback={this.SearchInputBorderCallback}
-                    SearchIconColorCallback={this.SearchIconColorCallback}
-                    SearchTitleColorCallback={this.SearchTitleColorCallback}
-                    SearchBGColorCallback={this.SearchBGColorCallback}
-                    CellSeparatorColorCallback={this.CellSeparatorColorCallback}
-                    CellBGColorCallback={this.CellBGColorCallback}
-                    ProductBorderColorCallback={this.ProductBorderColorCallback}
-                    ProductTitleColorCallback={this.ProductTitleColorCallback}
-                    PriceColorCallback={this.PriceColorCallback}
-                    ProductIconColorCallback={this.ProductIconColorCallback}
-                    searchAction={this.searchAction}
-                    BGColor={this.state.BGColor}
-                    SearchInputColor={this.state.SearchInputColor}
-                    SearchInputBorder={this.state.SearchInputBorder}
-                    SearchIconColor={this.state.SearchIconColor}
-                    SearchTitleColor={this.state.SearchTitleColor}
-                    SearchBGColor={this.state.SearchBGColor}
-                    CellSeparatorColor={this.state.CellSeparatorColor}
-                    CellBGColor={this.state.CellBGColor}
-                    ProductBorderColor={this.state.ProductBorderColor}
-                    ProductTitleColor={this.state.ProductTitleColor}
-                    PriceColor={this.state.PriceColor}
-                    ProductIconColor={this.state.ProductIconColor}
-                    searchActionValue={this.state.searchAction}
-                  />
-                </PerfectScrollbar>
-              </Col>
-              <Col md={8} id="RightContainerScroll">
-                <div id="mbl_bg_rit">
-                  <div
-                    id="CollectionMainRightContainer"
-                  >
-                    <PerfectScrollbar>
-                      <SearchRightSection
-                        DisplaySaveBtn={this.DisplaySaveBtn}
-                        BGColor={this.state.BGColor}
-                        SearchInputColor={this.state.SearchInputColor}
-                        SearchInputBorder={this.state.SearchInputBorder}
-                        SearchIconColor={this.state.SearchIconColor}
-                        SearchTitleColor={this.state.SearchTitleColor}
-                        SearchBGColor={this.state.SearchBGColor}
-                        CellSeparatorColor={this.state.CellSeparatorColor}
-                        CellBGColor={this.state.CellBGColor}
-                        ProductBorderColor={this.state.ProductBorderColor}
-                        ProductTitleColor={this.state.ProductTitleColor}
-                        PriceColor={this.state.PriceColor}
-                        ProductIconColor={this.state.ProductIconColor}
-                        searchAction={this.state.searchAction}
-                        navbgcolor={this.state.navbgcolor}
-                        DropDownGetIconheader={this.state.DropDownGetIconheader}
-                        naviconcolor={this.state.naviconcolor}
-                        navtitlecolor={this.state.navtitlecolor}
-                        // NavTitle={this.state.NavTitle}
-                        DropDownGetIconheaderCall={this.DropDownGetIconheader}
-                        naviconcolorCall={this.naviconcolor}
-                        navtitlecolorCall={this.navtitlecolor}
-                        navbgcolorCall={this.navbgcolor}
-                        NavTitleCall={this.NavTitle}
-                        NavTitleValue={this.state.NavTitleValue}
-                        bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                        bannerImageUrl={this.state.bannerImageUrl}
-                      />
-                    </PerfectScrollbar>
+            {window.innerWidth < 767 ? (
+              <div className="mobile_hide_txt_container">
+                <p>
+                  Sorry, our designer needs a wider screen. If you're on a
+                  mobile device, please login using a desktop computer.
+                </p>
+              </div>
+            ) : (
+              <Row>
+                <Col md={4} sm={6} id="CollectionMainContainer">
+                  <PerfectScrollbar>
+                    <SearchLeftSection
+                      BGColorCallback={this.BGColorCallback}
+                      SearchInputColorCallback={this.SearchInputColorCallback}
+                      SearchInputBorderCallback={this.SearchInputBorderCallback}
+                      SearchIconColorCallback={this.SearchIconColorCallback}
+                      SearchTitleColorCallback={this.SearchTitleColorCallback}
+                      SearchBGColorCallback={this.SearchBGColorCallback}
+                      CellSeparatorColorCallback={
+                        this.CellSeparatorColorCallback
+                      }
+                      CellBGColorCallback={this.CellBGColorCallback}
+                      ProductBorderColorCallback={
+                        this.ProductBorderColorCallback
+                      }
+                      ProductTitleColorCallback={this.ProductTitleColorCallback}
+                      PriceColorCallback={this.PriceColorCallback}
+                      ProductIconColorCallback={this.ProductIconColorCallback}
+                      searchAction={this.searchAction}
+                      BGColor={this.state.BGColor}
+                      SearchInputColor={this.state.SearchInputColor}
+                      SearchInputBorder={this.state.SearchInputBorder}
+                      SearchIconColor={this.state.SearchIconColor}
+                      SearchTitleColor={this.state.SearchTitleColor}
+                      SearchBGColor={this.state.SearchBGColor}
+                      CellSeparatorColor={this.state.CellSeparatorColor}
+                      CellBGColor={this.state.CellBGColor}
+                      ProductBorderColor={this.state.ProductBorderColor}
+                      ProductTitleColor={this.state.ProductTitleColor}
+                      PriceColor={this.state.PriceColor}
+                      ProductIconColor={this.state.ProductIconColor}
+                      searchActionValue={this.state.searchAction}
+                    />
+                  </PerfectScrollbar>
+                </Col>
+                <Col md={8} sm={6} id="RightContainerScroll">
+                  <div id="mbl_bg_rit">
+                    <div id="CollectionMainRightContainer">
+                      <PerfectScrollbar>
+                        <SearchRightSection
+                          DisplaySaveBtn={this.DisplaySaveBtn}
+                          BGColor={this.state.BGColor}
+                          SearchInputColor={this.state.SearchInputColor}
+                          SearchInputBorder={this.state.SearchInputBorder}
+                          SearchIconColor={this.state.SearchIconColor}
+                          SearchTitleColor={this.state.SearchTitleColor}
+                          SearchBGColor={this.state.SearchBGColor}
+                          CellSeparatorColor={this.state.CellSeparatorColor}
+                          CellBGColor={this.state.CellBGColor}
+                          ProductBorderColor={this.state.ProductBorderColor}
+                          ProductTitleColor={this.state.ProductTitleColor}
+                          PriceColor={this.state.PriceColor}
+                          ProductIconColor={this.state.ProductIconColor}
+                          searchAction={this.state.searchAction}
+                          navbgcolor={this.state.navbgcolor}
+                          DropDownGetIconheader={
+                            this.state.DropDownGetIconheader
+                          }
+                          naviconcolor={this.state.naviconcolor}
+                          navtitlecolor={this.state.navtitlecolor}
+                          // NavTitle={this.state.NavTitle}
+                          DropDownGetIconheaderCall={this.DropDownGetIconheader}
+                          naviconcolorCall={this.naviconcolor}
+                          navtitlecolorCall={this.navtitlecolor}
+                          navbgcolorCall={this.navbgcolor}
+                          NavTitleCall={this.NavTitle}
+                          NavTitleValue={this.state.NavTitleValue}
+                          bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                          bannerImageUrl={this.state.bannerImageUrl}
+                        />
+                      </PerfectScrollbar>
+                    </div>
                   </div>
-                </div>
-              </Col>
-              <ThemeOptions
-                selectTheme={this.onThemeOptionSelection}
-                ref={this.homeTopTabsShowEditAlert}
-                onSaveEditedItems={this.onSaveEditedItems}
-              />
-            </Row>
+                </Col>
+                <ThemeOptions
+                  selectTheme={this.onThemeOptionSelection}
+                  ref={this.homeTopTabsShowEditAlert}
+                  onSaveEditedItems={this.onSaveEditedItems}
+                />
+              </Row>
+            )}
           </ReactCSSTransitionGroup>
         )}
         {!this.state.isLoaded && (
-          <div>
-            <Loader
-              color="#0e7c95"
-              type="ball-scale-multiple"
-              style={{ marginTop: "15em", marginLeft: "30em" }}
-            />
+          <div md={12} id="mainPageLoading">
+            <Loader color="#0e7c95" type="ball-scale-multiple" />
           </div>
         )}
       </Fragment>
