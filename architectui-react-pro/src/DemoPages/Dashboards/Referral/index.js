@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import React, { Component, Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Referral extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class Referral extends Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}

@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import { FormGroup, Input, Label } from "reactstrap";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
+import React, { Fragment } from 'react';
+import { FormGroup, Input, Label } from 'reactstrap';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class WizardStep1 extends React.Component {
   render() {
@@ -51,11 +51,11 @@ export default class WizardStep1 extends React.Component {
             <Label>App Icon</Label>
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add App Icon"
-              acceptedFiles={["image/jpeg", "image/png"]}
+              acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
-              previewImageHeight={"100px"}
-              previewImageWidth={"100px"}
-              imageFolder={"app_icon"}
+              previewImageHeight="100px"
+              previewImageWidth="100px"
+              imageFolder="app_icon"
               onChange={() => {}}
             />
           </FormGroup>
@@ -64,11 +64,11 @@ export default class WizardStep1 extends React.Component {
             <Label>Splash Screen</Label>
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add Splash Screen"
-              acceptedFiles={["image/jpeg", "image/png"]}
+              acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
-              previewImageHeight={"150px"}
-              previewImageWidth={"100px"}
-              imageFolder={"splash_screen"}
+              previewImageHeight="150px"
+              previewImageWidth="100px"
+              imageFolder="splash_screen"
               onChange={() => {}}
             />
             {/* <Input type="file" /> */}

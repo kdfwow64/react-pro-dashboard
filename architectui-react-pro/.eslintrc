@@ -16,6 +16,16 @@
     "no-unused-expressions": 0, //enable this
     "prefer-destructuring": 0, //enable this
     "func-names": 0, //enable this
+    "no-restricted-syntax": 0,
+    "global-require": "off",
+    "no-console": "off",
+    "no-cond-assign": 0,
+    "no-return-assign": 0,
+    "jsx-a11y/mouse-events-have-key-events": 0,
+    "react/no-this-in-sfc": 0,
+    "jsx-a11y/iframe-has-title": 0,
+    "prefer-const": 0,
+    "radix": 0,
     "jsx-a11y/alt-text": 0, //enable this
     "class-methods-use-this": 0, //enable this
     "no-unused-vars": 0, //enable this

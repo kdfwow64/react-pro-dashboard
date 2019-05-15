@@ -161,7 +161,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "pretty-quick",
-      "eslint src/utilities src/reducers src/DemoPages/Dashboards/Design --fix",
+      "eslint src/utilities src/reducers src/DemoPages/Dashboards/ --fix",
       "git add"
     ]
   },

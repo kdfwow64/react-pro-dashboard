@@ -1,19 +1,23 @@
-import { Grid, Snackbar } from "@material-ui/core";
-import ExternalLink from "../../../utilities/ExternalLink";
+import { Grid, Snackbar } from '@material-ui/core';
 // import Radium, { StyleRoot } from 'radium';
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 // import { fadeInDown } from 'react-animations';
-import { connect } from "react-redux";
-import { Field, formValueSelector, reduxForm } from "redux-form";
+import { connect } from 'react-redux';
+import { Field, formValueSelector, reduxForm } from 'redux-form';
 // import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
-import { getAppSettings, saveAppSettings, saveForm } from '../../../utilities/app-settings';
+import { Card, Button, CardBody, Row, Col, CardTitle, Input } from 'reactstrap';
+import { DropdownList } from 'react-widgets';
+import {
+  getAppSettings,
+  saveAppSettings,
+  saveForm
+} from '../../../utilities/app-settings';
 // import { onChangeSubmit } from '../../../../shared/util/save-form-util';
-import RealTimeToolTip from "../../../utilities/RealTimeToolTip";
-import StatefulToolTip from "../../../utilities/StatefulToolTip";
-import { Card, Button, CardBody, Row, Col, CardTitle, Input } from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { DropdownList } from "react-widgets";
+import RealTimeToolTip from '../../../utilities/RealTimeToolTip';
+import StatefulToolTip from '../../../utilities/StatefulToolTip';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import ExternalLink from '../../../utilities/ExternalLink';
 
 // import AndroidPaySettingToggle from './Toggles/AndroidPaySettingToggle';
 // import ApplePaySettingToggle from './Toggles/ApplePaySettingToggle';
@@ -91,8 +95,8 @@ export const renderSelectField = ({
 );
 
 class SettingsDashboard extends React.Component {
-  /*ref: any;
-  form: HTMLFormElement;*/
+  /* ref: any;
+  form: HTMLFormElement; */
 
   constructor(props) {
     super(props);
@@ -145,7 +149,7 @@ class SettingsDashboard extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -170,15 +174,15 @@ class SettingsDashboard extends React.Component {
                       name="collectionSortOrder"
                       component={renderSelectField}
                       options={[
-                        "Alphabetical",
-                        "Recently Updated"
+                        'Alphabetical',
+                        'Recently Updated'
                         // { label: "Alphabetical", value: "ALPHABETICAL" },
                         // {
                         //   label: "Recently Updated",
                         //   value: "RECENTLY_UPDATED"
                         // }
                       ]}
-                      value={"Alphabetical"}
+                      value="Alphabetical"
                       ref={this.saveRef}
                       //   onChange={onChangeSubmit(handleSubmit)}
                       withRef
@@ -526,8 +530,8 @@ class SettingsDashboard extends React.Component {
               </Card> */}
           </form>
           <div
-            className={"Polaris-Card__Footer"}
-            style={{ padding: "15px 0rem 2rem" }}
+            className="Polaris-Card__Footer"
+            style={{ padding: '15px 0rem 2rem' }}
           >
             <Button
               color="primary"
@@ -540,9 +544,9 @@ class SettingsDashboard extends React.Component {
             </Button>
           </div>
           <Snackbar
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: '10px' }}
             open={this.state.snackbarOpen}
-            ContentProps={{ style: { fontSize: "20px" } }}
+            ContentProps={{ style: { fontSize: '20px' } }}
             message={<span>Saving...</span>}
             autoHideDuration={3000}
             onClose={() => {
@@ -555,27 +559,27 @@ class SettingsDashboard extends React.Component {
   }
 }
 
-const selector = formValueSelector("appSettings"); // <-- same as form name
+const selector = formValueSelector('appSettings'); // <-- same as form name
 const mapStateToProps = storeState => ({
-    initialValues: storeState.appSettings.appSettings,
-    snackbarOpen: storeState.appSettings.saved,
-    loading: storeState.appSettings.loading,
-    hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
-    androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
+  initialValues: storeState.appSettings.appSettings,
+  snackbarOpen: storeState.appSettings.saved,
+  loading: storeState.appSettings.loading,
+  hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
+  androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
 });
 
 const mapDispatchToProps = {
-    getAppSettings,
-    saveAppSettings,
-    saveForm
+  getAppSettings,
+  saveAppSettings,
+  saveForm
 };
 
 const appSettingsForm = reduxForm({
-  form: "appSettings",
+  form: 'appSettings',
   enableReinitialize: true
-    // onSubmit: (values, dispatch) => {
-    //   dispatch(saveAppSettings(values));
-    // }
+  // onSubmit: (values, dispatch) => {
+  //   dispatch(saveAppSettings(values));
+  // }
 })(SettingsDashboard);
 
 const reduxConnect = connect(

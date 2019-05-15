@@ -1,30 +1,30 @@
-import React, { Fragment } from "react";
-import { Route } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
 // Layout
-import AppHeader from "../../Layout/AppHeader/";
-import AppSidebar from "../../Layout/AppSidebar/";
+import AppHeader from '../../Layout/AppHeader';
+import AppSidebar from '../../Layout/AppSidebar';
 // DASHBOARDS
-import AnalyticsDashboard from "./Analytics/";
-import CommerceDashboard from "./Commerce/";
-import CRMDashboard from "./CRM/";
-import DesignApp from "./Design";
-import DesignCart from "./Design/Cart/Cart";
-import DesignCollection from "./Design/Collection/collections";
-import DesignLanding from "./Design/Landing";
-import DesignProduct from "./Design/Product/products";
-import DesignSearch from "./Design/Search/Search";
-import DesignUser from "./Design/User/landing-user-section";
-import Integrations from "./Integrations";
-import MinimalDashboard1 from "./Minimal/Variation1";
-import MinimalDashboard2 from "./Minimal/Variation2";
-import PreviewApp from "./PreviewApp";
-import Publish from "./Publish";
-import PushNotifications from "./PushNotifications";
-import ScheduledNotifications from "./PushNotifications/ScheduledNotifications";
-import Referral from "./Referral";
-import SalesDashboard from "./Sales/";
-import SettingsDashboard from "./Settings";
-import Tutorials from "./Tutorials";
+import AnalyticsDashboard from './Analytics';
+import CommerceDashboard from './Commerce';
+import CRMDashboard from './CRM';
+import DesignApp from './Design';
+import DesignCart from './Design/Cart/Cart';
+import DesignCollection from './Design/Collection/collections';
+import DesignLanding from './Design/Landing';
+import DesignProduct from './Design/Product/products';
+import DesignSearch from './Design/Search/Search';
+import DesignUser from './Design/User/landing-user-section';
+import Integrations from './Integrations';
+import MinimalDashboard1 from './Minimal/Variation1';
+import MinimalDashboard2 from './Minimal/Variation2';
+import PreviewApp from './PreviewApp';
+import Publish from './Publish';
+import PushNotifications from './PushNotifications';
+import ScheduledNotifications from './PushNotifications/ScheduledNotifications';
+import Referral from './Referral';
+import SalesDashboard from './Sales';
+import SettingsDashboard from './Settings';
+import Tutorials from './Tutorials';
 
 const Dashboards = ({ match }) => (
   <Fragment>

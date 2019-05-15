@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   DatePicker,
   RadioButton,
   RadioButtonGroup,
   TimePicker
-} from "material-ui";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+} from 'material-ui';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   Button,
   Card,
@@ -19,26 +19,26 @@ import {
   Input,
   Label,
   Row
-} from "reactstrap";
-import PageTitle from "../../../Layout/AppMain/PageTitle";
-import { API_ROOT } from "../../../utilities/api-config";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
+} from 'reactstrap';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class PushNotifications extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       snackbar_open: false,
-      snackbar_message: "Notification Sent 👍",
-      titleText: "",
+      snackbar_message: 'Notification Sent 👍',
+      titleText: '',
       // subtitle: "",
-      body: "",
-      image: "",
-      deeplinkType: "collection",
-      deeplinkHandle: "",
+      body: '',
+      image: '',
+      deeplinkType: 'collection',
+      deeplinkHandle: '',
       deeplinkList: [],
       deeplinkSelected: [],
-      textFieldValue: "",
+      textFieldValue: '',
       scheduleLater: false,
       scheduleDateTime: new Date(),
       scheduledNotifications: []
@@ -62,7 +62,7 @@ export default class PushNotifications extends React.Component {
   };
 
   onRadioChange = event => {
-    if (event.target.value === "send_later") {
+    if (event.target.value === 'send_later') {
       this.setState({ scheduleLater: true });
     } else {
       this.setState({ scheduleLater: false });
@@ -94,20 +94,20 @@ export default class PushNotifications extends React.Component {
       send_after: this.state.scheduleDateTime.toString()
     };
 
-    if (this.state.deeplinkHandle !== "") {
-      body["data"] = {
+    if (this.state.deeplinkHandle !== '') {
+      body.data = {
         deeplinkType: this.state.deeplinkType,
         deeplinkHandle: this.state.deeplinkHandle
       };
     }
     axios.post(`${API_ROOT}/api/v1/send-notification`, body).then(resp => {
       if (resp.data.success) {
-        this.setState({ snackbar_message: "Notification Sent 👍" });
+        this.setState({ snackbar_message: 'Notification Sent 👍' });
         this.setState({ snackbar_open: true });
       } else {
         this.setState({
           snackbar_message:
-            "Error sending notification. Our team has been notified."
+            'Error sending notification. Our team has been notified.'
         });
         this.setState({ snackbar_open: true });
         //   sendSlackMessage('Failed to send Push notification', resp.data);
@@ -116,13 +116,13 @@ export default class PushNotifications extends React.Component {
   }
 
   searchProduct = searchField => {
-    if (searchField !== "") {
+    if (searchField !== '') {
       axios
-        .get(API_ROOT + "/api/find/product?title=" + searchField)
+        .get(`${API_ROOT}/api/find/product?title=${searchField}`)
         .then(res => {
           for (const prod of res.data) {
-            prod["value"] = prod["id"];
-            prod["label"] = prod["title"];
+            prod.value = prod.id;
+            prod.label = prod.title;
           }
           this.setState({ deeplinkList: res.data });
         });
@@ -130,13 +130,13 @@ export default class PushNotifications extends React.Component {
   };
 
   searchCollection = searchField => {
-    if (searchField !== "") {
+    if (searchField !== '') {
       axios
-        .get(API_ROOT + "/api/find/collection?title=" + searchField)
+        .get(`${API_ROOT}/api/find/collection?title=${searchField}`)
         .then(res => {
           for (const prod of res.data) {
-            prod["value"] = prod["id"];
-            prod["label"] = prod["title"];
+            prod.value = prod.id;
+            prod.label = prod.title;
           }
           this.setState({ deeplinkList: res.data });
         });
@@ -147,8 +147,8 @@ export default class PushNotifications extends React.Component {
     const notificationArray = [];
     for (const notification of this.state.scheduledNotifications) {
       const d = new Date(0).setUTCSeconds(notification.send_after);
-      const dateFormat = require("dateformat");
-      const ds = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+      const dateFormat = require('dateformat');
+      const ds = dateFormat(d, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
       notificationArray.push([
         notification.headings.en,
         notification.contents.en,
@@ -161,7 +161,7 @@ export default class PushNotifications extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -248,12 +248,12 @@ export default class PushNotifications extends React.Component {
                           id="exampleFile"
                         /> */}
                     <S3SingleFileUploaderWithPreviewAndFileNameCapability
-                      label={"Upload Image"}
-                      acceptedFiles={["image/jpeg", "image/png"]}
+                      label="Upload Image"
+                      acceptedFiles={['image/jpeg', 'image/png']}
                       fileName={this.state.image}
-                      previewImageHeight={"100px"}
-                      previewImageWidth={"100px"}
-                      imageFolder={"push_notification"}
+                      previewImageHeight="100px"
+                      previewImageWidth="100px"
+                      imageFolder="push_notification"
                       onChange={value => {
                         this.setState({ image: value });
                       }}
@@ -303,23 +303,23 @@ export default class PushNotifications extends React.Component {
                 </Card>
               </Col>
               <Col md="4">
-                <div style={{ float: "left", position: "relative" }}>
+                <div style={{ float: 'left', position: 'relative' }}>
                   <img
-                    src={require("./device.png")}
+                    src={require('./device.png')}
                     alt=""
-                    style={{ float: "right" }}
-                    width={"290px"}
-                    height={"530px"}
+                    style={{ float: 'right' }}
+                    width="290px"
+                    height="530px"
                   />
                   <div className="notification-screen-style">
                     <h2
                       className="Polaris-Heading"
                       style={{
-                        maxWidth: "255px",
-                        overflow: "hidden",
-                        fontSize: "11px",
+                        maxWidth: '255px',
+                        overflow: 'hidden',
+                        fontSize: '11px',
                         fontWeight: 700,
-                        minHeight: "24px"
+                        minHeight: '24px'
                       }}
                     >
                       {this.state.titleText}
@@ -327,11 +327,11 @@ export default class PushNotifications extends React.Component {
                     <h2
                       className="Polaris-Heading"
                       style={{
-                        maxWidth: "255px",
-                        overflow: "hidden",
-                        fontSize: "11px",
+                        maxWidth: '255px',
+                        overflow: 'hidden',
+                        fontSize: '11px',
                         fontWeight: 500,
-                        minHeight: "24px"
+                        minHeight: '24px'
                       }}
                     >
                       {this.state.subtitle}
@@ -339,11 +339,11 @@ export default class PushNotifications extends React.Component {
                     <h2
                       className="Polaris-Heading"
                       style={{
-                        maxWidth: "255px",
-                        overflow: "hidden",
-                        fontSize: "10px",
+                        maxWidth: '255px',
+                        overflow: 'hidden',
+                        fontSize: '10px',
                         fontWeight: 400,
-                        minHeight: "24px"
+                        minHeight: '24px'
                       }}
                     >
                       {this.state.body}

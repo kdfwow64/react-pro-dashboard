@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 import {
   Button,
@@ -13,8 +13,8 @@ import {
   Input,
   FormFeedback,
   FormText
-} from "reactstrap";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
+} from 'reactstrap';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class WizardStep3 extends React.Component {
   constructor(props) {
@@ -31,26 +31,26 @@ export default class WizardStep3 extends React.Component {
       collapse: false,
       accordion: [true, false, false],
       custom: [true, false],
-      status: "Closed",
+      status: 'Closed',
       fadeIn: true,
       timeout: 300
     };
   }
 
   onEntering() {
-    this.setState({ status: "Opening..." });
+    this.setState({ status: 'Opening...' });
   }
 
   onEntered() {
-    this.setState({ status: "Opened" });
+    this.setState({ status: 'Opened' });
   }
 
   onExiting() {
-    this.setState({ status: "Closing..." });
+    this.setState({ status: 'Closing...' });
   }
 
   onExited() {
-    this.setState({ status: "Closed" });
+    this.setState({ status: 'Closed' });
   }
 
   toggle() {
@@ -120,11 +120,11 @@ export default class WizardStep3 extends React.Component {
             <Label for="examplePassword">Google JSON File</Label>
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add Play Store JSON File"
-              acceptedFiles={["application/json"]}
+              acceptedFiles={['application/json']}
               // fileName={this.props.bannerImageUrl}
-              previewImageHeight={"100px"}
-              previewImageWidth={"100px"}
-              imageFolder={"play_store_json_file"}
+              previewImageHeight="100px"
+              previewImageWidth="100px"
+              imageFolder="play_store_json_file"
               // onChange={value => this.bannerImageUrl(value)}
             />
           </FormGroup>

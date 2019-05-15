@@ -9,23 +9,23 @@ import CRMDashboard1 from './Examples/Variation1';
 import CRMDashboard2 from './Examples/Variation2';
 
 export default class CRMDashboard extends Component {
-
-    render() {
-        return (
-            <Fragment>
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName="TabsAnimation"
-                    transitionAppear={true}
-                    transitionAppearTimeout={0}
-                    transitionEnter={false}
-                    transitionLeave={false}>
-                    {/* <PageTitleAlt2
+  render() {
+    return (
+      <Fragment>
+        <ReactCSSTransitionGroup
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          {/* <PageTitleAlt2
                         heading="CRM Dashboard"
                         subheading="Yet another dashboard built using only the included Architech elements and components."
                         icon="pe-7s-graph icon-gradient bg-ripe-malin"
                     /> */}
-                    {/* <Tabs
+          {/* <Tabs
                         defaultActiveKey="1"
                         renderTabBar={() => <ScrollableInkTabBar/>}
                         renderTabContent={() => <TabContent/>}
@@ -33,8 +33,8 @@ export default class CRMDashboard extends Component {
                         <TabPane tab='Variation 1' key="1"><CRMDashboard2/></TabPane>
                         <TabPane tab='Variation 2' key="2"><CRMDashboard1/></TabPane>
                     </Tabs> */}
-                </ReactCSSTransitionGroup>
-            </Fragment>
-        )
-    }
+        </ReactCSSTransitionGroup>
+      </Fragment>
+    );
+  }
 }
