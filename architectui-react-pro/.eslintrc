@@ -9,6 +9,22 @@
       }
     ],
     "react/prop-types": 0,
+    "import/no-duplicates": 0, //enable this
+    "react/destructuring-assignment": 0, //enable this
+    "no-unused-expressions": 0, //enable this
+    "prefer-destructuring": 0, //enable this
+    "func-names": 0, //enable this
+    "jsx-a11y/alt-text": 0, //enable this
+    "class-methods-use-this": 0, //enable this
+    "no-unused-vars": 0, //enable this
+    "react/sort-comp": 0, //enable this
+    "no-param-reassign": 0, //enablet his
+    "react/jsx-no-target-blank": 0, //enablet this
+    "react/no-danger": 0, //enable this
+    "import/no-extraneous-dependencies": 0, //enable this
+    "jsx-a11y/no-static-element-interactions": 0, //enable this
+    "react/prefer-stateless-function": 0, //enablet this
+    "jsx-a11y/click-events-have-key-events": 0, //enablet this
     "no-underscore-dangle": 0,
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error"
