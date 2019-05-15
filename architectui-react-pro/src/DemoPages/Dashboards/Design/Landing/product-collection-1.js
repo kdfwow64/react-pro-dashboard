@@ -2,7 +2,7 @@
 // @ts-nocheck
 import axios from 'axios';
 import React, { Fragment } from 'react';
-import { API_ROOT } from "../../../../utilities/api-config";
+import { API_ROOT } from '../../../../utilities/api-config';
 
 const ProductsCollections = {
   collections: [
@@ -101,17 +101,15 @@ class ProductCollection1 extends React.Component {
 
   setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
+
   componentWillMount() {
     const collectionType = this.state.collectionType;
     const selectedProductId = this.state.selectedProductId;
     if (collectionType && selectedProductId) {
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-          collectionType +
-          `/` +
-          selectedProductId
+          `${API_ROOT}/api/v2/collection/products/${collectionType}/${selectedProductId}`
         )
         .then(res1 => {
           this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -123,155 +121,157 @@ class ProductCollection1 extends React.Component {
   render() {
     return (
       <Fragment>
-
-            
-                <div
-                  id="FirstDropContainer"
-                  className="HoverEffectDragDrop"
-                  style={{ background: this.state.CollectionCellBG, height: 'auto' }}
-                >
-                  <div
-                    id="FirstDropTopSection"
-                    style={{ background: this.state.HeaderBGColor }}
-                  >
-                    <div id="FirstDropLeftIcon" style={{ color: this.state.IconColor }}>
-                      <i className={this.state.DropDownGetIconheader} />
+        <div
+          id="FirstDropContainer"
+          className="HoverEffectDragDrop"
+          style={{ background: this.state.CollectionCellBG, height: 'auto' }}
+        >
+          <div
+            id="FirstDropTopSection"
+            style={{ background: this.state.HeaderBGColor }}
+          >
+            <div id="FirstDropLeftIcon" style={{ color: this.state.IconColor }}>
+              <i className={this.state.DropDownGetIconheader} />
+            </div>
+            <div
+              id="FirstDropTopSecTitle"
+              style={{ color: this.state.HeaderTitle, textAlign: 'left' }}
+            >
+              {this.state.HeaderText}
+            </div>
+            <div id="FirstDropShopNowContainer">
+              <div
+                id="FirstDropShopNowTitle"
+                style={{ color: this.state.ActionTitleColor }}
+              >
+                {this.state.ActionText}
+              </div>
+              <div
+                id="FirstDropShopNowIcon"
+                style={{ color: this.state.ActionColor }}
+              >
+                <i className={this.state.DropDownGetIconaction} />
+              </div>
+            </div>
+          </div>
+          <div
+            id="FirstDropProductContent"
+            style={{
+              display:
+                this.state.CollectionsProductsData &&
+                this.state.CollectionsProductsData.length !== 0
+                  ? 'block'
+                  : 'none'
+            }}
+          >
+            {// this.state.isLoaded &&
+            this.state.CollectionsProductsData &&
+              this.state.CollectionsProductsData.length !== 0 &&
+              this.state.CollectionsProductsData.map((item, index) => {
+                return (
+                  <div key={index} className="FirstDropProductContainer">
+                    <div
+                      className="FirstDropProduct"
+                      style={{
+                        border: `1px solid${this.state.productBorderColor}`
+                      }}
+                    >
+                      {item.imageUrl && (
+                        <img
+                          style={{ objectFit: 'cover' }}
+                          src={item.imageUrl}
+                          alt={item.title}
+                        />
+                      )}
+                      {!item.imageUrl ||
+                        item.imageUrl === '' ||
+                        (item.imageUrl === null && (
+                          <i className="pe-7s-photo" />
+                        ))}
                     </div>
                     <div
-                      id="FirstDropTopSecTitle"
-                      style={{ color: this.state.HeaderTitle, textAlign: 'left' }}
+                      className="FirstDropProductTitle"
+                      style={{ color: this.state.CollectionProductTitle }}
                     >
-                      {this.state.HeaderText}
-                    </div>
-                    <div id="FirstDropShopNowContainer">
-                      <div
-                        id="FirstDropShopNowTitle"
-                        style={{ color: this.state.ActionTitleColor }}
-                      >
-                        {this.state.ActionText}
-                      </div>
-                      <div
-                        id="FirstDropShopNowIcon"
-                        style={{ color: this.state.ActionColor }}
-                      >
-                        <i className={this.state.DropDownGetIconaction} />
-                      </div>
+                      {item.title}
                     </div>
                   </div>
-                  <div
-                    id="FirstDropProductContent"
-                    style={{
-                      display:
-                        this.state.CollectionsProductsData && this.state.CollectionsProductsData.length !== 0 ? 'block' : 'none'
-                    }}
-                  >
-
-                    {// this.state.isLoaded && 
-                      this.state.CollectionsProductsData &&
-                      this.state.CollectionsProductsData.length !== 0 &&
-                      this.state.CollectionsProductsData.map((item, index) => {
-                        return (
-                          <div key={index} className="FirstDropProductContainer">
-                            <div
-                              className="FirstDropProduct"
-                              style={{
-                                border: '1px solid' + this.state.productBorderColor
-                              }}
-                            >
-                              {item.imageUrl &&
-                                <img style={{ 'objectFit': 'cover' }} src={item.imageUrl} alt={item.title} />
-                              }
-                              {!item.imageUrl || item.imageUrl == '' || item.imageUrl == null &&
-                                <i className="pe-7s-photo"></i>
-                              }
-                            </div>
-                            <div
-                              className="FirstDropProductTitle"
-                              style={{ color: this.state.CollectionProductTitle }}
-                            >
-                              {item.title}
-                            </div>
-                          </div>
-                        );
-                      })}
+                );
+              })}
+          </div>
+          <div
+            id="FirstDropProductContent"
+            style={{
+              display: this.props.callType !== 'droppable' ? 'block' : 'none'
+            }}
+          >
+            {// this.state.isLoaded &&
+            this.props.callType !== 'droppable' &&
+              this.state.CollectionsProductsDataDefault.map((item, index) => {
+                return (
+                  <div key={index} className="FirstDropProductContainer">
+                    <div
+                      className="FirstDropProduct"
+                      style={{
+                        border: `1px solid${this.state.productBorderColor}`
+                      }}
+                    >
+                      <i className="pe-7s-photo" />
+                    </div>
+                    <div
+                      className="FirstDropProductTitle"
+                      style={{ color: this.state.CollectionProductTitle }}
+                    >
+                      {item.title}
+                    </div>
                   </div>
-                  <div
-                    id="FirstDropProductContent"
-                    style={{
-                      display: this.props.callType !== 'droppable' ? 'block' : 'none'
-                    }}
-                  >
-
-                    {// this.state.isLoaded &&
-                      this.props.callType !== 'droppable' &&
-                      this.state.CollectionsProductsDataDefault.map((item, index) => {
-                        return (
-                          <div key={index} className="FirstDropProductContainer">
-                            <div
-                              className="FirstDropProduct"
-                              style={{
-                                border: '1px solid' + this.state.productBorderColor
-                              }}
-                            >
-                              <i className="pe-7s-photo"></i>
-                            </div>
-                            <div
-                              className="FirstDropProductTitle"
-                              style={{ color: this.state.CollectionProductTitle }}
-                            >
-                              {item.title}
-                            </div>
-                          </div>
-                        );
-                      })}
-                  </div>
-                  <div
-                    id="FirstDropProductContent"
-                    style={{
-                      display:
-                        this.state.CollectionsProductsData &&
-                          this.state.CollectionsProductsData.length === 0 &&
-                          this.props.callType === 'droppable'
-                          ? 'block'
-                          : 'none'
-                    }}
-                  >
-
-                    {// this.state.isLoaded &&
-                      !this.state.CollectionsProductsData ||
-                      this.state.CollectionsProductsData.length === 0 &&
-                      this.props.callType === 'droppable' &&
-                      this.state.CollectionsProductsDataDefault.map((item, index) => {
-                        return (
-                          <div key={index} className="FirstDropProductContainer">
-                            <div
-                              className="FirstDropProduct"
-                              style={{
-                                border: '1px solid' + this.state.productBorderColor
-                              }}
-                            >
-                              {item.imageUrl &&
-                                <img style={{ 'objectFit': 'cover' }} src={item.imageUrl} alt={item.title} />
-                              }
-                              {!item.imageUrl &&
-                                <i className="pe-7s-photo"></i>
-                              }
-                            </div>
-                            <div
-                              className="FirstDropProductTitle"
-                              style={{ color: this.state.CollectionProductTitle }}
-                            >
-                              {item.title}
-                            </div>
-                          </div>
-                        );
-                      })}
-                  </div>
-                </div>
-
-
-
-
+                );
+              })}
+          </div>
+          <div
+            id="FirstDropProductContent"
+            style={{
+              display:
+                this.state.CollectionsProductsData &&
+                this.state.CollectionsProductsData.length === 0 &&
+                this.props.callType === 'droppable'
+                  ? 'block'
+                  : 'none'
+            }}
+          >
+            {// this.state.isLoaded &&
+            !this.state.CollectionsProductsData ||
+              (this.state.CollectionsProductsData.length === 0 &&
+                this.props.callType === 'droppable' &&
+                this.state.CollectionsProductsDataDefault.map((item, index) => {
+                  return (
+                    <div key={index} className="FirstDropProductContainer">
+                      <div
+                        className="FirstDropProduct"
+                        style={{
+                          border: `1px solid${this.state.productBorderColor}`
+                        }}
+                      >
+                        {item.imageUrl && (
+                          <img
+                            style={{ objectFit: 'cover' }}
+                            src={item.imageUrl}
+                            alt={item.title}
+                          />
+                        )}
+                        {!item.imageUrl && <i className="pe-7s-photo" />}
+                      </div>
+                      <div
+                        className="FirstDropProductTitle"
+                        style={{ color: this.state.CollectionProductTitle }}
+                      >
+                        {item.title}
+                      </div>
+                    </div>
+                  );
+                }))}
+          </div>
+        </div>
       </Fragment>
     );
   }

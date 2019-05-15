@@ -18,7 +18,7 @@ const styles = {
     zIndex: 10000
   }
 };
-class OrderFavouriteOption extends React.Component  {
+class OrderFavouriteOption extends React.Component {
   constructor(props) {
     super(props);
 
@@ -75,30 +75,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavouriteColorClose = () => {
     this.setState({ displayfavouriteBGColor: false });
-  }
+  };
+
   get onfavouriteColorClose() {
     return this._onfavouriteColorClose;
   }
+
   set onfavouriteColorClose(value) {
     this._onfavouriteColorClose = value;
   }
 
   _onfavouriteColorClick = () => {
     this.setState({ displayfavouriteBGColor: true });
-  }
+  };
+
   get onfavouriteColorClick() {
     return this._onfavouriteColorClick;
   }
+
   set onfavouriteColorClick(value) {
     this._onfavouriteColorClick = value;
   }
+
   _onfavouriteColorChangeComplete = color => {
     this.setState({ favouriteColor: color.hex });
     this.props.onfavouriteColorChangeComplete(color);
-  }
+  };
+
   get onfavouriteColorChangeComplete() {
     return this._onfavouriteColorChangeComplete;
   }
+
   set onfavouriteColorChangeComplete(value) {
     this._onfavouriteColorChangeComplete = value;
   }
@@ -107,29 +114,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavouritetitleColorClose = () => {
     this.setState({ displayfavTabtitleColor: false });
-  }
+  };
+
   get onfavouritetitleColorClose() {
     return this._onfavouritetitleColorClose;
   }
+
   set onfavouritetitleColorClose(value) {
     this._onfavouritetitleColorClose = value;
   }
+
   _onfavouritetitleColorClick = () => {
     this.setState({ displayfavTabtitleColor: true });
-  }
+  };
+
   get onfavouritetitleColorClick() {
     return this._onfavouritetitleColorClick;
   }
+
   set onfavouritetitleColorClick(value) {
     this._onfavouritetitleColorClick = value;
   }
+
   _onfavouritetitleColorChangeComplete = color => {
     this.setState({ favouritetitleColor: color.hex });
     this.props.onfavouritetitleColorChangeComplete(color);
-  }
+  };
+
   get onfavouritetitleColorChangeComplete() {
     return this._onfavouritetitleColorChangeComplete;
   }
+
   set onfavouritetitleColorChangeComplete(value) {
     this._onfavouritetitleColorChangeComplete = value;
   }
@@ -138,29 +153,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavouritepriceColorClose = () => {
     this.setState({ displayfavPriceColor: false });
-  }
+  };
+
   get onfavouritepriceColorClose() {
     return this._onfavouritepriceColorClose;
   }
+
   set onfavouritepriceColorClose(value) {
     this._onfavouritepriceColorClose = value;
   }
+
   _onfavouritepriceColorClick = () => {
     this.setState({ displayfavPriceColor: true });
-  }
+  };
+
   get onfavouritepriceColorClick() {
     return this._onfavouritepriceColorClick;
   }
+
   set onfavouritepriceColorClick(value) {
     this._onfavouritepriceColorClick = value;
   }
+
   _onfavouritepriceColorChangeComplete = color => {
     this.setState({ favouritepriceColor: color.hex });
     this.props.onfavouritepriceColorChangeComplete(color);
-  }
+  };
+
   get onfavouritepriceColorChangeComplete() {
     return this._onfavouritepriceColorChangeComplete;
   }
+
   set onfavouritepriceColorChangeComplete(value) {
     this._onfavouritepriceColorChangeComplete = value;
   }
@@ -169,29 +192,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavoriteimageColorClose = () => {
     this.setState({ displayfavimgborderColor: false });
-  }
+  };
+
   get onfavoriteimageColorClose() {
     return this._onfavoriteimageColorClose;
   }
+
   set onfavoriteimageColorClose(value) {
     this._onfavoriteimageColorClose = value;
   }
+
   _onfavoriteimageColorClick = () => {
     this.setState({ displayfavimgborderColor: true });
-  }
+  };
+
   get onfavoriteimageColorClick() {
     return this._onfavoriteimageColorClick;
   }
+
   set onfavoriteimageColorClick(value) {
     this._onfavoriteimageColorClick = value;
   }
+
   _onfavoriteimageChangeComplete = color => {
     this.setState({ favoriteimageColor: color.hex });
     this.props.onfavoriteimageChangeComplete(color);
-  }
+  };
+
   get onfavoriteimageChangeComplete() {
     return this._onfavoriteimageChangeComplete;
   }
+
   set onfavoriteimageChangeComplete(value) {
     this._onfavoriteimageChangeComplete = value;
   }
@@ -200,29 +231,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavouritecellbgClose = () => {
     this.setState({ displayfavouritecellbgcolor: false });
-  }
+  };
+
   get onfavouritecellbgClose() {
     return this._onfavouritecellbgClose;
   }
+
   set onfavouritecellbgClose(value) {
     this._onfavouritecellbgClose = value;
   }
+
   _onfavouritecellbgClick = () => {
     this.setState({ displayfavouritecellbgcolor: true });
-  }
+  };
+
   get onfavouritecellbgClick() {
     return this._onfavouritecellbgClick;
   }
+
   set onfavouritecellbgClick(value) {
     this._onfavouritecellbgClick = value;
   }
+
   _onfavouritecellbgChangeComplete = color => {
     this.setState({ favouritecellBgColor: color.hex });
     this.props.onfavouritecellbgChangeComplete(color);
-  }
+  };
+
   get onfavouritecellbgChangeComplete() {
     return this._onfavouritecellbgChangeComplete;
   }
+
   set onfavouritecellbgChangeComplete(value) {
     this._onfavouritecellbgChangeComplete = value;
   }
@@ -231,29 +270,37 @@ class OrderFavouriteOption extends React.Component  {
 
   _onfavouritecellsepratorColorClose = () => {
     this.setState({ displayfavouritecellsepratorColor: false });
-  }
+  };
+
   get onfavouritecellsepratorColorClose() {
     return this._onfavouritecellsepratorColorClose;
   }
+
   set onfavouritecellsepratorColorClose(value) {
     this._onfavouritecellsepratorColorClose = value;
   }
+
   _onfavouritecellsepratorColorClick = () => {
     this.setState({ displayfavouritecellsepratorColor: true });
-  }
+  };
+
   get onfavouritecellsepratorColorClick() {
     return this._onfavouritecellsepratorColorClick;
   }
+
   set onfavouritecellsepratorColorClick(value) {
     this._onfavouritecellsepratorColorClick = value;
   }
+
   _onfavouritecellsepratorColorChangeComplete = color => {
     this.setState({ favouritecellsepratorColor: color.hex });
     this.props.onfavouritecellsepratorColorChangeComplete(color);
-  }
+  };
+
   get onfavouritecellsepratorColorChangeComplete() {
     return this._onfavouritecellsepratorColorChangeComplete;
   }
+
   set onfavouritecellsepratorColorChangeComplete(value) {
     this._onfavouritecellsepratorColorChangeComplete = value;
   }
@@ -273,14 +320,15 @@ class OrderFavouriteOption extends React.Component  {
     displayfavouritecellbgcolor: false,
     displayfavouritecellsepratorColor: false
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
-  
+    left: '0px'
+  };
+
   render() {
     return (
       <div id="SearchNavigationSettings" className="SearchNavigationSettings">
@@ -299,7 +347,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouriteColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -315,7 +362,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouriteBGColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavouriteColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavouriteColorClose}
+                      />
                       <ChromePicker
                         color={this.props.favouriteColor}
                         onChange={this.onfavouriteColorChangeComplete}
@@ -335,7 +385,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritetitleColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -351,7 +400,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavTabtitleColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavouritetitleColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavouritetitleColorClose}
+                      />
                       <ChromePicker
                         color={this.props.favouritetitleColor}
                         onChange={this.onfavouritetitleColorChangeComplete}
@@ -371,7 +423,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritepriceColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -387,7 +438,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavPriceColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavouritepriceColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavouritepriceColorClose}
+                      />
                       <ChromePicker
                         color={this.props.favouritepriceColor}
                         onChange={this.onfavouritepriceColorChangeComplete}
@@ -410,7 +464,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavoriteimageColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -426,7 +479,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavimgborderColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavoriteimageColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavoriteimageColorClose}
+                      />
                       <ChromePicker
                         color={this.props.favoriteimageColor}
                         onChange={this.onfavoriteimageChangeComplete}
@@ -449,7 +505,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritecellbgClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -465,7 +520,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouritecellbgcolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavouritecellbgClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavouritecellbgClose}
+                      />
                       <ChromePicker
                         color={this.props.favouritecellBgColor}
                         onChange={this.onfavouritecellbgChangeComplete}
@@ -488,7 +546,6 @@ class OrderFavouriteOption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onfavouritecellsepratorColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -504,7 +561,10 @@ class OrderFavouriteOption extends React.Component  {
                   </div>
                   {this.state.displayfavouritecellsepratorColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onfavouritecellsepratorColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onfavouritecellsepratorColorClose}
+                      />
                       <ChromePicker
                         color={this.props.favouritecellsepratorColor}
                         onChange={

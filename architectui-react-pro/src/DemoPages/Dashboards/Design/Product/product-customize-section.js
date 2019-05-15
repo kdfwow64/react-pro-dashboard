@@ -10,7 +10,7 @@ import ProductExternalLink from './product-details-elements/product-external-lin
 import ProductOptionAvailable from './product-details-elements/product-option-available';
 import ProductPicture from './product-details-elements/product-pictures';
 import ProducttitleAndPrice from './product-details-elements/product-title-price';
-import { API_ROOT } from "../../../../utilities/api-config";
+import { API_ROOT } from '../../../../utilities/api-config';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 const CollectionsProducts = {
@@ -61,7 +61,7 @@ const CollectionsProducts = {
   SelectedCollectionId: '111'
 };
 
-class ProductcustomizePage extends React.Component  {
+class ProductcustomizePage extends React.Component {
   constructor(props) {
     super(props);
     this.DisplayProductResult = this.DisplayProductResult.bind(this);
@@ -80,7 +80,9 @@ class ProductcustomizePage extends React.Component  {
     // this.setCollectionForProduct = this.setCollectionForProduct.bind(this);
     this.OnCollectionEditClick = this.OnCollectionEditClick.bind(this);
     this.singleProductClick = this.singleProductClick.bind(this);
-    this.DropDownGetIconProductNavCallback = this.DropDownGetIconProductNavCallback.bind(this);
+    this.DropDownGetIconProductNavCallback = this.DropDownGetIconProductNavCallback.bind(
+      this
+    );
 
     this.state = {
       DisplayProduct: 'none',
@@ -99,7 +101,7 @@ class ProductcustomizePage extends React.Component  {
       CollectionsProducts: CollectionsProducts.collections,
       productselectedTitle: '',
       CollectionsProductsData: [],
-      bannerImageUrl: '',
+      bannerImageUrl: ''
     };
   }
 
@@ -131,15 +133,19 @@ class ProductcustomizePage extends React.Component  {
       }
     ];
     return productPageElements;
-  }
-  navbghandleChange (navbgcolor) {
+  };
+
+  navbghandleChange(navbgcolor) {
     this.setState({ navtitlecolor: navbgcolor.hex });
-    this.props.navbgcolorClick(navbgcolor);    
+    this.props.navbgcolorClick(navbgcolor);
   }
+
   SearchProduct(e) {
     const searchText = e.target.value;
     const CollectionsProducts = this.state.CollectionsProducts;
-    const updatedCollectionsProducts = CollectionsProducts.filter(function(item) {
+    const updatedCollectionsProducts = CollectionsProducts.filter(function(
+      item
+    ) {
       return (
         item.settings.name
           .toLowerCase()
@@ -153,6 +159,7 @@ class ProductcustomizePage extends React.Component  {
     this.setState({ navtitlecolor: navtitlecolor.hex });
     this.props.navtitlecolor(navtitlecolor);
   }
+
   naviconhandleChange(naviconcolor) {
     this.setState({ naviconcolor: naviconcolor.hex });
     this.props.naviconcolor(naviconcolor);
@@ -162,17 +169,21 @@ class ProductcustomizePage extends React.Component  {
     this.setState({
       navicondisplayColorPicker: !this.navicondisplayColorPicker
     });
-  }
+  };
+
   CollectionMainSectionEditOption() {
     this.setState({ CollectionMainSectionEditOptionValue: 'block' });
     this.setState({ ShowHideGridListView: 'none' });
   }
+
   navtitlehandleClose = () => {
     this.setState({ navtitledisplayColorPicker: false });
-  }
+  };
+
   navbghandleClose = () => {
     this.setState({ navbgdisplayColorPicker: false });
-  }
+  };
+
   DisplayProductResult() {
     if (this.state.DisplayProduct === 'none') {
       this.setState({ DisplayProduct: 'block' });
@@ -180,25 +191,31 @@ class ProductcustomizePage extends React.Component  {
       this.setState({ DisplayProduct: 'none' });
     }
   }
+
   CollectionCloseEditSection() {
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
   }
+
   OnCollectionEditClick = e => {
     this.setState({ NavTitle: e.target.value });
     this.props.navBarTitle(e.target.value);
-  }
+  };
+
   navbghandleClick = () => {
     this.setState({ navbgdisplayColorPicker: !this.navbgdisplayColorPicker });
-  }
+  };
+
   navtitlehandleClick = () => {
     this.setState({
       navtitledisplayColorPicker: !this.navtitledisplayColorPicker
     });
-  }
+  };
+
   naviconhandleClose = () => {
     this.setState({ navicondisplayColorPicker: false });
-  }
+  };
+
   swatch = {
     padding: '5px',
     display: 'inline-block',
@@ -223,7 +240,7 @@ class ProductcustomizePage extends React.Component  {
   DropDownGetIconProductNavCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.DropDownGetIconheader(icon);
-  }
+  };
 
   ApplyNavSettings = () => {
     const CollectionSettings = {
@@ -236,7 +253,7 @@ class ProductcustomizePage extends React.Component  {
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
     this.props.DisplaySaveBtn(CollectionSettings);
-  }
+  };
 
   getProductPageElementContent = e => {
     if (e.elementName === 'ProductPicture') {
@@ -319,15 +336,15 @@ class ProductcustomizePage extends React.Component  {
         />
       );
     }
-  }
+  };
 
   reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
-    const [ removed ] = result.splice(startIndex, 1);
+    const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
 
     return result;
-  }
+  };
 
   onDragEnd = result => {
     const { source, destination } = result;
@@ -349,28 +366,25 @@ class ProductcustomizePage extends React.Component  {
       this.setState(state);
     }
     this.props.DisplaySaveBtn();
-  }
+  };
+
   singleProductClick = item => {
     this.setState({ DisplayProduct: 'none' });
     this.props.productselectedTitle(item.title);
     this.props.productImage(item.imageUrl);
     this.props.productName(item.title);
     this.props.productRate(item.price);
-  }
+  };
 
-  bannerImageUrl = (value) => {
+  bannerImageUrl = value => {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
-  }
+  };
 
   componentDidMount() {
-    axios
-      .get(
-        `${API_ROOT}/api/products`
-      )
-      .then(res => {
-        this.setState({ CollectionsProductsData: res.data });
-      });
+    axios.get(`${API_ROOT}/api/products`).then(res => {
+      this.setState({ CollectionsProductsData: res.data });
+    });
   }
 
   render() {
@@ -395,17 +409,18 @@ class ProductcustomizePage extends React.Component  {
               className="ProductResult"
               style={{ display: this.state.DisplayProduct }}
             >
-              {/*<input
+              {/* <input
                 type="text"
                 onKeyPress={this.SearchProduct}
                 defaultValue=""
                 value={this.state.searchText}
                 style={{ margin: '5px', width: '96%' }}
-              />*/}
+              /> */}
               <div className="mainProductListSearch">
                 {this.state.CollectionsProductsData.map((item3, index3) => {
                   return (
-                    <div key={item3.id}
+                    <div
+                      key={item3.id}
                       className="collectionElementProductShowHide productCollection"
                       style={{
                         height: 'auto',
@@ -429,7 +444,9 @@ class ProductcustomizePage extends React.Component  {
           <div id="ProductRightBody">
             <div
               id="CollectionEffectNavBarContainer"
-              style={{ backgroundColor: this.props.navbgcolorValue || '#0E7C95' }}
+              style={{
+                backgroundColor: this.props.navbgcolorValue || '#0E7C95'
+              }}
             >
               <div
                 id="CollectionEffectnavBars"
@@ -441,15 +458,14 @@ class ProductcustomizePage extends React.Component  {
                 id="CollectionEffectMyStoreTitle"
                 style={{ color: this.props.navtitlecolorValue || '#fff' }}
               >
-              { this.props.navBarTitleValue === 'img' &&
-                <img src={this.props.bannerImageUrl} style={{maxHeight:"30px", maxWidth: "90px" }} />
-              }
-              { this.props.navBarTitleValue === 'text' &&
-                'PRODUCT'
-              }
-              { ! this.props.navBarTitleValue  &&
-                'PRODUCT'
-              }
+                {this.props.navBarTitleValue === 'img' && (
+                  <img
+                    src={this.props.bannerImageUrl}
+                    style={{ maxHeight: '30px', maxWidth: '90px' }}
+                  />
+                )}
+                {this.props.navBarTitleValue === 'text' && 'PRODUCT'}
+                {!this.props.navBarTitleValue && 'PRODUCT'}
               </div>
               <div
                 id="CollectionEditMainSlider"
@@ -513,14 +529,18 @@ class ProductcustomizePage extends React.Component  {
                           style={{
                             width: '20px',
                             height: '20px',
-                            backgroundColor: this.props.navbgcolorValue || '#0E7C95'
+                            backgroundColor:
+                              this.props.navbgcolorValue || '#0E7C95'
                           }}
                           onClick={this.navbghandleClick}
                         />
                       </div>
                       {this.state.navbgdisplayColorPicker ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.navbghandleClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.navbghandleClose}
+                          />
                           <ChromePicker
                             color={this.props.navbgcolorValue || '#0E7C95'}
                             onChange={this.navbghandleChange}
@@ -578,7 +598,7 @@ class ProductcustomizePage extends React.Component  {
                         </div>
                       ) : null}
                     </div>
-                  </div>*/}
+                  </div> */}
 
                   <div
                     className="CollectionMainEditIconColor"
@@ -605,14 +625,18 @@ class ProductcustomizePage extends React.Component  {
                           style={{
                             width: '20px',
                             height: '20px',
-                            backgroundColor: this.props.navtitlecolorValue || '#fff'
+                            backgroundColor:
+                              this.props.navtitlecolorValue || '#fff'
                           }}
                           onClick={this.navtitlehandleClick}
                         />
                       </div>
                       {this.state.navtitledisplayColorPicker ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.navtitlehandleClose}
+                          />
                           <ChromePicker
                             color={this.props.navtitlecolorValue || '#fff'}
                             onChange={this.navtitlehandleChange}
@@ -634,12 +658,12 @@ class ProductcustomizePage extends React.Component  {
                     <div className="col-sm-12 CollectionMainEditIconImgView">
                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
-                        acceptedFiles={[ 'image/jpeg', 'image/png' ]}
+                        acceptedFiles={['image/jpeg', 'image/png']}
                         fileName={this.props.bannerImageUrl}
-                        previewImageHeight={'100px'}
-                        previewImageWidth={'100px'}
-                        imageFolder={"navTitleImage"}
-                        onChange={ (value) => this.bannerImageUrl(value) }
+                        previewImageHeight="100px"
+                        previewImageWidth="100px"
+                        imageFolder="navTitleImage"
+                        onChange={value => this.bannerImageUrl(value)}
                       />
                     </div>
                   </div>
@@ -656,7 +680,10 @@ class ProductcustomizePage extends React.Component  {
 
               <div style={{ display: this.state.ShowHideGridListView }}>
                 <DragDropContext onDragEnd={this.onDragEnd}>
-                  <div className="HomeRightLeftContainer" style={{height: 'auto'}}>
+                  <div
+                    className="HomeRightLeftContainer"
+                    style={{ height: 'auto' }}
+                  >
                     <div className="">
                       <div className="navigationStyle">
                         <Droppable droppableId="droppable">
@@ -668,7 +695,7 @@ class ProductcustomizePage extends React.Component  {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={true}
+                                    isDragDisabled
                                   >
                                     {(provided, snapshot) => (
                                       <div

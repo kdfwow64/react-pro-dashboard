@@ -1,18 +1,18 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { Col, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import "../index.css";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import SearchLeftSection from "./SearchLeftSection";
-import SearchRightSection from "./SearchRightSection";
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import SearchLeftSection from './SearchLeftSection';
+import SearchRightSection from './SearchRightSection';
 
 class Cart extends React.Component {
   homeTopTabsShowEditAlert = null;
@@ -20,7 +20,7 @@ class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bannerImageUrl: "",
+      bannerImageUrl: '',
       isLoaded: false
     };
     this.homeTopTabsShowEditAlert = React.createRef();
@@ -58,6 +58,7 @@ class Cart extends React.Component {
         res.data && this.homeTopTabsShowEditAlert.current.showSavedButton();
       });
   };
+
   componentDidMount() {
     axios.get(`${API_ROOT}/api/v2/app-search`).then(res => {
       this.setState({ BGColor: res.data.SearchSettings.BGColor });
@@ -105,24 +106,30 @@ class Cart extends React.Component {
       this.setState({ isLoaded: true });
     });
   }
+
   onThemeOptionSelection = themName => {
     this.setState({ navbgcolor: themeColorFromName(themName) });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
     this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
     this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
   };
+
   DropDownGetIconheader = color => {
     this.setState({ DropDownGetIconheader: color });
   };
+
   naviconcolor = color => {
     this.setState({ naviconcolor: color.hex });
   };
+
   navtitlecolor = color => {
     this.setState({ navtitlecolor: color.hex });
   };
+
   navbgcolor = color => {
     this.setState({ navbgcolor: color.hex });
   };
+
   NavTitle = color => {
     this.setState({ NavTitleValue: color });
   };
@@ -131,63 +138,77 @@ class Cart extends React.Component {
     this.setState({ BGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchInputColorCallback = color => {
     this.setState({ SearchInputColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchInputBorderCallback = color => {
     this.setState({ SearchInputBorder: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchIconColorCallback = color => {
     this.setState({ SearchIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchTitleColorCallback = color => {
     this.setState({ SearchTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SearchBGColorCallback = color => {
     this.setState({ SearchBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CellSeparatorColorCallback = color => {
     this.setState({ CellSeparatorColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CellBGColorCallback = color => {
     this.setState({ CellBGColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductBorderColorCallback = color => {
     this.setState({ ProductBorderColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductTitleColorCallback = color => {
     this.setState({ ProductTitleColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   PriceColorCallback = color => {
     this.setState({ PriceColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   ProductIconColorCallback = color => {
     this.setState({ ProductIconColor: color.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   searchAction = icon => {
     this.setState({ searchAction: icon });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   DisplaySaveBtn = () => {
-    /*this.setState({ navbgcolor: value.navbgcolor });
+    /* this.setState({ navbgcolor: value.navbgcolor });
     this.setState({ DropDownGetIconheader: value.DropDownGetIconheader });
     this.setState({ naviconcolor: value.naviconcolor });
     this.setState({ navtitlecolor: value.navtitlecolor });
    // this.setState({ NavTitle: value.NavTitle });
-    this.setState({ NavTitleValue: value.NavTitleValue });*/
+    this.setState({ NavTitleValue: value.NavTitleValue }); */
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   bannerImageUrlCallBack = val => {
     this.setState({ bannerImageUrl: val });
   };
@@ -199,7 +220,7 @@ class Cart extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             transitionLeave={false}

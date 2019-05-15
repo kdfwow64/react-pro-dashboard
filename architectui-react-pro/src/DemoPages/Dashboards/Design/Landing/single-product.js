@@ -2,8 +2,8 @@
 // @ts-nocheck
 import React from 'react';
 
-class SingleProduct extends React.Component  {
-   constructor(props) {
+class SingleProduct extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       titleColor: this.props.settings.titleColor,
@@ -40,10 +40,10 @@ class SingleProduct extends React.Component  {
 
   setAllSettingsOnApply = settings => {
     this.setState(settings);
-  }
+  };
 
   componentWillMount() {
-    const newleftcellContents = [ ...this.state.leftcellContents ];
+    const newleftcellContents = [...this.state.leftcellContents];
     let cellContentsItem = {};
     if (this.state.selectedProductName) {
       const SelectedCollectionData = {
@@ -66,7 +66,7 @@ class SingleProduct extends React.Component  {
   }
 
   render() {
-    //console.log(this.state.leftcellContents);
+    // console.log(this.state.leftcellContents);
     return (
       <div
         className="HoverEffectDragDrop"
@@ -88,20 +88,18 @@ class SingleProduct extends React.Component  {
                   />
                 </div>
               )}
-             {item.imageUrl === "" && (
+              {item.imageUrl === '' && (
                 <div
                   className="ThirdCollectionPicture"
                   style={{
-                    border: `1px solid ${
-                      this.state.productBorderColor
-                    }`,
+                    border: `1px solid ${this.state.productBorderColor}`,
                     backgroundColor: 'rgba(200, 200, 200, 0.37)'
                   }}
                 >
                   <span style={{ fontSize: '17px' }}>No Image</span>
                 </div>
               )}
-              {!item.imageUrl && item.imageUrl !== "" && (
+              {!item.imageUrl && item.imageUrl !== '' && (
                 <div
                   className="ThirdCollectionPicture"
                   style={{

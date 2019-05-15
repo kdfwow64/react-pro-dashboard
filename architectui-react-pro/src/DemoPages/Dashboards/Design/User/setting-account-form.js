@@ -1,8 +1,7 @@
 // tslint:disable
 import * as React from 'react';
 
-
-class CreateSettingForm extends React.Component  {
+class CreateSettingForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +32,7 @@ class CreateSettingForm extends React.Component  {
                   className="usersettingsTitleContainer"
                   style={{
                     backgroundColor: this.props.settinginputBGColor,
-                    borderBottom: '1px solid' + this.props.settinginputIconColor
+                    borderBottom: `1px solid${this.props.settinginputIconColor}`
                   }}
                 >
                   <div className="usersettingsTitle">
@@ -63,7 +62,7 @@ class CreateSettingForm extends React.Component  {
                   className="usersettingsTitleContainer"
                   style={{
                     backgroundColor: this.props.settinginputBGColor,
-                    borderBottom: '1px solid' + this.props.settinginputIconColor
+                    borderBottom: `1px solid${this.props.settinginputIconColor}`
                   }}
                 >
                   <div className="usersettingsTitle">
@@ -80,7 +79,7 @@ class CreateSettingForm extends React.Component  {
                   className="usersettingsTitleContainer"
                   style={{
                     backgroundColor: this.props.settinginputBGColor,
-                    borderBottom: '1px solid' + this.props.settinginputIconColor
+                    borderBottom: `1px solid${this.props.settinginputIconColor}`
                   }}
                 >
                   <div className="usersettingsTitle">
@@ -96,7 +95,7 @@ class CreateSettingForm extends React.Component  {
                   className="usersettingsTitleContainer"
                   style={{
                     backgroundColor: this.props.settinginputBGColor,
-                    borderBottom: '1px solid' + this.props.settinginputIconColor
+                    borderBottom: `1px solid${this.props.settinginputIconColor}`
                   }}
                 >
                   <div className="usersettingsTitle">

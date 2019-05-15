@@ -9,6 +9,8 @@
       }
     ],
     "react/prop-types": 0,
+
+    //enable this
     "import/no-duplicates": 0, //enable this
     "react/destructuring-assignment": 0, //enable this
     "no-unused-expressions": 0, //enable this
@@ -21,7 +23,32 @@
     "no-param-reassign": 0, //enablet his
     "react/jsx-no-target-blank": 0, //enablet this
     "react/no-danger": 0, //enable this
+    "react/no-unused-state": 0, //enable this
+    "react/no-access-state-in-setstate": 0, //enable this
     "import/no-extraneous-dependencies": 0, //enable this
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "array-callback-return": 0,
+    "react/jsx-no-bind": "off",
+    "react/no-array-index-key": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "no-nested-ternary": "off",
+    "import/no-unresolved": "off",
+    "no-return-await": 0,
+    "consistent-return": 0,
+    "import/no-cycle": 0,
+    "no-use-before-define": 0,
+    "no-undef": 0,
+    "no-plusplus": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "no-script-url": 0,
+    "jsx-a11y/no-autofocus": 0,
+    "camelcase": 0,
+    "no-shadow": 0,
+    "no-useless-constructor": 0,
+    "react/no-unescaped-entities": 0,
     "jsx-a11y/no-static-element-interactions": 0, //enable this
     "react/prefer-stateless-function": 0, //enablet this
     "jsx-a11y/click-events-have-key-events": 0, //enablet this

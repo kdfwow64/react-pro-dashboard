@@ -1,10 +1,11 @@
 // tslint:disable
 import * as React from 'react';
 
-class ProductPicture extends React.Component  {
+class ProductPicture extends React.Component {
   constructor(props) {
     super(props);
   }
+
   state = {
     FavIconTop: '5px',
     FavIconBottom: 'unset',

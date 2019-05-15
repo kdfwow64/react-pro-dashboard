@@ -4,7 +4,7 @@ import axios from 'axios';
 import React from 'react';
 import { ChromePicker } from 'react-color';
 import { Button, CardFooter } from 'reactstrap';
-import { API_ROOT } from "../../../../utilities/api-config";
+import { API_ROOT } from '../../../../utilities/api-config';
 import IconList from '../icon-list';
 
 const ProductsCollections = {
@@ -45,8 +45,8 @@ function getSelectedCollectionProducts() {
   return products;
 }
 
-class ModalBrowseProductCollections extends React.Component  {
-   constructor(props) {
+class ModalBrowseProductCollections extends React.Component {
+  constructor(props) {
     super(props);
 
     this.onIconColorClick = this.onIconColorClick.bind(this);
@@ -93,15 +93,15 @@ class ModalBrowseProductCollections extends React.Component  {
     };
   }
 
-  onTitleChange = (e ) => {
+  onTitleChange = e => {
     this.setState({ title: e.target.value });
-  }
+  };
 
   onCloseModal = () => {
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
 
-  onApplySetting = (e ) => {
+  onApplySetting = e => {
     e.preventDefault();
     const allSettings = {
       iconColor: this.state.iconColor,
@@ -123,8 +123,9 @@ class ModalBrowseProductCollections extends React.Component  {
     };
     this.props.onApply(allSettings);
     this.props.onCloseModal(this.props.modalId);
-  }
-  applyAppliedSetting = (defaultSettings ) => {};
+  };
+
+  applyAppliedSetting = defaultSettings => {};
 
   DisplayCollection = () => {
     if (this.state.DisplayCollectionValue === 'none') {
@@ -132,50 +133,59 @@ class ModalBrowseProductCollections extends React.Component  {
     } else {
       this.setState({ DisplayCollectionValue: 'none' });
     }
-  }
+  };
 
   onIconColorClick = () => {
     this.setState({ displayIconColor: true });
-  }
+  };
+
   onIconColorClose = () => {
     this.setState({ displayIconColor: false });
-  }
+  };
+
   onIconColorClickComplete = color => {
     this.setState({ iconColor: color.hex });
-  }
+  };
 
   onTitleColorClick = () => {
     this.setState({ displayTitleColor: true });
-  }
+  };
+
   onTitleColorClose = () => {
     this.setState({ displayTitleColor: false });
-  }
+  };
+
   onTitleColorClickComplete = color => {
     this.setState({ titleColor: color.hex });
-  }
+  };
 
   onFooterBGColorClick = () => {
     this.setState({ displayFooterBGColor: true });
-  }
+  };
+
   onFooterBGColorClose = () => {
     this.setState({ displayFooterBGColor: false });
-  }
+  };
+
   onFooterBGColorClickComplete = color => {
     this.setState({ footerBGColor: color.hex });
-  }
+  };
 
   onImageSpacingColorClick = () => {
     this.setState({ displayImageSpacingColor: true });
-  }
+  };
+
   onImageSpacingColorClose = () => {
     this.setState({ displayImageSpacingColor: false });
-  }
+  };
+
   onImageSpacingColorClickComplete = color => {
     this.setState({ imageSpacingColor: color.hex });
-  }
+  };
+
   DropDownGetIconBrowseIconCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
-  }
+  };
 
   swatch = {
     padding: '5px',
@@ -184,18 +194,18 @@ class ModalBrowseProductCollections extends React.Component  {
     left: '2px',
     top: '2px'
   };
+
   popover = {
     position: 'absolute',
     zIndex: 10000
   };
 
-  setProductsForCollection = (collectionDetails , index ) => {
+  setProductsForCollection = (collectionDetails, index) => {
     axios
       .get(
-        `${API_ROOT}/api/v2/collection/products/` +
-          collectionDetails.collectionType +
-          `/` +
-          collectionDetails.id
+        `${API_ROOT}/api/v2/collection/products/${
+          collectionDetails.collectionType
+        }/${collectionDetails.id}`
       )
       .then(res1 => {
         this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -206,21 +216,18 @@ class ModalBrowseProductCollections extends React.Component  {
     this.setState({ prodCollectionname: collectionDetails.title });
     this.setState({ collectionType: collectionDetails.collectionType });
     this.setState({ handle: collectionDetails.handle });
-  }
+  };
 
   componentWillMount() {
-    axios
-      .get(`${API_ROOT}/api/v2/collection-listings`)
-      .then(res => {
-        this.setState({ ProductsCollectionsData: res.data });
-      });
+    axios.get(`${API_ROOT}/api/v2/collection-listings`).then(res => {
+      this.setState({ ProductsCollectionsData: res.data });
+    });
     if (this.state.collectionType && this.state.selectedProductName) {
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            this.state.collectionType +
-            `/` +
-            this.state.selectedProductName
+          `${API_ROOT}/api/v2/collection/products/${
+            this.state.collectionType
+          }/${this.state.selectedProductName}`
         )
         .then(res1 => {
           this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -228,13 +235,14 @@ class ModalBrowseProductCollections extends React.Component  {
         });
     }
   }
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
@@ -247,7 +255,7 @@ class ModalBrowseProductCollections extends React.Component  {
               style={{ overflowX: 'scroll' }}
             >
               {this.state.CollectionsProductsData.length === 0 &&
-                this.state.CollectionsProductsDataVal.map((item , index ) => {
+                this.state.CollectionsProductsDataVal.map((item, index) => {
                   return (
                     <div key={index} className="browseProductList">
                       <div
@@ -262,22 +270,24 @@ class ModalBrowseProductCollections extends React.Component  {
                             border: `1px solid ${this.state.imageSpacingColor}`
                           }}
                         >
-                        {item.imageUrl && item.imageUrl != '' &&
-                          <img src={item.imageUrl} alt={item.title} style={{ width: '70%', height: '100%' }} />
-                        }
-                        {item.imageUrl == '' && item.imageUrl == null &&
-                          <div></div>                       
-                        }
-                        {!item.imageUrl &&
-                          <i className="pe-7s-photo"></i>
-                        }
+                          {item.imageUrl && item.imageUrl !== '' && (
+                            <img
+                              src={item.imageUrl}
+                              alt={item.title}
+                              style={{ width: '70%', height: '100%' }}
+                            />
+                          )}
+                          {item.imageUrl === '' && item.imageUrl === null && (
+                            <div />
+                          )}
+                          {!item.imageUrl && <i className="pe-7s-photo" />}
                         </div>
                       </div>
                     </div>
                   );
                 })}
               {this.state.CollectionsProductsData.length !== 0 &&
-                this.state.CollectionsProductsData.map((item , index ) => {
+                this.state.CollectionsProductsData.map((item, index) => {
                   return (
                     <div key={index} className="browseProductList">
                       <div
@@ -292,15 +302,17 @@ class ModalBrowseProductCollections extends React.Component  {
                             border: `1px solid ${this.state.imageSpacingColor}`
                           }}
                         >
-                        {item.imageUrl && item.imageUrl != '' &&
-                          <img src={item.imageUrl} alt={item.title} style={{ width: '100%', height: 'auto' }} />
-                        }
-                        {item.imageUrl == '' && item.imageUrl == null &&
-                          <div></div>                       
-                        }
-                        {!item.imageUrl &&
-                          <i className="pe-7s-photo"></i>
-                        }
+                          {item.imageUrl && item.imageUrl !== '' && (
+                            <img
+                              src={item.imageUrl}
+                              alt={item.title}
+                              style={{ width: '100%', height: 'auto' }}
+                            />
+                          )}
+                          {item.imageUrl === '' && item.imageUrl === null && (
+                            <div />
+                          )}
+                          {!item.imageUrl && <i className="pe-7s-photo" />}
                         </div>
                       </div>
                     </div>
@@ -356,7 +368,7 @@ class ModalBrowseProductCollections extends React.Component  {
                         width: '61%'
                       }}
                     >
-                      {this.state.ProductsCollectionsData.map((item , index ) => {
+                      {this.state.ProductsCollectionsData.map((item, index) => {
                         return (
                           <div
                             key={item.id}
@@ -432,7 +444,6 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onIconColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -447,7 +458,10 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayIconColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onIconColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onIconColorClose}
+                        />
                         <ChromePicker
                           color={this.state.iconColor}
                           onChange={this.onIconColorClickComplete}
@@ -488,7 +502,6 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onTitleColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -503,7 +516,10 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayTitleColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onTitleColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onTitleColorClose}
+                        />
                         <ChromePicker
                           color={this.state.titleColor}
                           onChange={this.onTitleColorClickComplete}
@@ -525,7 +541,6 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onFooterBGColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -540,7 +555,10 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayFooterBGColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onFooterBGColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onFooterBGColorClose}
+                        />
                         <ChromePicker
                           color={this.state.footerBGColor}
                           onChange={this.onFooterBGColorClickComplete}
@@ -562,7 +580,6 @@ class ModalBrowseProductCollections extends React.Component  {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onImageSpacingColorClick}
-                      
                     />
                     <div style={this.swatch}>
                       <div
@@ -577,7 +594,10 @@ class ModalBrowseProductCollections extends React.Component  {
                     </div>
                     {this.state.displayImageSpacingColor ? (
                       <div style={this.popover}>
-                        <div style={ this.cover } onClick={ this.onImageSpacingColorClose }/>
+                        <div
+                          style={this.cover}
+                          onClick={this.onImageSpacingColorClose}
+                        />
                         <ChromePicker
                           color={this.state.imageSpacingColor}
                           onChange={this.onImageSpacingColorClickComplete}
@@ -588,10 +608,22 @@ class ModalBrowseProductCollections extends React.Component  {
                 </div>
               </div>
               <CardFooter className="d-block text-right">
-                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
-                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+                <Button
+                  size="sm"
+                  className="mr-2"
+                  color="link"
+                  onClick={this.onCloseModal}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="btn-wide btn-shadow"
+                  color="primary"
+                  onClick={this.onApplySetting}
+                >
+                  Apply
+                </Button>
               </CardFooter>
-
             </div>
           </div>
         </div>

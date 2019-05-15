@@ -1,17 +1,17 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { Col, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import "../index.css";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import CollectioinSettingSection from "./collectioin-setting-section";
-import CollectioinSettingSectionEffects from "./collectioin-setting-section-effects";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Col, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import '../index.css';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import CollectioinSettingSection from './collectioin-setting-section';
+import CollectioinSettingSectionEffects from './collectioin-setting-section-effects';
 
 class Collections extends React.Component {
   constructor(props) {
@@ -23,8 +23,8 @@ class Collections extends React.Component {
       saved: false,
       collection: [],
       isLoaded: false,
-      collectionHandle: "",
-      bannerImageUrl: ""
+      collectionHandle: '',
+      bannerImageUrl: ''
     };
   }
 
@@ -112,9 +112,9 @@ class Collections extends React.Component {
       this.setState({ bannerImageUrl: data.CollectionSettings.bannerImageUrl });
       this.setState({ isLoaded: false });
       const passSetting = {};
-      passSetting["CollectionSelectedId"] =
+      passSetting.CollectionSelectedId =
         data.CollectionSettings.CollectionSelectedId;
-      passSetting["collectionType"] = data.CollectionSettings.collectionType;
+      passSetting.collectionType = data.CollectionSettings.collectionType;
       if (
         data.CollectionSettings.CollectionSelectedId &&
         data.CollectionSettings.collectionType
@@ -183,15 +183,19 @@ class Collections extends React.Component {
   DropDownGetIconheader = color => {
     this.setState({ DropDownGetIconheader: color });
   };
+
   naviconcolor = color => {
     this.setState({ naviconcolor: color.hex });
   };
+
   navtitlecolor = color => {
     this.setState({ navtitlecolor: color.hex });
   };
+
   navbgcolor = color => {
     this.setState({ navbgcolor: color.hex });
   };
+
   NavTitle = color => {
     this.setState({ NavTitleValue: color });
   };
@@ -207,98 +211,115 @@ class Collections extends React.Component {
     this.setState({ MainContainerBGColorValue: MainContainerBGColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CellBGColor = CellBGColor => {
     this.setState({ CellColorValue: CellBGColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   cellseparatorcolor = CellseparatorColor => {
     this.setState({ CellseparatorColorValue: CellseparatorColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   celliconcolor = CelliconColor => {
     this.setState({ CelliconColorValue: CelliconColor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   productbordercolor = productbordercolor => {
     this.setState({ productborderColorValue: productbordercolor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   producttitlecolor = producttitlecolor => {
     this.setState({ producttitleColorValue: producttitlecolor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   pricetitlecolor = pricetitlecolor => {
     this.setState({ pricetitleColorValue: pricetitlecolor.hex });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CollectionGridRowOptionCallback = e => {
     this.setState({ CollectionGridRowValue: e.target.value });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   gridSelectProductTitleCall = val => {
-    if (val === "Show") {
-      this.setState({ gridSelectProductTitleValue: "block" });
-      this.setState({ gridSelectProdTitleValue: "Show" });
+    if (val === 'Show') {
+      this.setState({ gridSelectProductTitleValue: 'block' });
+      this.setState({ gridSelectProdTitleValue: 'Show' });
     } else {
-      this.setState({ gridSelectProductTitleValue: "none" });
-      this.setState({ gridSelectProdTitleValue: "Hide" });
+      this.setState({ gridSelectProductTitleValue: 'none' });
+      this.setState({ gridSelectProdTitleValue: 'Hide' });
     }
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   gridSelectPriceTitleCallback = val => {
-    if (val === "Show") {
-      this.setState({ gridSelectPriceTitleValue: "block" });
-      this.setState({ gridSelectProdPriceValue: "Show" });
+    if (val === 'Show') {
+      this.setState({ gridSelectPriceTitleValue: 'block' });
+      this.setState({ gridSelectProdPriceValue: 'Show' });
     } else {
-      this.setState({ gridSelectPriceTitleValue: "none" });
-      this.setState({ gridSelectProdPriceValue: "Hide" });
+      this.setState({ gridSelectPriceTitleValue: 'none' });
+      this.setState({ gridSelectProdPriceValue: 'Hide' });
     }
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   gridtitleAlignCallback = val => {
-    if (val === "Center") {
-      this.setState({ gridTitleValue: "Center" });
+    if (val === 'Center') {
+      this.setState({ gridTitleValue: 'Center' });
     }
-    if (val === "Left") {
-      this.setState({ gridTitleValue: "Left" });
+    if (val === 'Left') {
+      this.setState({ gridTitleValue: 'Left' });
     }
-    if (val === "Right") {
-      this.setState({ gridTitleValue: "Right" });
+    if (val === 'Right') {
+      this.setState({ gridTitleValue: 'Right' });
     }
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   IconCollectionAction = icon => {
     this.setState({ IconAction: icon });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   SelectedOption = val => {
     this.setState({ SelectedOption: val });
-    if (val === "Grid") {
-      this.setState({ gridSelectOptionValue: "block" });
-      this.setState({ GridViewFieldOption: "none" });
-      this.setState({ gridSelectProductTitleCallback: "block" });
-      this.setState({ SelectedOption: "Grid" });
+    if (val === 'Grid') {
+      this.setState({ gridSelectOptionValue: 'block' });
+      this.setState({ GridViewFieldOption: 'none' });
+      this.setState({ gridSelectProductTitleCallback: 'block' });
+      this.setState({ SelectedOption: 'Grid' });
     }
-    if (val === "List") {
-      this.setState({ gridSelectOptionValue: "none" });
-      this.setState({ GridViewFieldOption: "block" });
-      this.setState({ gridSelectProductTitleCallback: "none" });
-      this.setState({ SelectedOption: "List" });
+    if (val === 'List') {
+      this.setState({ gridSelectOptionValue: 'none' });
+      this.setState({ GridViewFieldOption: 'block' });
+      this.setState({ gridSelectProductTitleCallback: 'none' });
+      this.setState({ SelectedOption: 'List' });
     }
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   CollectionSelectedTitle = val => {
     this.setState({ CollectionSelectedTitle: val });
   };
+
   CollectionSelectedId = val => {
     this.setState({ CollectionSelectedId: val });
   };
+
   collectionType = collectionType => {
     this.setState({ collectionType });
   };
+
   Clickedfilter = () => {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
+
   collectionHandle = val => {
     this.setState({ collectionHandle: val });
   };
@@ -314,7 +335,7 @@ class Collections extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             transitionLeave={false}
@@ -333,7 +354,7 @@ class Collections extends React.Component {
                     md={4}
                     sm={6}
                     id="CollectionMainContainer"
-                    style={{ border: "1px solid #efefef" }}
+                    style={{ border: '1px solid #efefef' }}
                   >
                     <PerfectScrollbar>
                       <CollectioinSettingSection

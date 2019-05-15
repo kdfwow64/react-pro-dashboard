@@ -6,12 +6,11 @@ import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
 import 'react-switchery-component/react-switchery-component.css';
 import { Button, CardFooter } from 'reactstrap';
-import { API_ROOT } from "../../../../utilities/api-config";
+import { API_ROOT } from '../../../../utilities/api-config';
 import '../index.css';
+
 const Placeholder = './Placeholder.png';
-const iconData = [
-  "ios-add",
-];
+const iconData = ['ios-add'];
 
 const ProductsCollectionsCellsSettings = [
   {
@@ -64,8 +63,8 @@ const LeftProductsCollectionsCellsSettings = {
 
 const SelectedData = {};
 
-class ModalSingleProduct extends React.Component  {
-   constructor(props) {
+class ModalSingleProduct extends React.Component {
+  constructor(props) {
     super(props);
 
     this.onTitleColorClick = this.onTitleColorClick.bind(this);
@@ -156,7 +155,7 @@ class ModalSingleProduct extends React.Component  {
       handle: this.props.defaultSettings.handle,
       // productHandle: this.props.defaultSettings.productHandle,
       showCollectionDropdown: this.props.defaultSettings
-        .showCollectionDropdown || [ 'none', 'none', 'none', 'none', 'none' ],
+        .showCollectionDropdown || ['none', 'none', 'none', 'none', 'none'],
       showProductDropdown: this.props.defaultSettings.showProductDropdown || [
         'none',
         'none',
@@ -167,12 +166,13 @@ class ModalSingleProduct extends React.Component  {
       addanotherdisplay: this.props.defaultSettings.addanotherdisplay || 'block'
     };
   }
+
   onCloseModal = () => {
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
 
   onApplySetting = e => {
-    //e.preventDefault();
+    // e.preventDefault();
     const allSettings = {
       titleColor: this.state.titleColor,
       priceColor: this.state.priceColor,
@@ -211,41 +211,42 @@ class ModalSingleProduct extends React.Component  {
     };
     this.props.onApply(allSettings);
     this.props.onCloseModal(this.props.modalId);
-  }
+  };
+
   applyAppliedSetting = defaultSettings => {};
 
   getCellContents = () => {
-    const cellContents = [ ...this.state.cellContents ];
+    const cellContents = [...this.state.cellContents];
     const rLength = cellContents.length;
     // let lLenth = newLeftcellContents.length;
     if (cellContents.length >= 4) {
       this.setState({ addanotherdisplay: 'none' });
     }
 
-    /*if (rLength >= lLenth) {
+    /* if (rLength >= lLenth) {
             newLeftcellContents[lLenth] = LeftProductsCollectionsCellsSettings.collections[0];
             this.setState({ leftcellContents: newLeftcellContents });
         }
 
         if(rLength >= 4) {
             this.setState({DefaultWidth: this.state.DefaultWidth + 130});
-        }*/
+        } */
     cellContents.push(ProductsCollectionsCellsSettings[0]);
     this.setState({ cellContents });
 
-    /*let showProductDropdown = [...this.state.showProductDropdown];
+    /* let showProductDropdown = [...this.state.showProductDropdown];
         showProductDropdown.push("none");
         this.setState({ showProductDropdown: showProductDropdown });
 
         let showCollectionDropdown = [...this.state.showCollectionDropdown];
         showCollectionDropdown.push("none");
-        this.setState({ showCollectionDropdown: showCollectionDropdown });*/
-  }
+        this.setState({ showCollectionDropdown: showCollectionDropdown }); */
+  };
 
   RemoveNewAddedDiv = index => {
-    /*console.log("index::");
+    /* console.log("index::");
         console.log(index);
-        console.log(this.state.cellContents.length);*/
+        console.log(this.state.cellContents.length); */
     if (this.state.cellContents.length >= 1) {
       this.setState({
         cellContents: this.state.cellContents.filter((_, i) => i !== index)
@@ -254,67 +255,86 @@ class ModalSingleProduct extends React.Component  {
     if (this.state.cellContents.length <= 5) {
       this.setState({ addanotherdisplay: 'block' });
     }
-  }
+  };
 
   onTitleColorClick = () => {
     this.setState({ displayTitleColor: true });
-  }
+  };
+
   onTitleColorClose = () => {
     this.setState({ displayTitleColor: false });
-  }
+  };
+
   onTitleColorClickComplete = color => {
     this.setState({ titleColor: color.hex });
-  }
+  };
+
   onPriceColorClick = () => {
     this.setState({ displayPriceColor: true });
-  }
+  };
+
   onPriceColorClose = () => {
     this.setState({ displayPriceColor: false });
-  }
+  };
+
   onPriceColorClickComplete = color => {
     this.setState({ priceColor: color.hex });
-  }
+  };
+
   onProductBorderColorClick = () => {
     this.setState({ displayProductBorderColor: true });
-  }
+  };
+
   onProductBorderColorClose = () => {
     this.setState({ displayProductBorderColor: false });
-  }
+  };
+
   onProductBorderColorClickComplete = color => {
     this.setState({ productBorderColor: color.hex });
-  }
+  };
+
   onPageCircleActiveColorClick = () => {
     this.setState({ displayPageCircleActiveColor: true });
-  }
+  };
+
   onPageCircleActiveColorClose = () => {
     this.setState({ displayPageCircleActiveColor: false });
-  }
+  };
+
   onPageCircleActiveColorClickComplete = color => {
     this.setState({ pageCircleActiveColor: color.hex });
-  }
+  };
+
   onPageCircleInactiveColorClick = () => {
     this.setState({ displayPageCircleInactiveColor: true });
-  }
+  };
+
   onPageCircleInactiveColorClose = () => {
     this.setState({ displayPageCircleInactiveColor: false });
-  }
+  };
+
   onPageCircleInactiveColorClickComplete = color => {
     this.setState({ pageCircleInactiveColor: color.hex });
-  }
+  };
+
   onCellBGColorClick = () => {
     this.setState({ displayCellBGColor: true });
-  }
+  };
+
   onCellBGColorClose = () => {
     this.setState({ displayCellBGColor: false });
-  }
+  };
+
   onCellBGColorClickComplete = color => {
     this.setState({ cellBGColor: color.hex });
-  }
+  };
 
   SearchProduct(e) {
     const searchText = e.target.value;
     const CollectionsProducts = this.state.CollectionsProductsData;
-    const updatedCollectionsProducts = CollectionsProducts.filter(function(item) {
+    const updatedCollectionsProducts = CollectionsProducts.filter(function(
+      item
+    ) {
       return (
         item.title.toLowerCase().search(e.target.value.toLowerCase()) !== -1
       );
@@ -324,24 +344,24 @@ class ModalSingleProduct extends React.Component  {
 
   handleChange(item, index, e) {
     if (index === 0) {
-      const newCellContents = [ ...this.state.cellContents ];
+      const newCellContents = [...this.state.cellContents];
       const cellItem = newCellContents[index];
-      cellItem.showPrice = cellItem.showPrice ? false : true;
+      cellItem.showPrice = !cellItem.showPrice;
       newCellContents[index] = cellItem;
       this.setState({ cellContents: newCellContents });
       this.setState({ isCheckedFirst: e.target.checked });
     }
     this.setState({ isChecked: e.target.checked });
-    const newCellContents = [ ...this.state.cellContents ];
+    const newCellContents = [...this.state.cellContents];
     const cellItem = this.state.cellContents[index];
-    cellItem.showPrice = cellItem.showPrice ? false : true; // e.target.checked;
+    cellItem.showPrice = !cellItem.showPrice; // e.target.checked;
     newCellContents[index] = cellItem;
     this.setState({ cellContents: newCellContents });
   }
 
   onCellStyleChange = e => {
     this.setState({ leftcellContentsType: e.target.value });
-  }
+  };
 
   swatch = {
     padding: '5px',
@@ -350,6 +370,7 @@ class ModalSingleProduct extends React.Component  {
     left: '2px',
     top: '2px'
   };
+
   popover = {
     position: 'absolute',
     zIndex: 10000
@@ -360,19 +381,19 @@ class ModalSingleProduct extends React.Component  {
              this.setState({ DisplayCollectionValue: 'block' });
          } else {
              this.setState({ DisplayCollectionValue: 'none' });
-         }*/
-    const showCollectionDropdown = [ ...this.state.showCollectionDropdown ];
+         } */
+    const showCollectionDropdown = [...this.state.showCollectionDropdown];
     showCollectionDropdown[index] =
       showCollectionDropdown[index] === 'none' ? 'block' : 'none';
     this.setState({ showCollectionDropdown });
-  }
+  };
 
   GetProductcollection = (item, index, e) => {
     /* this.setState({ prodcollection: e.target.value });
            this.setState({ prodCollectionname: '' });
-           this.setState({ selectedName: '' });*/
+           this.setState({ selectedName: '' }); */
 
-    const newCellContents = [ ...this.state.cellContents ];
+    const newCellContents = [...this.state.cellContents];
     const cellItem = this.state.cellContents[index];
 
     cellItem.name = '';
@@ -398,11 +419,11 @@ class ModalSingleProduct extends React.Component  {
 
     newCellContents[index] = cellItem;
     this.setState({ cellContents: newCellContents });
-  }
+  };
 
   ProductTitle = (item, index, e) => {
     if (index === 0) {
-      const newLeftCellContents = [ ...this.state.leftcellContents ];
+      const newLeftCellContents = [...this.state.leftcellContents];
       const cellItem = newLeftCellContents[index];
       // cellItem.title = e.target.value;
       cellItem.name = e.target.value;
@@ -410,7 +431,7 @@ class ModalSingleProduct extends React.Component  {
       this.setState({ leftcellContents: newLeftCellContents });
       this.setState({ selectedName: e.target.value });
     }
-    const newCellContents = [ ...this.state.cellContents ];
+    const newCellContents = [...this.state.cellContents];
     const cellItem = this.state.cellContents[index];
 
     // let leftcellItem = this.state.leftcellContents[index];
@@ -418,11 +439,11 @@ class ModalSingleProduct extends React.Component  {
     cellItem.name = e.target.value;
     newCellContents[index] = cellItem;
     this.setState({ cellContents: newCellContents });
-  }
+  };
 
   setProductsForCollection = (item2, index2, item, index) => {
     item2.DisplayCollectionValue = 'none';
-    const newcellContents = [ ...this.state.cellContents ];
+    const newcellContents = [...this.state.cellContents];
     const cellContentsItem = [];
     item2.titleValue = item.title;
     item2.imageUrl = item2.imageUrl;
@@ -440,10 +461,10 @@ class ModalSingleProduct extends React.Component  {
     newcellContents[index] = item2;
     this.setState({ cellContents: newcellContents });
 
-    const showCollectionDropdown = [ ...this.state.showCollectionDropdown ];
+    const showCollectionDropdown = [...this.state.showCollectionDropdown];
     showCollectionDropdown[index] = 'none';
     this.setState({ showCollectionDropdown });
-    
+
     if (index === 0) {
       this.setState({ selectedProductName: item2.id });
       this.setState({ prodCollectionname: item2.title });
@@ -452,18 +473,17 @@ class ModalSingleProduct extends React.Component  {
       this.setState({ selectedprice: '' });
       this.setState({ DisplayCollectionValue: 'none' });
       this.setState({ selectedName: '' });
-      const newleftcellContents = [ ...this.state.leftcellContents ];
+      const newleftcellContents = [...this.state.leftcellContents];
       let cellContentsItem = {};
       cellContentsItem = item2;
       newleftcellContents[index] = cellContentsItem;
       this.setState({ leftcellContents: newleftcellContents });
     }
-
-  }
+  };
 
   setCollectionForProduct = (item2, index2, item, index) => {
     item2.DisplayCollectionValue = 'none';
-    const newcellContents = [ ...this.state.cellContents ];
+    const newcellContents = [...this.state.cellContents];
     const cellContentsItem = {};
     cellContentsItem.CollectionDisplay = item.CollectionDisplay;
     cellContentsItem.ProductDisplay = item.ProductDisplay;
@@ -481,12 +501,12 @@ class ModalSingleProduct extends React.Component  {
     cellContentsItem.productHandle = item2.handle;
     newcellContents[index] = cellContentsItem;
     this.setState({ cellContents: newcellContents });
-    const showProductDropdown = [ ...this.state.showProductDropdown ];
+    const showProductDropdown = [...this.state.showProductDropdown];
     showProductDropdown[index] = 'none';
     this.setState({ showProductDropdown });
 
     if (index === 0) {
-      const newleftcellContents = [ ...this.state.leftcellContents ];
+      const newleftcellContents = [...this.state.leftcellContents];
       let cellContentsItem = {};
       cellContentsItem = item2;
       newleftcellContents[index] = cellContentsItem;
@@ -499,20 +519,19 @@ class ModalSingleProduct extends React.Component  {
       this.setState({ DisplayCollectionValue: 'none' });
       this.setState({ selectedName: '' });
     }
-
-  }
+  };
 
   DisplayProduct = (item, index, e) => {
-    const showProductDropdown = [ ...this.state.showProductDropdown ];
+    const showProductDropdown = [...this.state.showProductDropdown];
 
     showProductDropdown[index] =
       showProductDropdown[index] === 'none' ? 'block' : 'none';
 
     this.setState({ showProductDropdown });
-  }
+  };
 
   componentWillMount() {
-    const newleftcellContents = [ ...this.state.leftcellContents ];
+    const newleftcellContents = [...this.state.leftcellContents];
     let cellContentsItem = {};
     if (this.state.selectedProductName) {
       const SelectedCollectionData = {
@@ -525,26 +544,21 @@ class ModalSingleProduct extends React.Component  {
       this.setState({ leftcellContents: newleftcellContents });
     }
 
-    axios
-      .get(`${API_ROOT}/api/v2/collection-listings`)
-      .then(res => {
-        this.setState({ ProductsCollectionsData: res.data });
-      });
-    axios
-      .get(
-        `${API_ROOT}/api/products`
-      )
-      .then(res => {
-        this.setState({ CollectionsProductsData: res.data });
-      });
+    axios.get(`${API_ROOT}/api/v2/collection-listings`).then(res => {
+      this.setState({ ProductsCollectionsData: res.data });
+    });
+    axios.get(`${API_ROOT}/api/products`).then(res => {
+      this.setState({ CollectionsProductsData: res.data });
+    });
   }
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     const { value } = this.state;
@@ -623,7 +637,7 @@ class ModalSingleProduct extends React.Component  {
                         </div>
                       )}
                       {item.price &&
-                      this.state.selectedprice && (// this.state.prodcollection === 'product' &&
+                      this.state.selectedprice && ( // this.state.prodcollection === 'product' &&
                           <div
                             className="ThirdPicturePriceTitle"
                             style={{
@@ -638,7 +652,7 @@ class ModalSingleProduct extends React.Component  {
                           </div>
                         )}
                       {!item.price &&
-                      !this.state.selectedprice && (// this.state.prodcollection === 'collection' && !this.state.selectedprice &&
+                      !this.state.selectedprice && ( // this.state.prodcollection === 'collection' && !this.state.selectedprice &&
                           <div
                             className="ThirdPicturePriceTitle"
                             style={{
@@ -848,11 +862,7 @@ class ModalSingleProduct extends React.Component  {
                                           index
                                         );
                                       }}
-                                      id={
-                                        item.id === item3.id
-                                          ? 'Active'
-                                          : ''
-                                      }
+                                      id={item.id === item3.id ? 'Active' : ''}
                                     >
                                       {item3.imageUrl && (
                                         <img
@@ -890,9 +900,9 @@ class ModalSingleProduct extends React.Component  {
                             </div>
                           </div>
                         </div>
-                      {item.pictureValue === 'product' &&
-                        <div className="ProductNamePrice">
-                          {/* <div className="CustomTitleSection">
+                        {item.pictureValue === 'product' && (
+                          <div className="ProductNamePrice">
+                            {/* <div className="CustomTitleSection">
                             <p>CUSTOM TITLE</p>
                             <input
                               type="text"
@@ -905,41 +915,45 @@ class ModalSingleProduct extends React.Component  {
                               defaultValue={item.name}
                             />
                           </div> */}
-                          <div className="PriceSection">
-                            <p>SHOW PRICE</p>
-                            {index === 0 &&
-                            <div
-                              className="PricesettingsSwitchContainer"
-                              id={
-                                this.state.isChecked === true ? 'active_switch' : ''
-                              }
-                            >                            
-                            <Switch
-                            checked={this.state.isChecked}
-                            onChange={e => {
-                              this.handleChange(item, index, e);
-                            }}
-                          />
+                            <div className="PriceSection">
+                              <p>SHOW PRICE</p>
+                              {index === 0 && (
+                                <div
+                                  className="PricesettingsSwitchContainer"
+                                  id={
+                                    this.state.isChecked === true
+                                      ? 'active_switch'
+                                      : ''
+                                  }
+                                >
+                                  <Switch
+                                    checked={this.state.isChecked}
+                                    onChange={e => {
+                                      this.handleChange(item, index, e);
+                                    }}
+                                  />
+                                </div>
+                              )}
+                              {index !== 0 && (
+                                <div
+                                  className="PricesettingsSwitchContainer"
+                                  id={
+                                    item.showPrice === true
+                                      ? 'active_switch'
+                                      : ''
+                                  }
+                                >
+                                  <Switch
+                                    checked={item.showPrice}
+                                    onChange={e => {
+                                      this.handleChange(item, index, e);
+                                    }}
+                                  />
+                                </div>
+                              )}
+                            </div>
                           </div>
-                          }
-                          {index != 0 &&
-                          <div
-                          className="PricesettingsSwitchContainer"
-                          id={
-                            item.showPrice === true ? 'active_switch' : ''
-                          }
-                        >
-                              <Switch
-                                checked={item.showPrice}
-                                onChange={e => {
-                                  this.handleChange(item, index, e);
-                                }}
-                              />
-                           </div>
-                           }                            
-                          </div>
-                        </div>
-                        }
+                        )}
                         {index >= 0 && (
                           <div
                             className="RemoveCollectionProduct"
@@ -961,14 +975,16 @@ class ModalSingleProduct extends React.Component  {
                   style={{ display: this.state.addanotherdisplay }}
                 >
                   <div className="Append_right_link_title">
-                  <Button className="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x" outline
-                      color="primary">
-                      {/*<Ionicon fontSize="20px" color="#333" icon='ios-add' className="btn-icon-wrapper" />*/}
+                    <Button
+                      className="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x"
+                      outline
+                      color="primary"
+                    >
+                      {/* <Ionicon fontSize="20px" color="#333" icon='ios-add' className="btn-icon-wrapper" /> */}
                       Add Another
-                      </Button>
+                    </Button>
                   </div>
-                  <div className="Append_right_link_icon">
-                  </div>
+                  <div className="Append_right_link_icon" />
                 </div>
 
                 <div>
@@ -987,7 +1003,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onTitleColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1001,8 +1016,11 @@ class ModalSingleProduct extends React.Component  {
                         />
                       </div>
                       {this.state.displayTitleColor ? (
-                        <div style={this.popover}>                          
-                          <div style={ this.cover } onClick={ this.onTitleColorClose }/>
+                        <div style={this.popover}>
+                          <div
+                            style={this.cover}
+                            onClick={this.onTitleColorClose}
+                          />
                           <ChromePicker
                             color={this.state.titleColor}
                             onChange={this.onTitleColorClickComplete}
@@ -1023,7 +1041,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPriceColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1038,7 +1055,10 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPriceColor ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.onPriceColorClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.onPriceColorClose}
+                          />
                           <ChromePicker
                             color={this.state.priceColor}
                             onChange={this.onPriceColorClickComplete}
@@ -1059,7 +1079,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onProductBorderColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1074,7 +1093,10 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayProductBorderColor ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.onProductBorderColorClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.onProductBorderColorClose}
+                          />
                           <ChromePicker
                             color={this.state.productBorderColor}
                             onChange={this.onProductBorderColorClickComplete}
@@ -1095,7 +1117,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onCellBGColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1110,7 +1131,10 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayCellBGColor ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.onCellBGColorClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.onCellBGColorClose}
+                          />
                           <ChromePicker
                             color={this.state.cellBGColor}
                             onChange={this.onCellBGColorClickComplete}
@@ -1131,7 +1155,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPageCircleActiveColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1146,7 +1169,10 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPageCircleActiveColor ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.onPageCircleActiveColorClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.onPageCircleActiveColorClose}
+                          />
                           <ChromePicker
                             color={this.state.pageCircleActiveColor}
                             onChange={this.onPageCircleActiveColorClickComplete}
@@ -1167,7 +1193,6 @@ class ModalSingleProduct extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.onPageCircleInactiveColorClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -1182,7 +1207,10 @@ class ModalSingleProduct extends React.Component  {
                       </div>
                       {this.state.displayPageCircleInactiveColor ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.onPageCircleInactiveColorClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.onPageCircleInactiveColorClose}
+                          />
                           <ChromePicker
                             color={this.state.pageCircleInactiveColor}
                             onChange={
@@ -1196,10 +1224,22 @@ class ModalSingleProduct extends React.Component  {
                 </div>
               </div>
               <CardFooter className="d-block text-right">
-                <Button size="sm" className="mr-2" color="link" onClick={this.onCloseModal} >Cancel</Button>
-                <Button className="btn-wide btn-shadow" color="primary" onClick={this.onApplySetting} >Apply</Button>
+                <Button
+                  size="sm"
+                  className="mr-2"
+                  color="link"
+                  onClick={this.onCloseModal}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="btn-wide btn-shadow"
+                  color="primary"
+                  onClick={this.onApplySetting}
+                >
+                  Apply
+                </Button>
               </CardFooter>
-
             </div>
           </div>
         </div>

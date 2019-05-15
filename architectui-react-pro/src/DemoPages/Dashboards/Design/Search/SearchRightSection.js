@@ -5,13 +5,17 @@ import { ChromePicker } from 'react-color';
 import SearchListView from './SearchListView';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
-class SearchRightSection extends React.Component  {
-
+class SearchRightSection extends React.Component {
   navtitlecolor = null;
+
   naviconcolor = null;
+
   navbgcolor = null;
+
   navtitledisplayColorPicker = null;
+
   navicondisplayColorPicker = null;
+
   navbgdisplayColorPicker = null;
 
   constructor(props) {
@@ -32,7 +36,6 @@ class SearchRightSection extends React.Component  {
     this.naviconhandleClick = this.naviconhandleClick.bind(this);
     this.navtitlehandleClick = this.navtitlehandleClick.bind(this);
 
-
     this.state = {
       CollectionMainSectionEditOptionValue: 'none',
       ShowHideGridListView: 'block',
@@ -40,12 +43,11 @@ class SearchRightSection extends React.Component  {
       navbgcolor: this.props.navbgcolor || '#2ecc71',
       navtitlecolor: this.props.navtitlecolor || '#ffffff',
       naviconcolor: this.props.naviconcolor || '#ffffff',
-       NavTitleValue: this.props.NavTitleValue,
-      //NavTitle: 'Text',
+      NavTitleValue: this.props.NavTitleValue,
+      // NavTitle: 'Text',
       navicondisplayColorPicker: false,
       navbgdisplayColorPicker: false,
-      OnCollectionEditValue: 'none',
-     
+      OnCollectionEditValue: 'none'
     };
   }
 
@@ -53,57 +55,66 @@ class SearchRightSection extends React.Component  {
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
     this.props.DisplaySaveBtn();
-  }
+  };
 
   navtitlehandleChange(navtitlecolor) {
     this.setState({ navtitlecolor: navtitlecolor.hex });
     this.props.navtitlecolorCall(navtitlecolor);
   }
+
   naviconhandleChange(naviconcolor) {
     this.setState({ naviconcolor: naviconcolor.hex });
     this.props.naviconcolorCall(naviconcolor);
   }
+
   naviconhandleClick = () => {
     this.setState({
       navicondisplayColorPicker: true
     });
-  }
+  };
+
   CollectionMainSectionEditOption() {
     this.setState({ CollectionMainSectionEditOptionValue: 'block' });
     this.setState({ ShowHideGridListView: 'none' });
   }
+
   navtitlehandleClose = () => {
     this.setState({ navtitledisplayColorPicker: false });
-  }
+  };
 
   navbghandleClose = () => {
     this.setState({ navbgdisplayColorPicker: false });
-  }
+  };
 
   CollectionCloseEditSection() {
     this.setState({ CollectionMainSectionEditOptionValue: 'none' });
     this.setState({ ShowHideGridListView: 'block' });
   }
+
   OnCollectionEditClick = e => {
-    this.setState({NavTitleValue: e.target.value});
+    this.setState({ NavTitleValue: e.target.value });
     this.props.NavTitleCall(e.target.value);
-  }
+  };
+
   navbghandleChange(navbgcolor) {
     this.setState({ navbgcolor: navbgcolor.hex });
     this.props.navbgcolorCall(navbgcolor);
   }
+
   navbghandleClick = () => {
     this.setState({ navbgdisplayColorPicker: true });
+  };
 
-  }
   navtitlehandleClick = () => {
     this.setState({
       navtitledisplayColorPicker: true
     });
-  }
+  };
+
   naviconhandleClose = () => {
     this.setState({ navicondisplayColorPicker: false });
-  }
+  };
+
   swatch = {
     padding: '5px',
     display: 'inline-block',
@@ -129,14 +140,13 @@ class SearchRightSection extends React.Component  {
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
-  bannerImageUrl = (value) => {
+  bannerImageUrl = value => {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
-  }
-
+  };
 
   render() {
     return (
@@ -151,15 +161,14 @@ class SearchRightSection extends React.Component  {
                 id="CollectionEffectMyStoreTitle"
                 style={{ color: this.props.navtitlecolor || '#fff' }}
               >
-              { this.props.NavTitleValue === 'img' &&
-                <img src={this.props.bannerImageUrl} style={{maxHeight:"30px", maxWidth: "90px" }} />
-              }
-              { this.props.NavTitleValue === 'text' &&
-                'SEARCH'
-              }
-              { ! this.props.NavTitleValue &&
-                'SEARCH'
-              }
+                {this.props.NavTitleValue === 'img' && (
+                  <img
+                    src={this.props.bannerImageUrl}
+                    style={{ maxHeight: '30px', maxWidth: '90px' }}
+                  />
+                )}
+                {this.props.NavTitleValue === 'text' && 'SEARCH'}
+                {!this.props.NavTitleValue && 'SEARCH'}
               </div>
               <div
                 id="CollectionEditMainSlider"
@@ -171,7 +180,7 @@ class SearchRightSection extends React.Component  {
               </div>
             </div>
 
-            <div id="CollectionEffectBody" style={{height: '60vh'}}>
+            <div id="CollectionEffectBody" style={{ height: '60vh' }}>
               <div
                 className="CollectionMainEditOptionContainer"
                 style={{
@@ -216,7 +225,6 @@ class SearchRightSection extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navbghandleClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -231,7 +239,10 @@ class SearchRightSection extends React.Component  {
                       </div>
                       {this.state.navbgdisplayColorPicker ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.navbghandleClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.navbghandleClose}
+                          />
                           <ChromePicker
                             color={this.props.navbgcolor || '#0E7C95'}
                             onChange={this.navbghandleChange}
@@ -240,7 +251,7 @@ class SearchRightSection extends React.Component  {
                       ) : null}
                     </div>
                   </div>
-                 {/* <div className="CollectionMainEditIconColor">
+                  {/* <div className="CollectionMainEditIconColor">
                     <div className="col-sm-12 CollectionSettingEditIconColor">
                       <label>NAV BAR ICON COLOR </label>
                     </div>
@@ -275,7 +286,7 @@ class SearchRightSection extends React.Component  {
                         </div>
                       ) : null}
                     </div>
-                  </div>*/}
+                  </div> */}
 
                   <div
                     className="CollectionMainEditIconColor"
@@ -295,7 +306,6 @@ class SearchRightSection extends React.Component  {
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navtitlehandleClick}
-                        
                       />
                       <div style={this.swatch}>
                         <div
@@ -310,7 +320,10 @@ class SearchRightSection extends React.Component  {
                       </div>
                       {this.state.navtitledisplayColorPicker ? (
                         <div style={this.popover}>
-                          <div style={ this.cover } onClick={ this.navtitlehandleClose }/>
+                          <div
+                            style={this.cover}
+                            onClick={this.navtitlehandleClose}
+                          />
                           <ChromePicker
                             color={this.props.navtitlecolor || '#fff'}
                             onChange={this.navtitlehandleChange}
@@ -333,12 +346,12 @@ class SearchRightSection extends React.Component  {
                     <div className="col-sm-12 CollectionMainEditIconImgView">
                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
-                        acceptedFiles={[ 'image/jpeg', 'image/png' ]}
+                        acceptedFiles={['image/jpeg', 'image/png']}
                         fileName={this.props.bannerImageUrl}
-                        previewImageHeight={'100px'}
-                        previewImageWidth={'100px'}
-                        imageFolder={"navTitleImage"}
-                        onChange={ (value) => this.bannerImageUrl(value) }
+                        previewImageHeight="100px"
+                        previewImageWidth="100px"
+                        imageFolder="navTitleImage"
+                        onChange={value => this.bannerImageUrl(value)}
                       />
                     </div>
                   </div>

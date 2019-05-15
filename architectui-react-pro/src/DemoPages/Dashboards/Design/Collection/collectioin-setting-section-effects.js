@@ -1,152 +1,152 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import * as React from "react";
-import { ChromePicker } from "react-color";
-import Loader from "react-loaders";
-import { API_ROOT } from "../../../../utilities/api-config";
-import CollectionSettingSingleSection from "./collection-setting-grid-single-section";
-import CollectioinSettingListSectionEffects from "./collection-setting-list-single-section";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
+import axios from 'axios';
+import * as React from 'react';
+import { ChromePicker } from 'react-color';
+import Loader from 'react-loaders';
+import { API_ROOT } from '../../../../utilities/api-config';
+import CollectionSettingSingleSection from './collection-setting-grid-single-section';
+import CollectioinSettingListSectionEffects from './collection-setting-list-single-section';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 const ProductsCollections = {
   collections: [
     {
-      id: "111",
-      name: "Default",
+      id: '111',
+      name: 'Default',
       image:
-        "https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg",
+        'https://cdn.shopify.com/s/files/1/0015/4655/1384/collections/mens-SUNGLASSES-banner-right.jpg',
       products: [
         {
-          id: "234",
-          name: "Title 1",
-          title: "Title 2",
-          imageUrl: ""
+          id: '234',
+          name: 'Title 1',
+          title: 'Title 2',
+          imageUrl: ''
         },
 
         {
-          id: "2343",
-          name: "Title 2",
-          title: "Title 3",
-          imageUrl: ""
+          id: '2343',
+          name: 'Title 2',
+          title: 'Title 3',
+          imageUrl: ''
         },
         {
-          id: "2324",
-          name: "Title 3",
-          title: "Title 4",
-          imageUrl: ""
+          id: '2324',
+          name: 'Title 3',
+          title: 'Title 4',
+          imageUrl: ''
         },
         {
-          id: "23334",
-          name: "Title 3",
-          title: "Title 5",
-          imageUrl: ""
+          id: '23334',
+          name: 'Title 3',
+          title: 'Title 5',
+          imageUrl: ''
         },
         {
-          id: "244434",
-          name: "Title 4",
-          title: "Title 6",
-          imageUrl: ""
+          id: '244434',
+          name: 'Title 4',
+          title: 'Title 6',
+          imageUrl: ''
         },
         {
-          id: "23334",
-          name: "Title 5",
-          title: "Title 7",
-          imageUrl: ""
+          id: '23334',
+          name: 'Title 5',
+          title: 'Title 7',
+          imageUrl: ''
         }
       ]
     },
     {
-      id: "123",
-      name: "Under $50",
-      imageUrl: "",
+      id: '123',
+      name: 'Under $50',
+      imageUrl: '',
       products: [
         {
-          id: "234",
-          name: "Title 1",
-          title: "Title 2",
-          imageUrl: ""
+          id: '234',
+          name: 'Title 1',
+          title: 'Title 2',
+          imageUrl: ''
         },
 
         {
-          id: "2343",
-          name: "Title 2",
-          title: "Title 3",
-          imageUrl: ""
+          id: '2343',
+          name: 'Title 2',
+          title: 'Title 3',
+          imageUrl: ''
         },
         {
-          id: "2324",
-          name: "Title 3",
-          title: "Title 4",
-          imageUrl: ""
+          id: '2324',
+          name: 'Title 3',
+          title: 'Title 4',
+          imageUrl: ''
         },
         {
-          id: "23334",
-          name: "Title 3",
-          title: "Title 5",
-          imageUrl: ""
+          id: '23334',
+          name: 'Title 3',
+          title: 'Title 5',
+          imageUrl: ''
         },
         {
-          id: "244434",
-          name: "Title 4",
-          title: "Title 6",
-          imageUrl: ""
+          id: '244434',
+          name: 'Title 4',
+          title: 'Title 6',
+          imageUrl: ''
         },
         {
-          id: "23334",
-          name: "Title 5",
-          title: "Title 7",
-          imageUrl: ""
+          id: '23334',
+          name: 'Title 5',
+          title: 'Title 7',
+          imageUrl: ''
         }
       ]
     },
     {
-      id: "1233",
-      name: "All",
-      imageUrl: "",
+      id: '1233',
+      name: 'All',
+      imageUrl: '',
       products: [
         {
-          id: "2345",
-          name: "Default C2 TItle 1",
-          title: "Title 2",
-          imageUrl: ""
+          id: '2345',
+          name: 'Default C2 TItle 1',
+          title: 'Title 2',
+          imageUrl: ''
         },
 
         {
-          id: "23435",
-          name: "Default c2 TItle 2",
-          title: "Title 3",
-          imageUrl: ""
+          id: '23435',
+          name: 'Default c2 TItle 2',
+          title: 'Title 3',
+          imageUrl: ''
         },
         {
-          id: "23245",
-          name: "Default C2 TItle 3",
-          title: "Title 4",
-          imageUrl: ""
+          id: '23245',
+          name: 'Default C2 TItle 3',
+          title: 'Title 4',
+          imageUrl: ''
         },
         {
-          id: "233345",
-          name: "Default C2 TItle 3",
-          title: "Title 5",
-          imageUrl: ""
+          id: '233345',
+          name: 'Default C2 TItle 3',
+          title: 'Title 5',
+          imageUrl: ''
         },
         {
-          id: "2444345",
-          name: "Default C2 TItle 4",
-          title: "Title 6",
-          imageUrl: ""
+          id: '2444345',
+          name: 'Default C2 TItle 4',
+          title: 'Title 6',
+          imageUrl: ''
         },
         {
-          id: "233345",
-          name: "Default C2 TItle 5",
-          title: "Title 7",
-          imageUrl: ""
+          id: '233345',
+          name: 'Default C2 TItle 5',
+          title: 'Title 7',
+          imageUrl: ''
         }
       ]
     }
   ],
 
-  SelectedCollectionId: "111"
+  SelectedCollectionId: '111'
 };
 
 function getSelectedCollectionProducts() {
@@ -177,21 +177,21 @@ class CollectioinSettingSectionEffects extends React.Component {
     this.naviconhandleClose = this.naviconhandleClose.bind(this);
     this.collectionClick = this.collectionClick.bind(this);
     this.state = {
-      DisplayCollection: "none",
-      CollectionMainSectionEditOptionValue: "none",
-      ShowHideGridListView: "block",
+      DisplayCollection: 'none',
+      CollectionMainSectionEditOptionValue: 'none',
+      ShowHideGridListView: 'block',
       navbgdisplayColorPicker: false,
       navtitledisplayColorPicker: false,
       navicondisplayColorPicker: false,
       ProductsCollectionsData: [],
       CollectionsProductsData: [],
       ProductList: [],
-      CollectionSelectedTitle: "",
+      CollectionSelectedTitle: '',
       isLoaded: false,
-      CollectionSelectedId: "",
+      CollectionSelectedId: '',
       ProductsCollectionsDataVal: getSelectedCollectionProducts(),
-      collectionTypeVal: "",
-      CollectionSelectedIdValue: "",
+      collectionTypeVal: '',
+      CollectionSelectedIdValue: '',
       naviconcolor: this.props.naviconcolorValue,
       navtitlecolor: this.props.navtitlecolorValue,
       navbgcolor: this.props.navbgcolorValue,
@@ -205,10 +205,9 @@ class CollectioinSettingSectionEffects extends React.Component {
     if (settings.collectionType && settings.CollectionSelectedId) {
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-          settings.collectionType +
-          `/` +
-          settings.CollectionSelectedId
+          `${API_ROOT}/api/v2/collection/products/${settings.collectionType}/${
+            settings.CollectionSelectedId
+          }`
         )
         .then(res1 => {
           this.setState({ ProductList: res1.data.productVMList });
@@ -226,96 +225,111 @@ class CollectioinSettingSectionEffects extends React.Component {
       NavTitle: this.state.NavTitle
     };
     this.props.DisplaySaveBtn(CollectionSettings);
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
   };
 
   DropDownGetIconCellectionNavCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.DropDownGetIconheader(icon);
   };
+
   navbghandleClose = () => {
     this.setState({ navbgdisplayColorPicker: false });
   };
+
   navtitlehandleClose = () => {
     this.setState({ navtitledisplayColorPicker: false });
   };
+
   naviconhandleClose = () => {
     this.setState({ navicondisplayColorPicker: false });
   };
+
   navbghandleClick = () => {
     this.setState({ navbgdisplayColorPicker: true });
   };
+
   navtitlehandleClick = () => {
     this.setState({
       navtitledisplayColorPicker: !this.state.navtitledisplayColorPicker
     });
   };
+
   naviconhandleClick = () => {
     this.setState({
       navicondisplayColorPicker: !this.state.navicondisplayColorPicker
     });
   };
+
   navbghandleChange(color) {
     this.setState({ navbgcolor: color.hex });
     this.props.navbgcolor(color);
   }
+
   naviconhandleChange(naviconcolor) {
     this.setState({ naviconcolor: naviconcolor.hex });
     this.props.naviconcolor(naviconcolor);
   }
+
   navtitlehandleChange(navtitlecolor) {
     this.setState({ navtitlecolor: navtitlecolor.hex });
     this.props.navtitlecolor(navtitlecolor);
   }
+
   DisplayCollectionResult() {
-    if (this.state.DisplayCollection === "none") {
-      this.setState({ DisplayCollection: "block" });
+    if (this.state.DisplayCollection === 'none') {
+      this.setState({ DisplayCollection: 'block' });
     } else {
-      this.setState({ DisplayCollection: "none" });
+      this.setState({ DisplayCollection: 'none' });
     }
   }
+
   CollectionMainSectionEditOption() {
-    this.setState({ CollectionMainSectionEditOptionValue: "block" });
-    this.setState({ ShowHideGridListView: "none" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'block' });
+    this.setState({ ShowHideGridListView: 'none' });
   }
+
   CollectionCloseEditSection() {
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
   }
+
   OnCollectionEditClick = e => {
     this.props.NavTitle(e.target.value);
   };
+
   swatch = {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "15px",
-    top: "2px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '15px',
+    top: '2px'
   };
 
   popover = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2
   };
 
   cover = {
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   collectionClick = item => {
     this.props.Clickedfilter();
-    this.setState({ DisplayCollection: "none" });
+    this.setState({ DisplayCollection: 'none' });
     this.setState({ CollectionSelectedTitle: item.title });
     this.props.CollectionSelectedTitle(item.title);
     this.setState({ CollectionSelectedId: item.id });
@@ -325,10 +339,9 @@ class CollectioinSettingSectionEffects extends React.Component {
     this.setState({ isLoaded: false });
     axios
       .get(
-        `${API_ROOT}/api/v2/collection/products/` +
-        item.collectionType +
-        `/` +
-        item.id
+        `${API_ROOT}/api/v2/collection/products/${item.collectionType}/${
+          item.id
+        }`
       )
       .then(res1 => {
         this.setState({ ProductList: res1.data.productVMList });
@@ -359,7 +372,7 @@ class CollectioinSettingSectionEffects extends React.Component {
               type="text"
               value={
                 this.props.CollectionSelectedTitleValue ||
-                "Preview Your Collection Page -- Select a Collection"
+                'Preview Your Collection Page -- Select a Collection'
               }
               readOnly
               onClick={this.DisplayCollectionResult.bind(this)}
@@ -373,17 +386,17 @@ class CollectioinSettingSectionEffects extends React.Component {
                   <div
                     key={item2.collectionId}
                     className="collectionElementProductShowHide"
-                    style={{ height: "50px", width: "auto", cursor: "pointer" }}
+                    style={{ height: '50px', width: 'auto', cursor: 'pointer' }}
                     id={
                       this.props.CollectionSelectedIdValue === item2.id
-                        ? "Active"
-                        : ""
+                        ? 'Active'
+                        : ''
                     }
                     onClick={() => this.collectionClick(item2)}
                   >
                     {item2.imageUrl && (
                       <img
-                        style={{ width: "50px", height: "50px" }}
+                        style={{ width: '50px', height: '50px' }}
                         src={item2.imageUrl}
                         alt={item2.title}
                       />
@@ -391,22 +404,22 @@ class CollectioinSettingSectionEffects extends React.Component {
                     {!item2.imageUrl && (
                       <span
                         style={{
-                          width: "50px",
-                          height: "50px",
-                          borderRadius: "50%",
-                          backgroundColor: "#b9b9b9de",
-                          color: "#fff",
-                          fontSize: "10px",
-                          paddingLeft: "3px"
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '50%',
+                          backgroundColor: '#b9b9b9de',
+                          color: '#fff',
+                          fontSize: '10px',
+                          paddingLeft: '3px'
                         }}
                       >
-                        {" "}
-                        No Image{" "}
+                        {' '}
+                        No Image{' '}
                       </span>
                     )}
-                    {item2.imageUrl === "" && (
+                    {item2.imageUrl === '' && (
                       <i
-                        style={{ width: "50px", height: "50px" }}
+                        style={{ width: '50px', height: '50px' }}
                         className="pe-7s-photo"
                       />
                     )}
@@ -420,20 +433,20 @@ class CollectioinSettingSectionEffects extends React.Component {
 
           <div
             id="CollectionEffectNavBarContainer"
-            style={{ backgroundColor: this.props.navbgcolorValue || "#0E7C95" }}
+            style={{ backgroundColor: this.props.navbgcolorValue || '#0E7C95' }}
           >
             <div
               id="CollectionEffectMyStoreTitle"
-              style={{ color: this.props.navtitlecolorValue || "#fff" }}
+              style={{ color: this.props.navtitlecolorValue || '#fff' }}
             >
-              {this.props.NavTitleValue === "img" && (
+              {this.props.NavTitleValue === 'img' && (
                 <img
                   src={this.props.bannerImageUrl}
-                  style={{ maxHeight: "40px", maxWidth: "90px" }}
+                  style={{ maxHeight: '40px', maxWidth: '90px' }}
                 />
               )}
-              {this.props.NavTitleValue === "text" && "COLLECTIONS"}
-              {!this.props.NavTitleValue && "COLLECTIONS"}
+              {this.props.NavTitleValue === 'text' && 'COLLECTIONS'}
+              {!this.props.NavTitleValue && 'COLLECTIONS'}
             </div>
             <div
               id="CollectionEditMainSlider"
@@ -450,7 +463,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                 className="CollectionMainEditOptionContainer"
                 style={{
                   display: this.state.CollectionMainSectionEditOptionValue,
-                  height: "55vh"
+                  height: '55vh'
                 }}
               >
                 <div className="CollectionEditSettingOptionContainer">
@@ -469,7 +482,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                         name=""
                         id="CollectionMainEditSelect"
                         onChange={this.OnCollectionEditClick.bind(this)}
-                        value={this.props.NavTitleValue || "text"}
+                        value={this.props.NavTitleValue || 'text'}
                       >
                         <option value="img">Use Image</option>
                         <option value="text">Use Text</option>
@@ -484,8 +497,8 @@ class CollectioinSettingSectionEffects extends React.Component {
                     <div className="col-sm-12 CollectionMainEditBGIconView">
                       <input
                         type="text"
-                        value={this.props.navbgcolorValue || "#0E7C95"}
-                        defaultValue={this.props.navbgcolorValue || "#0E7C95"}
+                        value={this.props.navbgcolorValue || '#0E7C95'}
+                        defaultValue={this.props.navbgcolorValue || '#0E7C95'}
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navbghandleClick}
@@ -494,10 +507,10 @@ class CollectioinSettingSectionEffects extends React.Component {
                         <div
                           className="colorPickerBorder"
                           style={{
-                            width: "20px",
-                            height: "20px",
+                            width: '20px',
+                            height: '20px',
                             backgroundColor:
-                              this.props.navbgcolorValue || "#0E7C95"
+                              this.props.navbgcolorValue || '#0E7C95'
                           }}
                           onClick={this.navbghandleClick}
                         />
@@ -509,7 +522,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                             onClick={this.navbghandleClose}
                           />
                           <ChromePicker
-                            color={this.props.navbgcolorValue || "#0E7C95"}
+                            color={this.props.navbgcolorValue || '#0E7C95'}
                             onChange={this.navbghandleChange}
                           />
                         </div>
@@ -521,7 +534,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     className="CollectionMainEditIconColor"
                     style={{
                       display:
-                        this.props.NavTitleValue === "img" ? "none" : "block"
+                        this.props.NavTitleValue === 'img' ? 'none' : 'block'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -530,8 +543,8 @@ class CollectioinSettingSectionEffects extends React.Component {
                     <div className="col-sm-12 CollectionMainEditIconColorView">
                       <input
                         type="text"
-                        value={this.props.navtitlecolorValue || "#fff"}
-                        defaultValue={this.props.navtitlecolorValue || "#fff"}
+                        value={this.props.navtitlecolorValue || '#fff'}
+                        defaultValue={this.props.navtitlecolorValue || '#fff'}
                         id="CollectionDropDown"
                         className="textColorCode"
                         onClick={this.navtitlehandleClick}
@@ -540,10 +553,10 @@ class CollectioinSettingSectionEffects extends React.Component {
                         <div
                           className="colorPickerBorder"
                           style={{
-                            width: "20px",
-                            height: "20px",
+                            width: '20px',
+                            height: '20px',
                             backgroundColor:
-                              this.props.navtitlecolorValue || "#fff"
+                              this.props.navtitlecolorValue || '#fff'
                           }}
                           onClick={this.navtitlehandleClick}
                         />
@@ -555,7 +568,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                             onClick={this.navtitlehandleClose}
                           />
                           <ChromePicker
-                            color={this.props.navtitlecolorValue || "#fff"}
+                            color={this.props.navtitlecolorValue || '#fff'}
                             onChange={this.navtitlehandleChange}
                           />
                         </div>
@@ -567,7 +580,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     className="CollectionMainEditImg"
                     style={{
                       display:
-                        this.props.NavTitleValue === "img" ? "block" : "none"
+                        this.props.NavTitleValue === 'img' ? 'block' : 'none'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditImg">
@@ -576,11 +589,11 @@ class CollectioinSettingSectionEffects extends React.Component {
                     <div className="col-sm-12 CollectionMainEditIconImgView">
                       <S3SingleFileUploaderWithPreviewAndFileNameCapability
                         label="Choose file"
-                        acceptedFiles={["image/jpeg", "image/png"]}
+                        acceptedFiles={['image/jpeg', 'image/png']}
                         fileName={this.props.bannerImageUrl}
-                        previewImageHeight={"100px"}
-                        previewImageWidth={"100px"}
-                        imageFolder={"navTitleImage"}
+                        previewImageHeight="100px"
+                        previewImageWidth="100px"
+                        imageFolder="navTitleImage"
                         onChange={value => this.bannerImageUrl(value)}
                       />
                     </div>
@@ -609,7 +622,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     id="CollectionEffectGrid"
                     style={{
                       display:
-                        this.props.SelectedOption === "Grid" ? "block" : "none",
+                        this.props.SelectedOption === 'Grid' ? 'block' : 'none',
                       columns: this.props.CollectionGridRowValue
                     }}
                   >
@@ -642,18 +655,18 @@ class CollectioinSettingSectionEffects extends React.Component {
                         );
                       })}
                     {this.state.ProductList &&
-                      this.state.ProductList.length != 0 &&
+                      this.state.ProductList.length !== 0 &&
                       !this.state.isLoaded && (
                         <div className="">
-                          {" "}
+                          {' '}
                           <Loader
                             color="#0e7c95"
                             type="ball-scale-multiple"
-                          />{" "}
+                          />{' '}
                         </div>
                       )}
                     {!this.state.ProductList &&
-                      //this.state.ProductList.length === 0 &&
+                      // this.state.ProductList.length === 0 &&
                       this.state.ProductsCollectionsDataVal.map(
                         (item2, index2) => {
                           return (
@@ -717,7 +730,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     id="CollectionEffectList"
                     style={{
                       display:
-                        this.props.SelectedOption === "Grid" ? "none" : "block"
+                        this.props.SelectedOption === 'Grid' ? 'none' : 'block'
                     }}
                   >
                     {this.state.ProductList &&
@@ -748,18 +761,18 @@ class CollectioinSettingSectionEffects extends React.Component {
                         );
                       })}
                     {this.state.ProductList &&
-                      this.state.ProductList.length != 0 &&
+                      this.state.ProductList.length !== 0 &&
                       !this.state.isLoaded && (
                         <div className="">
-                          {" "}
+                          {' '}
                           <Loader
                             color="#0e7c95"
                             type="ball-scale-multiple"
-                          />{" "}
+                          />{' '}
                         </div>
                       )}
                     {!this.state.ProductList &&
-                      //this.state.ProductList.length === 0 &&
+                      // this.state.ProductList.length === 0 &&
                       this.state.ProductsCollectionsDataVal.map(
                         (item2, index2) => {
                           return (
@@ -817,10 +830,7 @@ class CollectioinSettingSectionEffects extends React.Component {
 
           {!this.state.isLoaded && (
             <div id="mobile_loadingSection">
-              <Loader
-                color="#0e7c95"
-                type="ball-scale-multiple"
-              />
+              <Loader color="#0e7c95" type="ball-scale-multiple" />
             </div>
           )}
         </div>

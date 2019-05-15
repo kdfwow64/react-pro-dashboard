@@ -1,10 +1,10 @@
 // tslint:disable
 // @ts-nocheck
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { ChromePicker } from "react-color";
-import IconList from "../icon-list";
-import { Col, Row, Card, CardBody, CardTitle, CardHeader } from "reactstrap";
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { ChromePicker } from 'react-color';
+import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
+import IconList from '../icon-list';
 
 class SearchLeftSection extends React.Component {
   constructor(props) {
@@ -67,78 +67,90 @@ class SearchLeftSection extends React.Component {
       this
     );
   }
+
   state = {
-    BGColor: "#ffffff",
+    BGColor: '#ffffff',
     BGColorPicker: false,
-    SearchInputColor: "#fafafa",
+    SearchInputColor: '#fafafa',
     SearchInputColorPicker: false,
-    SearchInputBorder: "#d6d6d6",
+    SearchInputBorder: '#d6d6d6',
     SearchInputBorderPicker: false,
-    SearchIconColor: "#b8b8b8",
+    SearchIconColor: '#b8b8b8',
     SearchIconColorPicker: false,
-    SearchTitleColor: "#b8b8b8",
+    SearchTitleColor: '#b8b8b8',
     SearchTitleColorPicker: false,
-    SearchBGColor: "#ffffff",
+    SearchBGColor: '#ffffff',
     SearchBGColorPicker: false,
-    CellSeparatorColor: "#f0f0f0",
+    CellSeparatorColor: '#f0f0f0',
     CellSeparatorColorPicker: false,
-    CellBGColor: "#ffffff",
+    CellBGColor: '#ffffff',
     CellBGColorPicker: false,
-    ProductBorderColor: "#ffffff",
+    ProductBorderColor: '#ffffff',
     ProductBorderColorPicker: false,
-    ProductTitleColor: "#000000",
+    ProductTitleColor: '#000000',
     ProductTitleColorPicker: false,
-    PriceColor: "#333333",
+    PriceColor: '#333333',
     PriceColorPicker: false,
-    ProductIconColor: "#2ecc71",
+    ProductIconColor: '#2ecc71',
     ProductIconColorPicker: false,
-    DropDownGetSearchActionIconheader: "lnr-arrow-right"
+    DropDownGetSearchActionIconheader: 'lnr-arrow-right'
   };
 
   BGColorhandleChange(BGColor) {
     this.setState({ BGColor: BGColor.hex });
     this.props.BGColorCallback(BGColor);
   }
+
   SearchInputColorhandleChange(SearchInputColor) {
     this.setState({ SearchInputColor: SearchInputColor.hex });
     this.props.SearchInputColorCallback(SearchInputColor);
   }
+
   SearchInputBorderhandleChange(SearchInputBorder) {
     this.setState({ SearchInputBorder: SearchInputBorder.hex });
     this.props.SearchInputBorderCallback(SearchInputBorder);
   }
+
   SearchIconColorhandleChange(SearchIconColor) {
     this.setState({ SearchIconColor: SearchIconColor.hex });
     this.props.SearchIconColorCallback(SearchIconColor);
   }
+
   SearchTitleColorhandleChange(SearchTitleColor) {
     this.setState({ SearchTitleColor: SearchTitleColor.hex });
     this.props.SearchTitleColorCallback(SearchTitleColor);
   }
+
   SearchBGColorhandleChange(SearchBGColor) {
     this.setState({ SearchBGColor: SearchBGColor.hex });
     this.props.SearchBGColorCallback(SearchBGColor);
   }
+
   CellSeparatorColorhandleChange(CellSeparatorColor) {
     this.setState({ CellSeparatorColor: CellSeparatorColor.hex });
     this.props.CellSeparatorColorCallback(CellSeparatorColor);
   }
+
   CellBGColorhandleChange(CellBGColor) {
     this.setState({ CellBGColor: CellBGColor.hex });
     this.props.CellBGColorCallback(CellBGColor);
   }
+
   ProductBorderColorhandleChange(ProductBorderColor) {
     this.setState({ ProductBorderColor: ProductBorderColor.hex });
     this.props.ProductBorderColorCallback(ProductBorderColor);
   }
+
   ProductTitleColorhandleChange(ProductTitleColor) {
     this.setState({ ProductTitleColor: ProductTitleColor.hex });
     this.props.ProductTitleColorCallback(ProductTitleColor);
   }
+
   PriceColorhandleChange(PriceColor) {
     this.setState({ PriceColor: PriceColor.hex });
     this.props.PriceColorCallback(PriceColor);
   }
+
   ProductIconColorhandleChange(ProductIconColor) {
     this.setState({ ProductIconColor: ProductIconColor.hex });
     this.props.ProductIconColorCallback(ProductIconColor);
@@ -147,36 +159,47 @@ class SearchLeftSection extends React.Component {
   BGColorhandleClick = e => {
     this.setState({ BGColorPicker: !this.BGColorPicker });
   };
+
   SearchInputColorhandleClick = e => {
     this.setState({ SearchInputColorPicker: !this.SearchInputColorPicker });
   };
+
   SearchInputBorderhandleClick = e => {
     this.setState({ SearchInputBorderPicker: !this.SearchInputBorderPicker });
   };
+
   SearchIconColorhandleClick = e => {
     this.setState({ SearchIconColorPicker: !this.SearchIconColorPicker });
   };
+
   SearchTitleColorhandleClick = e => {
     this.setState({ SearchTitleColorPicker: !this.SearchTitleColorPicker });
   };
+
   SearchBGColorhandleClick = e => {
     this.setState({ SearchBGColorPicker: !this.SearchBGColorPicker });
   };
+
   CellSeparatorColorhandleClick = e => {
     this.setState({ CellSeparatorColorPicker: !this.CellSeparatorColorPicker });
   };
+
   CellBGColorhandleClick = e => {
     this.setState({ CellBGColorPicker: !this.CellBGColorPicker });
   };
+
   ProductBorderColorhandleClick = e => {
     this.setState({ ProductBorderColorPicker: !this.ProductBorderColorPicker });
   };
+
   ProductTitleColorhandleClick = e => {
     this.setState({ ProductTitleColorPicker: !this.ProductTitleColorPicker });
   };
+
   PriceColorhandleClick = e => {
     this.setState({ PriceColorPicker: !this.PriceColorPicker });
   };
+
   ProductIconColorhandleClick = e => {
     this.setState({ ProductIconColorPicker: !this.ProductIconColorPicker });
   };
@@ -184,36 +207,47 @@ class SearchLeftSection extends React.Component {
   BGColorhandleClose = () => {
     this.setState({ BGColorPicker: false });
   };
+
   SearchInputColorhandleClose = () => {
     this.setState({ SearchInputColorPicker: false });
   };
+
   SearchInputBorderhandleClose = () => {
     this.setState({ SearchInputBorderPicker: false });
   };
+
   SearchIconColorhandleClose = () => {
     this.setState({ SearchIconColorPicker: false });
   };
+
   SearchTitleColorhandleClose = () => {
     this.setState({ SearchTitleColorPicker: false });
   };
+
   SearchBGColorhandleClose = () => {
     this.setState({ SearchBGColorPicker: false });
   };
+
   CellSeparatorColorhandleClose = () => {
     this.setState({ CellSeparatorColorPicker: false });
   };
+
   CellBGColorhandleClose = () => {
     this.setState({ CellBGColorPicker: false });
   };
+
   ProductBorderColorhandleClose = () => {
     this.setState({ ProductBorderColorPicker: false });
   };
+
   ProductTitleColorhandleClose = () => {
     this.setState({ ProductTitleColorPicker: false });
   };
+
   PriceColorhandleClose = () => {
     this.setState({ PriceColorPicker: false });
   };
+
   ProductIconColorhandleClose = () => {
     this.setState({ ProductIconColorPicker: false });
   };
@@ -224,30 +258,31 @@ class SearchLeftSection extends React.Component {
   };
 
   swatch = {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "4px",
-    top: "40px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '4px',
+    top: '40px'
   };
 
   popover = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2
   };
 
   cover = {
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   render() {
@@ -256,7 +291,7 @@ class SearchLeftSection extends React.Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
@@ -269,7 +304,7 @@ class SearchLeftSection extends React.Component {
             <Row>
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative" }}
+                style={{ position: 'relative' }}
               >
                 <h5>VIEW BACKGROUND COLOR</h5>
                 <input
@@ -284,8 +319,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.BGColor
                     }}
                     onClick={this.BGColorhandleClick}
@@ -304,7 +339,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>SEARCH INPUT BACKGROUND</h5>
                 <input
@@ -319,8 +354,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.SearchInputColor
                     }}
                     onClick={this.SearchInputColorhandleClick}
@@ -342,7 +377,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>SEARCH INPUT BORDER</h5>
                 <input
@@ -357,8 +392,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.SearchInputBorder
                     }}
                     onClick={this.SearchInputBorderhandleClick}
@@ -380,7 +415,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>SEARCH ICON COLOR</h5>
                 <input
@@ -395,8 +430,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.SearchIconColor
                     }}
                     onClick={this.SearchIconColorhandleClick}
@@ -418,7 +453,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>SEARCH TITLE COLOR</h5>
                 <input
@@ -433,8 +468,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.SearchTitleColor
                     }}
                     onClick={this.SearchTitleColorhandleClick}
@@ -456,7 +491,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>SEARCH CELL COLOR</h5>
                 <input
@@ -471,8 +506,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.SearchBGColor
                     }}
                     onClick={this.SearchBGColorhandleClick}
@@ -494,7 +529,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>CELL SEPARATOR COLOR</h5>
                 <input
@@ -509,8 +544,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.CellSeparatorColor
                     }}
                     onClick={this.CellSeparatorColorhandleClick}
@@ -532,7 +567,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>CELL BACKGROUND COLOR</h5>
                 <input
@@ -547,8 +582,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.CellBGColor
                     }}
                     onClick={this.CellBGColorhandleClick}
@@ -570,7 +605,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>PRODUCT BORDER COLOR</h5>
                 <input
@@ -585,8 +620,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.ProductBorderColor
                     }}
                     onClick={this.ProductBorderColorhandleClick}
@@ -608,7 +643,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>PRODUCT TITLE COLOR</h5>
                 <input
@@ -623,8 +658,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.ProductTitleColor
                     }}
                     onClick={this.ProductTitleColorhandleClick}
@@ -646,7 +681,7 @@ class SearchLeftSection extends React.Component {
 
               <div
                 className="ProductSilderActiveColor"
-                style={{ position: "relative", marginTop: "20px" }}
+                style={{ position: 'relative', marginTop: '20px' }}
               >
                 <h5>PRODUCT PRICE COLOR</h5>
                 <input
@@ -661,8 +696,8 @@ class SearchLeftSection extends React.Component {
                   <div
                     className="colorPickerBorder"
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: '20px',
+                      height: '20px',
                       backgroundColor: this.props.PriceColor
                     }}
                     onClick={this.PriceColorhandleClick}
@@ -734,7 +769,7 @@ class SearchLeftSection extends React.Component {
                 ) : null}
               </div> */}
             </Row>
-            </Card>
+          </Card>
         </ReactCSSTransitionGroup>
       </Fragment>
     );

@@ -1,47 +1,47 @@
 // tslint:disable
-import axios from "axios";
-import React, { Fragment } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { ChromePicker } from "react-color";
-import Loader from "react-loaders";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { Button, Card, CardHeader, Col, Collapse, Row } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from "../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability";
-import { themeColorFromName } from "../mobile-theme-utils";
-import ThemeOptions from "../theme-options";
-import CreateAccountForm from "./create-account-form";
-import CreateAccountOptions from "./create-account-options";
-import CreateLoginForm from "./create-login-form";
-import CreateLoginOptions from "./create-login-option";
-import OrderDetails from "./order-detail-form";
-import Orderdetailoption from "./order-detail-option";
-import Orderfavorite from "./order-favourite-form";
-import Orderhistory from "./order-history-form";
-import OrderHistoryOption from "./order-history-option";
-import CreateSettingForm from "./setting-account-form";
-import SettingAccountOption from "./setting-account-option";
-import CreateContactForm from "./user-contact-form";
-import UserReview from "./user-review-form";
+import axios from 'axios';
+import React, { Fragment } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { ChromePicker } from 'react-color';
+import Loader from 'react-loaders';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Button, Card, CardHeader, Col, Collapse, Row } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import { themeColorFromName } from '../mobile-theme-utils';
+import ThemeOptions from '../theme-options';
+import CreateAccountForm from './create-account-form';
+import CreateAccountOptions from './create-account-options';
+import CreateLoginForm from './create-login-form';
+import CreateLoginOptions from './create-login-option';
+import OrderDetails from './order-detail-form';
+import Orderdetailoption from './order-detail-option';
+import Orderfavorite from './order-favourite-form';
+import Orderhistory from './order-history-form';
+import OrderHistoryOption from './order-history-option';
+import CreateSettingForm from './setting-account-form';
+import SettingAccountOption from './setting-account-option';
+import CreateContactForm from './user-contact-form';
+import UserReview from './user-review-form';
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
   swatch: {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "15px",
-    top: "2px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '15px',
+    top: '2px'
   },
   popover: {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2
   },
   cover: {
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   }
 };
 class LandingUserSection extends React.Component {
@@ -223,7 +223,7 @@ class LandingUserSection extends React.Component {
     this.OnCollectionEditClick = this.OnCollectionEditClick.bind(this);
 
     this.state = {
-      bannerImageUrl: "",
+      bannerImageUrl: '',
       accordion: [true, false, false, false, false],
       isLoaded: false
     };
@@ -231,17 +231,17 @@ class LandingUserSection extends React.Component {
 
   onaccountclick = tab => {
     this.setState({
-      logindisplay: "none",
-      accountdisplay: "block",
-      historydisplay: "none",
-      favouritedisplay: "none",
-      orderdisplay: "none",
-      contactdisplay: "none",
-      reviewdisplay: "none",
-      settingdisplay: "none",
-      TitleUserPage: "CREATE ACCOUNT"
+      logindisplay: 'none',
+      accountdisplay: 'block',
+      historydisplay: 'none',
+      favouritedisplay: 'none',
+      orderdisplay: 'none',
+      contactdisplay: 'none',
+      reviewdisplay: 'none',
+      settingdisplay: 'none',
+      TitleUserPage: 'CREATE ACCOUNT'
     });
-    this.setState({ OpenTabOption: "yes" });
+    this.setState({ OpenTabOption: 'yes' });
 
     const prevState = this.state.accordion;
     const state = prevState.map((x, index) => (tab === index ? !x : false));
@@ -253,17 +253,17 @@ class LandingUserSection extends React.Component {
 
   onloginclick = tab => {
     this.setState({
-      logindisplay: "block",
-      accountdisplay: "none",
-      historydisplay: "none",
-      favouritedisplay: "none",
-      orderdisplay: "none",
-      contactdisplay: "none",
-      reviewdisplay: "none",
-      settingdisplay: "none",
-      TitleUserPage: "LOGIN"
+      logindisplay: 'block',
+      accountdisplay: 'none',
+      historydisplay: 'none',
+      favouritedisplay: 'none',
+      orderdisplay: 'none',
+      contactdisplay: 'none',
+      reviewdisplay: 'none',
+      settingdisplay: 'none',
+      TitleUserPage: 'LOGIN'
     });
-    this.setState({ OpenTabOption: "yes" });
+    this.setState({ OpenTabOption: 'yes' });
     const prevState = this.state.accordion;
     const state = prevState.map((x, index) => (tab === index ? !x : false));
 
@@ -274,17 +274,17 @@ class LandingUserSection extends React.Component {
 
   onhistoryclick = tab => {
     this.setState({
-      logindisplay: "none",
-      accountdisplay: "none",
-      historydisplay: "block",
-      favouritedisplay: "none",
-      orderdisplay: "none",
-      contactdisplay: "none",
-      reviewdisplay: "none",
-      settingdisplay: "none",
-      TitleUserPage: "ORDER HISTORY LIST"
+      logindisplay: 'none',
+      accountdisplay: 'none',
+      historydisplay: 'block',
+      favouritedisplay: 'none',
+      orderdisplay: 'none',
+      contactdisplay: 'none',
+      reviewdisplay: 'none',
+      settingdisplay: 'none',
+      TitleUserPage: 'ORDER HISTORY LIST'
     });
-    this.setState({ OpenTabOption: "yes" });
+    this.setState({ OpenTabOption: 'yes' });
     const prevState = this.state.accordion;
     const state = prevState.map((x, index) => (tab === index ? !x : false));
 
@@ -295,17 +295,17 @@ class LandingUserSection extends React.Component {
 
   onorderclick = tab => {
     this.setState({
-      logindisplay: "none",
-      accountdisplay: "none",
-      historydisplay: "none",
-      favouritedisplay: "none",
-      orderdisplay: "block",
-      contactdisplay: "none",
-      reviewdisplay: "none",
-      settingdisplay: "none",
-      TitleUserPage: "ORDER DETAILS"
+      logindisplay: 'none',
+      accountdisplay: 'none',
+      historydisplay: 'none',
+      favouritedisplay: 'none',
+      orderdisplay: 'block',
+      contactdisplay: 'none',
+      reviewdisplay: 'none',
+      settingdisplay: 'none',
+      TitleUserPage: 'ORDER DETAILS'
     });
-    this.setState({ OpenTabOption: "yes" });
+    this.setState({ OpenTabOption: 'yes' });
 
     const prevState = this.state.accordion;
     const state = prevState.map((x, index) => (tab === index ? !x : false));
@@ -317,17 +317,17 @@ class LandingUserSection extends React.Component {
 
   onsettingclick = tab => {
     this.setState({
-      logindisplay: "none",
-      accountdisplay: "none",
-      historydisplay: "none",
-      favouritedisplay: "none",
-      orderdisplay: "none",
-      contactdisplay: "none",
-      reviewdisplay: "none",
-      settingdisplay: "block",
-      TitleUserPage: "SETTINGS"
+      logindisplay: 'none',
+      accountdisplay: 'none',
+      historydisplay: 'none',
+      favouritedisplay: 'none',
+      orderdisplay: 'none',
+      contactdisplay: 'none',
+      reviewdisplay: 'none',
+      settingdisplay: 'block',
+      TitleUserPage: 'SETTINGS'
     });
-    this.setState({ OpenTabOption: "yes" });
+    this.setState({ OpenTabOption: 'yes' });
 
     const prevState = this.state.accordion;
     const state = prevState.map((x, index) => (tab === index ? !x : false));
@@ -377,7 +377,7 @@ class LandingUserSection extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
-  /*Login*/
+  /* Login */
 
   onloginBGColorChangeComplete = color => {
     this.setState({ loginBGColor: color.hex });
@@ -419,7 +419,7 @@ class LandingUserSection extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
-  /*Contact*/
+  /* Contact */
 
   oncontactBGColorChangeComplete = color => {
     this.setState({ contactBGColor: color.hex });
@@ -451,7 +451,7 @@ class LandingUserSection extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
-  /*Seeting*/
+  /* Seeting */
 
   onsettingBGColorChangeComplete = color => {
     this.setState({ settingBGColor: color.hex });
@@ -488,7 +488,7 @@ class LandingUserSection extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
-  /*Option*/
+  /* Option */
 
   onoptionBGColorChangeComplete = color => {
     this.setState({ optionBGColor: color.hex });
@@ -540,7 +540,7 @@ class LandingUserSection extends React.Component {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
-  /*Order Detail*/
+  /* Order Detail */
 
   onorderdetailBgColorChangeComplete = color => {
     this.setState({ orderdetailBgColor: color.hex });
@@ -598,13 +598,13 @@ class LandingUserSection extends React.Component {
   };
 
   CollectionMainSectionEditOption = () => {
-    this.setState({ CollectionMainSectionEditOptionValue: "block" });
-    this.setState({ ShowHideGridListView: "none" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'block' });
+    this.setState({ ShowHideGridListView: 'none' });
   };
 
   CollectionCloseEditSection = () => {
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
   };
 
   navbghandleChange = navbgcolor => {
@@ -751,12 +751,14 @@ class LandingUserSection extends React.Component {
   DropDownGetIconUserNavCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
   };
+
   onThemeOptionSelection = themName => {
     this.setState({ navbgcolor: themeColorFromName(themName) });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
     this.homeTopTabsShowEditAlert.current.setState({ selectedTheme: themName });
     this.homeTopTabsShowEditAlert.current.setState({ editedTheme: true });
   };
+
   componentDidMount() {
     axios.get(`${API_ROOT}/api/v2/app-user`).then(res => {
       this.setState({
@@ -968,35 +970,36 @@ class LandingUserSection extends React.Component {
       this.setState({
         OnCollectionEditValue: res.data.UserSettings.OnCollectionEditValue
       }); // 'block'
-      this.setState({ TitleUserPage: "CREATE ACCOUNT" }); // 'none'
+      this.setState({ TitleUserPage: 'CREATE ACCOUNT' }); // 'none'
       this.setState({
         DropDownGetIconheader: res.data.UserSettings.DropDownGetIconheader
       });
       this.setState({ NavTitle: res.data.UserSettings.NavTitle });
       this.setState({ bannerImageUrl: res.data.UserSettings.bannerImageUrl });
-      this.setState({ logindisplay: "none" });
-      this.setState({ accountdisplay: "block" });
-      this.setState({ reviewdisplay: "none" });
-      this.setState({ historydisplay: "none" });
-      this.setState({ favouritedisplay: "none" });
-      this.setState({ orderdisplay: "none" });
-      this.setState({ contactdisplay: "none" });
-      this.setState({ settingdisplay: "none" });
+      this.setState({ logindisplay: 'none' });
+      this.setState({ accountdisplay: 'block' });
+      this.setState({ reviewdisplay: 'none' });
+      this.setState({ historydisplay: 'none' });
+      this.setState({ favouritedisplay: 'none' });
+      this.setState({ orderdisplay: 'none' });
+      this.setState({ contactdisplay: 'none' });
+      this.setState({ settingdisplay: 'none' });
       this.setState({ isLoaded: true });
     });
   }
 
   ApplyNavSettings = () => {
     this.homeTopTabsShowEditAlert.current.showSaveButton();
-    this.setState({ CollectionMainSectionEditOptionValue: "none" });
-    this.setState({ ShowHideGridListView: "block" });
+    this.setState({ CollectionMainSectionEditOptionValue: 'none' });
+    this.setState({ ShowHideGridListView: 'block' });
   };
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   render() {
@@ -1006,7 +1009,7 @@ class LandingUserSection extends React.Component {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="TabsAnimation"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={0}
             transitionEnter={false}
             id="LandingUserPageContentContainer"
@@ -1027,13 +1030,13 @@ class LandingUserSection extends React.Component {
                     sm={6}
                     className="user_section_main"
                     id="CollectionMainContainer"
-                    style={{ border: "1px solid #efefef" }}
+                    style={{ border: '1px solid #efefef' }}
                   >
                     <PerfectScrollbar>
                       <div id="accordion" className="accordion-wrapper mb-3">
                         <Card>
-                          <CardHeader style={{ marginBottom: "10px" }}>
-                            <h3 className="leftCardHeader"> User Settings </h3>{" "}
+                          <CardHeader style={{ marginBottom: '10px' }}>
+                            <h3 className="leftCardHeader"> User Settings </h3>{' '}
                           </CardHeader>
 
                           <Card>
@@ -1427,7 +1430,7 @@ class LandingUserSection extends React.Component {
                     md={8}
                     sm={6}
                     id="RightContainerScroll"
-                    style={{ border: "1px solid #efefef" }}
+                    style={{ border: '1px solid #efefef' }}
                   >
                     <div id="mbl_bg_rit">
                       <div id="CollectionMainRightContainer">
@@ -1436,32 +1439,32 @@ class LandingUserSection extends React.Component {
                             id="CollectionEffectNavBarContainer"
                             style={{
                               backgroundColor:
-                                this.state.navbgcolor || "#0E7C95"
+                                this.state.navbgcolor || '#0E7C95'
                             }}
                           >
                             <div
                               id="CollectionEffectnavBars"
                               style={{
-                                color: this.state.naviconcolor || "#fff"
+                                color: this.state.naviconcolor || '#fff'
                               }}
                             />
                             <div
                               id="CollectionEffectMyStoreTitle"
                               style={{
-                                color: this.state.navtitlecolor || "#fff"
+                                color: this.state.navtitlecolor || '#fff'
                               }}
                             >
-                              {this.state.NavTitle === "img" && (
+                              {this.state.NavTitle === 'img' && (
                                 <img
                                   src={this.state.bannerImageUrl}
                                   style={{
-                                    maxHeight: "40px",
-                                    maxWidth: "90px"
+                                    maxHeight: '40px',
+                                    maxWidth: '90px'
                                   }}
                                 />
                               )}
-                              {this.state.NavTitle === "Text" ||
-                                (this.state.NavTitle === "text" &&
+                              {this.state.NavTitle === 'Text' ||
+                                (this.state.NavTitle === 'text' &&
                                   this.state.TitleUserPage)}
                               {this.state.NavTitle === undefined &&
                                 this.state.TitleUserPage}
@@ -1478,7 +1481,7 @@ class LandingUserSection extends React.Component {
 
                           <div
                             id="CollectionEffectBody"
-                            style={{ height: "60vh" }}
+                            style={{ height: '60vh' }}
                           >
                             <div
                               className="CollectionMainEditOptionContainer"
@@ -1506,7 +1509,7 @@ class LandingUserSection extends React.Component {
                                     <select
                                       name=""
                                       id="CollectionMainEditSelect"
-                                      value={this.state.NavTitle || "text"}
+                                      value={this.state.NavTitle || 'text'}
                                     >
                                       <option value="img">Use Image</option>
                                       <option value="text">Use Text</option>
@@ -1521,9 +1524,9 @@ class LandingUserSection extends React.Component {
                                   <div className="col-sm-12 CollectionMainEditBGIconView">
                                     <input
                                       type="text"
-                                      value={this.state.navbgcolor || "#0E7C95"}
+                                      value={this.state.navbgcolor || '#0E7C95'}
                                       defaultValue={
-                                        this.state.navbgcolor || "#0E7C95"
+                                        this.state.navbgcolor || '#0E7C95'
                                       }
                                       id="CollectionDropDown"
                                       className="textColorCode"
@@ -1533,10 +1536,10 @@ class LandingUserSection extends React.Component {
                                       <div
                                         className="colorPickerBorder"
                                         style={{
-                                          width: "20px",
-                                          height: "20px",
+                                          width: '20px',
+                                          height: '20px',
                                           backgroundColor:
-                                            this.state.navbgcolor || "#0E7C95"
+                                            this.state.navbgcolor || '#0E7C95'
                                         }}
                                         onClick={this.navbghandleClick}
                                       />
@@ -1549,7 +1552,7 @@ class LandingUserSection extends React.Component {
                                         />
                                         <ChromePicker
                                           color={
-                                            this.state.navbgcolor || "#0E7C95"
+                                            this.state.navbgcolor || '#0E7C95'
                                           }
                                           onChange={this.navbghandleChange}
                                         />
@@ -1562,9 +1565,9 @@ class LandingUserSection extends React.Component {
                                   className="CollectionMainEditIconColor"
                                   style={{
                                     display:
-                                      this.state.NavTitle === "img"
-                                        ? "none"
-                                        : "block"
+                                      this.state.NavTitle === 'img'
+                                        ? 'none'
+                                        : 'block'
                                   }}
                                 >
                                   <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -1573,9 +1576,9 @@ class LandingUserSection extends React.Component {
                                   <div className="col-sm-12 CollectionMainEditIconColorView">
                                     <input
                                       type="text"
-                                      value={this.state.navtitlecolor || "#fff"}
+                                      value={this.state.navtitlecolor || '#fff'}
                                       defaultValue={
-                                        this.state.navtitlecolor || "#fff"
+                                        this.state.navtitlecolor || '#fff'
                                       }
                                       id="CollectionDropDown"
                                       className="textColorCode"
@@ -1585,10 +1588,10 @@ class LandingUserSection extends React.Component {
                                       <div
                                         className="colorPickerBorder"
                                         style={{
-                                          width: "20px",
-                                          height: "20px",
+                                          width: '20px',
+                                          height: '20px',
                                           backgroundColor:
-                                            this.state.navtitlecolor || "#fff"
+                                            this.state.navtitlecolor || '#fff'
                                         }}
                                         onClick={this.navtitlehandleClick}
                                       />
@@ -1601,7 +1604,7 @@ class LandingUserSection extends React.Component {
                                         />
                                         <ChromePicker
                                           color={
-                                            this.state.navtitlecolor || "#fff"
+                                            this.state.navtitlecolor || '#fff'
                                           }
                                           onChange={this.navtitlehandleChange}
                                         />
@@ -1614,26 +1617,26 @@ class LandingUserSection extends React.Component {
                                   className="CollectionMainEditImg"
                                   style={{
                                     display:
-                                      this.state.NavTitle === "img"
-                                        ? "block"
-                                        : "none"
+                                      this.state.NavTitle === 'img'
+                                        ? 'block'
+                                        : 'none'
                                   }}
                                 >
                                   <div className="col-sm-12 CollectionSettingEditImg">
                                     <label>NAV IMAGE</label>
                                   </div>
                                   <div className="col-sm-12 CollectionMainEditIconImgView">
-                                    }{" "}
+                                    }{' '}
                                     <S3SingleFileUploaderWithPreviewAndFileNameCapability
                                       label="Choose file"
                                       acceptedFiles={[
-                                        "image/jpeg",
-                                        "image/png"
+                                        'image/jpeg',
+                                        'image/png'
                                       ]}
                                       fileName={this.state.bannerImageUrl}
-                                      previewImageHeight={"100px"}
-                                      previewImageWidth={"100px"}
-                                      imageFolder={"navTitleImage"}
+                                      previewImageHeight="100px"
+                                      previewImageWidth="100px"
+                                      imageFolder="navTitleImage"
                                       onChange={value =>
                                         this.setState({ bannerImageUrl: value })
                                       }

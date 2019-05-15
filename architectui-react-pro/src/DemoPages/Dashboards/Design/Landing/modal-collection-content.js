@@ -1,57 +1,57 @@
 // tslint:disable
 // @ts-nocheck
-import axios from "axios";
-import React from "react";
-import { ChromePicker } from "react-color";
-import { Button, CardFooter } from "reactstrap";
-import { API_ROOT } from "../../../../utilities/api-config";
-import IconList from "../icon-list";
+import axios from 'axios';
+import React from 'react';
+import { ChromePicker } from 'react-color';
+import { Button, CardFooter } from 'reactstrap';
+import { API_ROOT } from '../../../../utilities/api-config';
+import IconList from '../icon-list';
 
 const ProductsCollections = {
   collections: [
     {
       products: [
         {
-          id: "234",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '234',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         },
 
         {
-          id: "2343",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '2343',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         },
         {
-          id: "2324",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '2324',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         },
         {
-          id: "23334",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '23334',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         },
         {
-          id: "23334",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '23334',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         },
         {
-          id: "23334",
-          imageUrl: "",
-          title: "Title",
-          collectionType: ""
+          id: '23334',
+          imageUrl: '',
+          title: 'Title',
+          collectionType: ''
         }
       ]
     }
   ],
-  SelectedCollectionId: "111"
+  SelectedCollectionId: '111'
 };
 function getSelectedCollectionProducts() {
   let products = {};
@@ -131,7 +131,7 @@ class ModalSearchContent extends React.Component {
       value: this.props.defaultSettings.value,
       DropDownGetIconheader: this.props.defaultSettings.DropDownGetIconheader,
       DropDownGetIconaction: this.props.defaultSettings.DropDownGetIconaction,
-      DisplayCollectionValue: "none",
+      DisplayCollectionValue: 'none',
       itemId: this.props.itemId,
       selectedProductId: this.props.defaultSettings.selectedProductId,
       prodCollectionname: this.props.defaultSettings.prodCollectionname,
@@ -178,24 +178,31 @@ class ModalSearchContent extends React.Component {
   };
 
   applyAppliedSetting = defaultSettings => {};
+
   onIconColorClick = () => {
     this.setState({ displayIconColor: true });
   };
+
   onIconColorClose = () => {
     this.setState({ displayIconColor: false });
   };
+
   onIconColorClickComplete = color => {
     this.setState({ IconColor: color.hex });
   };
+
   onHeaderTextClick = e => {
     this.setState({ HeaderText: e.target.value });
   };
+
   onHeaderTitleClick = () => {
     this.setState({ displayHeaderTitle: true });
   };
+
   onHeaderTitleClose = () => {
     this.setState({ displayHeaderTitle: false });
   };
+
   onHeaderTitleClickComplete = color => {
     this.setState({ HeaderTitle: color.hex });
   };
@@ -203,9 +210,11 @@ class ModalSearchContent extends React.Component {
   onHeaderBGColorClick = () => {
     this.setState({ displayHeaderBGColor: true });
   };
+
   onHeaderBGColorClose = () => {
     this.setState({ displayHeaderBGColor: false });
   };
+
   onHeaderBGColorClickComplete = color => {
     this.setState({ HeaderBGColor: color.hex });
   };
@@ -213,9 +222,11 @@ class ModalSearchContent extends React.Component {
   onProductBorderolorClick = () => {
     this.setState({ displayProductBorderolor: true });
   };
+
   onProductBorderolorClose = () => {
     this.setState({ displayProductBorderolor: false });
   };
+
   onProductBorderolorClickComplete = color => {
     this.setState({ productBorderColor: color.hex });
   };
@@ -223,9 +234,11 @@ class ModalSearchContent extends React.Component {
   onActionColorClick = () => {
     this.setState({ displayActionColor: true });
   };
+
   onActionColorClose = () => {
     this.setState({ displayActionColor: false });
   };
+
   onActionColorClickComplete = color => {
     this.setState({ ActionColor: color.hex });
   };
@@ -237,9 +250,11 @@ class ModalSearchContent extends React.Component {
   onActionTitleColorClick = () => {
     this.setState({ displayActionTitleColor: true });
   };
+
   onActionTitleColorClose = () => {
     this.setState({ displayActionTitleColor: false });
   };
+
   onActionTitleColorClickComplete = color => {
     this.setState({ ActionTitleColor: color.hex });
   };
@@ -247,9 +262,11 @@ class ModalSearchContent extends React.Component {
   onCollectionCellBGClick = () => {
     this.setState({ displayCollectionCellBG: true });
   };
+
   onCollectionCellBGClose = () => {
     this.setState({ displayCollectionCellBG: false });
   };
+
   onCollectionCellBGClickComplete = color => {
     this.setState({ CollectionCellBG: color.hex });
   };
@@ -257,9 +274,11 @@ class ModalSearchContent extends React.Component {
   onCollectionProductTitleClick = () => {
     this.setState({ displayCollectionProductTitle: true });
   };
+
   onCollectionProductTitleClose = () => {
     this.setState({ displayCollectionProductTitle: false });
   };
+
   onCollectionProductTitleClickComplete = color => {
     this.setState({ CollectionProductTitle: color.hex });
   };
@@ -275,24 +294,28 @@ class ModalSearchContent extends React.Component {
   handleChangeComplete = () => {};
 
   swatch = {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "2px",
-    top: "2px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '2px',
+    top: '2px'
   };
+
   popover = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 10000
   };
+
   DropDownGetIconCellectionHederCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
   };
+
   DropDownGetCollectionActionCallback = icon => {
     this.setState({ DropDownGetIconaction: icon });
   };
+
   setProductsForCollection = collectionDetails => {
-    this.setState({ DisplayCollectionValue: "none" });
+    this.setState({ DisplayCollectionValue: 'none' });
     this.setState({ selectedProductId: collectionDetails.id });
     this.setState({ prodCollectionname: collectionDetails.title });
     this.setState({ collectionType: collectionDetails.collectionType });
@@ -301,10 +324,7 @@ class ModalSearchContent extends React.Component {
     const selectedProductId = collectionDetails.id;
     axios
       .get(
-        `${API_ROOT}/api/v2/collection/products/` +
-          collectionType +
-          `/` +
-          selectedProductId
+        `${API_ROOT}/api/v2/collection/products/${collectionType}/${selectedProductId}`
       )
       .then(res1 => {
         this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -313,10 +333,10 @@ class ModalSearchContent extends React.Component {
   };
 
   DisplayCollection = () => {
-    if (this.state.DisplayCollectionValue === "none") {
-      this.setState({ DisplayCollectionValue: "block" });
+    if (this.state.DisplayCollectionValue === 'none') {
+      this.setState({ DisplayCollectionValue: 'block' });
     } else {
-      this.setState({ DisplayCollectionValue: "none" });
+      this.setState({ DisplayCollectionValue: 'none' });
     }
   };
 
@@ -329,10 +349,7 @@ class ModalSearchContent extends React.Component {
     if (collectionType && selectedProductId) {
       axios
         .get(
-          `${API_ROOT}/api/v2/collection/products/` +
-            collectionType +
-            `/` +
-            selectedProductId
+          `${API_ROOT}/api/v2/collection/products/${collectionType}/${selectedProductId}`
         )
         .then(res1 => {
           this.setState({ CollectionsProductsData: res1.data.productVMList });
@@ -340,12 +357,13 @@ class ModalSearchContent extends React.Component {
         });
     }
   }
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   render() {
@@ -354,7 +372,7 @@ class ModalSearchContent extends React.Component {
         <div className="col-lg-12 Search-form-defaultSettings">
           <div
             className="col-lg-4 col-sm-4 setting_left_col setting_comman_col"
-            style={{ position: "absolute", left: "0" }}
+            style={{ position: 'absolute', left: '0' }}
           >
             <div className="setting_fields">
               <div
@@ -364,24 +382,24 @@ class ModalSearchContent extends React.Component {
                   background: this.state.CollectionCellBG,
                   height: this.state.CollectionsProductsData
                     ? this.state.CollectionsProductsData.length !== 0
-                      ? "auto"
-                      : "130px"
-                    : "130px",
-                  width: "268px",
+                      ? 'auto'
+                      : '130px'
+                    : '130px',
+                  width: '268px',
                   overflow: this.state.CollectionsProductsData
                     ? this.state.CollectionsProductsData.length !== 0
-                      ? "auto"
-                      : "hidden"
-                    : ""
+                      ? 'auto'
+                      : 'hidden'
+                    : ''
                 }}
               >
                 <div
                   id="FirstDropTopSection"
                   style={{
                     background: this.state.HeaderBGColor,
-                    position: "absolute",
-                    width: "268px",
-                    height: "35px"
+                    position: 'absolute',
+                    width: '268px',
+                    height: '35px'
                   }}
                 >
                   <div
@@ -417,14 +435,14 @@ class ModalSearchContent extends React.Component {
                     <div
                       id="FirstDropProductContent"
                       style={{
-                        width: "100%",
-                        height: "120px",
-                        paddingTop: "35px",
+                        width: '100%',
+                        height: '120px',
+                        paddingTop: '35px',
                         display: this.state.CollectionsProductsData
                           ? this.state.CollectionsProductsData.length === 0
-                            ? "block"
-                            : "none"
-                          : ""
+                            ? 'block'
+                            : 'none'
+                          : ''
                       }}
                     >
                       {this.state.CollectionsProductsDataDefault.map(
@@ -434,13 +452,14 @@ class ModalSearchContent extends React.Component {
                               <div
                                 className="FirstDropProduct"
                                 style={{
-                                  border:
-                                    "1px solid" + this.state.productBorderColor
+                                  border: `1px solid${
+                                    this.state.productBorderColor
+                                  }`
                                 }}
                               >
                                 {item.imageUrl && (
                                   <img
-                                    style={{ objectFit: "cover" }}
+                                    style={{ objectFit: 'cover' }}
                                     src={item.imageUrl}
                                     alt={item.title}
                                   />
@@ -468,14 +487,14 @@ class ModalSearchContent extends React.Component {
                   <div
                     id="FirstDropProductContent"
                     style={{
-                      width: "100%",
-                      height: "120px",
-                      paddingTop: "35px",
+                      width: '100%',
+                      height: '120px',
+                      paddingTop: '35px',
                       display: this.state.CollectionsProductsData
                         ? this.state.CollectionsProductsData.length === 0
-                          ? "block"
-                          : "none"
-                        : ""
+                          ? 'block'
+                          : 'none'
+                        : ''
                     }}
                   >
                     {this.state.CollectionsProductsDataDefault.map(
@@ -485,12 +504,13 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="FirstDropProduct"
                               style={{
-                                border:
-                                  "1px solid" + this.state.productBorderColor
+                                border: `1px solid${
+                                  this.state.productBorderColor
+                                }`
                               }}
                             >
                               <img
-                                style={{ objectFit: "cover" }}
+                                style={{ objectFit: 'cover' }}
                                 src={item.imageUrl}
                               />
                             </div>
@@ -516,16 +536,16 @@ class ModalSearchContent extends React.Component {
                       id="FirstDropProductContent"
                       style={{
                         width: this.state.CollectionsProductsData
-                          ? this.state.CollectionsProductsData.length * 70 +
-                            "px"
-                          : "100%",
-                        height: "120px",
-                        paddingTop: "35px",
+                          ? `${this.state.CollectionsProductsData.length *
+                              70}px`
+                          : '100%',
+                        height: '120px',
+                        paddingTop: '35px',
                         display: this.state.CollectionsProductsData
                           ? this.state.CollectionsProductsData.length === 0
-                            ? "none"
-                            : "block"
-                          : "block"
+                            ? 'none'
+                            : 'block'
+                          : 'block'
                       }}
                     >
                       {this.state.CollectionsProductsData.map((item, index) => {
@@ -534,12 +554,13 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="FirstDropProduct"
                               style={{
-                                border:
-                                  "1px solid" + this.state.productBorderColor
+                                border: `1px solid${
+                                  this.state.productBorderColor
+                                }`
                               }}
                             >
                               <img
-                                style={{ objectFit: "cover" }}
+                                style={{ objectFit: 'cover' }}
                                 src={item.imageUrl}
                               />
                             </div>
@@ -562,18 +583,18 @@ class ModalSearchContent extends React.Component {
           </div>
           <div
             className="col-lg-8 col-sm-8 setting_right_col setting_comman_col"
-            style={{ float: "right" }}
+            style={{ float: 'right' }}
           >
             <div className="setting_right_main">
               <div className="setting_title">
                 HORIZONTAL PRODUCT CELL <br />
-                <span style={{ fontSize: "13px" }}>
+                <span style={{ fontSize: '13px' }}>
                   DISPLAYS PRODUCTS WITHIN A COLLECTION (UP TO 25)
                 </span>
               </div>
               <div
                 className="collection_setting_right fixSettingScrollSection"
-                style={{ padding: "20px" }}
+                style={{ padding: '20px' }}
               >
                 <div className="row">
                   <div className="CollectionFullRowContainer">
@@ -587,7 +608,7 @@ class ModalSearchContent extends React.Component {
                             type="text"
                             value={
                               this.state.prodCollectionname ||
-                              "SELECT COLLECTION"
+                              'SELECT COLLECTION'
                             }
                             onClick={this.DisplayCollection.bind(this)}
                           />
@@ -596,7 +617,7 @@ class ModalSearchContent extends React.Component {
                             className="CollectionResult"
                             style={{
                               display: this.state.DisplayCollectionValue,
-                              width: "95%"
+                              width: '95%'
                             }}
                           >
                             {this.state.ProductsCollectionsData.map(
@@ -607,13 +628,13 @@ class ModalSearchContent extends React.Component {
                                     className="collectionElementProductShowHide"
                                     id={
                                       this.state.selectedProductId === item.id
-                                        ? "Active"
-                                        : ""
+                                        ? 'Active'
+                                        : ''
                                     }
                                     style={{
-                                      height: "50px",
-                                      width: "auto",
-                                      cursor: "pointer"
+                                      height: '50px',
+                                      width: 'auto',
+                                      cursor: 'pointer'
                                     }}
                                     onClick={() => {
                                       this.setProductsForCollection(item);
@@ -622,8 +643,8 @@ class ModalSearchContent extends React.Component {
                                     {item.imageUrl && (
                                       <img
                                         style={{
-                                          width: "50px",
-                                          height: "50px"
+                                          width: '50px',
+                                          height: '50px'
                                         }}
                                         src={item.imageUrl}
                                         alt={item.title}
@@ -632,17 +653,17 @@ class ModalSearchContent extends React.Component {
                                     {!item.imageUrl && (
                                       <span
                                         style={{
-                                          width: "50px",
-                                          height: "50px",
-                                          borderRadius: "50%",
-                                          backgroundColor: "#b9b9b9de",
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                          paddingLeft: "3px"
+                                          width: '50px',
+                                          height: '50px',
+                                          borderRadius: '50%',
+                                          backgroundColor: '#b9b9b9de',
+                                          color: '#fff',
+                                          fontSize: '10px',
+                                          paddingLeft: '3px'
                                         }}
                                       >
-                                        {" "}
-                                        No Image{" "}
+                                        {' '}
+                                        No Image{' '}
                                       </span>
                                     )}
                                     <span>{item.title}</span>
@@ -665,7 +686,7 @@ class ModalSearchContent extends React.Component {
                         </div>
                         <div
                           className="ProductSilderActiveColor"
-                          style={{ position: "relative", marginLeft: "0px" }}
+                          style={{ position: 'relative', marginLeft: '0px' }}
                         >
                           <IconList
                             DropDownGetIconCellectionHederCallback={
@@ -694,8 +715,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.IconColor
                               }}
                               onClick={this.onIconColorClick}
@@ -725,7 +746,7 @@ class ModalSearchContent extends React.Component {
                             type="text"
                             defaultValue={this.state.HeaderText}
                             id="CollectionDropDown"
-                            style={{ color: "#000", fontWeight: 600 }}
+                            style={{ color: '#000', fontWeight: 600 }}
                             onChange={this.onHeaderTextClick}
                             value={this.state.HeaderText}
                           />
@@ -749,8 +770,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.HeaderTitle
                               }}
                               onClick={this.onHeaderTitleClick}
@@ -788,8 +809,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.HeaderBGColor
                               }}
                               onClick={this.onHeaderBGColorClick}
@@ -827,8 +848,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.productBorderColor
                               }}
                               onClick={this.onProductBorderolorClick}
@@ -920,7 +941,7 @@ class ModalSearchContent extends React.Component {
                             type="text"
                             defaultValue={this.state.ActionText}
                             id="CollectionDropDown"
-                            style={{ color: "#000", fontWeight: 600 }}
+                            style={{ color: '#000', fontWeight: 600 }}
                             onChange={this.onActionTextClick}
                             value={this.state.ActionText}
                           />
@@ -946,8 +967,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.ActionTitleColor
                               }}
                               onClick={this.onActionTitleColorClick}
@@ -987,8 +1008,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state.CollectionCellBG
                               }}
                               onClick={this.onCollectionCellBGClick}
@@ -1028,8 +1049,8 @@ class ModalSearchContent extends React.Component {
                             <div
                               className="colorPickerBorder"
                               style={{
-                                width: "20px",
-                                height: "20px",
+                                width: '20px',
+                                height: '20px',
                                 backgroundColor: this.state
                                   .CollectionProductTitle
                               }}

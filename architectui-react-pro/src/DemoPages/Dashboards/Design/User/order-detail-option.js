@@ -19,7 +19,7 @@ const styles = {
   }
 };
 
-class Orderdetailoption extends React.Component  {
+class Orderdetailoption extends React.Component {
   constructor(props) {
     super(props);
 
@@ -130,30 +130,37 @@ class Orderdetailoption extends React.Component  {
 
   _onorderdetailBgColorClose = () => {
     this.setState({ displayoptiondetailBGcolor: false });
-  }
+  };
+
   get onorderdetailBgColorClose() {
     return this._onorderdetailBgColorClose;
   }
+
   set onorderdetailBgColorClose(value) {
     this._onorderdetailBgColorClose = value;
   }
 
   _onorderdetailBgColorClick = () => {
     this.setState({ displayoptiondetailBGcolor: true });
-  }
+  };
+
   get onorderdetailBgColorClick() {
     return this._onorderdetailBgColorClick;
   }
+
   set onorderdetailBgColorClick(value) {
     this._onorderdetailBgColorClick = value;
   }
+
   _onorderdetailBgColorChangeComplete = color => {
     this.setState({ orderdetailBgColor: color.hex });
     this.props.onorderdetailBgColorChangeComplete(color);
-  }
+  };
+
   get onorderdetailBgColorChangeComplete() {
     return this._onorderdetailBgColorChangeComplete;
   }
+
   set onorderdetailBgColorChangeComplete(value) {
     this._onorderdetailBgColorChangeComplete = value;
   }
@@ -161,29 +168,37 @@ class Orderdetailoption extends React.Component  {
   /* RATING COLOR */
   _onorderdetailnumberColorClose = () => {
     this.setState({ displayorderdetailnumberColor: false });
-  }
+  };
+
   get onorderdetailnumberColorClose() {
     return this._onorderdetailnumberColorClose;
   }
+
   set onorderdetailnumberColorClose(value) {
     this._onorderdetailnumberColorClose = value;
   }
+
   _onorderdetailnumberColorClick = () => {
     this.setState({ displayorderdetailnumberColor: true });
-  }
+  };
+
   get onorderdetailnumberColorClick() {
     return this._onorderdetailnumberColorClick;
   }
+
   set onorderdetailnumberColorClick(value) {
     this._onorderdetailnumberColorClick = value;
   }
+
   _onorderdetailnumberColorChangeComplete = color => {
     this.setState({ orderdetailnumberColor: color.hex });
     this.props.onorderdetailnumberColorChangeComplete(color);
-  }
+  };
+
   get onorderdetailnumberColorChangeComplete() {
     return this._onorderdetailnumberColorChangeComplete;
   }
+
   set onorderdetailnumberColorChangeComplete(value) {
     this._onorderdetailnumberColorChangeComplete = value;
   }
@@ -192,29 +207,37 @@ class Orderdetailoption extends React.Component  {
 
   _onheadertitleBGColorClose = () => {
     this.setState({ displayheadertitlecolor: false });
-  }
+  };
+
   get onheadertitleBGColorClose() {
     return this._onheadertitleBGColorClose;
   }
+
   set onheadertitleBGColorClose(value) {
     this._onheadertitleBGColorClose = value;
   }
+
   _onheadertitleBGColorClick = () => {
     this.setState({ displayheadertitlecolor: true });
-  }
+  };
+
   get onheadertitleBGColorClick() {
     return this._onheadertitleBGColorClick;
   }
+
   set onheadertitleBGColorClick(value) {
     this._onheadertitleBGColorClick = value;
   }
+
   _onheadertitleBGColorChangeComplete = color => {
     this.setState({ headertitleBGColor: color.hex });
     this.props.onheadertitleBGColorChangeComplete(color);
-  }
+  };
+
   get onheadertitleBGColorChangeComplete() {
     return this._onheadertitleBGColorChangeComplete;
   }
+
   set onheadertitleBGColorChangeComplete(value) {
     this._onheadertitleBGColorChangeComplete = value;
   }
@@ -223,29 +246,37 @@ class Orderdetailoption extends React.Component  {
 
   _onorderdetailheaderbgColorClose = () => {
     this.setState({ displayheaderbgcolor: false });
-  }
+  };
+
   get onorderdetailheaderbgColorClose() {
     return this._onorderdetailheaderbgColorClose;
   }
+
   set onorderdetailheaderbgColorClose(value) {
     this._onorderdetailheaderbgColorClose = value;
   }
+
   _onorderdetailheaderbgColorClick = () => {
     this.setState({ displayheaderbgcolor: true });
-  }
+  };
+
   get onorderdetailheaderbgColorClick() {
     return this._onorderdetailheaderbgColorClick;
   }
+
   set onorderdetailheaderbgColorClick(value) {
     this._onorderdetailheaderbgColorClick = value;
   }
+
   _onorderdetailheaderbgColorChangeComplete = color => {
     this.setState({ orderdetailheaderbgColor: color.hex });
     this.props.onorderdetailheaderbgColorChangeComplete(color);
-  }
+  };
+
   get onorderdetailheaderbgColorChangeComplete() {
     return this._onorderdetailheaderbgColorChangeComplete;
   }
+
   set onorderdetailheaderbgColorChangeComplete(value) {
     this._onorderdetailheaderbgColorChangeComplete = value;
   }
@@ -254,29 +285,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptionaddresstextColorClose = () => {
     this.setState({ displayoptioaddresscolor: false });
-  }
+  };
+
   get onoptionaddresstextColorClose() {
     return this._onoptionaddresstextColorClose;
   }
+
   set onoptionaddresstextColorClose(value) {
     this._onoptionaddresstextColorClose = value;
   }
+
   _onoptionaddresstextColorClick = () => {
     this.setState({ displayoptioaddresscolor: true });
-  }
+  };
+
   get onoptionaddresstextColorClick() {
     return this._onoptionaddresstextColorClick;
   }
+
   set onoptionaddresstextColorClick(value) {
     this._onoptionaddresstextColorClick = value;
   }
+
   _onoptionaddresstextColorChangeComplete = color => {
     this.setState({ optionaddresstextColor: color.hex });
     this.props.onoptionaddresstextColorChangeComplete(color);
-  }
+  };
+
   get onoptionaddresstextColorChangeComplete() {
     return this._onoptionaddresstextColorChangeComplete;
   }
+
   set onoptionaddresstextColorChangeComplete(value) {
     this._onoptionaddresstextColorChangeComplete = value;
   }
@@ -285,29 +324,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptiondetailpriceColorClose = () => {
     this.setState({ displayoptionpricecolor: false });
-  }
+  };
+
   get onoptiondetailpriceColorClose() {
     return this._onoptiondetailpriceColorClose;
   }
+
   set onoptiondetailpriceColorClose(value) {
     this._onoptiondetailpriceColorClose = value;
   }
+
   _onoptiondetailpriceColorClick = () => {
     this.setState({ displayoptionpricecolor: true });
-  }
+  };
+
   get onoptiondetailpriceColorClick() {
     return this._onoptiondetailpriceColorClick;
   }
+
   set onoptiondetailpriceColorClick(value) {
     this._onoptiondetailpriceColorClick = value;
   }
+
   _onoptiondetailpriceColorChangeComplete = color => {
     this.setState({ optiondetailpriceColor: color.hex });
     this.props.onoptiondetailpriceColorChangeComplete(color);
-  }
+  };
+
   get onoptiondetailpriceColorChangeComplete() {
     return this._onoptiondetailpriceColorChangeComplete;
   }
+
   set onoptiondetailpriceColorChangeComplete(value) {
     this._onoptiondetailpriceColorChangeComplete = value;
   }
@@ -316,29 +363,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptiondetailsproductColorClose = () => {
     this.setState({ displayoptiondetailprocolor: false });
-  }
+  };
+
   get onoptiondetailsproductColorClose() {
     return this._onoptiondetailsproductColorClose;
   }
+
   set onoptiondetailsproductColorClose(value) {
     this._onoptiondetailsproductColorClose = value;
   }
+
   _onoptiondetailsproductColorClick = () => {
     this.setState({ displayoptiondetailprocolor: true });
-  }
+  };
+
   get onoptiondetailsproductColorClick() {
     return this._onoptiondetailsproductColorClick;
   }
+
   set onoptiondetailsproductColorClick(value) {
     this._onoptiondetailsproductColorClick = value;
   }
+
   _onoptiondetailsproductColorChangeComplete = color => {
     this.setState({ optiondetailsproductColor: color.hex });
     this.props.onoptiondetailsproductColorChangeComplete(color);
-  }
+  };
+
   get onoptiondetailsproductColorChangeComplete() {
     return this._onoptiondetailsproductColorChangeComplete;
   }
+
   set onoptiondetailsproductColorChangeComplete(value) {
     this._onoptiondetailsproductColorChangeComplete = value;
   }
@@ -347,29 +402,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptiondetailsopColorClose = () => {
     this.setState({ displaydetailsoption: false });
-  }
+  };
+
   get onoptiondetailsopColorClose() {
     return this._onoptiondetailsopColorClose;
   }
+
   set onoptiondetailsopColorClose(value) {
     this._onoptiondetailsopColorClose = value;
   }
+
   _onoptiondetailsopColorClick = () => {
     this.setState({ displaydetailsoption: true });
-  }
+  };
+
   get onoptiondetailsopColorClick() {
     return this._onoptiondetailsopColorClick;
   }
+
   set onoptiondetailsopColorClick(value) {
     this._onoptiondetailsopColorClick = value;
   }
+
   _onoptiondetailsopColorChangeComplete = color => {
     this.setState({ optiondetailsopColor: color.hex });
     this.props.onoptiondetailsopColorChangeComplete(color);
-  }
+  };
+
   get onoptiondetailsopColorChangeComplete() {
     return this._onoptiondetailsopColorChangeComplete;
   }
+
   set onoptiondetailsopColorChangeComplete(value) {
     this._onoptiondetailsopColorChangeComplete = value;
   }
@@ -378,29 +441,37 @@ class Orderdetailoption extends React.Component  {
 
   _onopriondetaildescColorClose = () => {
     this.setState({ displaypricedesccolor: false });
-  }
+  };
+
   get onopriondetaildescColorClose() {
     return this._onopriondetaildescColorClose;
   }
+
   set onopriondetaildescColorClose(value) {
     this._onopriondetaildescColorClose = value;
   }
+
   _onopriondetaildescColorClick = () => {
     this.setState({ displaypricedesccolor: true });
-  }
+  };
+
   get onopriondetaildescColorClick() {
     return this._onopriondetaildescColorClick;
   }
+
   set onopriondetaildescColorClick(value) {
     this._onopriondetaildescColorClick = value;
   }
+
   _onopriondetaildescChangeComplete = color => {
     this.setState({ opriondetaildescColor: color.hex });
     this.props.onopriondetaildescChangeComplete(color);
-  }
+  };
+
   get onopriondetaildescChangeComplete() {
     return this._onopriondetaildescChangeComplete;
   }
+
   set onopriondetaildescChangeComplete(value) {
     this._onopriondetaildescChangeComplete = value;
   }
@@ -409,29 +480,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptiondetailcellbgColorClose = () => {
     this.setState({ displayoptiondetailcellbgColor: false });
-  }
+  };
+
   get onoptiondetailcellbgColorClose() {
     return this._onoptiondetailcellbgColorClose;
   }
+
   set onoptiondetailcellbgColorClose(value) {
     this._onoptiondetailcellbgColorClose = value;
   }
+
   _onoptiondetailcellbgColorClick = () => {
     this.setState({ displayoptiondetailcellbgColor: true });
-  }
+  };
+
   get onoptiondetailcellbgColorClick() {
     return this._onoptiondetailcellbgColorClick;
   }
+
   set onoptiondetailcellbgColorClick(value) {
     this._onoptiondetailcellbgColorClick = value;
   }
+
   _onoptiondetailcellbgColorChangeComplete = color => {
     this.setState({ optiondetailscellbgColor: color.hex });
     this.props.onoptiondetailcellbgColorChangeComplete(color);
-  }
+  };
+
   get onoptiondetailcellbgColorChangeComplete() {
     return this._onoptiondetailcellbgColorChangeComplete;
   }
+
   set onoptiondetailcellbgColorChangeComplete(value) {
     this._onoptiondetailcellbgColorChangeComplete = value;
   }
@@ -440,29 +519,37 @@ class Orderdetailoption extends React.Component  {
 
   _onoptiondetailcellsepColorClose = () => {
     this.setState({ displayoptiondetailcellsepColor: false });
-  }
+  };
+
   get onoptiondetailcellsepColorClose() {
     return this._onoptiondetailcellsepColorClose;
   }
+
   set onoptiondetailcellsepColorClose(value) {
     this._onoptiondetailcellsepColorClose = value;
   }
+
   _onoptiondetailcellsepColorClick = () => {
     this.setState({ displayoptiondetailcellsepColor: true });
-  }
+  };
+
   get onoptiondetailcellsepColorClick() {
     return this._onoptiondetailcellsepColorClick;
   }
+
   set onoptiondetailcellsepColorClick(value) {
     this._onoptiondetailcellsepColorClick = value;
   }
+
   _onoptiondetailcellsepColorChangeComplete = color => {
     this.setState({ optiondetailcellsepColor: color.hex });
     this.props.onoptiondetailcellsepColorChangeComplete(color);
-  }
+  };
+
   get onoptiondetailcellsepColorChangeComplete() {
     return this._onoptiondetailcellsepColorChangeComplete;
   }
+
   set onoptiondetailcellsepColorChangeComplete(value) {
     this._onoptiondetailcellsepColorChangeComplete = value;
   }
@@ -492,13 +579,14 @@ class Orderdetailoption extends React.Component  {
     displayoptiondetailcellbgColor: false,
     displayoptiondetailcellsepColor: false
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
 
   render() {
     return (
@@ -518,7 +606,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailBgColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -534,7 +621,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailBGcolor ? (
                     <div style={styles.popover}>
-                     <div style={ this.cover } onClick={ this.onorderdetailBgColorClose }/>                      
+                      <div
+                        style={this.cover}
+                        onClick={this.onorderdetailBgColorClose}
+                      />
                       <ChromePicker
                         color={this.props.orderdetailBgColor}
                         onChange={this.onorderdetailBgColorChangeComplete}
@@ -556,7 +646,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailnumberColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -572,7 +661,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayorderdetailnumberColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onorderdetailnumberColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onorderdetailnumberColorClose}
+                      />
                       <ChromePicker
                         color={this.props.orderdetailnumberColor}
                         onChange={this.onorderdetailnumberColorChangeComplete}
@@ -594,7 +686,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onheadertitleBGColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -610,7 +701,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayheadertitlecolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onheadertitleBGColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onheadertitleBGColorClose}
+                      />
                       <ChromePicker
                         color={this.props.headertitleBGColor}
                         onChange={this.onheadertitleBGColorChangeComplete}
@@ -632,7 +726,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onorderdetailheaderbgColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -648,7 +741,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayheaderbgcolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onorderdetailheaderbgColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onorderdetailheaderbgColorClose}
+                      />
                       <ChromePicker
                         color={this.props.orderdetailheaderbgColor}
                         onChange={this.onorderdetailheaderbgColorChangeComplete}
@@ -670,7 +766,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptionaddresstextColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -686,7 +781,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptioaddresscolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptionaddresstextColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptionaddresstextColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optionaddresstextColor}
                         onChange={this.onoptionaddresstextColorChangeComplete}
@@ -706,7 +804,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailpriceColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -722,7 +819,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptionpricecolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptiondetailpriceColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptiondetailpriceColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optiondetailpriceColor}
                         onChange={this.onoptiondetailpriceColorChangeComplete}
@@ -742,7 +842,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailsproductColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -758,7 +857,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailprocolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptiondetailsproductColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptiondetailsproductColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optiondetailsproductColor}
                         onChange={
@@ -780,7 +882,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailsopColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -796,7 +897,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displaydetailsoption ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptiondetailsopColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptiondetailsopColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optiondetailsopColor}
                         onChange={this.onoptiondetailsopColorChangeComplete}
@@ -818,7 +922,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onopriondetaildescColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -834,7 +937,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displaypricedesccolor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onopriondetaildescColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onopriondetaildescColorClose}
+                      />
                       <ChromePicker
                         color={this.props.opriondetaildescColor}
                         onChange={this.onopriondetaildescChangeComplete}
@@ -856,7 +962,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailcellbgColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -872,7 +977,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailcellbgColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptiondetailcellbgColorClose }/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptiondetailcellbgColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optiondetailscellbgColor}
                         onChange={this.onoptiondetailcellbgColorChangeComplete}
@@ -894,7 +1002,6 @@ class Orderdetailoption extends React.Component  {
                     id="CollectionDropDown"
                     className="textColorCode"
                     onClick={this.onoptiondetailcellsepColorClick}
-                    
                   />
 
                   <div style={styles.swatch}>
@@ -910,7 +1017,10 @@ class Orderdetailoption extends React.Component  {
                   </div>
                   {this.state.displayoptiondetailcellsepColor ? (
                     <div style={styles.popover}>
-                      <div style={ this.cover } onClick={ this.onoptiondetailcellsepColorClose}/>
+                      <div
+                        style={this.cover}
+                        onClick={this.onoptiondetailcellsepColorClose}
+                      />
                       <ChromePicker
                         color={this.props.optiondetailcellsepColor}
                         onChange={this.onoptiondetailcellsepColorChangeComplete}

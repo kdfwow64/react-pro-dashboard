@@ -1,8 +1,8 @@
 // tslint:disable
 // @ts-nocheck
-import * as React from "react";
-import { ChromePicker } from "react-color";
-import { Col, Row, Card, CardBody, CardTitle, CardHeader } from "reactstrap";
+import * as React from 'react';
+import { ChromePicker } from 'react-color';
+import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
 
 class CartLeftSection extends React.Component {
   constructor(props) {
@@ -79,39 +79,51 @@ class CartLeftSection extends React.Component {
   CartBGColorhandleClose = () => {
     this.setState({ CartBGColorPicker: false });
   };
+
   CellBGColorhandleClose = () => {
     this.setState({ CellBGColorPicker: false });
   };
+
   ProductTitlehandleClose = () => {
     this.setState({ ProductTitlePicker: false });
   };
+
   ProductOptionColorhandleClose = () => {
     this.setState({ ProductOptionColorPicker: false });
   };
+
   CellPriceColorhandleClose = () => {
     this.setState({ CellPriceColorPicker: false });
   };
+
   QuantityIconColorhandleClose = () => {
     this.setState({ QuantityIconColorPicker: false });
   };
+
   QuantityTextColorhandleClose = () => {
     this.setState({ QuantityTextColorPicker: false });
   };
+
   ApplyBGColorhandleClose = () => {
     this.setState({ ApplyBGColorPicker: false });
   };
+
   ApplyIconColorhandleClose = () => {
     this.setState({ ApplyIconColorPicker: false });
   };
+
   ApplyTextColorhandleClose = () => {
     this.setState({ ApplyTextColorPicker: false });
   };
+
   PriceTextColorhandleClose = () => {
     this.setState({ PriceTextColorPicker: false });
   };
+
   ButtonBGColorhandleClose = () => {
     this.setState({ ButtonBGColorPicker: false });
   };
+
   ButtonTextColorhandleClose = () => {
     this.setState({ ButtonTextColorPicker: false });
   };
@@ -119,39 +131,51 @@ class CartLeftSection extends React.Component {
   CartBGColorhandleClick = e => {
     this.setState({ CartBGColorPicker: !this.state.CartBGColorPicker });
   };
+
   CellBGColorhandleClick = e => {
     this.setState({ CellBGColorPicker: !this.CellBGColorPicker });
   };
+
   ProductTitlehandleClick = e => {
     this.setState({ ProductTitlePicker: !this.ProductTitlePicker });
   };
+
   ProductOptionColorhandleClick = e => {
     this.setState({ ProductOptionColorPicker: !this.ProductOptionColorPicker });
   };
+
   CellPriceColorhandleClick = e => {
     this.setState({ CellPriceColorPicker: !this.CellPriceColorPicker });
   };
+
   QuantityIconColorhandleClick = e => {
     this.setState({ QuantityIconColorPicker: !this.QuantityIconColorPicker });
   };
+
   QuantityTextColorhandleClick = e => {
     this.setState({ QuantityTextColorPicker: !this.QuantityTextColorPicker });
   };
+
   ApplyBGColorhandleClick = e => {
     this.setState({ ApplyBGColorPicker: !this.ApplyBGColorPicker });
   };
+
   ApplyIconColorhandleClick = e => {
     this.setState({ ApplyIconColorPicker: !this.ApplyIconColorPicker });
   };
+
   ApplyTextColorhandleClick = e => {
     this.setState({ ApplyTextColorPicker: !this.ApplyTextColorPicker });
   };
+
   PriceTextColorhandleClick = e => {
     this.setState({ PriceTextColorPicker: !this.PriceTextColorPicker });
   };
+
   ButtonBGColorhandleClick = e => {
     this.setState({ ButtonBGColorPicker: !this.ButtonBGColorPicker });
   };
+
   ButtonTextColorhandleClick = e => {
     this.setState({ ButtonTextColorPicker: !this.ButtonTextColorPicker });
   };
@@ -160,92 +184,105 @@ class CartLeftSection extends React.Component {
     this.setState({ CartBGColor: CartBGColor.hex });
     this.props.CartBGColorCallback(CartBGColor);
   }
+
   CellBGColorhandleChange(CellBGColor) {
     this.setState({ CellBGColor: CellBGColor.hex });
     this.props.CellBGColorCallback(CellBGColor);
   }
+
   ProductTitlehandleChange(ProductTitle) {
     this.setState({ ProductTitle: ProductTitle.hex });
     this.props.ProductTitleCallback(ProductTitle);
   }
+
   ProductOptionColorhandleChange(ProductOptionColor) {
     this.setState({ ProductOptionColor: ProductOptionColor.hex });
     this.props.ProductOptionColorCallback(ProductOptionColor);
   }
+
   CellPriceColorhandleChange(CellPriceColor) {
     this.setState({ CellPriceColor: CellPriceColor.hex });
     this.props.CellPriceColorCallback(CellPriceColor);
   }
+
   QuantityIconColorhandleChange(QuantityIconColor) {
     this.setState({ QuantityIconColor: QuantityIconColor.hex });
     this.props.QuantityIconColorCallback(QuantityIconColor);
   }
+
   QuantityTextColorhandleChange(QuantityTextColor) {
     this.setState({ QuantityTextColor: QuantityTextColor.hex });
     this.props.QuantityTextColorCallback(QuantityTextColor);
   }
+
   ApplyBGColorhandleChange(ApplyBGColor) {
     this.setState({ ApplyBGColor: ApplyBGColor.hex });
     this.props.ApplyBGColorCallback(ApplyBGColor);
   }
+
   ApplyIconColorhandleChange(ApplyIconColor) {
     this.setState({ ApplyIconColor: ApplyIconColor.hex });
     this.props.ApplyIconColorCallback(ApplyIconColor);
   }
+
   ApplyTextColorhandleChange(ApplyTextColor) {
     this.setState({ ApplyTextColor: ApplyTextColor.hex });
     this.props.ApplyTextColorCallback(ApplyTextColor);
   }
+
   PriceTextColorhandleChange(PriceTextColor) {
     this.setState({ PriceTextColor: PriceTextColor.hex });
     this.props.PriceTextColorCallback(PriceTextColor);
   }
+
   ButtonBGColorhandleChange(ButtonBGColor) {
     this.setState({ ButtonBGColor: ButtonBGColor.hex });
     this.props.ButtonBGColorCallback(ButtonBGColor);
   }
+
   ButtonTextColorhandleChange(ButtonTextColor) {
     this.setState({ ButtonTextColor: ButtonTextColor.hex });
     this.props.ButtonTextColorCallback(ButtonTextColor);
   }
 
   swatch = {
-    padding: "5px",
-    display: "inline-block",
-    position: "absolute",
-    left: "4px",
-    top: "40px"
+    padding: '5px',
+    display: 'inline-block',
+    position: 'absolute',
+    left: '4px',
+    top: '40px'
   };
 
   popover = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2
   };
 
   cover = {
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
+
   cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px"
+    position: 'fixed',
+    top: '0px',
+    right: '0px',
+    bottom: '0px',
+    left: '0px'
   };
 
   render() {
     return (
       <Card className="mb-3">
         <CardHeader>
-          <h3 className="leftCardHeader"> Cart Settings </h3>{" "}
+          <h3 className="leftCardHeader"> Cart Settings </h3>{' '}
         </CardHeader>
         <Row>
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative" }}
+            style={{ position: 'relative' }}
           >
             <h5>BACKGROUND COLOR</h5>
             <input
@@ -260,8 +297,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.CartBGColor
                 }}
                 onClick={this.CartBGColorhandleClick}
@@ -280,7 +317,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>CELL BACKGROUND COLOR</h5>
             <input
@@ -295,8 +332,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.CellBGColor
                 }}
                 onClick={this.CellBGColorhandleClick}
@@ -315,7 +352,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>PRODUCT TITLE COLOR</h5>
             <input
@@ -330,8 +367,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ProductTitle
                 }}
                 onClick={this.ProductTitlehandleClick}
@@ -353,7 +390,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>OPTION COLOR</h5>
             <input
@@ -368,8 +405,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ProductOptionColor
                 }}
                 onClick={this.ProductOptionColorhandleClick}
@@ -391,7 +428,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>CELL PRICE COLOR</h5>
             <input
@@ -406,8 +443,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.CellPriceColor
                 }}
                 onClick={this.CellPriceColorhandleClick}
@@ -429,7 +466,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>QUANTITY ICON COLOR</h5>
             <input
@@ -444,8 +481,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.QuantityIconColor
                 }}
                 onClick={this.QuantityIconColorhandleClick}
@@ -467,7 +504,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>QUANTITY TEXT COLOR</h5>
             <input
@@ -482,8 +519,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.QuantityTextColor
                 }}
                 onClick={this.QuantityTextColorhandleClick}
@@ -505,7 +542,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>COUPON/GIFT INPUT BACKGROUND COLOR</h5>
             <input
@@ -520,8 +557,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ApplyBGColor
                 }}
                 onClick={this.ApplyBGColorhandleClick}
@@ -543,7 +580,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>COUPON/GIFT ICON COLOR</h5>
             <input
@@ -558,8 +595,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ApplyIconColor
                 }}
                 onClick={this.ApplyIconColorhandleClick}
@@ -581,7 +618,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>COUPON/GIFT TEXT COLOR</h5>
             <input
@@ -596,8 +633,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ApplyTextColor
                 }}
                 onClick={this.ApplyTextColorhandleClick}
@@ -619,7 +656,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>PRICE DESCRIPTION TEXT COLOR</h5>
             <input
@@ -634,8 +671,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.PriceTextColor
                 }}
                 onClick={this.PriceTextColorhandleClick}
@@ -657,7 +694,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>BUTTON BACKGROUND COLOR</h5>
             <input
@@ -672,8 +709,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ButtonBGColor
                 }}
                 onClick={this.ButtonBGColorhandleClick}
@@ -695,7 +732,7 @@ class CartLeftSection extends React.Component {
 
           <div
             className="ProductSilderActiveColor"
-            style={{ position: "relative", marginTop: "20px" }}
+            style={{ position: 'relative', marginTop: '20px' }}
           >
             <h5>BUTTON TITLE COLOR</h5>
             <input
@@ -710,8 +747,8 @@ class CartLeftSection extends React.Component {
               <div
                 className="colorPickerBorder"
                 style={{
-                  width: "20px",
-                  height: "20px",
+                  width: '20px',
+                  height: '20px',
                   backgroundColor: this.props.ButtonTextColor
                 }}
                 onClick={this.ButtonTextColorhandleClick}

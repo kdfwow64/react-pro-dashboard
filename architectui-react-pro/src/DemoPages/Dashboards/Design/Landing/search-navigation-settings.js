@@ -4,8 +4,8 @@ import React from 'react';
 import { ChromePicker } from 'react-color';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
-class SearchNavigationSettings extends React.Component  {
-   constructor(props) {
+class SearchNavigationSettings extends React.Component {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -69,9 +69,11 @@ class SearchNavigationSettings extends React.Component  {
     );
     this.onNavbartitleValueChange = this.onNavbartitleValueChange.bind(this);
   }
+
   onNavbartitleValueChange = () => {};
 
   onNavbgiconcolorValueChange = () => {};
+
   onNavbarBackgroundColorChange = () => {};
 
   onApplyNavSettings = e => {
@@ -85,12 +87,12 @@ class SearchNavigationSettings extends React.Component  {
     this.props.onApplySettings(CollectionSettings);
     this.props.DisplySaveBtn();
     this.props.HideSettingSection(this.state.HideSettingSection);
-  }
+  };
 
   CollectionCloseEditSection = () => {
     // this.setState({HideSettingSection: 'none'});
     this.props.HideSettingSection(this.state.HideSettingSection);
-  }
+  };
 
   showIconsListValue = () => {
     if (this.state.showIconsList === 'none') {
@@ -98,47 +100,50 @@ class SearchNavigationSettings extends React.Component  {
     } else {
       this.setState({ showIconsList: 'none' });
     }
-  }
+  };
 
   handlePickerClose = () => {
     this.setState({ displayColorPicker: false });
-  }
+  };
 
   handleNavbarBackgroundColorClick = () => {
     this.setState({ displayColorPicker: true });
-  }
+  };
 
   handleNavbarColorChangeComplete = navbarBackgroundColorCode => {
     this.setState({ navbarBackgroundColorCode: navbarBackgroundColorCode.hex });
     this.props.navbarBackgroundColorCallback(navbarBackgroundColorCode);
-  }
+  };
 
   handleIconColorPickerClose = () => {
     this.setState({ displayIconColorPicker: false });
-  }
+  };
+
   handleNavbarIconColorClick = () => {
     this.setState({ displayIconColorPicker: true });
-  }
+  };
 
   handleNavbarIconColorChangeComplete = navbarIconColorCode => {
     this.setState({ navbarIconColorCode: navbarIconColorCode.hex });
     this.props.navbarIconColorCallback(navbarIconColorCode);
-  }
+  };
 
   handleTitleColorPickerClose = () => {
     this.setState({ displayTitleColorPicker: false });
-  }
+  };
+
   handleNavbarTitleColorClick = () => {
     this.setState({ displayTitleColorPicker: true });
-  }
+  };
 
   handleNavbarTitleColorChangeComplete = navbarTitleColorCode => {
     this.setState({ navbarTitleColorCode: navbarTitleColorCode.hex });
     this.props.navbarTitleColorCodeCallback(navbarTitleColorCode);
-  }
+  };
+
   OnCollectionEditClick = e => {
     this.props.NavTitle(e.target.value);
-  }
+  };
 
   swatch = {
     padding: '5px',
@@ -147,25 +152,29 @@ class SearchNavigationSettings extends React.Component  {
     left: '15px',
     top: '2px'
   };
+
   popover = {
     position: 'absolute',
     zIndex: 10000
   };
+
   cover = {
     position: 'fixed',
     top: '0px',
     right: '0px',
     bottom: '0px',
-    left: '0px',
-  }
+    left: '0px'
+  };
+
   DropDownGetIconLandingNavCallback = icon => {
     this.setState({ DropDownGetIconheader: icon });
     this.props.CollectionBarIcon(icon);
-  }
-  bannerImageUrl = (value) => {
+  };
+
+  bannerImageUrl = value => {
     this.setState({ bannerImageUrl: value });
     this.props.bannerImageUrlCallBack(value);
-  }
+  };
 
   render() {
     return (
@@ -194,7 +203,7 @@ class SearchNavigationSettings extends React.Component  {
                 value={this.props.NavTitleVal}
               >
                 <option value="img"> Use Image </option>
-                <option value="text"> Use Text </option>                
+                <option value="text"> Use Text </option>
               </select>
             </div>
           </div>
@@ -211,7 +220,6 @@ class SearchNavigationSettings extends React.Component  {
                 className="textColorCode"
                 onChange={this.onNavbarBackgroundColorChange}
                 onClick={this.handleNavbarBackgroundColorClick}
-                
               />
               <div style={this.swatch}>
                 <div
@@ -226,7 +234,7 @@ class SearchNavigationSettings extends React.Component  {
               </div>
               {this.state.displayColorPicker ? (
                 <div style={this.popover}>
-                  <div style={ this.cover } onClick={ this.handlePickerClose }/>
+                  <div style={this.cover} onClick={this.handlePickerClose} />
                   <ChromePicker
                     color={this.props.navbarBackgroundColorValue}
                     onChange={this.handleNavbarColorChangeComplete}
@@ -236,7 +244,7 @@ class SearchNavigationSettings extends React.Component  {
             </div>
           </div>
 
-          {/*<div className="CollectionMainEditIconColor">
+          {/* <div className="CollectionMainEditIconColor">
             <div className="col-sm-12 CollectionSettingEditIconColor">
               <label>NAV BAR ICON COLOR</label>
             </div>
@@ -271,7 +279,7 @@ class SearchNavigationSettings extends React.Component  {
                 </div>
               ) : null}
             </div>
-          </div>*/}
+          </div> */}
 
           <div
             className="CollectionMainEditIconColor"
@@ -290,7 +298,6 @@ class SearchNavigationSettings extends React.Component  {
                 className="textColorCode"
                 onChange={this.onNavbartitleValueChange}
                 onClick={this.handleNavbarTitleColorClick}
-                
               />
               <div style={this.swatch}>
                 <div
@@ -305,7 +312,10 @@ class SearchNavigationSettings extends React.Component  {
               </div>
               {this.state.displayTitleColorPicker ? (
                 <div style={this.popover}>
-                  <div style={ this.cover } onClick={ this.handleTitleColorPickerClose }/>
+                  <div
+                    style={this.cover}
+                    onClick={this.handleTitleColorPickerClose}
+                  />
                   <ChromePicker
                     color={this.props.navbartitleValue}
                     onChange={this.handleNavbarTitleColorChangeComplete}
@@ -325,15 +335,15 @@ class SearchNavigationSettings extends React.Component  {
               <label>NAV IMAGE</label>
             </div>
             <div className="col-sm-12 CollectionMainEditIconImgView">
-           <S3SingleFileUploaderWithPreviewAndFileNameCapability
-                  label="Choose file"
-                  acceptedFiles={[ 'image/jpeg', 'image/png' ]}
-                  fileName={this.props.bannerImageUrl}
-                  previewImageHeight={'100px'}
-                  previewImageWidth={'100px'}
-                  imageFolder={"navTitleImage"}
-                  onChange={ (value) => this.bannerImageUrl(value) }
-           />
+              <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                label="Choose file"
+                acceptedFiles={['image/jpeg', 'image/png']}
+                fileName={this.props.bannerImageUrl}
+                previewImageHeight="100px"
+                previewImageWidth="100px"
+                imageFolder="navTitleImage"
+                onChange={value => this.bannerImageUrl(value)}
+              />
             </div>
           </div>
 
