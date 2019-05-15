@@ -1,14 +1,15 @@
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
-import { clearAuthentication, clearAuthToken } from "./utilities/authentication";
+import { bindActionCreators } from "redux";
 import "./assets/base.scss";
 import configureStore from "./config/configureStore";
 import Main from "./DemoPages/Main";
 import * as serviceWorker from "./serviceWorker";
+import { clearAuthentication, clearAuthToken } from "./utilities/authentication";
 import setupAxiosInterceptors from "./utilities/axios-interceptor";
-import { bindActionCreators } from "redux";
 
 const store = configureStore();
 
@@ -22,11 +23,13 @@ const rootElement = document.getElementById("root");
 
 const renderApp = Component => {
   ReactDOM.render(
-    <Provider store={store}>
-      <HashRouter>
-        <Component />
-      </HashRouter>
-    </Provider>,
+    <MuiThemeProvider>
+      <Provider store={store}>
+        <HashRouter>
+          <Component />
+        </HashRouter>
+      </Provider>
+    </MuiThemeProvider>,
     rootElement
   );
 };
