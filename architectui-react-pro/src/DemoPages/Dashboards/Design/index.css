@@ -3588,12 +3588,6 @@ position: absolute !important;
   cursor: pointer;
   background-color: #FBAD3D !important;
 }
-.modal_effect_in{
-  -webkit-transition: all .3s cubic-bezier(.25,.8,.25,1);
-  -o-transition: all .3s cubic-bezier(.25,.8,.25,1);
-  transition: all .3s cubic-bezier(.25,.8,.25,1);
-  -webkit-animation: beamer_pop-in .5s;
-}
 .leftCardHeader{
   font-size: 1.1rem;
   color: #0e7c95;

@@ -5,6 +5,7 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import Loader from 'react-loaders';
+import Rodal from 'rodal';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import Modal from 'react-responsive-modal';
 import { CardHeader, Col, Row } from 'reactstrap';
@@ -2162,29 +2163,32 @@ class HomePageContent extends React.Component {
                                                           'droppable'
                                                         )}
                                                       </div>
-                                                      <Modal
+                                                      <Rodal
                                                         key={`modal-dragged-${
                                                           item.id
                                                         }`}
-                                                        open={
+                                                        visible={
                                                           this.state
                                                             .allModalIds[
                                                             `show${item.id}`
                                                           ] || false
                                                         }
+                                                        animation="slideUp"
+                                                        duration={500}
                                                         onClose={() =>
                                                           this.hideEditSettingPopup(
                                                             `show${item.id}`
                                                           )
                                                         }
                                                         center
+                                                        width={800}
                                                         classNames={{
                                                           overlay:
                                                             'videoModalOverlay',
                                                           modal: 'modal-general'
                                                         }}
                                                       >
-                                                        <div className="modal_effect_in">
+                                                        <div>
                                                           {item.elementtype ===
                                                             'productSearchForm' && (
                                                             <ModalSearchContent
@@ -2368,7 +2372,7 @@ class HomePageContent extends React.Component {
                                                             />
                                                           )}
                                                         </div>
-                                                      </Modal>
+                                                      </Rodal>
                                                     </div>
                                                   )}
                                                 </Draggable>
