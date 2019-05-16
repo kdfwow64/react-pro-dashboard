@@ -116,9 +116,6 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps()}>
               <input {...getInputProps()} />
-              {/* <div className="dropzone-content">
-                <p>Drop files here.</p>
-              </div> */}
             </div>
           )}
         </Dropzone>

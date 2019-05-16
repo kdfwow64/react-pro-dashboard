@@ -1626,7 +1626,6 @@ class LandingUserSection extends React.Component {
                                     <label>NAV IMAGE</label>
                                   </div>
                                   <div className="col-sm-12 CollectionMainEditIconImgView">
-                                    }{' '}
                                     <S3SingleFileUploaderWithPreviewAndFileNameCapability
                                       label="Choose file"
                                       acceptedFiles={[
