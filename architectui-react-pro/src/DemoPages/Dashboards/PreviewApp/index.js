@@ -60,8 +60,9 @@ export default class PreviewApp extends React.Component {
             <CardBody>
               <div className="text-center">
                 <h2>Your app is ready to preview!</h2>
+                <br />
                 <h4>Download the AppIt preview app on your device.</h4>
-
+                <br />
                 <LaddaButton
                   className="mb-2 mr-2 btn btn-shadow btn-primary"
                   loading={this.state.expRight}
