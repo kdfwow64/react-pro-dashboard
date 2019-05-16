@@ -50,12 +50,12 @@ class CollectionSettingListSingleSection extends React.Component {
           >
             ${this.props.ProdPrice}
           </div>
-          <div
+          {/* <div
             className="CollectionEffectListRightActionIcon"
             style={{ color: this.props.CelliconColorValue || '#2ecc71' }}
           >
             <i className={this.props.IconAction || 'lnr-chevron-right'} />
-          </div>
+          </div> */}
         </div>
       </div>
     );
