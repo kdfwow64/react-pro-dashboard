@@ -1270,7 +1270,7 @@ class ModalCollectionWithTitleContent extends React.Component {
                     </div>
                   );
                 })}
-
+                <br />
                 <div
                   className="Append_right_link_container"
                   onClick={this.getCellContents}
@@ -1282,7 +1282,6 @@ class ModalCollectionWithTitleContent extends React.Component {
                       outline
                       color="primary"
                     >
-                      {/* <Ionicon fontSize="20px" color="#333" icon='ios-add' className="btn-icon-wrapper" /> */}
                       Add Another
                     </Button>
                   </div>

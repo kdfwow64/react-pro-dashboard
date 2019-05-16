@@ -969,6 +969,7 @@ class ModalSingleProduct extends React.Component {
                     </div>
                   );
                 })}
+                <br />
                 <div
                   className="Append_right_link_container"
                   onClick={this.getCellContents}
