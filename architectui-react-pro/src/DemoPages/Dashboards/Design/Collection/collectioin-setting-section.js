@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import reactCSS from 'reactcss';
 import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
+import { DropdownList } from 'react-widgets';
 import IconList from '../icon-list';
 
 class CollectioinSettingSection extends React.Component {
@@ -51,8 +52,8 @@ class CollectioinSettingSection extends React.Component {
   }
 
   gridSelectOptionCallback = e => {
-    this.setState({ SelectedOption: e.target.value });
-    this.props.SelectedOption(e.target.value);
+    this.setState({ SelectedOption: e });
+    this.props.SelectedOption(e);
   };
 
   gridSelectProductTitleCallback = e => {
@@ -204,15 +205,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>PAGE STYLE</label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
-                  onChange={this.gridSelectOptionCallback}
+                <DropdownList
+                  data={['Grid', 'List']}
                   value={this.props.SelectedOptionValue}
-                >
-                  <option value="Grid"> Grid </option>
-                  <option value="List"> List </option>
-                </select>
+                  onChange={this.gridSelectOptionCallback}
+                  textField="name"
+                />
               </div>
             </div>
 
