@@ -400,7 +400,7 @@ class ModalSearchContentSec extends React.Component {
 
   render() {
     return (
-      <Row style={{ padding: '10px' }}>
+      <Row className="p-3">
         <Col md={4} className="d-flex align-items-center">
           <div className="setting_fields">
             <div
