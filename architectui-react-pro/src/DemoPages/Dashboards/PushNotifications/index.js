@@ -288,60 +288,23 @@ export default class PushNotifications extends React.Component {
                     </Label>
                     <Select
                       value={this.state.textFieldValue}
-                      onChange={value => {
+                      onInputChange={value => {
                         console.log(value);
+                        if (this.state.deeplinkType === 'collection') {
+                          this.searchCollection(value);
+                        } else if (this.state.deeplinkType === 'product') {
+                          this.searchProduct(value);
+                        }
+                      }}
+                      onChange={value => {
                         this.setState({ textFieldValue: value });
-                        // if (this.state.deeplinkType === 'collection') {
-                        //   this.searchCollection(value);
-                        // } else if (this.state.deeplinkType === 'product') {
-                        //   this.searchProduct(value);
-                        // }
                       }}
                       options={this.state.deeplinkList}
                     />
-                    {/* <Autocomplete
-                      options={this.state.deeplinkList}
-                      selected={this.state.deeplinkSelected}
-                      onSelect={ selection => {
-                        const selectedText = selection.map(selectedItem => {
-                          const matchedOption = this.state.deeplinkList.filter(option => {
-                            return option.value === selectedItem;
-                          });
-                          return matchedOption[0] && matchedOption[0].label;
-                        });
-                        const selectedHandle = selection.map(selectedItem => {
-                          const matchedOption = this.state.deeplinkList.filter(option => {
-                            return option.value === selectedItem;
-                          });
-                          return matchedOption[0].handle;
-                        })[0];
-                        this.setState({ deeplinkSelected: selectedText, textFieldValue: selectedText, deeplinkHandle: selectedHandle });
-                      }}
-                      textField={
-                        <Autocomplete.TextField
-                          label=""
-                          value={this.state.textFieldValue}
-                          onChange={value => {
-                            this.setState({ textFieldValue: value });
-                            if (this.state.deeplinkType === 'collection') {
-                              this.searchCollection(value);
-                            } else if (this.state.deeplinkType === 'product') {
-                              this.searchProduct(value);
-                            }
-                          }}
-                        />
-                      }
-                    /> */}
                     <br />
                     <Label style={{ marginTop: '5px' }} for="exampleFile">
                       Notification Image
                     </Label>
-                    {/* <Input
-                          type="file"
-                          accept
-                          name="file"
-                          id="exampleFile"
-                        /> */}
                     <S3SingleFileUploaderWithPreviewAndFileNameCapability
                       label="Upload Image"
                       acceptedFiles={['image/jpeg', 'image/png']}
