@@ -1,15 +1,22 @@
 import React, { Fragment } from 'react';
 import { Button } from 'reactstrap';
 
-export default class WizardStep3 extends React.Component {
+export default class WizardStep5 extends React.Component {
   render() {
     return (
       <Fragment>
         <div className="form-wizard-content">
           <div className="no-results">
+            <div className="sa-icon sa-success animate">
+              <span className="sa-line sa-tip animateSuccessTip" />
+              <span className="sa-line sa-long animateSuccessLong" />
+
+              <div className="sa-placeholder" />
+              <div className="sa-fix" />
+            </div>
             <div className="results-subtitle mt-4">Finished!</div>
             <div className="results-title">
-              Select the platform to publish the app to
+              Your app submission request has been receieved!
             </div>
             <div className="mt-3 mb-3" />
             <div className="text-center">
@@ -17,17 +24,9 @@ export default class WizardStep3 extends React.Component {
                 color="success"
                 type="submit"
                 size="lg"
-                className="btn-shadow btn-wide mr-3"
-              >
-                Apple
-              </Button>
-              <Button
-                color="success"
-                type="submit"
-                size="lg"
                 className="btn-shadow btn-wide"
               >
-                Google
+                Finish
               </Button>
             </div>
           </div>

@@ -15,13 +15,15 @@ import Step1 from './Steps/Step1';
 import Step2 from './Steps/Step2';
 import Step3 from './Steps/Step3';
 import Step4 from './Steps/Step4';
+import Step5 from './Steps/Step5';
 import MultiStep from './Wizard';
 
 const steps = [
   { name: 'App Information', component: <Step1 /> },
   { name: 'Additional Info', component: <Step2 /> },
-  { name: 'Account Info', component: <Step3 /> },
-  { name: 'Final', component: <Step4 /> }
+  { name: 'Select Platform', component: <Step3 /> },
+  { name: 'Account Info', component: <Step4 /> },
+  { name: 'Final', component: <Step5 /> }
 ];
 
 const getItem = item => {
