@@ -16,8 +16,8 @@ import {
   Row
 } from 'reactstrap';
 import Ionicon from 'react-ionicons';
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import { DropdownList } from 'react-widgets';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 const iconData = ['ios-cut-outline'];
 
@@ -177,7 +177,7 @@ class CartRightSection extends React.Component {
                   {this.props.NavTitleValue === 'Image' && (
                     <img
                       src={this.props.bannerImageUrl}
-                      style={{ maxHeight: '40px', maxWidth: '90px' }}
+                      style={{ maxHeight: '30px', maxWidth: '90px' }}
                     />
                   )}
                   {this.props.NavTitleValue === 'Text' && 'CART'}
@@ -211,15 +211,13 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionSettingEditTitle">
                         <label>NAVIGATION BAR TITLE</label>
                       </div>
-                      <div
-                        className="col-sm-12 CollectionMainEditTitleView"
-                      >
-                      <DropdownList
-                        data={['Image', 'Text']}
-                        onChange={this.OnCollectionEditClick}
-                        value={this.props.NavTitleValue || 'Text'}
-                        textField="name"
-                      />
+                      <div className="col-sm-12 CollectionMainEditTitleView">
+                        <DropdownList
+                          data={['Image', 'Text']}
+                          onChange={this.OnCollectionEditClick}
+                          value={this.props.NavTitleValue || 'Text'}
+                          textField="name"
+                        />
                       </div>
                     </div>
 
@@ -230,8 +228,8 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditBGIconView">
                         <input
                           type="text"
-                          value={this.props.navbgcolorValue || '#0E7C95'}
-                          defaultValue={this.navbgcolor}
+                          defaultValue={this.props.navbgcolorValue || '#0E7C95'}
+                          // defaultValue={this.navbgcolor}
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navbghandleClick}
@@ -304,7 +302,9 @@ class CartRightSection extends React.Component {
                       className="CollectionMainEditIconColor"
                       style={{
                         display:
-                          this.props.NavTitleValue === 'Image' ? 'none' : 'block'
+                          this.props.NavTitleValue === 'Image'
+                            ? 'none'
+                            : 'block'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -313,8 +313,8 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditIconColorView">
                         <input
                           type="text"
-                          value={this.props.navtitlecolorValue || '#fff'}
-                          defaultValue={this.navtitlecolor}
+                          defaultValue={this.props.navtitlecolorValue || '#fff'}
+                          // defaultValue={this.navtitlecolor}
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navtitlehandleClick}
@@ -350,7 +350,9 @@ class CartRightSection extends React.Component {
                       className="CollectionMainEditImg"
                       style={{
                         display:
-                          this.props.NavTitleValue === 'Image' ? 'block' : 'none'
+                          this.props.NavTitleValue === 'Image'
+                            ? 'block'
+                            : 'none'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditImg">

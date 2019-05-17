@@ -6,6 +6,7 @@ import { ChromePicker } from 'react-color';
 import Loader from 'react-loaders';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Button, Card, CardHeader, Col, Collapse, Row } from 'reactstrap';
+import { DropdownList } from 'react-widgets';
 import { API_ROOT } from '../../../../utilities/api-config';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import { themeColorFromName } from '../mobile-theme-utils';
@@ -23,7 +24,6 @@ import CreateSettingForm from './setting-account-form';
 import SettingAccountOption from './setting-account-option';
 import CreateContactForm from './user-contact-form';
 import UserReview from './user-review-form';
-import { DropdownList } from 'react-widgets';
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
@@ -1464,8 +1464,10 @@ class LandingUserSection extends React.Component {
                                   }}
                                 />
                               )}
-                              {this.state.NavTitle === 'Text' && this.state.TitleUserPage}
-                              {this.state.NavTitle === undefined && this.state.TitleUserPage}
+                              {this.state.NavTitle === 'Text' &&
+                                this.state.TitleUserPage}
+                              {this.state.NavTitle === undefined &&
+                                this.state.TitleUserPage}
                             </div>
                             <div
                               id="CollectionEditMainSlider"
@@ -1500,15 +1502,13 @@ class LandingUserSection extends React.Component {
                                   <div className="col-sm-12 CollectionSettingEditTitle">
                                     <label>NAVIGATION BAR TITLE</label>
                                   </div>
-                                  <div
-                                    className="col-sm-12 CollectionMainEditTitleView"
-                                  >
-                                  <DropdownList
-                                    data={['Image', 'Text']}
-                                    onChange={this.OnCollectionEditClick}
-                                    value={this.state.NavTitle || 'Text'}
-                                    textField="name"
-                                  />
+                                  <div className="col-sm-12 CollectionMainEditTitleView">
+                                    <DropdownList
+                                      data={['Image', 'Text']}
+                                      onChange={this.OnCollectionEditClick}
+                                      value={this.state.NavTitle || 'Text'}
+                                      textField="name"
+                                    />
                                   </div>
                                 </div>
 

@@ -2,9 +2,9 @@
 // @ts-nocheck
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
+import { DropdownList } from 'react-widgets';
 import SearchListView from './SearchListView';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
-import { DropdownList } from 'react-widgets';
 
 class SearchRightSection extends React.Component {
   navtitlecolor = null;
@@ -199,15 +199,13 @@ class SearchRightSection extends React.Component {
                     <div className="col-sm-12 CollectionSettingEditTitle">
                       <label>NAVIGATION BAR TITLE</label>
                     </div>
-                    <div
-                      className="col-sm-12 CollectionMainEditTitleView"
-                    >
-                    <DropdownList
-                      data={['Image', 'Text']}
-                      onChange={this.OnCollectionEditClick}
-                      value={this.props.NavTitleValue || 'Text'}
-                      textField="name"
-                    />
+                    <div className="col-sm-12 CollectionMainEditTitleView">
+                      <DropdownList
+                        data={['Image', 'Text']}
+                        onChange={this.OnCollectionEditClick}
+                        value={this.props.NavTitleValue || 'Text'}
+                        textField="name"
+                      />
                     </div>
                   </div>
 

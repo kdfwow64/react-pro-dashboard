@@ -2,8 +2,8 @@
 // @ts-nocheck
 import React from 'react';
 import { ChromePicker } from 'react-color';
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 import { DropdownList } from 'react-widgets';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 class SearchNavigationSettings extends React.Component {
   constructor(props) {
@@ -184,7 +184,10 @@ class SearchNavigationSettings extends React.Component {
         style={{ display: this.state.CollectionMainSectionEditOptionValue }}
       >
         <div className="CollectionEditSettingOptionContainer">
-          <h2>EDIT NAVIGATION BAR</h2>
+          <h2>
+            EDIT NAVIGATION BAR{' '}
+            {this.state.CollectionMainSectionEditOptionValue} 1
+          </h2>
           <p>
             *Note: Editing this navigation bar will override the theme's
             navigation bar for this page only.
@@ -194,15 +197,13 @@ class SearchNavigationSettings extends React.Component {
             <div className="col-sm-12 CollectionSettingEditTitle">
               <label>NAVIGATION BAR TITLE</label>
             </div>
-            <div
-              className="col-sm-12 CollectionMainEditTitleView"
-            >
-            <DropdownList
-              data={['Image', 'Text']}
-              onChange={this.OnCollectionEditClick.bind(this)}
-              value={this.props.NavTitleVal || 'Text'}
-              textField="name"
-            />
+            <div className="col-sm-12 CollectionMainEditTitleView">
+              <DropdownList
+                data={['Image', 'Text']}
+                onChange={this.OnCollectionEditClick.bind(this)}
+                value={this.props.NavTitleVal || 'Text'}
+                textField="name"
+              />
             </div>
           </div>
 
@@ -286,7 +287,7 @@ class SearchNavigationSettings extends React.Component {
             }}
           >
             <div className="col-sm-12 CollectionSettingEditIconColor">
-              <label>NAV BAR TITLE COLOR</label>
+              <label>NAV BAR TITLE COLOR </label>
             </div>
             <div className="col-sm-12 CollectionMainEditIconColorView">
               <input

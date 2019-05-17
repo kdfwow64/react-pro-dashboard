@@ -3,7 +3,16 @@
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import reactCSS from 'reactcss';
-import { Col, Row, Card, CardBody, CardTitle, CardHeader, DropdownMenu, DropdownItem} from 'reactstrap';
+import {
+  Col,
+  Row,
+  Card,
+  CardBody,
+  CardTitle,
+  CardHeader,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 import { DropdownList } from 'react-widgets';
 import IconList from '../icon-list';
 

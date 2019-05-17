@@ -361,11 +361,13 @@ class ModalBrowseProductCollections extends React.Component {
                       onClick={this.DisplayCollection.bind(this)}
                       className="ProductDropSearchDown"
                     />
-                    <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                    <div className="searchDropModal">
+                      <i className="lnr-chevron-down" />
+                    </div>
                     <div
                       className="ProductResult mainProductListSearch"
                       style={{
-                        display: this.state.DisplayCollectionValue,
+                        display: this.state.DisplayCollectionValue
                       }}
                     >
                       {this.state.ProductsCollectionsData.map((item, index) => {
@@ -439,7 +441,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.iconColor}
+                      // value={this.state.iconColor}
                       defaultValue={this.state.iconColor}
                       id="CollectionDropDown"
                       className="textColorCode"
@@ -483,7 +485,7 @@ class ModalBrowseProductCollections extends React.Component {
                       type="text"
                       name="title"
                       defaultValue={this.state.title}
-                      value={this.state.title}
+                      // value={this.state.title}
                       onChange={this.onTitleChange}
                       style={{ width: '95%' }}
                     />
@@ -497,7 +499,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.titleColor}
+                      // value={this.state.titleColor}
                       defaultValue={this.state.titleColor}
                       id="CollectionDropDown"
                       className="textColorCode"
@@ -536,12 +538,12 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.footerBGColor}
+                      // value={this.state.footerBGColor}
                       defaultValue={this.state.footerBGColor}
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onFooterBGColorClick}
-                      style={{width: '95%'}}
+                      style={{ width: '95%' }}
                     />
                     <div style={this.swatch}>
                       <div
@@ -576,7 +578,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.imageSpacingColor}
+                      // value={this.state.imageSpacingColor}
                       defaultValue={this.state.imageSpacingColor}
                       id="CollectionDropDown"
                       className="textColorCode"

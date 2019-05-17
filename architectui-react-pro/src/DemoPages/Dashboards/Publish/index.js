@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Card, CardBody, Col, Row } from 'reactstrap';
 import { saveForm } from '../../../utilities/app-settings';
-import { getGoLive, saveGoLive } from '../../../reducers/go-live';
+import { getGoLive, saveGoLive } from '../../../utilities/go-live';
 import {
   triggerBuildAndroid,
   triggerBuildiOS
@@ -24,10 +24,13 @@ const steps = [
   { name: 'Final', component: <Step4 /> }
 ];
 
+const getItem = item => {
+  return localStorage.getItem(item);
+};
+
 class Publish extends React.Component {
   componentDidMount() {
     this.props.getGoLive();
-    console.log(this.props.initialValues);
   }
 
   setFormRef = element => {
@@ -38,8 +41,6 @@ class Publish extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
-    console.log('go live');
-    console.log(this.props.initialValues);
     return (
       <Fragment>
         <ReactCSSTransitionGroup
@@ -100,6 +101,17 @@ const goLiveForm = reduxForm({
   form: 'goLive',
   enableReinitialize: true,
   onSubmit: (values, dispatch) => {
+    // get App Icon / App Splash / json file urls
+    if (getItem('appIconFileName')) {
+      values.appIconFileName = getItem('appIconFileName');
+    }
+    if (getItem('splashScreenFileName')) {
+      values.splashScreenFileName = getItem('splashScreenFileName');
+    }
+    if (getItem('playStoreJsonFile')) {
+      values.playStoreJsonFile = getItem('playStoreJsonFile');
+    }
+
     dispatch(saveGoLive(values));
   }
 })(Publish);

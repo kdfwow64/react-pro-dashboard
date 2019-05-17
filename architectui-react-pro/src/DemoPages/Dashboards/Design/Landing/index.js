@@ -1113,7 +1113,6 @@ class HomePageContent extends React.Component {
           this.setState({ isLoaded: true });
           this.homeTopTabsShowEditAlert.current.showSaveButton();
         });
-        
     }
 
     this.allModalReferencesById[allSetting.itemId].current.applyAppliedSetting(

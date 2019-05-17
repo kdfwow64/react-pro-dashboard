@@ -175,7 +175,11 @@ class ModalCustomBanner extends React.Component {
                   ' CUSTOM BANNER '
                 ) : (
                   <img
-                    style={{ maxWidth: '100%', maxHeight: '100%', height: '100%' }}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      height: '100%'
+                    }}
                     src={this.state.bannerImageUrl}
                   />
                 )}
@@ -264,12 +268,14 @@ class ModalCustomBanner extends React.Component {
                         }
                         onClick={this.DisplayCollection.bind(this)}
                         className="ProductDropSearchDown"
-                        />
-                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
-                        <div
-                          className="ProductResult mainProductListSearch"
+                      />
+                      <div className="searchDropModal">
+                        <i className="lnr-chevron-down" />
+                      </div>
+                      <div
+                        className="ProductResult mainProductListSearch"
                         style={{
-                          display: this.state.DisplayCollectionValue,
+                          display: this.state.DisplayCollectionValue
                         }}
                       >
                         {this.state.ProductsCollectionsData.map(
@@ -347,12 +353,14 @@ class ModalCustomBanner extends React.Component {
                         }
                         onClick={this.DisplayCollection.bind(this)}
                         className="ProductDropSearchDown"
-                        />
-                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
-                        <div
-                          className="ProductResult mainProductListSearch"
+                      />
+                      <div className="searchDropModal">
+                        <i className="lnr-chevron-down" />
+                      </div>
+                      <div
+                        className="ProductResult mainProductListSearch"
                         style={{
-                          display: this.state.DisplayCollectionValue,
+                          display: this.state.DisplayCollectionValue
                         }}
                       >
                         <input

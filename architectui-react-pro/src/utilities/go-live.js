@@ -1,7 +1,7 @@
 /* tslint:disable */
 import axios from 'axios';
-import { FAILURE, REQUEST, SUCCESS } from '../utilities/action-type.util';
-import { API_ROOT } from '../utilities/api-config';
+import { FAILURE, REQUEST, SUCCESS } from './action-type.util';
+import { API_ROOT } from './api-config';
 
 export const ACTION_TYPES = {
   GET_GO_LIVE: 'go-live/GET_GO_LIVE',
@@ -20,19 +20,21 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case REQUEST(ACTION_TYPES.GET_GO_LIVE):
-      console.log('GET_GO_LIVE');
+      console.log('go live get success');
       return {
         ...state,
         errorMessage: null,
         loading: true
       };
     case FAILURE(ACTION_TYPES.GET_GO_LIVE):
+      console.log('go live get success');
       return {
         ...state,
         loading: false,
         errorMessage: action.payload
       };
     case SUCCESS(ACTION_TYPES.GET_GO_LIVE):
+      console.log('go live get success');
       return {
         ...state,
         loading: false,

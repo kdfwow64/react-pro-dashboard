@@ -1,18 +1,17 @@
 // tslint:disable
 import * as React from 'react';
 
-
-class CreateLoginForm extends React.Component  {
+class CreateLoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        menuCellBGColor: this.props.menuCellBGColor,
-        menuIconColor: this.props.menuIconColor,
-        menuTitleColor: this.props.menuTitleColor,
-        menuTabActiveColor: this.props.menuTabActiveColor,
-        menuTabInactiveColor: this.props.menuTabInactiveColor,
-        menuSeparatorColor: this.props.menuSeparatorColor
-      };
+      menuCellBGColor: this.props.menuCellBGColor,
+      menuIconColor: this.props.menuIconColor,
+      menuTitleColor: this.props.menuTitleColor,
+      menuTabActiveColor: this.props.menuTabActiveColor,
+      menuTabInactiveColor: this.props.menuTabInactiveColor,
+      menuSeparatorColor: this.props.menuSeparatorColor
+    };
   }
 
   render() {

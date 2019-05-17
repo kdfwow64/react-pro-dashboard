@@ -205,7 +205,7 @@ class ModalSearchContentSec extends React.Component {
     this.props.onCloseModal(this.props.modalId);
   };
 
-  applyAppliedSetting = defaultSettings => { };
+  applyAppliedSetting = defaultSettings => {};
 
   onIconColorsecClick = () => {
     this.setState({ displayIconColor: true });
@@ -311,7 +311,7 @@ class ModalSearchContentSec extends React.Component {
     this.setState({ CollectionProductTitle: color.hex });
   };
 
-  handleChangeStart = () => { };
+  handleChangeStart = () => {};
 
   handleChange = value => {
     this.setState({
@@ -319,7 +319,7 @@ class ModalSearchContentSec extends React.Component {
     });
   };
 
-  handleChangeComplete = () => { };
+  handleChangeComplete = () => {};
 
   swatch = {
     padding: '5px',
@@ -477,7 +477,7 @@ class ModalSearchContentSec extends React.Component {
                             style={{
                               border: `1px solid${
                                 this.state.productBorderColor
-                                }`
+                              }`
                             }}
                           >
                             {item.imageUrl && (
@@ -572,11 +572,13 @@ class ModalSearchContentSec extends React.Component {
                           onClick={this.DisplayCollection.bind(this)}
                           className="ProductDropSearchDown"
                         />
-                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                        <div className="searchDropModal">
+                          <i className="lnr-chevron-down" />
+                        </div>
                         <div
                           className="ProductResult mainProductListSearch"
                           style={{
-                            display: this.state.DisplayCollectionValue,
+                            display: this.state.DisplayCollectionValue
                           }}
                         >
                           {this.state.ProductsCollectionsData.map(
@@ -748,7 +750,6 @@ class ModalSearchContentSec extends React.Component {
                       </div>
                     </div>
 
-
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
                         <label>PRODUCT BORDER COLOR</label>
@@ -791,8 +792,6 @@ class ModalSearchContentSec extends React.Component {
                   </div>
                 </div>
                 <div className="col-lg-6 col-sm-6">
-
-
                   <div className="row">
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
@@ -970,9 +969,7 @@ class ModalSearchContentSec extends React.Component {
                         ) : null}
                       </div>
                     </div>
-
                   </div>
-
                 </div>
               </div>
             </div>

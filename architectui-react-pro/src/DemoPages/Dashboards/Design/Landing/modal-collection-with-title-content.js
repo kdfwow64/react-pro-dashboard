@@ -6,8 +6,8 @@ import { ChromePicker } from 'react-color';
 import Switch from 'react-switchery-component';
 import 'react-switchery-component/react-switchery-component.css';
 import { Button, CardFooter } from 'reactstrap';
-import { API_ROOT } from '../../../../utilities/api-config';
 import { DropdownList } from 'react-widgets';
+import { API_ROOT } from '../../../../utilities/api-config';
 
 const ProductsCollectionsCellsSettings = [
   {
@@ -1085,10 +1085,12 @@ class ModalCollectionWithTitleContent extends React.Component {
                                 this.DisplayCollection(item, index, e);
                               }}
                               className="ProductDropSearchDown"
-                              />
-                              <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
-                              <div
-                                className="ProductResult mainProductListSearch"
+                            />
+                            <div className="searchDropModal">
+                              <i className="lnr-chevron-down" />
+                            </div>
+                            <div
+                              className="ProductResult mainProductListSearch"
                               style={{
                                 display: this.state.showCollectionDropdown[
                                   index
@@ -1168,10 +1170,12 @@ class ModalCollectionWithTitleContent extends React.Component {
                                 this.DisplayProduct(item, index, e);
                               }}
                               className="ProductDropSearchDown"
-                              />
-                              <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
-                              <div
-                                className="ProductResult mainProductListSearch"
+                            />
+                            <div className="searchDropModal">
+                              <i className="lnr-chevron-down" />
+                            </div>
+                            <div
+                              className="ProductResult mainProductListSearch"
                               style={{
                                 display: this.state.showProductDropdown[index]
                               }}
@@ -1303,12 +1307,12 @@ class ModalCollectionWithTitleContent extends React.Component {
                       className="col-sm-12 CollectionSettingOption"
                       style={{ padding: '0px' }}
                     >
-                    <DropdownList
-                      data={['Vertical', 'Horizontal']}
-                      onChange={this.onCellStyleChange}
-                      value={this.state.leftcellContentsType}
-                      textField="name"
-                    />
+                      <DropdownList
+                        data={['Vertical', 'Horizontal']}
+                        onChange={this.onCellStyleChange}
+                        value={this.state.leftcellContentsType}
+                        textField="name"
+                      />
                     </div>
                   </div>
                   <div className="CollectionMainEditIcon">
@@ -1319,12 +1323,12 @@ class ModalCollectionWithTitleContent extends React.Component {
                       className="col-sm-12 CollectionSettingOption"
                       style={{ padding: '0px' }}
                     >
-                    <DropdownList
-                      data={['Left', 'Center', 'Hide']}
-                      onChange={this.onCellTitleStyleChange}
-                      value={this.state.cellTitleStyle}
-                      textField="name"
-                    />
+                      <DropdownList
+                        data={['Left', 'Center', 'Hide']}
+                        onChange={this.onCellTitleStyleChange}
+                        value={this.state.cellTitleStyle}
+                        textField="name"
+                      />
                     </div>
                   </div>
                   <div className="CollectionMainEditIcon">
@@ -1335,12 +1339,12 @@ class ModalCollectionWithTitleContent extends React.Component {
                       className="col-sm-12 CollectionSettingOption"
                       style={{ padding: '0px' }}
                     >
-                    <DropdownList
-                      data={['Show', 'Hide']}
-                      onChange={this.onSubTitleStyleChange}
-                      value={this.state.Subtitle}
-                      textField="name"
-                    />
+                      <DropdownList
+                        data={['Show', 'Hide']}
+                        onChange={this.onSubTitleStyleChange}
+                        value={this.state.Subtitle}
+                        textField="name"
+                      />
                     </div>
                   </div>
                   <div className="SingleProductMainEdit">

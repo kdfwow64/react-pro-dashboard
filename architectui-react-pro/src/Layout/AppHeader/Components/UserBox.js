@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Bounce, toast } from 'react-toastify';
 import { Button } from 'reactstrap';
-import getShop from '../../../utilities/shop-utils';
+import { getShop } from '../../../utilities/shop-utils';
 
 class UserBox extends React.Component {
   constructor(props) {
@@ -159,7 +159,8 @@ class UserBox extends React.Component {
                   id="Tooltip-1"
                 >
                   <i
-                    className="pe-7s-headphones btn-icon-wrapper mb-2"
+                    // className="pe-7s-headphones btn-icon-wrapper mb-2"
+                    className="lnr-envelope btn-icon-wrapper mb-2"
                     fontSize="20px"
                   />
                   {/* <Ionicon color="#ffffff" fontSize="20px" icon="pe-7s-headphones"/> */}

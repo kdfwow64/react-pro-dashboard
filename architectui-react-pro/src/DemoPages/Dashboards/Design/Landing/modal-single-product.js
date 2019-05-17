@@ -606,34 +606,32 @@ class ModalSingleProduct extends React.Component {
                           PRODUCT
                         </div>
                       )}
-                      {item.price &&
-                      this.state.selectedprice && (
-                          <div
-                            className="ThirdPicturePriceTitle"
-                            style={{
-                              color: this.state.priceColor,
-                              display:
-                                this.state.isCheckedFirst === true
-                                  ? 'block'
-                                  : 'none'
-                            }}
-                          >
-                            ${item.price}
-                          </div>
-                        )}
-                      {!item.price &&
-                      !this.state.selectedprice && ( 
-                          <div
-                            className="ThirdPicturePriceTitle"
-                            style={{
-                              color: this.state.priceColor,
-                              display:
-                                this.state.isCheckedFirst === true
-                                  ? 'block'
-                                  : 'none'
-                            }}
-                          />
-                        )}
+                      {item.price && this.state.selectedprice && (
+                        <div
+                          className="ThirdPicturePriceTitle"
+                          style={{
+                            color: this.state.priceColor,
+                            display:
+                              this.state.isCheckedFirst === true
+                                ? 'block'
+                                : 'none'
+                          }}
+                        >
+                          ${item.price}
+                        </div>
+                      )}
+                      {!item.price && !this.state.selectedprice && (
+                        <div
+                          className="ThirdPicturePriceTitle"
+                          style={{
+                            color: this.state.priceColor,
+                            display:
+                              this.state.isCheckedFirst === true
+                                ? 'block'
+                                : 'none'
+                          }}
+                        />
+                      )}
                       {!item.price && !this.state.prodcollection && (
                         <div
                           className="ThirdPicturePriceTitle"
@@ -717,7 +715,9 @@ class ModalSingleProduct extends React.Component {
                               }}
                               className="ProductDropSearchDown"
                             />
-                            <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                            <div className="searchDropModal">
+                              <i className="lnr-chevron-down" />
+                            </div>
                             <div
                               className="ProductResult mainProductListSearch"
                               style={{
@@ -801,10 +801,12 @@ class ModalSingleProduct extends React.Component {
                                 this.DisplayProduct(item, index, e);
                               }}
                               className="ProductDropSearchDown"
-                              />
-                              <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
-                              <div
-                                className="ProductResult mainProductListSearch"
+                            />
+                            <div className="searchDropModal">
+                              <i className="lnr-chevron-down" />
+                            </div>
+                            <div
+                              className="ProductResult mainProductListSearch"
                               style={{
                                 display: this.state.showProductDropdown[index]
                               }}

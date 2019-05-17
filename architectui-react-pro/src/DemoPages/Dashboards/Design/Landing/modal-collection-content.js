@@ -602,11 +602,13 @@ class ModalSearchContent extends React.Component {
                           onClick={this.DisplayCollection.bind(this)}
                           className="ProductDropSearchDown"
                         />
-                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                        <div className="searchDropModal">
+                          <i className="lnr-chevron-down" />
+                        </div>
                         <div
                           className="ProductResult mainProductListSearch"
                           style={{
-                            display: this.state.DisplayCollectionValue,
+                            display: this.state.DisplayCollectionValue
                           }}
                         >
                           {this.state.ProductsCollectionsData.map(
@@ -822,7 +824,6 @@ class ModalSearchContent extends React.Component {
                   </div>
                 </div>
                 <div className="col-lg-6 col-sm-6">
-                 
                   <div className="row">
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
@@ -1004,9 +1005,8 @@ class ModalSearchContent extends React.Component {
                           </div>
                         ) : null}
                       </div>
-                    </div>          
+                    </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
