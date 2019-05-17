@@ -27,7 +27,7 @@ const AppMain = () => {
                 <Loader type="ball-pulse-rise" />
               </div>
               <h6 className="mt-5">
-                Please wait while we load all the Components examples.
+                Please wait while we load all the Components examples
                 <small>
                   Because this is a demonstration we load at once all the
                   Components examples. This wouldn't happen in a real live app!
