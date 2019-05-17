@@ -227,6 +227,7 @@ export default class PushNotifications extends React.Component {
                           This field is required
                         </div>
                       )}
+                    <br />
                     <Label style={{ marginTop: '5px' }} for="body">
                       Notification Body
                     </Label>
@@ -251,7 +252,7 @@ export default class PushNotifications extends React.Component {
                           This field is required
                         </div>
                       )}
-
+                    <br />
                     <Label style={{ marginTop: '5px' }} for="exampleSelect">
                       Deeplink
                     </Label>
@@ -302,7 +303,7 @@ export default class PushNotifications extends React.Component {
                         />
                       }
                     /> */}
-
+                    <br />
                     <Label style={{ marginTop: '5px' }} for="exampleFile">
                       Notification Image
                     </Label>
