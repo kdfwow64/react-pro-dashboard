@@ -439,7 +439,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.iconColor}
+                      // value={this.state.iconColor}
                       defaultValue={this.state.iconColor}
                       id="CollectionDropDown"
                       className="textColorCode"
@@ -483,7 +483,7 @@ class ModalBrowseProductCollections extends React.Component {
                       type="text"
                       name="title"
                       defaultValue={this.state.title}
-                      value={this.state.title}
+                      // value={this.state.title}
                       onChange={this.onTitleChange}
                       style={{ width: '80%' }}
                     />
@@ -497,7 +497,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.titleColor}
+                      // value={this.state.titleColor}
                       defaultValue={this.state.titleColor}
                       id="CollectionDropDown"
                       className="textColorCode"
@@ -536,7 +536,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.footerBGColor}
+                      // value={this.state.footerBGColor}
                       defaultValue={this.state.footerBGColor}
                       id="CollectionDropDown"
                       className="textColorCode"
@@ -575,7 +575,7 @@ class ModalBrowseProductCollections extends React.Component {
                   <div className="CollectionMainEditBGIconView">
                     <input
                       type="text"
-                      value={this.state.imageSpacingColor}
+                      // value={this.state.imageSpacingColor}
                       defaultValue={this.state.imageSpacingColor}
                       id="CollectionDropDown"
                       className="textColorCode"

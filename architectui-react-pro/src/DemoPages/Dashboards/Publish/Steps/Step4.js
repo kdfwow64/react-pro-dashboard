@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Button } from "reactstrap";
+import React, { Fragment } from 'react';
+import { Button } from 'reactstrap';
 
 export default class WizardStep4 extends React.Component {
   render() {
@@ -20,7 +20,12 @@ export default class WizardStep4 extends React.Component {
             </div>
             <div className="mt-3 mb-3" />
             <div className="text-center">
-              <Button color="success" size="lg" className="btn-shadow btn-wide">
+              <Button
+                color="success"
+                type="submit"
+                size="lg"
+                className="btn-shadow btn-wide"
+              >
                 Finish
               </Button>
             </div>

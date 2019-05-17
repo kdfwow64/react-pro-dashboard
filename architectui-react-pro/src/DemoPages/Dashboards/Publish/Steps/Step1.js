@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { FormGroup, Input, Label } from 'reactstrap';
+import { Field } from 'redux-form';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class WizardStep1 extends React.Component {
@@ -15,10 +16,11 @@ export default class WizardStep1 extends React.Component {
             <Label for="exampleEmail55">App Name</Label>
             <Input
               type="text"
-              value="app"
-              name="app-name"
-              id="exampleEmail55"
+              tag={Field}
+              component="input"
+              name="appName"
               placeholder="Your app name"
+              defaultValue="App name"
             />
           </FormGroup>
 
@@ -26,9 +28,12 @@ export default class WizardStep1 extends React.Component {
             <Label for="exampleAddress">Short description of the app</Label>
             <Input
               type="text"
-              name="address"
+              tag={Field}
+              component="input"
+              name="appShortDescription"
               id="exampleAddress"
               placeholder=""
+              defaultValue=""
             />
           </FormGroup>
 
@@ -36,15 +41,26 @@ export default class WizardStep1 extends React.Component {
             <Label for="exampleAddress2">Long description of the app</Label>
             <Input
               type="textarea"
-              name="address2"
+              tag={Field}
+              component="input"
+              name="appDescription"
               id="exampleAddress2"
               placeholder=""
+              defaultValue=""
             />
           </FormGroup>
 
           <FormGroup>
             <Label for="keywords">Keywords</Label>
-            <Input type="text" name="keywords" id="keywords" placeholder="" />
+            <Input
+              type="text"
+              tag={Field}
+              component="input"
+              name="keywords"
+              id="keywords"
+              placeholder=""
+              defaultValue=""
+            />
           </FormGroup>
 
           <FormGroup>
@@ -53,10 +69,16 @@ export default class WizardStep1 extends React.Component {
               label="Add App Icon"
               acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
+              tag={Field}
+              component="input"
+              name="appIconFileName"
               previewImageHeight="100px"
               previewImageWidth="100px"
               imageFolder="app_icon"
-              onChange={() => {}}
+              onChange={e => {
+                console.log(e);
+                localStorage.setItem('appIconFileName', e);
+              }}
             />
           </FormGroup>
 
@@ -66,10 +88,16 @@ export default class WizardStep1 extends React.Component {
               label="Add Splash Screen"
               acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
+              name="splashScreenFileName"
+              tag={Field}
+              component="input"
               previewImageHeight="150px"
               previewImageWidth="100px"
               imageFolder="splash_screen"
-              onChange={() => {}}
+              onChange={e => {
+                console.log(e);
+                localStorage.setItem('splashScreenFileName', e);
+              }}
             />
             {/* <Input type="file" /> */}
           </FormGroup>

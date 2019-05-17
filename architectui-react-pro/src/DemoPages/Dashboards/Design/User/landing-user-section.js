@@ -1,15 +1,22 @@
 // tslint:disable
 import axios from 'axios';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Col,
+  CardTitle,
+  Collapse,
+  Fade,
+  Row
+} from 'reactstrap';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import { ChromePicker } from 'react-color';
 import Loader from 'react-loaders';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Button, Card, CardHeader, Col, Collapse, Row } from 'reactstrap';
-import { API_ROOT } from '../../../../utilities/api-config';
-import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
-import { themeColorFromName } from '../mobile-theme-utils';
-import ThemeOptions from '../theme-options';
 import CreateAccountForm from './create-account-form';
 import CreateAccountOptions from './create-account-options';
 import CreateLoginForm from './create-login-form';
@@ -23,6 +30,10 @@ import CreateSettingForm from './setting-account-form';
 import SettingAccountOption from './setting-account-option';
 import CreateContactForm from './user-contact-form';
 import UserReview from './user-review-form';
+import ThemeOptions from '../theme-options';
+import { themeColorFromName } from '../mobile-theme-utils';
+import { API_ROOT } from '../../../../utilities/api-config';
+import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
@@ -623,6 +634,7 @@ class LandingUserSection extends React.Component {
   };
 
   OnCollectionEditClick = e => {
+    console.log(e.target.value);
     this.setState({ NavTitle: e.target.value });
   };
 
@@ -1015,906 +1027,865 @@ class LandingUserSection extends React.Component {
             id="LandingUserPageContentContainer"
             transitionLeave={false}
           >
-            {window.innerWidth < 767 ? (
-              <div className="mobile_hide_txt_container">
-                <p>
-                  Sorry, our designer needs a wider screen. If you're on a
-                  mobile device, please login using a desktop computer.
-                </p>
-              </div>
-            ) : (
-              <div>
-                <Row>
-                  <Col
-                    md={4}
-                    sm={6}
-                    className="user_section_main"
-                    id="CollectionMainContainer"
-                    style={{ border: '1px solid #efefef' }}
-                  >
-                    <PerfectScrollbar>
-                      <div id="accordion" className="accordion-wrapper mb-3">
-                        <Card>
-                          <CardHeader style={{ marginBottom: '10px' }}>
-                            <h3 className="leftCardHeader"> User Settings </h3>{' '}
-                          </CardHeader>
+            <Row>
+              <Col
+                md={4}
+                className="user_section_main"
+                id="CollectionMainContainer"
+                style={{ border: '1px solid #efefef' }}
+              >
+                <PerfectScrollbar>
+                  <div id="accordion" className="accordion-wrapper mb-3">
+                    <Card>
+                      <CardHeader style={{ marginBottom: '10px' }}>
+                        <h3 className="leftCardHeader"> User Settings </h3>{' '}
+                      </CardHeader>
 
-                          <Card>
-                            <CardHeader
-                              id="headingOne"
-                              onClick={() => this.onaccountclick(0)}
-                            >
-                              <Button
-                                className="m-0 p-0 ProductImgsTitle"
-                                color="link"
-                                onClick={() => this.onaccountclick(0)}
-                                aria-expanded={this.state.accordion[0]}
-                                aria-controls="exampleAccordion1"
-                              >
-                                CREATE ACCOUNT
-                              </Button>
-                            </CardHeader>
-                            <Collapse
-                              isOpen={this.state.accordion[0]}
-                              data-parent="#accordion"
-                              id="exampleAccordion1"
-                              className="proPaddBtm"
-                            >
-                              <CreateAccountOptions
-                                onBGColorChangeComplete={
-                                  this.onBGColorChangeComplete
-                                }
-                                onInputBGColorChangeComplete={
-                                  this.onInputBGColorChangeComplete
-                                }
-                                onInputIconColorChangeComplete={
-                                  this.onInputIconColorChangeComplete
-                                }
-                                onInputTitleColorChangeComplete={
-                                  this.onInputTitleColorChangeComplete
-                                }
-                                onButtonColorChangeComplete={
-                                  this.onButtonColorChangeComplete
-                                }
-                                onButtonTitleColorChangeComplete={
-                                  this.onButtonTitleColorChangeComplete
-                                }
-                                onGeneralTextColorChangeComplete={
-                                  this.onGeneralTextColorChangeComplete
-                                }
-                                onTextLinkColorChangeComplete={
-                                  this.onTextLinkColorChangeComplete
-                                }
-                                UserAccountBGColor={
-                                  this.state.UserAccountBGColor
-                                }
-                                UserAccountinputBGColor={
-                                  this.state.UserAccountinputBGColor
-                                }
-                                UserAccountinputIconColor={
-                                  this.state.UserAccountinputIconColor
-                                }
-                                UserAccountinputTitleColor={
-                                  this.state.UserAccountinputTitleColor
-                                }
-                                UserAccountbuttonColor={
-                                  this.state.UserAccountbuttonColor
-                                }
-                                UserAccountbuttonTitleColor={
-                                  this.state.UserAccountbuttonTitleColor
-                                }
-                                UserAccountgeneralTextColor={
-                                  this.state.UserAccountgeneralTextColor
-                                }
-                                UserAccounttextLinkColor={
-                                  this.state.UserAccounttextLinkColor
-                                }
-                              />
-                            </Collapse>
-                          </Card>
-
-                          <Card>
-                            <CardHeader
-                              id="headingOne"
-                              onClick={() => this.onloginclick(1)}
-                            >
-                              <Button
-                                className="m-0 p-0 ProductImgsTitle"
-                                color="link"
-                                onClick={() => this.onloginclick(1)}
-                                aria-expanded={this.state.accordion[1]}
-                                aria-controls="exampleAccordion1"
-                              >
-                                LOGIN
-                              </Button>
-                            </CardHeader>
-
-                            <Collapse
-                              isOpen={this.state.accordion[1]}
-                              data-parent="#accordion"
-                              id="exampleAccordion2"
-                              className="proPaddBtm"
-                            >
-                              <div className="">
-                                <CreateLoginOptions
-                                  onloginBGColorChangeComplete={
-                                    this.onloginBGColorChangeComplete
-                                  }
-                                  onloginInputBGColorChangeComplete={
-                                    this.onloginInputBGColorChangeComplete
-                                  }
-                                  onloginInputIconColorChangeComplete={
-                                    this.onloginInputIconColorChangeComplete
-                                  }
-                                  onloginInputTitleColorChangeComplete={
-                                    this.onloginInputTitleColorChangeComplete
-                                  }
-                                  onloginButtonColorChangeComplete={
-                                    this.onloginButtonColorChangeComplete
-                                  }
-                                  onloginButtonTitleColorChangeComplete={
-                                    this.onloginButtonTitleColorChangeComplete
-                                  }
-                                  onloginGeneralTextColorChangeComplete={
-                                    this.onloginGeneralTextColorChangeComplete
-                                  }
-                                  onloginTextLinkColorChangeComplete={
-                                    this.onloginTextLinkColorChangeComplete
-                                  }
-                                  loginBGColor={this.state.loginBGColor}
-                                  logininputBGColor={
-                                    this.state.logininputBGColor
-                                  }
-                                  logininputIconColor={
-                                    this.state.logininputIconColor
-                                  }
-                                  logininputTitleColor={
-                                    this.state.logininputTitleColor
-                                  }
-                                  loginbuttonColor={this.state.loginbuttonColor}
-                                  loginbuttonTitleColor={
-                                    this.state.loginbuttonTitleColor
-                                  }
-                                  logingeneralTextColor={
-                                    this.state.logingeneralTextColor
-                                  }
-                                  logintextLinkColor={
-                                    this.state.logintextLinkColor
-                                  }
-                                />
-                              </div>
-                            </Collapse>
-                          </Card>
-
-                          <Card>
-                            <CardHeader
-                              id="headingOne"
-                              onClick={() => this.onhistoryclick(2)}
-                            >
-                              <Button
-                                className="m-0 p-0 ProductImgsTitle"
-                                color="link"
-                                onClick={() => this.onhistoryclick(2)}
-                                aria-expanded={this.state.accordion[2]}
-                                aria-controls="exampleAccordion1"
-                              >
-                                ORDER HISTORY LIST
-                              </Button>
-                            </CardHeader>
-                            <Collapse
-                              isOpen={this.state.accordion[2]}
-                              data-parent="#accordion"
-                              id="exampleAccordion3"
-                              className="proPaddBtm"
-                            >
-                              <div className="">
-                                <OrderHistoryOption
-                                  onoptionBGColorChangeComplete={
-                                    this.onoptionBGColorChangeComplete
-                                  }
-                                  ontabbgColorChangeComplete={
-                                    this.ontabbgColorChangeComplete
-                                  }
-                                  ontabactiveColorChangeComplete={
-                                    this.ontabactiveColorChangeComplete
-                                  }
-                                  ontabinactiveColorChangeComplete={
-                                    this.ontabinactiveColorChangeComplete
-                                  }
-                                  onoptiontitleColorChangeComplete={
-                                    this.onoptiontitleColorChangeComplete
-                                  }
-                                  onoptionpriceColorChangeComplete={
-                                    this.onoptionpriceColorChangeComplete
-                                  }
-                                  onoptiondateColorChangeComplete={
-                                    this.onoptiondateColorChangeComplete
-                                  }
-                                  onimageborderChangeComplete={
-                                    this.onimageborderChangeComplete
-                                  }
-                                  oncellbgChangeComplete={
-                                    this.oncellbgChangeComplete
-                                  }
-                                  oncellsepratorColorChangeComplete={
-                                    this.oncellsepratorColorChangeComplete
-                                  }
-                                  optionBGColor={this.state.optionBGColor}
-                                  tabbgColor={this.state.tabbgColor}
-                                  tabactiveColor={this.state.tabactiveColor}
-                                  tabinactiveColor={this.state.tabinactiveColor}
-                                  optiontitleColor={this.state.optiontitleColor}
-                                  optionpriceColor={this.state.optionpriceColor}
-                                  optiondateColor={this.state.optiondateColor}
-                                  imageborderColor={this.state.imageborderColor}
-                                  cellBgColor={this.state.cellBgColor}
-                                  cellsepratorColor={
-                                    this.state.cellsepratorColor
-                                  }
-                                />
-                              </div>
-                            </Collapse>
-                          </Card>
-
-                          <Card>
-                            <CardHeader
-                              id="headingOne"
-                              onClick={() => this.onorderclick(3)}
-                            >
-                              <Button
-                                className="m-0 p-0 ProductImgsTitle"
-                                color="link"
-                                onClick={() => this.onorderclick(3)}
-                                aria-expanded={this.state.accordion[3]}
-                                aria-controls="exampleAccordion1"
-                              >
-                                ORDER DETAILS
-                              </Button>
-                            </CardHeader>
-                            <Collapse
-                              isOpen={this.state.accordion[3]}
-                              data-parent="#accordion"
-                              id="exampleAccordion4"
-                              className="proPaddBtm"
-                            >
-                              <div className="">
-                                <Orderdetailoption
-                                  onorderdetailBgColorChangeComplete={
-                                    this.onorderdetailBgColorChangeComplete
-                                  }
-                                  onorderdetailnumberColorChangeComplete={
-                                    this.onorderdetailnumberColorChangeComplete
-                                  }
-                                  onheadertitleBGColorChangeComplete={
-                                    this.onheadertitleBGColorChangeComplete
-                                  }
-                                  onorderdetailheaderbgColorChangeComplete={
-                                    this
-                                      .onorderdetailheaderbgColorChangeComplete
-                                  }
-                                  onoptionaddresstextColorChangeComplete={
-                                    this.onoptionaddresstextColorChangeComplete
-                                  }
-                                  onoptiondetailpriceColorChangeComplete={
-                                    this.onoptiondetailpriceColorChangeComplete
-                                  }
-                                  onoptiondetailsproductColorChangeComplete={
-                                    this
-                                      .onoptiondetailsproductColorChangeComplete
-                                  }
-                                  onoptiondetailsopColorChangeComplete={
-                                    this.onoptiondetailsopColorChangeComplete
-                                  }
-                                  onopriondetaildescChangeComplete={
-                                    this.onopriondetaildescChangeComplete
-                                  }
-                                  onoptiondetailcellbgColorChangeComplete={
-                                    this.onoptiondetailcellbgColorChangeComplete
-                                  }
-                                  onoptiondetailcellsepColorChangeComplete={
-                                    this
-                                      .onoptiondetailcellsepColorChangeComplete
-                                  }
-                                  orderdetailBgColor={
-                                    this.state.orderdetailBgColor
-                                  }
-                                  orderdetailnumberColor={
-                                    this.state.orderdetailnumberColor
-                                  }
-                                  headertitleBGColor={
-                                    this.state.headertitleBGColor
-                                  }
-                                  orderdetailheaderbgColor={
-                                    this.state.orderdetailheaderbgColor
-                                  }
-                                  optionaddresstextColor={
-                                    this.state.optionaddresstextColor
-                                  }
-                                  optiondetailpriceColor={
-                                    this.state.optiondetailpriceColor
-                                  }
-                                  optiondetailsproductColor={
-                                    this.state.optiondetailsproductColor
-                                  }
-                                  optiondetailsopColor={
-                                    this.state.optiondetailsopColor
-                                  }
-                                  opriondetaildescColor={
-                                    this.state.opriondetaildescColor
-                                  }
-                                  optiondetailscellbgColor={
-                                    this.state.optiondetailscellbgColor
-                                  }
-                                  optiondetailcellsepColor={
-                                    this.state.optiondetailcellsepColor
-                                  }
-                                />
-                              </div>
-                            </Collapse>
-                          </Card>
-
-                          <Card>
-                            <CardHeader
-                              id="headingOne"
-                              onClick={() => this.onsettingclick(4)}
-                            >
-                              <Button
-                                className="m-0 p-0 ProductImgsTitle"
-                                color="link"
-                                onClick={() => this.onsettingclick(4)}
-                                aria-expanded={this.state.accordion[4]}
-                                aria-controls="exampleAccordion1"
-                              >
-                                SETTINGS
-                              </Button>
-                            </CardHeader>
-
-                            <Collapse
-                              isOpen={this.state.accordion[4]}
-                              data-parent="#accordion"
-                              id="exampleAccordion5"
-                              className="proPaddBtm"
-                            >
-                              <div className="">
-                                <SettingAccountOption
-                                  onsettingBGColorChangeComplete={
-                                    this.onsettingBGColorChangeComplete
-                                  }
-                                  onsettingInputBGColorChangeComplete={
-                                    this.onsettingInputBGColorChangeComplete
-                                  }
-                                  onsettingInputIconColorChangeComplete={
-                                    this.onsettingInputIconColorChangeComplete
-                                  }
-                                  onsettingInputTitleColorChangeComplete={
-                                    this.onsettingInputTitleColorChangeComplete
-                                  }
-                                  onsettingButtonColorChangeComplete={
-                                    this.onsettingButtonColorChangeComplete
-                                  }
-                                  onsettingButtonTitleColorChangeComplete={
-                                    this.onsettingButtonTitleColorChangeComplete
-                                  }
-                                  onsettingGeneralTextColorChangeComplete={
-                                    this.onsettingGeneralTextColorChangeComplete
-                                  }
-                                  settingBGColor={this.state.settingBGColor}
-                                  settinginputBGColor={
-                                    this.state.settinginputBGColor
-                                  }
-                                  settinginputIconColor={
-                                    this.state.settinginputIconColor
-                                  }
-                                  settinginputTitleColor={
-                                    this.state.settinginputTitleColor
-                                  }
-                                  settingbuttonColor={
-                                    this.state.settingbuttonColor
-                                  }
-                                  settingbuttonTitleColor={
-                                    this.state.settingbuttonTitleColor
-                                  }
-                                  settinggeneralTextColor={
-                                    this.state.settinggeneralTextColor
-                                  }
-                                />
-                              </div>
-                            </Collapse>
-                          </Card>
-                        </Card>
-                      </div>
-                    </PerfectScrollbar>
-                  </Col>
-
-                  <Col
-                    md={8}
-                    sm={6}
-                    id="RightContainerScroll"
-                    style={{ border: '1px solid #efefef' }}
-                  >
-                    <div id="mbl_bg_rit">
-                      <div id="CollectionMainRightContainer">
-                        <div id="ProductRightBody">
-                          <div
-                            id="CollectionEffectNavBarContainer"
-                            style={{
-                              backgroundColor:
-                                this.state.navbgcolor || '#0E7C95'
-                            }}
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
+                          onClick={() => this.onaccountclick(0)}
+                        >
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onaccountclick(0)}
+                            aria-expanded={this.state.accordion[0]}
+                            aria-controls="exampleAccordion1"
                           >
-                            <div
-                              id="CollectionEffectnavBars"
-                              style={{
-                                color: this.state.naviconcolor || '#fff'
-                              }}
+                            CREATE ACCOUNT
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[0]}
+                          data-parent="#accordion"
+                          id="exampleAccordion1"
+                          className="proPaddBtm"
+                        >
+                          <CreateAccountOptions
+                            onBGColorChangeComplete={
+                              this.onBGColorChangeComplete
+                            }
+                            onInputBGColorChangeComplete={
+                              this.onInputBGColorChangeComplete
+                            }
+                            onInputIconColorChangeComplete={
+                              this.onInputIconColorChangeComplete
+                            }
+                            onInputTitleColorChangeComplete={
+                              this.onInputTitleColorChangeComplete
+                            }
+                            onButtonColorChangeComplete={
+                              this.onButtonColorChangeComplete
+                            }
+                            onButtonTitleColorChangeComplete={
+                              this.onButtonTitleColorChangeComplete
+                            }
+                            onGeneralTextColorChangeComplete={
+                              this.onGeneralTextColorChangeComplete
+                            }
+                            onTextLinkColorChangeComplete={
+                              this.onTextLinkColorChangeComplete
+                            }
+                            UserAccountBGColor={this.state.UserAccountBGColor}
+                            UserAccountinputBGColor={
+                              this.state.UserAccountinputBGColor
+                            }
+                            UserAccountinputIconColor={
+                              this.state.UserAccountinputIconColor
+                            }
+                            UserAccountinputTitleColor={
+                              this.state.UserAccountinputTitleColor
+                            }
+                            UserAccountbuttonColor={
+                              this.state.UserAccountbuttonColor
+                            }
+                            UserAccountbuttonTitleColor={
+                              this.state.UserAccountbuttonTitleColor
+                            }
+                            UserAccountgeneralTextColor={
+                              this.state.UserAccountgeneralTextColor
+                            }
+                            UserAccounttextLinkColor={
+                              this.state.UserAccounttextLinkColor
+                            }
+                          />
+                        </Collapse>
+                      </Card>
+
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
+                          onClick={() => this.onloginclick(1)}
+                        >
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onloginclick(1)}
+                            aria-expanded={this.state.accordion[1]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            LOGIN
+                          </Button>
+                        </CardHeader>
+
+                        <Collapse
+                          isOpen={this.state.accordion[1]}
+                          data-parent="#accordion"
+                          id="exampleAccordion2"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <CreateLoginOptions
+                              onloginBGColorChangeComplete={
+                                this.onloginBGColorChangeComplete
+                              }
+                              onloginInputBGColorChangeComplete={
+                                this.onloginInputBGColorChangeComplete
+                              }
+                              onloginInputIconColorChangeComplete={
+                                this.onloginInputIconColorChangeComplete
+                              }
+                              onloginInputTitleColorChangeComplete={
+                                this.onloginInputTitleColorChangeComplete
+                              }
+                              onloginButtonColorChangeComplete={
+                                this.onloginButtonColorChangeComplete
+                              }
+                              onloginButtonTitleColorChangeComplete={
+                                this.onloginButtonTitleColorChangeComplete
+                              }
+                              onloginGeneralTextColorChangeComplete={
+                                this.onloginGeneralTextColorChangeComplete
+                              }
+                              onloginTextLinkColorChangeComplete={
+                                this.onloginTextLinkColorChangeComplete
+                              }
+                              loginBGColor={this.state.loginBGColor}
+                              logininputBGColor={this.state.logininputBGColor}
+                              logininputIconColor={
+                                this.state.logininputIconColor
+                              }
+                              logininputTitleColor={
+                                this.state.logininputTitleColor
+                              }
+                              loginbuttonColor={this.state.loginbuttonColor}
+                              loginbuttonTitleColor={
+                                this.state.loginbuttonTitleColor
+                              }
+                              logingeneralTextColor={
+                                this.state.logingeneralTextColor
+                              }
+                              logintextLinkColor={this.state.logintextLinkColor}
                             />
-                            <div
-                              id="CollectionEffectMyStoreTitle"
-                              style={{
-                                color: this.state.navtitlecolor || '#fff'
-                              }}
-                            >
-                              {this.state.NavTitle === 'img' && (
-                                <img
-                                  src={this.state.bannerImageUrl}
-                                  style={{
-                                    maxHeight: '40px',
-                                    maxWidth: '90px'
-                                  }}
-                                />
-                              )}
-                              {this.state.NavTitle === 'Text' ||
-                                (this.state.NavTitle === 'text' &&
-                                  this.state.TitleUserPage)}
-                              {this.state.NavTitle === undefined &&
-                                this.state.TitleUserPage}
-                            </div>
-                            <div
-                              id="CollectionEditMainSlider"
-                              onClick={this.CollectionMainSectionEditOption}
-                            >
-                              <div id="CollectionEditOption">
-                                <i className="lnr-pencil" />
+                          </div>
+                        </Collapse>
+                      </Card>
+
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
+                          onClick={() => this.onhistoryclick(2)}
+                        >
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onhistoryclick(2)}
+                            aria-expanded={this.state.accordion[2]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            ORDER HISTORY LIST
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[2]}
+                          data-parent="#accordion"
+                          id="exampleAccordion3"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <OrderHistoryOption
+                              onoptionBGColorChangeComplete={
+                                this.onoptionBGColorChangeComplete
+                              }
+                              ontabbgColorChangeComplete={
+                                this.ontabbgColorChangeComplete
+                              }
+                              ontabactiveColorChangeComplete={
+                                this.ontabactiveColorChangeComplete
+                              }
+                              ontabinactiveColorChangeComplete={
+                                this.ontabinactiveColorChangeComplete
+                              }
+                              onoptiontitleColorChangeComplete={
+                                this.onoptiontitleColorChangeComplete
+                              }
+                              onoptionpriceColorChangeComplete={
+                                this.onoptionpriceColorChangeComplete
+                              }
+                              onoptiondateColorChangeComplete={
+                                this.onoptiondateColorChangeComplete
+                              }
+                              onimageborderChangeComplete={
+                                this.onimageborderChangeComplete
+                              }
+                              oncellbgChangeComplete={
+                                this.oncellbgChangeComplete
+                              }
+                              oncellsepratorColorChangeComplete={
+                                this.oncellsepratorColorChangeComplete
+                              }
+                              optionBGColor={this.state.optionBGColor}
+                              tabbgColor={this.state.tabbgColor}
+                              tabactiveColor={this.state.tabactiveColor}
+                              tabinactiveColor={this.state.tabinactiveColor}
+                              optiontitleColor={this.state.optiontitleColor}
+                              optionpriceColor={this.state.optionpriceColor}
+                              optiondateColor={this.state.optiondateColor}
+                              imageborderColor={this.state.imageborderColor}
+                              cellBgColor={this.state.cellBgColor}
+                              cellsepratorColor={this.state.cellsepratorColor}
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
+
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
+                          onClick={() => this.onorderclick(3)}
+                        >
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onorderclick(3)}
+                            aria-expanded={this.state.accordion[3]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            ORDER DETAILS
+                          </Button>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={this.state.accordion[3]}
+                          data-parent="#accordion"
+                          id="exampleAccordion4"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <Orderdetailoption
+                              onorderdetailBgColorChangeComplete={
+                                this.onorderdetailBgColorChangeComplete
+                              }
+                              onorderdetailnumberColorChangeComplete={
+                                this.onorderdetailnumberColorChangeComplete
+                              }
+                              onheadertitleBGColorChangeComplete={
+                                this.onheadertitleBGColorChangeComplete
+                              }
+                              onorderdetailheaderbgColorChangeComplete={
+                                this.onorderdetailheaderbgColorChangeComplete
+                              }
+                              onoptionaddresstextColorChangeComplete={
+                                this.onoptionaddresstextColorChangeComplete
+                              }
+                              onoptiondetailpriceColorChangeComplete={
+                                this.onoptiondetailpriceColorChangeComplete
+                              }
+                              onoptiondetailsproductColorChangeComplete={
+                                this.onoptiondetailsproductColorChangeComplete
+                              }
+                              onoptiondetailsopColorChangeComplete={
+                                this.onoptiondetailsopColorChangeComplete
+                              }
+                              onopriondetaildescChangeComplete={
+                                this.onopriondetaildescChangeComplete
+                              }
+                              onoptiondetailcellbgColorChangeComplete={
+                                this.onoptiondetailcellbgColorChangeComplete
+                              }
+                              onoptiondetailcellsepColorChangeComplete={
+                                this.onoptiondetailcellsepColorChangeComplete
+                              }
+                              orderdetailBgColor={this.state.orderdetailBgColor}
+                              orderdetailnumberColor={
+                                this.state.orderdetailnumberColor
+                              }
+                              headertitleBGColor={this.state.headertitleBGColor}
+                              orderdetailheaderbgColor={
+                                this.state.orderdetailheaderbgColor
+                              }
+                              optionaddresstextColor={
+                                this.state.optionaddresstextColor
+                              }
+                              optiondetailpriceColor={
+                                this.state.optiondetailpriceColor
+                              }
+                              optiondetailsproductColor={
+                                this.state.optiondetailsproductColor
+                              }
+                              optiondetailsopColor={
+                                this.state.optiondetailsopColor
+                              }
+                              opriondetaildescColor={
+                                this.state.opriondetaildescColor
+                              }
+                              optiondetailscellbgColor={
+                                this.state.optiondetailscellbgColor
+                              }
+                              optiondetailcellsepColor={
+                                this.state.optiondetailcellsepColor
+                              }
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
+
+                      <Card>
+                        <CardHeader
+                          id="headingOne"
+                          onClick={() => this.onsettingclick(4)}
+                        >
+                          <Button
+                            className="m-0 p-0 ProductImgsTitle"
+                            color="link"
+                            onClick={() => this.onsettingclick(4)}
+                            aria-expanded={this.state.accordion[4]}
+                            aria-controls="exampleAccordion1"
+                          >
+                            SETTINGS
+                          </Button>
+                        </CardHeader>
+
+                        <Collapse
+                          isOpen={this.state.accordion[4]}
+                          data-parent="#accordion"
+                          id="exampleAccordion5"
+                          className="proPaddBtm"
+                        >
+                          <div className="">
+                            <SettingAccountOption
+                              onsettingBGColorChangeComplete={
+                                this.onsettingBGColorChangeComplete
+                              }
+                              onsettingInputBGColorChangeComplete={
+                                this.onsettingInputBGColorChangeComplete
+                              }
+                              onsettingInputIconColorChangeComplete={
+                                this.onsettingInputIconColorChangeComplete
+                              }
+                              onsettingInputTitleColorChangeComplete={
+                                this.onsettingInputTitleColorChangeComplete
+                              }
+                              onsettingButtonColorChangeComplete={
+                                this.onsettingButtonColorChangeComplete
+                              }
+                              onsettingButtonTitleColorChangeComplete={
+                                this.onsettingButtonTitleColorChangeComplete
+                              }
+                              onsettingGeneralTextColorChangeComplete={
+                                this.onsettingGeneralTextColorChangeComplete
+                              }
+                              settingBGColor={this.state.settingBGColor}
+                              settinginputBGColor={
+                                this.state.settinginputBGColor
+                              }
+                              settinginputIconColor={
+                                this.state.settinginputIconColor
+                              }
+                              settinginputTitleColor={
+                                this.state.settinginputTitleColor
+                              }
+                              settingbuttonColor={this.state.settingbuttonColor}
+                              settingbuttonTitleColor={
+                                this.state.settingbuttonTitleColor
+                              }
+                              settinggeneralTextColor={
+                                this.state.settinggeneralTextColor
+                              }
+                            />
+                          </div>
+                        </Collapse>
+                      </Card>
+                    </Card>
+                  </div>
+                </PerfectScrollbar>
+              </Col>
+
+              <Col
+                md={8}
+                id="RightContainerScroll"
+                style={{ border: '1px solid #efefef' }}
+              >
+                <div id="mbl_bg_rit">
+                  <div id="CollectionMainRightContainer">
+                    <div id="ProductRightBody">
+                      <div
+                        id="CollectionEffectNavBarContainer"
+                        style={{
+                          backgroundColor: this.state.navbgcolor || '#0E7C95'
+                        }}
+                      >
+                        <div
+                          id="CollectionEffectnavBars"
+                          style={{ color: this.state.naviconcolor || '#fff' }}
+                        />
+                        <div
+                          id="CollectionEffectMyStoreTitle"
+                          style={{ color: this.state.navtitlecolor || '#fff' }}
+                        >
+                          {console.log(this.state.NavTitle)}
+                          {this.state.NavTitle === 'img' && (
+                            <img
+                              src={this.state.bannerImageUrl}
+                              style={{ maxHeight: '30px', maxWidth: '90px' }}
+                            />
+                          )}
+                          {this.state.NavTitle === 'Text' ||
+                            (this.state.NavTitle === 'text' &&
+                              this.state.TitleUserPage)}
+                          {this.state.NavTitle === undefined &&
+                            this.state.TitleUserPage}
+                        </div>
+                        <div
+                          id="CollectionEditMainSlider"
+                          onClick={this.CollectionMainSectionEditOption}
+                        >
+                          <div id="CollectionEditOption">
+                            <i className="lnr-pencil" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="CollectionEffectBody" style={{ height: '60vh' }}>
+                        <div
+                          className="CollectionMainEditOptionContainer"
+                          style={{
+                            display: this.state
+                              .CollectionMainSectionEditOptionValue
+                          }}
+                        >
+                          <div className="CollectionEditSettingOptionContainer">
+                            <h2>EDIT NAVIGATION BAR</h2>
+                            <p>
+                              *Note: Editing this navigation bar will override
+                              the theme's navigation bar for this page only.
+                            </p>
+
+                            <div className="CollectionMainEditTitle">
+                              <div className="col-sm-12 CollectionSettingEditTitle">
+                                <label>NAVIGATION BAR TITLE</label>
+                              </div>
+                              <div
+                                className="col-sm-12 CollectionMainEditTitleView"
+                                onChange={this.OnCollectionEditClick}
+                              >
+                                <select
+                                  name=""
+                                  id="CollectionMainEditSelect"
+                                  value={this.state.NavTitle || 'text'}
+                                >
+                                  <option value="img">Use Image</option>
+                                  <option value="text">Use Text</option>
+                                </select>
                               </div>
                             </div>
+
+                            <div className="CollectionMainEditIcon">
+                              <div className="col-sm-12 CollectionSettingIcon">
+                                <label>NAV BAR BACKGROUND COLOR </label>
+                              </div>
+                              <div className="col-sm-12 CollectionMainEditBGIconView">
+                                <input
+                                  type="text"
+                                  value={this.state.navbgcolor || '#0E7C95'}
+                                  defaultValue={
+                                    this.state.navbgcolor || '#0E7C95'
+                                  }
+                                  id="CollectionDropDown"
+                                  className="textColorCode"
+                                  onClick={this.navbghandleClick}
+                                />
+                                <div style={styles.swatch}>
+                                  <div
+                                    className="colorPickerBorder"
+                                    style={{
+                                      width: '20px',
+                                      height: '20px',
+                                      backgroundColor:
+                                        this.state.navbgcolor || '#0E7C95'
+                                    }}
+                                    onClick={this.navbghandleClick}
+                                  />
+                                </div>
+                                {this.state.navbgdisplayColorPicker ? (
+                                  <div style={styles.popover}>
+                                    <div
+                                      style={this.cover}
+                                      onClick={this.navbghandleClose}
+                                    />
+                                    <ChromePicker
+                                      color={this.state.navbgcolor || '#0E7C95'}
+                                      onChange={this.navbghandleChange}
+                                    />
+                                  </div>
+                                ) : null}
+                              </div>
+                            </div>
+
+                            {/* <div className="CollectionMainEditIconColor">
+                                                            <div className="col-sm-12 CollectionSettingEditIconColor">
+                                                                <label>NAV BAR ICON COLOR</label>
+                                                            </div>
+                                                            <div className="col-sm-12 CollectionMainEditIconColorView">
+                                                                <input
+                                                                    type="text"
+                                                                    value={this.state.naviconcolor || '#fff'}
+                                                                    defaultValue={this.state.naviconcolor || '#fff'}
+                                                                    id="CollectionDropDown"
+                                                                    className="textColorCode"
+                                                                    onClick={this.naviconhandleClick}
+                                                                />
+                                                                <div style={styles.swatch}>
+                                                                    <div
+                                                                        className="colorPickerBorder"
+                                                                        style={{
+                                                                            width: '20px',
+                                                                            height: '20px',
+                                                                            backgroundColor: this.state.naviconcolor || '#fff'
+                                                                        }}
+                                                                        onClick={this.naviconhandleClick}
+                                                                    />
+                                                                </div>
+                                                                {this.state.navicondisplayColorPicker ? (
+                                                                    <div style={styles.popover}>
+                                                                        <div style={ this.cover } onClick={ this.handleClose }/>
+                                                                        <ChromePicker
+                                                                            color={this.state.naviconcolor || '#fff'}
+                                                                            onChange={this.naviconhandleChange}
+                                                                        />
+                                                                    </div>
+                                                                ) : null}
+                                                            </div>
+                                                        </div> */}
+
+                            <div
+                              className="CollectionMainEditIconColor"
+                              style={{
+                                display:
+                                  this.state.NavTitle === 'img'
+                                    ? 'none'
+                                    : 'block'
+                              }}
+                            >
+                              <div className="col-sm-12 CollectionSettingEditIconColor">
+                                <label>NAV BAR TITLE COLOR</label>
+                              </div>
+                              <div className="col-sm-12 CollectionMainEditIconColorView">
+                                <input
+                                  type="text"
+                                  value={this.state.navtitlecolor || '#fff'}
+                                  defaultValue={
+                                    this.state.navtitlecolor || '#fff'
+                                  }
+                                  id="CollectionDropDown"
+                                  className="textColorCode"
+                                  onClick={this.navtitlehandleClick}
+                                />
+                                <div style={styles.swatch}>
+                                  <div
+                                    className="colorPickerBorder"
+                                    style={{
+                                      width: '20px',
+                                      height: '20px',
+                                      backgroundColor:
+                                        this.state.navtitlecolor || '#fff'
+                                    }}
+                                    onClick={this.navtitlehandleClick}
+                                  />
+                                </div>
+                                {this.state.navtitledisplayColorPicker ? (
+                                  <div style={styles.popover}>
+                                    <div
+                                      style={this.cover}
+                                      onClick={this.navtitlehandleClose}
+                                    />
+                                    <ChromePicker
+                                      color={this.state.navtitlecolor || '#fff'}
+                                      onChange={this.navtitlehandleChange}
+                                    />
+                                  </div>
+                                ) : null}
+                              </div>
+                            </div>
+
+                            <div
+                              className="CollectionMainEditImg"
+                              style={{
+                                display:
+                                  this.state.NavTitle === 'img'
+                                    ? 'block'
+                                    : 'none'
+                              }}
+                            >
+                              <div className="col-sm-12 CollectionSettingEditImg">
+                                <label>NAV IMAGE</label>
+                              </div>
+                              <div className="col-sm-12 CollectionMainEditIconImgView">
+                                }{' '}
+                                <S3SingleFileUploaderWithPreviewAndFileNameCapability
+                                  label="Choose file"
+                                  acceptedFiles={['image/jpeg', 'image/png']}
+                                  fileName={this.state.bannerImageUrl}
+                                  previewImageHeight="100px"
+                                  previewImageWidth="100px"
+                                  imageFolder="navTitleImage"
+                                  onChange={value =>
+                                    this.setState({ bannerImageUrl: value })
+                                  }
+                                />
+                              </div>
+                            </div>
+
+                            <div className="CollectionEditCancelButton CollectionEditButton">
+                              <span onClick={this.CollectionCloseEditSection}>
+                                CANCEL
+                              </span>
+                            </div>
+
+                            <div className="CollectionEditapplyButton CollectionEditButton">
+                              <span onClick={this.ApplyNavSettings}>APPLY</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style={{ display: this.state.ShowHideGridListView }}
+                        >
+                          <div
+                            className="account_sec"
+                            style={{ display: this.state.accountdisplay }}
+                          >
+                            <CreateAccountForm
+                              BGColor={this.state.UserAccountBGColor}
+                              inputBGColor={this.state.UserAccountinputBGColor}
+                              inputIconColor={
+                                this.state.UserAccountinputIconColor
+                              }
+                              inputTitleColor={
+                                this.state.UserAccountinputTitleColor
+                              }
+                              buttonColor={this.state.UserAccountbuttonColor}
+                              buttonTitleColor={
+                                this.state.UserAccountbuttonTitleColor
+                              }
+                              generalTextColor={
+                                this.state.UserAccountgeneralTextColor
+                              }
+                              textLinkColor={
+                                this.state.UserAccounttextLinkColor
+                              }
+                            />
                           </div>
 
                           <div
-                            id="CollectionEffectBody"
-                            style={{ height: '60vh' }}
+                            className="login_sec"
+                            style={{ display: this.state.logindisplay }}
                           >
-                            <div
-                              className="CollectionMainEditOptionContainer"
-                              style={{
-                                display: this.state
-                                  .CollectionMainSectionEditOptionValue
-                              }}
-                            >
-                              <div className="CollectionEditSettingOptionContainer">
-                                <h2>EDIT NAVIGATION BAR</h2>
-                                <p>
-                                  *Note: Editing this navigation bar will
-                                  override the theme's navigation bar for this
-                                  page only.
-                                </p>
+                            <CreateLoginForm
+                              loginBGColor={this.state.loginBGColor}
+                              logininputBGColor={this.state.logininputBGColor}
+                              logininputIconColor={
+                                this.state.logininputIconColor
+                              }
+                              logininputTitleColor={
+                                this.state.logininputTitleColor
+                              }
+                              loginbuttonColor={this.state.loginbuttonColor}
+                              loginbuttonTitleColor={
+                                this.state.loginbuttonTitleColor
+                              }
+                              logingeneralTextColor={
+                                this.state.logingeneralTextColor
+                              }
+                              logintextLinkColor={this.state.logintextLinkColor}
+                            />
+                          </div>
 
-                                <div className="CollectionMainEditTitle">
-                                  <div className="col-sm-12 CollectionSettingEditTitle">
-                                    <label>NAVIGATION BAR TITLE</label>
-                                  </div>
-                                  <div
-                                    className="col-sm-12 CollectionMainEditTitleView"
-                                    onChange={this.OnCollectionEditClick}
-                                  >
-                                    <select
-                                      name=""
-                                      id="CollectionMainEditSelect"
-                                      value={this.state.NavTitle || 'text'}
-                                    >
-                                      <option value="img">Use Image</option>
-                                      <option value="text">Use Text</option>
-                                    </select>
-                                  </div>
-                                </div>
+                          <div
+                            className="history_sec"
+                            style={{ display: this.state.historydisplay }}
+                          >
+                            <Orderhistory
+                              optionBGColor={this.state.optionBGColor}
+                              tabbgColor={this.state.tabbgColor}
+                              tabactiveColor={this.state.tabactiveColor}
+                              tabinactiveColor={this.state.tabinactiveColor}
+                              optiontitleColor={this.state.optiontitleColor}
+                              optionpriceColor={this.state.optionpriceColor}
+                              optiondateColor={this.state.optiondateColor}
+                              imageborderColor={this.state.imageborderColor}
+                              cellBgColor={this.state.cellBgColor}
+                              cellsepratorColor={this.state.cellsepratorColor}
+                            />
+                          </div>
 
-                                <div className="CollectionMainEditIcon">
-                                  <div className="col-sm-12 CollectionSettingIcon">
-                                    <label>NAV BAR BACKGROUND COLOR </label>
-                                  </div>
-                                  <div className="col-sm-12 CollectionMainEditBGIconView">
-                                    <input
-                                      type="text"
-                                      value={this.state.navbgcolor || '#0E7C95'}
-                                      defaultValue={
-                                        this.state.navbgcolor || '#0E7C95'
-                                      }
-                                      id="CollectionDropDown"
-                                      className="textColorCode"
-                                      onClick={this.navbghandleClick}
-                                    />
-                                    <div style={styles.swatch}>
-                                      <div
-                                        className="colorPickerBorder"
-                                        style={{
-                                          width: '20px',
-                                          height: '20px',
-                                          backgroundColor:
-                                            this.state.navbgcolor || '#0E7C95'
-                                        }}
-                                        onClick={this.navbghandleClick}
-                                      />
-                                    </div>
-                                    {this.state.navbgdisplayColorPicker ? (
-                                      <div style={styles.popover}>
-                                        <div
-                                          style={this.cover}
-                                          onClick={this.navbghandleClose}
-                                        />
-                                        <ChromePicker
-                                          color={
-                                            this.state.navbgcolor || '#0E7C95'
-                                          }
-                                          onChange={this.navbghandleChange}
-                                        />
-                                      </div>
-                                    ) : null}
-                                  </div>
-                                </div>
+                          <div
+                            className="favourite_sec"
+                            style={{ display: this.state.favouritedisplay }}
+                          >
+                            <Orderfavorite
+                              favouriteColor={this.state.favouriteColor}
+                              favouritetitleColor={
+                                this.state.favouritetitleColor
+                              }
+                              favouritepriceColor={
+                                this.state.favouritepriceColor
+                              }
+                              favoriteimageColor={this.state.favoriteimageColor}
+                              favouritecellBgColor={
+                                this.state.favouritecellBgColor
+                              }
+                              favouritecellsepratorColor={
+                                this.state.favouritecellsepratorColor
+                              }
+                            />
+                          </div>
 
-                                <div
-                                  className="CollectionMainEditIconColor"
-                                  style={{
-                                    display:
-                                      this.state.NavTitle === 'img'
-                                        ? 'none'
-                                        : 'block'
-                                  }}
-                                >
-                                  <div className="col-sm-12 CollectionSettingEditIconColor">
-                                    <label>NAV BAR TITLE COLOR</label>
-                                  </div>
-                                  <div className="col-sm-12 CollectionMainEditIconColorView">
-                                    <input
-                                      type="text"
-                                      value={this.state.navtitlecolor || '#fff'}
-                                      defaultValue={
-                                        this.state.navtitlecolor || '#fff'
-                                      }
-                                      id="CollectionDropDown"
-                                      className="textColorCode"
-                                      onClick={this.navtitlehandleClick}
-                                    />
-                                    <div style={styles.swatch}>
-                                      <div
-                                        className="colorPickerBorder"
-                                        style={{
-                                          width: '20px',
-                                          height: '20px',
-                                          backgroundColor:
-                                            this.state.navtitlecolor || '#fff'
-                                        }}
-                                        onClick={this.navtitlehandleClick}
-                                      />
-                                    </div>
-                                    {this.state.navtitledisplayColorPicker ? (
-                                      <div style={styles.popover}>
-                                        <div
-                                          style={this.cover}
-                                          onClick={this.navtitlehandleClose}
-                                        />
-                                        <ChromePicker
-                                          color={
-                                            this.state.navtitlecolor || '#fff'
-                                          }
-                                          onChange={this.navtitlehandleChange}
-                                        />
-                                      </div>
-                                    ) : null}
-                                  </div>
-                                </div>
+                          <div
+                            className="order_sec"
+                            style={{ display: this.state.orderdisplay }}
+                          >
+                            <OrderDetails
+                              orderdetailBgColor={this.state.orderdetailBgColor}
+                              orderdetailnumberColor={
+                                this.state.orderdetailnumberColor
+                              }
+                              headertitleBGColor={this.state.headertitleBGColor}
+                              orderdetailheaderbgColor={
+                                this.state.orderdetailheaderbgColor
+                              }
+                              optionaddresstextColor={
+                                this.state.optionaddresstextColor
+                              }
+                              optiondetailpriceColor={
+                                this.state.optiondetailpriceColor
+                              }
+                              optiondetailsproductColor={
+                                this.state.optiondetailsproductColor
+                              }
+                              optiondetailsopColor={
+                                this.state.optiondetailsopColor
+                              }
+                              opriondetaildescColor={
+                                this.state.opriondetaildescColor
+                              }
+                              optiondetailscellbgColor={
+                                this.state.optiondetailscellbgColor
+                              }
+                              optiondetailcellsepColor={
+                                this.state.optiondetailcellsepColor
+                              }
+                            />
+                          </div>
 
-                                <div
-                                  className="CollectionMainEditImg"
-                                  style={{
-                                    display:
-                                      this.state.NavTitle === 'img'
-                                        ? 'block'
-                                        : 'none'
-                                  }}
-                                >
-                                  <div className="col-sm-12 CollectionSettingEditImg">
-                                    <label>NAV IMAGE</label>
-                                  </div>
-                                  <div className="col-sm-12 CollectionMainEditIconImgView">
-                                    <S3SingleFileUploaderWithPreviewAndFileNameCapability
-                                      label="Choose file"
-                                      acceptedFiles={[
-                                        'image/jpeg',
-                                        'image/png'
-                                      ]}
-                                      fileName={this.state.bannerImageUrl}
-                                      previewImageHeight="100px"
-                                      previewImageWidth="100px"
-                                      imageFolder="navTitleImage"
-                                      onChange={value =>
-                                        this.setState({ bannerImageUrl: value })
-                                      }
-                                    />
-                                  </div>
-                                </div>
+                          <div
+                            className="contact_sec"
+                            style={{ display: this.state.contactdisplay }}
+                          >
+                            <CreateContactForm
+                              contactBGColor={this.state.contactBGColor}
+                              contactinputBGColor={
+                                this.state.contactinputBGColor
+                              }
+                              contactinputIconColor={
+                                this.state.contactinputIconColor
+                              }
+                              contactinputTitleColor={
+                                this.state.contactinputTitleColor
+                              }
+                              contactbuttonColor={this.state.contactbuttonColor}
+                              contactbuttonTitleColor={
+                                this.state.contactbuttonTitleColor
+                              }
+                            />
+                          </div>
 
-                                <div className="CollectionEditCancelButton CollectionEditButton">
-                                  <span
-                                    onClick={this.CollectionCloseEditSection}
-                                  >
-                                    CANCEL
-                                  </span>
-                                </div>
+                          <div
+                            className="review_sec"
+                            style={{ display: this.state.reviewdisplay }}
+                          >
+                            <UserReview
+                              reviewBgColor={this.state.reviewBgColor}
+                              reviewRatingColor={this.state.reviewRatingColor}
+                              reviewinputBGColor={this.state.reviewinputBGColor}
+                              reviewinputTitleColor={
+                                this.state.reviewinputTitleColor
+                              }
+                              reviewbuttonColor={this.state.reviewbuttonColor}
+                              reviewbuttonTitleColor={
+                                this.state.reviewbuttonTitleColor
+                              }
+                              reviewgeneralTextColor={
+                                this.state.reviewgeneralTextColor
+                              }
+                              reviewtextLinkColor={
+                                this.state.reviewtextLinkColor
+                              }
+                              reviewcellColor={this.state.reviewcellColor}
+                              reviewpostedColor={this.state.reviewpostedColor}
+                              reviewdateColor={this.state.reviewdateColor}
+                              reviewtextColor={this.state.reviewtextColor}
+                              reviewreadmoreColor={
+                                this.state.reviewreadmoreColor
+                              }
+                            />
+                          </div>
 
-                                <div className="CollectionEditapplyButton CollectionEditButton">
-                                  <span onClick={this.ApplyNavSettings}>
-                                    APPLY
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              style={{
-                                display: this.state.ShowHideGridListView
-                              }}
-                            >
-                              <div
-                                className="account_sec"
-                                style={{ display: this.state.accountdisplay }}
-                              >
-                                <CreateAccountForm
-                                  BGColor={this.state.UserAccountBGColor}
-                                  inputBGColor={
-                                    this.state.UserAccountinputBGColor
-                                  }
-                                  inputIconColor={
-                                    this.state.UserAccountinputIconColor
-                                  }
-                                  inputTitleColor={
-                                    this.state.UserAccountinputTitleColor
-                                  }
-                                  buttonColor={
-                                    this.state.UserAccountbuttonColor
-                                  }
-                                  buttonTitleColor={
-                                    this.state.UserAccountbuttonTitleColor
-                                  }
-                                  generalTextColor={
-                                    this.state.UserAccountgeneralTextColor
-                                  }
-                                  textLinkColor={
-                                    this.state.UserAccounttextLinkColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="login_sec"
-                                style={{ display: this.state.logindisplay }}
-                              >
-                                <CreateLoginForm
-                                  loginBGColor={this.state.loginBGColor}
-                                  logininputBGColor={
-                                    this.state.logininputBGColor
-                                  }
-                                  logininputIconColor={
-                                    this.state.logininputIconColor
-                                  }
-                                  logininputTitleColor={
-                                    this.state.logininputTitleColor
-                                  }
-                                  loginbuttonColor={this.state.loginbuttonColor}
-                                  loginbuttonTitleColor={
-                                    this.state.loginbuttonTitleColor
-                                  }
-                                  logingeneralTextColor={
-                                    this.state.logingeneralTextColor
-                                  }
-                                  logintextLinkColor={
-                                    this.state.logintextLinkColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="history_sec"
-                                style={{ display: this.state.historydisplay }}
-                              >
-                                <Orderhistory
-                                  optionBGColor={this.state.optionBGColor}
-                                  tabbgColor={this.state.tabbgColor}
-                                  tabactiveColor={this.state.tabactiveColor}
-                                  tabinactiveColor={this.state.tabinactiveColor}
-                                  optiontitleColor={this.state.optiontitleColor}
-                                  optionpriceColor={this.state.optionpriceColor}
-                                  optiondateColor={this.state.optiondateColor}
-                                  imageborderColor={this.state.imageborderColor}
-                                  cellBgColor={this.state.cellBgColor}
-                                  cellsepratorColor={
-                                    this.state.cellsepratorColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="favourite_sec"
-                                style={{ display: this.state.favouritedisplay }}
-                              >
-                                <Orderfavorite
-                                  favouriteColor={this.state.favouriteColor}
-                                  favouritetitleColor={
-                                    this.state.favouritetitleColor
-                                  }
-                                  favouritepriceColor={
-                                    this.state.favouritepriceColor
-                                  }
-                                  favoriteimageColor={
-                                    this.state.favoriteimageColor
-                                  }
-                                  favouritecellBgColor={
-                                    this.state.favouritecellBgColor
-                                  }
-                                  favouritecellsepratorColor={
-                                    this.state.favouritecellsepratorColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="order_sec"
-                                style={{ display: this.state.orderdisplay }}
-                              >
-                                <OrderDetails
-                                  orderdetailBgColor={
-                                    this.state.orderdetailBgColor
-                                  }
-                                  orderdetailnumberColor={
-                                    this.state.orderdetailnumberColor
-                                  }
-                                  headertitleBGColor={
-                                    this.state.headertitleBGColor
-                                  }
-                                  orderdetailheaderbgColor={
-                                    this.state.orderdetailheaderbgColor
-                                  }
-                                  optionaddresstextColor={
-                                    this.state.optionaddresstextColor
-                                  }
-                                  optiondetailpriceColor={
-                                    this.state.optiondetailpriceColor
-                                  }
-                                  optiondetailsproductColor={
-                                    this.state.optiondetailsproductColor
-                                  }
-                                  optiondetailsopColor={
-                                    this.state.optiondetailsopColor
-                                  }
-                                  opriondetaildescColor={
-                                    this.state.opriondetaildescColor
-                                  }
-                                  optiondetailscellbgColor={
-                                    this.state.optiondetailscellbgColor
-                                  }
-                                  optiondetailcellsepColor={
-                                    this.state.optiondetailcellsepColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="contact_sec"
-                                style={{ display: this.state.contactdisplay }}
-                              >
-                                <CreateContactForm
-                                  contactBGColor={this.state.contactBGColor}
-                                  contactinputBGColor={
-                                    this.state.contactinputBGColor
-                                  }
-                                  contactinputIconColor={
-                                    this.state.contactinputIconColor
-                                  }
-                                  contactinputTitleColor={
-                                    this.state.contactinputTitleColor
-                                  }
-                                  contactbuttonColor={
-                                    this.state.contactbuttonColor
-                                  }
-                                  contactbuttonTitleColor={
-                                    this.state.contactbuttonTitleColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="review_sec"
-                                style={{ display: this.state.reviewdisplay }}
-                              >
-                                <UserReview
-                                  reviewBgColor={this.state.reviewBgColor}
-                                  reviewRatingColor={
-                                    this.state.reviewRatingColor
-                                  }
-                                  reviewinputBGColor={
-                                    this.state.reviewinputBGColor
-                                  }
-                                  reviewinputTitleColor={
-                                    this.state.reviewinputTitleColor
-                                  }
-                                  reviewbuttonColor={
-                                    this.state.reviewbuttonColor
-                                  }
-                                  reviewbuttonTitleColor={
-                                    this.state.reviewbuttonTitleColor
-                                  }
-                                  reviewgeneralTextColor={
-                                    this.state.reviewgeneralTextColor
-                                  }
-                                  reviewtextLinkColor={
-                                    this.state.reviewtextLinkColor
-                                  }
-                                  reviewcellColor={this.state.reviewcellColor}
-                                  reviewpostedColor={
-                                    this.state.reviewpostedColor
-                                  }
-                                  reviewdateColor={this.state.reviewdateColor}
-                                  reviewtextColor={this.state.reviewtextColor}
-                                  reviewreadmoreColor={
-                                    this.state.reviewreadmoreColor
-                                  }
-                                />
-                              </div>
-
-                              <div
-                                className="setting_sec"
-                                style={{ display: this.state.settingdisplay }}
-                              >
-                                <CreateSettingForm
-                                  settingBGColor={this.state.settingBGColor}
-                                  settinginputBGColor={
-                                    this.state.settinginputBGColor
-                                  }
-                                  settinginputIconColor={
-                                    this.state.settinginputIconColor
-                                  }
-                                  settinginputTitleColor={
-                                    this.state.settinginputTitleColor
-                                  }
-                                  settingbuttonColor={
-                                    this.state.settingbuttonColor
-                                  }
-                                  settingbuttonTitleColor={
-                                    this.state.settingbuttonTitleColor
-                                  }
-                                  settinggeneralTextColor={
-                                    this.state.settinggeneralTextColor
-                                  }
-                                />
-                              </div>
-                            </div>
+                          <div
+                            className="setting_sec"
+                            style={{ display: this.state.settingdisplay }}
+                          >
+                            <CreateSettingForm
+                              settingBGColor={this.state.settingBGColor}
+                              settinginputBGColor={
+                                this.state.settinginputBGColor
+                              }
+                              settinginputIconColor={
+                                this.state.settinginputIconColor
+                              }
+                              settinginputTitleColor={
+                                this.state.settinginputTitleColor
+                              }
+                              settingbuttonColor={this.state.settingbuttonColor}
+                              settingbuttonTitleColor={
+                                this.state.settingbuttonTitleColor
+                              }
+                              settinggeneralTextColor={
+                                this.state.settinggeneralTextColor
+                              }
+                            />
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
+              </Col>
+            </Row>
 
-                <ThemeOptions
-                  selectTheme={this.onThemeOptionSelection}
-                  ref={this.homeTopTabsShowEditAlert}
-                  onSaveEditedItems={this.onSaveEditedItems}
-                />
-              </div>
-            )}
+            <ThemeOptions
+              selectTheme={this.onThemeOptionSelection}
+              ref={this.homeTopTabsShowEditAlert}
+              onSaveEditedItems={this.onSaveEditedItems}
+            />
           </ReactCSSTransitionGroup>
         )}
         {!this.state.isLoaded && (
-          <div md={12} id="mainPageLoading">
-            <Loader color="#0e7c95" type="ball-scale-multiple" />
+          <div>
+            <Loader
+              color="#0e7c95"
+              type="ball-scale-multiple"
+              style={{ marginTop: '15em', marginLeft: '30em' }}
+            />
           </div>
         )}
       </Fragment>

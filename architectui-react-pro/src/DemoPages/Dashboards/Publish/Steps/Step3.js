@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Field } from 'redux-form';
 
 import {
   Button,
@@ -110,7 +111,9 @@ export default class WizardStep3 extends React.Component {
             <Label for="exampleEmail2">Apple Team Name</Label>
             <Input
               type="text"
-              name="email"
+              tag={Field}
+              component="input"
+              name="appleTeamName"
               id="exampleEmail2"
               placeholder="Provide your Apple Team name"
             />
@@ -121,11 +124,16 @@ export default class WizardStep3 extends React.Component {
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add Play Store JSON File"
               acceptedFiles={['application/json']}
+              tag={Field}
+              component="input"
               // fileName={this.props.bannerImageUrl}
+              name="playStoreJsonFile"
               previewImageHeight="100px"
               previewImageWidth="100px"
               imageFolder="play_store_json_file"
-              // onChange={value => this.bannerImageUrl(value)}
+              onChange={e => {
+                localStorage.setItem('playStoreJsonFile', e);
+              }}
             />
           </FormGroup>
 

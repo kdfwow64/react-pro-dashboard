@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
-import { FormGroup, Input, Label } from "reactstrap";
+import React, { Fragment } from 'react';
+import { FormGroup, Input, Label } from 'reactstrap';
+import { Field } from 'redux-form';
 
 export default class WizardStep2 extends React.Component {
   render() {
@@ -15,7 +16,10 @@ export default class WizardStep2 extends React.Component {
             <Label for="exampleEmail55">Privacy Policy Url</Label>
             <Input
               type="text"
-              name="privacy-policy-url"
+              // name="privacy-policy-url"
+              tag={Field}
+              component="input"
+              name="privacyPolicyUrl"
               id="exampleEmail55"
               placeholder=""
             />
@@ -25,7 +29,9 @@ export default class WizardStep2 extends React.Component {
             <Label for="exampleEmail55">Support Url</Label>
             <Input
               type="text"
-              name="app-name"
+              tag={Field}
+              component="input"
+              name="supportUrl"
               id="exampleEmail55"
               placeholder=""
             />
@@ -35,6 +41,8 @@ export default class WizardStep2 extends React.Component {
             <Label for="exampleEmail55">Copyright</Label>
             <Input
               type="text"
+              tag={Field}
+              component="input"
               name="copyright"
               id="exampleEmail55"
               placeholder=""
@@ -45,7 +53,10 @@ export default class WizardStep2 extends React.Component {
             <Label for="exampleEmail55">Phone Number</Label>
             <Input
               type="text"
-              name="phone-number"
+              tag={Field}
+              component="input"
+              // name="phone-number"
+              name="phoneNumber"
               id="exampleEmail55"
               placeholder=""
             />
@@ -55,7 +66,10 @@ export default class WizardStep2 extends React.Component {
             <Label for="exampleEmail55">Trade Name</Label>
             <Input
               type="text"
-              name="trade-name"
+              tag={Field}
+              component="input"
+              // name="trade-name"
+              name="tradeName"
               id="exampleEmail55"
               placeholder=""
             />

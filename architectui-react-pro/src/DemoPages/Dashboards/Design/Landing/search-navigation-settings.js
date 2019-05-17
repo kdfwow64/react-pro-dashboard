@@ -183,7 +183,10 @@ class SearchNavigationSettings extends React.Component {
         style={{ display: this.state.CollectionMainSectionEditOptionValue }}
       >
         <div className="CollectionEditSettingOptionContainer">
-          <h2>EDIT NAVIGATION BAR</h2>
+          <h2>
+            EDIT NAVIGATION BAR{' '}
+            {this.state.CollectionMainSectionEditOptionValue} 1
+          </h2>
           <p>
             *Note: Editing this navigation bar will override the theme's
             navigation bar for this page only.
@@ -288,7 +291,7 @@ class SearchNavigationSettings extends React.Component {
             }}
           >
             <div className="col-sm-12 CollectionSettingEditIconColor">
-              <label>NAV BAR TITLE COLOR</label>
+              <label>NAV BAR TITLE COLOR </label>
             </div>
             <div className="col-sm-12 CollectionMainEditIconColorView">
               <input

@@ -4,7 +4,6 @@ import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import reactCSS from 'reactcss';
 import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
-import { DropdownList } from 'react-widgets';
 import IconList from '../icon-list';
 
 class CollectioinSettingSection extends React.Component {
@@ -52,8 +51,8 @@ class CollectioinSettingSection extends React.Component {
   }
 
   gridSelectOptionCallback = e => {
-    this.setState({ SelectedOption: e });
-    this.props.SelectedOption(e);
+    this.setState({ SelectedOption: e.target.value });
+    this.props.SelectedOption(e.target.value);
   };
 
   gridSelectProductTitleCallback = e => {
@@ -205,12 +204,15 @@ class CollectioinSettingSection extends React.Component {
                 <label>PAGE STYLE</label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <DropdownList
-                  data={['Grid', 'List']}
-                  value={this.props.SelectedOptionValue}
+                <select
+                  name=""
+                  id="CollectionDropDown"
                   onChange={this.gridSelectOptionCallback}
-                  textField="name"
-                />
+                  value={this.props.SelectedOptionValue}
+                >
+                  <option value="Grid"> Grid </option>
+                  <option value="List"> List </option>
+                </select>
               </div>
             </div>
 
@@ -343,7 +345,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.CellBGColorValue}
+                  // value={this.props.CellBGColorValue}
                   defaultValue={this.props.CellBGColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -385,7 +387,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.CellseparatorColorValue}
+                  // value={this.props.CellseparatorColorValue}
                   defaultValue={this.props.CellseparatorColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -445,7 +447,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.CelliconColorValue}
+                  // value={this.props.CelliconColorValue}
                   defaultValue={this.props.CelliconColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -485,7 +487,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.productborderColorValue}
+                  // value={this.props.productborderColorValue}
                   defaultValue={this.props.productborderColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -524,7 +526,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.producttitleColorValue}
+                  // value={this.props.producttitleColorValue}
                   defaultValue={this.props.producttitleColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -564,7 +566,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  value={this.props.pricetitleColorValue}
+                  // value={this.props.pricetitleColorValue}
                   defaultValue={this.props.pricetitleColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"

@@ -3,7 +3,7 @@
 import axios from 'axios';
 import React from 'react';
 import { ChromePicker } from 'react-color';
-import { Row, Col, Button, CardFooter } from 'reactstrap';
+import { Button, CardFooter } from 'reactstrap';
 import { API_ROOT } from '../../../../utilities/api-config';
 import IconList from '../icon-list';
 
@@ -368,66 +368,122 @@ class ModalSearchContent extends React.Component {
 
   render() {
     return (
-      <Row className="p-3">
-        <Col md={4} className="d-flex align-items-center">
-          <div className="setting_fields">
-            <div
-              id="FirstDropContainer"
-              className="HoverEffectDragDrop"
-              style={{
-                background: this.state.CollectionCellBG,
-                height: this.state.CollectionsProductsData
-                  ? this.state.CollectionsProductsData.length !== 0
-                    ? 'auto'
-                    : '130px'
-                  : '130px',
-                width: '268px',
-                overflow: this.state.CollectionsProductsData
-                  ? this.state.CollectionsProductsData.length !== 0
-                    ? 'auto'
-                    : 'hidden'
-                  : ''
-              }}
-            >
+      <div className="row">
+        <div className="col-lg-12 Search-form-defaultSettings">
+          <div
+            className="col-lg-4 col-sm-4 setting_left_col setting_comman_col"
+            style={{ position: 'absolute', left: '0' }}
+          >
+            <div className="setting_fields">
               <div
-                id="FirstDropTopSection"
+                id="FirstDropContainer"
+                className="HoverEffectDragDrop"
                 style={{
-                  background: this.state.HeaderBGColor,
-                  position: 'absolute',
+                  background: this.state.CollectionCellBG,
+                  height: this.state.CollectionsProductsData
+                    ? this.state.CollectionsProductsData.length !== 0
+                      ? 'auto'
+                      : '130px'
+                    : '130px',
                   width: '268px',
-                  height: '35px'
+                  overflow: this.state.CollectionsProductsData
+                    ? this.state.CollectionsProductsData.length !== 0
+                      ? 'auto'
+                      : 'hidden'
+                    : ''
                 }}
               >
                 <div
-                  id="FirstDropLeftIcon"
-                  style={{ color: this.state.IconColor }}
+                  id="FirstDropTopSection"
+                  style={{
+                    background: this.state.HeaderBGColor,
+                    position: 'absolute',
+                    width: '268px',
+                    height: '35px'
+                  }}
                 >
-                  <i className={this.state.DropDownGetIconheader} />
-                </div>
-                <div
-                  id="FirstDropTopSecTitle"
-                  style={{ color: this.state.HeaderTitle }}
-                >
-                  {this.state.HeaderText}
-                </div>
-                <div id="FirstDropShopNowContainer">
                   <div
-                    id="FirstDropShopNowTitle"
-                    style={{ color: this.state.ActionTitleColor }}
+                    id="FirstDropLeftIcon"
+                    style={{ color: this.state.IconColor }}
                   >
-                    {this.state.ActionText}
+                    <i className={this.state.DropDownGetIconheader} />
                   </div>
                   <div
-                    id="FirstDropShopNowIcon"
-                    style={{ color: this.state.ActionColor }}
+                    id="FirstDropTopSecTitle"
+                    style={{ color: this.state.HeaderTitle }}
                   >
-                    <i className={this.state.DropDownGetIconaction} />
+                    {this.state.HeaderText}
+                  </div>
+                  <div id="FirstDropShopNowContainer">
+                    <div
+                      id="FirstDropShopNowTitle"
+                      style={{ color: this.state.ActionTitleColor }}
+                    >
+                      {this.state.ActionText}
+                    </div>
+                    <div
+                      id="FirstDropShopNowIcon"
+                      style={{ color: this.state.ActionColor }}
+                    >
+                      <i className={this.state.DropDownGetIconaction} />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {this.state.CollectionsProductsData &&
-                this.state.CollectionsProductsData.length === 0 && (
+                {this.state.CollectionsProductsData &&
+                  this.state.CollectionsProductsData.length === 0 && (
+                    <div
+                      id="FirstDropProductContent"
+                      style={{
+                        width: '100%',
+                        height: '120px',
+                        paddingTop: '35px',
+                        display: this.state.CollectionsProductsData
+                          ? this.state.CollectionsProductsData.length === 0
+                            ? 'block'
+                            : 'none'
+                          : ''
+                      }}
+                    >
+                      {this.state.CollectionsProductsDataDefault.map(
+                        (item, index) => {
+                          return (
+                            <div className="FirstDropProductContainer">
+                              <div
+                                className="FirstDropProduct"
+                                style={{
+                                  border: `1px solid${
+                                    this.state.productBorderColor
+                                  }`
+                                }}
+                              >
+                                {item.imageUrl && (
+                                  <img
+                                    style={{ objectFit: 'cover' }}
+                                    src={item.imageUrl}
+                                    alt={item.title}
+                                  />
+                                )}
+                                {!item.imageUrl && (
+                                  <i className="pe-7s-photo" />
+                                )}
+                              </div>
+                              <div
+                                className="FirstDropProductTitle"
+                                style={{
+                                  color: this.state.CollectionProductTitle
+                                }}
+                              >
+                                {item.title}
+                              </div>
+                            </div>
+                          );
+                        }
+                      )}
+                    </div>
+                  )}
+
+                {!this.state.CollectionsProductsData && (
                   <div
                     id="FirstDropProductContent"
                     style={{
@@ -453,14 +509,10 @@ class ModalSearchContent extends React.Component {
                                 }`
                               }}
                             >
-                              {item.imageUrl && (
-                                <img
-                                  style={{ objectFit: 'cover' }}
-                                  src={item.imageUrl}
-                                  alt={item.title}
-                                />
-                              )}
-                              {!item.imageUrl && <i className="pe-7s-photo" />}
+                              <img
+                                style={{ objectFit: 'cover' }}
+                                src={item.imageUrl}
+                              />
                             </div>
                             <div
                               className="FirstDropProductTitle"
@@ -477,391 +529,350 @@ class ModalSearchContent extends React.Component {
                   </div>
                 )}
 
-              {!this.state.CollectionsProductsData && (
-                <div
-                  id="FirstDropProductContent"
-                  style={{
-                    width: '100%',
-                    height: '120px',
-                    paddingTop: '35px',
-                    display: this.state.CollectionsProductsData
-                      ? this.state.CollectionsProductsData.length === 0
-                        ? 'block'
-                        : 'none'
-                      : ''
-                  }}
-                >
-                  {this.state.CollectionsProductsDataDefault.map(
-                    (item, index) => {
-                      return (
-                        <div className="FirstDropProductContainer">
-                          <div
-                            className="FirstDropProduct"
-                            style={{
-                              border: `1px solid${
-                                this.state.productBorderColor
-                              }`
-                            }}
-                          >
-                            <img
-                              style={{ objectFit: 'cover' }}
-                              src={item.imageUrl}
-                            />
-                          </div>
-                          <div
-                            className="FirstDropProductTitle"
-                            style={{
-                              color: this.state.CollectionProductTitle
-                            }}
-                          >
-                            {item.title}
-                          </div>
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-              )}
-
-              {this.state.CollectionsProductsData &&
-                this.state.CollectionsProductsData.length !== 0 &&
-                this.state.isLoaded && (
-                  <div
-                    id="FirstDropProductContent"
-                    style={{
-                      width: this.state.CollectionsProductsData
-                        ? `${this.state.CollectionsProductsData.length * 70}px`
-                        : '100%',
-                      height: '120px',
-                      paddingTop: '35px',
-                      display: this.state.CollectionsProductsData
-                        ? this.state.CollectionsProductsData.length === 0
-                          ? 'none'
+                {this.state.CollectionsProductsData &&
+                  this.state.CollectionsProductsData.length !== 0 &&
+                  this.state.isLoaded && (
+                    <div
+                      id="FirstDropProductContent"
+                      style={{
+                        width: this.state.CollectionsProductsData
+                          ? `${this.state.CollectionsProductsData.length *
+                              70}px`
+                          : '100%',
+                        height: '120px',
+                        paddingTop: '35px',
+                        display: this.state.CollectionsProductsData
+                          ? this.state.CollectionsProductsData.length === 0
+                            ? 'none'
+                            : 'block'
                           : 'block'
-                        : 'block'
-                    }}
-                  >
-                    {this.state.CollectionsProductsData.map((item, index) => {
-                      return (
-                        <div className="FirstDropProductContainer">
-                          <div
-                            className="FirstDropProduct"
-                            style={{
-                              border: `1px solid${
-                                this.state.productBorderColor
-                              }`
-                            }}
-                          >
-                            <img
-                              style={{ objectFit: 'cover' }}
-                              src={item.imageUrl}
-                            />
-                          </div>
+                      }}
+                    >
+                      {this.state.CollectionsProductsData.map((item, index) => {
+                        return (
+                          <div className="FirstDropProductContainer">
+                            <div
+                              className="FirstDropProduct"
+                              style={{
+                                border: `1px solid${
+                                  this.state.productBorderColor
+                                }`
+                              }}
+                            >
+                              <img
+                                style={{ objectFit: 'cover' }}
+                                src={item.imageUrl}
+                              />
+                            </div>
 
-                          <div
-                            className="FirstDropProductTitle"
-                            style={{
-                              color: this.state.CollectionProductTitle
-                            }}
-                          >
-                            {item.title}
+                            <div
+                              className="FirstDropProductTitle"
+                              style={{
+                                color: this.state.CollectionProductTitle
+                              }}
+                            >
+                              {item.title}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+                        );
+                      })}
+                    </div>
+                  )}
+              </div>
             </div>
           </div>
-        </Col>
-        <Col md={8}>
-          <div className="setting_right_main">
-            <div className="setting_title">
-              HORIZONTAL PRODUCT CELL <br />
-              <span style={{ fontSize: '13px' }}>
-                DISPLAYS PRODUCTS WITHIN A COLLECTION (UP TO 25)
-              </span>
-            </div>
-            <div
-              className="collection_setting_right fixSettingScrollSection"
-              style={{ padding: '20px' }}
-            >
-              <div className="row">
-                <div className="CollectionFullRowContainer">
-                  <div className="CollectionSettingIcon">
-                    <label>ASSIGN COLLECTION</label>
-                  </div>
-                  <div className="CollectionSettingOption">
-                    <div className="collectionDropdownContainer">
-                      <div className="CollectionEffectResultDropDown SingleModalProduct">
-                        <input
-                          type="text"
-                          value={
-                            this.state.prodCollectionname || 'SELECT COLLECTION'
-                          }
-                          onClick={this.DisplayCollection.bind(this)}
-                        />
-                        <i className="lnr-chevron-down" />
-                        <div
-                          className="CollectionResult"
-                          style={{
-                            display: this.state.DisplayCollectionValue,
-                            width: '95%'
-                          }}
-                        >
-                          {this.state.ProductsCollectionsData.map(
-                            (item, index) => {
-                              return (
-                                <div
-                                  key={item.id}
-                                  className="collectionElementProductShowHide"
-                                  id={
-                                    this.state.selectedProductId === item.id
-                                      ? 'Active'
-                                      : ''
-                                  }
-                                  style={{
-                                    height: '50px',
-                                    width: 'auto',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={() => {
-                                    this.setProductsForCollection(item);
-                                  }}
-                                >
-                                  {item.imageUrl && (
-                                    <img
-                                      style={{
-                                        width: '50px',
-                                        height: '50px'
-                                      }}
-                                      src={item.imageUrl}
-                                      alt={item.title}
-                                    />
-                                  )}
-                                  {!item.imageUrl && (
-                                    <span
-                                      style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        borderRadius: '50%',
-                                        backgroundColor: '#b9b9b9de',
-                                        color: '#fff',
-                                        fontSize: '10px',
-                                        paddingLeft: '3px'
-                                      }}
-                                    >
-                                      {' '}
-                                      No Image{' '}
-                                    </span>
-                                  )}
-                                  <span>{item.title}</span>
-                                </div>
-                              );
+          <div
+            className="col-lg-8 col-sm-8 setting_right_col setting_comman_col"
+            style={{ float: 'right' }}
+          >
+            <div className="setting_right_main">
+              <div className="setting_title">
+                HORIZONTAL PRODUCT CELL <br />
+                <span style={{ fontSize: '13px' }}>
+                  DISPLAYS PRODUCTS WITHIN A COLLECTION (UP TO 25)
+                </span>
+              </div>
+              <div
+                className="collection_setting_right fixSettingScrollSection"
+                style={{ padding: '20px' }}
+              >
+                <div className="row">
+                  <div className="CollectionFullRowContainer">
+                    <div className="CollectionSettingIcon">
+                      <label>ASSIGN COLLECTION</label>
+                    </div>
+                    <div className="CollectionSettingOption">
+                      <div className="collectionDropdownContainer">
+                        <div className="CollectionEffectResultDropDown SingleModalProduct">
+                          <input
+                            type="text"
+                            value={
+                              this.state.prodCollectionname ||
+                              'SELECT COLLECTION'
                             }
-                          )}
+                            onClick={this.DisplayCollection.bind(this)}
+                          />
+                          <i className="lnr-chevron-down" />
+                          <div
+                            className="CollectionResult"
+                            style={{
+                              display: this.state.DisplayCollectionValue,
+                              width: '95%'
+                            }}
+                          >
+                            {this.state.ProductsCollectionsData.map(
+                              (item, index) => {
+                                return (
+                                  <div
+                                    key={item.id}
+                                    className="collectionElementProductShowHide"
+                                    id={
+                                      this.state.selectedProductId === item.id
+                                        ? 'Active'
+                                        : ''
+                                    }
+                                    style={{
+                                      height: '50px',
+                                      width: 'auto',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={() => {
+                                      this.setProductsForCollection(item);
+                                    }}
+                                  >
+                                    {item.imageUrl && (
+                                      <img
+                                        style={{
+                                          width: '50px',
+                                          height: '50px'
+                                        }}
+                                        src={item.imageUrl}
+                                        alt={item.title}
+                                      />
+                                    )}
+                                    {!item.imageUrl && (
+                                      <span
+                                        style={{
+                                          width: '50px',
+                                          height: '50px',
+                                          borderRadius: '50%',
+                                          backgroundColor: '#b9b9b9de',
+                                          color: '#fff',
+                                          fontSize: '10px',
+                                          paddingLeft: '3px'
+                                        }}
+                                      >
+                                        {' '}
+                                        No Image{' '}
+                                      </span>
+                                    )}
+                                    <span>{item.title}</span>
+                                  </div>
+                                );
+                              }
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-6 col-sm-6">
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER ICON </label>
-                      </div>
-                      <div
-                        className="ProductSilderActiveColor"
-                        style={{ position: 'relative', marginLeft: '0px' }}
-                      >
-                        <IconList
-                          DropDownGetIconCellectionHederCallback={
-                            this.DropDownGetIconCellectionHederCallback
-                          }
-                          IconClassName={this.state.DropDownGetIconheader}
-                        />
+                <div className="row">
+                  <div className="col-lg-6 col-sm-6">
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>HEADER ICON </label>
+                        </div>
+                        <div
+                          className="ProductSilderActiveColor"
+                          style={{ position: 'relative', marginLeft: '0px' }}
+                        >
+                          <IconList
+                            DropDownGetIconCellectionHederCallback={
+                              this.DropDownGetIconCellectionHederCallback
+                            }
+                            IconClassName={this.state.DropDownGetIconheader}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER ICON COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.IconColor}
-                          defaultValue={this.state.IconColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onIconColorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.IconColor
-                            }}
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>HEADER ICON COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.IconColor}
+                            defaultValue={this.state.IconColor}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onIconColorClick}
                           />
-                        </div>
-                        {this.state.displayIconColor ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onIconColorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.IconColor}
-                              onChange={this.onIconColorClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.IconColor
+                              }}
+                              onClick={this.onIconColorClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayIconColor ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onIconColorClose}
+                              />
+                              <ChromePicker
+                                color={this.state.IconColor}
+                                onChange={this.onIconColorClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER TITLE</label>
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>HEADER TITLE</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            defaultValue={this.state.HeaderText}
+                            id="CollectionDropDown"
+                            style={{ color: '#000', fontWeight: 600 }}
+                            onChange={this.onHeaderTextClick}
+                            // value={this.state.HeaderText}
+                          />
+                        </div>
                       </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          defaultValue={this.state.HeaderText}
-                          id="CollectionDropDown"
-                          style={{ color: '#000', fontWeight: 600 }}
-                          onChange={this.onHeaderTextClick}
-                          value={this.state.HeaderText}
-                        />
-                      </div>
-                    </div>
 
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER TITLE COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.HeaderTitle}
-                          defaultValue={this.state.HeaderTitle}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onHeaderTitleClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.HeaderTitle
-                            }}
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>HEADER TITLE COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.HeaderTitle}
+                            defaultValue={this.state.HeaderTitle}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onHeaderTitleClick}
                           />
-                        </div>
-                        {this.state.displayHeaderTitle ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onHeaderTitleClose}
-                            />
-                            <ChromePicker
-                              color={this.state.HeaderTitle}
-                              onChange={this.onHeaderTitleClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.HeaderTitle
+                              }}
+                              onClick={this.onHeaderTitleClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayHeaderTitle ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onHeaderTitleClose}
+                              />
+                              <ChromePicker
+                                color={this.state.HeaderTitle}
+                                onChange={this.onHeaderTitleClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER BACKGROUND COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.HeaderBGColor}
-                          defaultValue={this.state.HeaderBGColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onHeaderBGColorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.HeaderBGColor
-                            }}
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>HEADER BACKGROUND COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.HeaderBGColor}
+                            defaultValue={this.state.HeaderBGColor}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onHeaderBGColorClick}
                           />
-                        </div>
-                        {this.state.displayHeaderBGColor ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onHeaderBGColorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.HeaderBGColor}
-                              onChange={this.onHeaderBGColorClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.HeaderBGColor
+                              }}
+                              onClick={this.onHeaderBGColorClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayHeaderBGColor ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onHeaderBGColorClose}
+                              />
+                              <ChromePicker
+                                color={this.state.HeaderBGColor}
+                                onChange={this.onHeaderBGColorClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>PRODUCT BORDER COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.productBorderColor}
-                          defaultValue={this.state.productBorderColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onProductBorderolorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.productBorderColor
-                            }}
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>PRODUCT BORDER COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.productBorderColor}
+                            defaultValue={this.state.productBorderColor}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onProductBorderolorClick}
                           />
-                        </div>
-                        {this.state.displayProductBorderolor ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onProductBorderolorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.productBorderColor}
-                              onChange={this.onProductBorderolorClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.productBorderColor
+                              }}
+                              onClick={this.onProductBorderolorClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayProductBorderolor ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onProductBorderolorClose}
+                              />
+                              <ChromePicker
+                                color={this.state.productBorderColor}
+                                onChange={this.onProductBorderolorClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-lg-6 col-sm-6">
-                  {/* <div className="row">
+                  <div className="col-lg-6 col-sm-6">
+                    {/* <div className="row">
                       <div className="CollectionMainEditIcon">
                         <div className="CollectionSettingIcon">
                           <label>ACTION ICON </label>
@@ -920,171 +931,173 @@ class ModalSearchContent extends React.Component {
                       </div>
                     </div> */}
 
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>ACTION TITLE</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          defaultValue={this.state.ActionText}
-                          id="CollectionDropDown"
-                          style={{ color: '#000', fontWeight: 600 }}
-                          onChange={this.onActionTextClick}
-                          value={this.state.ActionText}
-                        />
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>ACTION TITLE</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            defaultValue={this.state.ActionText}
+                            id="CollectionDropDown"
+                            style={{ color: '#000', fontWeight: 600 }}
+                            onChange={this.onActionTextClick}
+                            // value={this.state.ActionText}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>ACTION TITLE COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.ActionTitleColor}
-                          defaultValue={this.state.ActionTitleColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onActionTitleColorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.ActionTitleColor
-                            }}
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>ACTION TITLE COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.ActionTitleColor}
+                            defaultValue={this.state.ActionTitleColor}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onActionTitleColorClick}
                           />
-                        </div>
-                        {this.state.displayActionTitleColor ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onActionTitleColorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.ActionTitleColor}
-                              onChange={this.onActionTitleColorClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.ActionTitleColor
+                              }}
+                              onClick={this.onActionTitleColorClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayActionTitleColor ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onActionTitleColorClose}
+                              />
+                              <ChromePicker
+                                color={this.state.ActionTitleColor}
+                                onChange={this.onActionTitleColorClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>CELL BACKGROUND COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.CollectionCellBG}
-                          defaultValue={this.state.CollectionCellBG}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onCollectionCellBGClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.CollectionCellBG
-                            }}
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>CELL BACKGROUND COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.CollectionCellBG}
+                            defaultValue={this.state.CollectionCellBG}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onCollectionCellBGClick}
                           />
-                        </div>
-                        {this.state.displayCollectionCellBG ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onCollectionCellBGClose}
-                            />
-                            <ChromePicker
-                              color={this.state.CollectionCellBG}
-                              onChange={this.onCollectionCellBGClickComplete}
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state.CollectionCellBG
+                              }}
+                              onClick={this.onCollectionCellBGClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayCollectionCellBG ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onCollectionCellBGClose}
+                              />
+                              <ChromePicker
+                                color={this.state.CollectionCellBG}
+                                onChange={this.onCollectionCellBGClickComplete}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>PRODUCT TITLE COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.CollectionProductTitle}
-                          defaultValue={this.state.CollectionProductTitle}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onCollectionProductTitleClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.CollectionProductTitle
-                            }}
+                    <div className="row">
+                      <div className="CollectionMainEditIcon">
+                        <div className="CollectionSettingIcon">
+                          <label>PRODUCT TITLE COLOR</label>
+                        </div>
+                        <div className="CollectionMainEditBGIconView">
+                          <input
+                            type="text"
+                            // value={this.state.CollectionProductTitle}
+                            defaultValue={this.state.CollectionProductTitle}
+                            id="CollectionDropDown"
+                            className="textColorCode"
                             onClick={this.onCollectionProductTitleClick}
                           />
-                        </div>
-                        {this.state.displayCollectionProductTitle ? (
-                          <div style={this.popover}>
+                          <div style={this.swatch}>
                             <div
-                              style={this.cover}
-                              onClick={this.onCollectionProductTitleClose}
-                            />
-                            <ChromePicker
-                              color={this.state.CollectionProductTitle}
-                              onChange={
-                                this.onCollectionProductTitleClickComplete
-                              }
+                              className="colorPickerBorder"
+                              style={{
+                                width: '20px',
+                                height: '20px',
+                                backgroundColor: this.state
+                                  .CollectionProductTitle
+                              }}
+                              onClick={this.onCollectionProductTitleClick}
                             />
                           </div>
-                        ) : null}
+                          {this.state.displayCollectionProductTitle ? (
+                            <div style={this.popover}>
+                              <div
+                                style={this.cover}
+                                onClick={this.onCollectionProductTitleClose}
+                              />
+                              <ChromePicker
+                                color={this.state.CollectionProductTitle}
+                                onChange={
+                                  this.onCollectionProductTitleClickComplete
+                                }
+                              />
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <CardFooter className="d-block text-right">
+                <Button
+                  size="sm"
+                  className="mr-2"
+                  color="link"
+                  onClick={this.onCloseModal}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="btn-wide btn-shadow"
+                  color="primary"
+                  onClick={this.onApplySetting}
+                >
+                  Apply
+                </Button>
+              </CardFooter>
             </div>
-            <CardFooter className="d-block text-right">
-              <Button
-                size="sm"
-                className="mr-2"
-                color="link"
-                onClick={this.onCloseModal}
-              >
-                Cancel
-              </Button>
-              <Button
-                className="btn-wide btn-shadow"
-                color="primary"
-                onClick={this.onApplySetting}
-              >
-                Apply
-              </Button>
-            </CardFooter>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

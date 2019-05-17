@@ -160,6 +160,8 @@ class Collections extends React.Component {
       handle: this.state.collectionHandle,
       bannerImageUrl: this.state.bannerImageUrl
     };
+
+    console.log(CollectionSettings);
     axios
       .post(`${API_ROOT}/api/v2/app-collection`, {
         CollectionSettings
@@ -340,45 +342,80 @@ class Collections extends React.Component {
             transitionEnter={false}
             transitionLeave={false}
           >
-            {window.innerWidth < 767 ? (
-              <div className="mobile_hide_txt_container">
-                <p>
-                  Sorry, our designer needs a wider screen. If you're on a
-                  mobile device, please login using a desktop computer.
-                </p>
-              </div>
-            ) : (
-              <div>
-                <Row>
-                  <Col
-                    md={4}
-                    sm={6}
-                    id="CollectionMainContainer"
-                    style={{ border: '1px solid #efefef' }}
-                  >
+            <Row>
+              <Col
+                md={4}
+                id="CollectionMainContainer"
+                style={{ border: '1px solid #efefef' }}
+              >
+                <PerfectScrollbar>
+                  <CollectioinSettingSection
+                    GridViewFieldOption={this.state.GridViewFieldOption}
+                    gridSelectOptionValue={this.state.gridSelectOptionValue}
+                    CollectionGridRowOptionCallback={
+                      this.CollectionGridRowOptionCallback
+                    }
+                    gridSelectProductTitleCall={this.gridSelectProductTitleCall}
+                    gridSelectPriceTitleCallback={
+                      this.gridSelectPriceTitleCallback
+                    }
+                    gridtitleAlignCallback={this.gridtitleAlignCallback}
+                    MainContainerBGColor={this.MainContainerBGColorCallbck}
+                    CellBGColor={this.CellBGColor}
+                    cellseparatorcolor={this.cellseparatorcolor}
+                    celliconcolor={this.celliconcolor}
+                    productbordercolor={this.productbordercolor}
+                    producttitlecolor={this.producttitlecolor}
+                    pricetitlecolor={this.pricetitlecolor}
+                    IconCollectionAction={this.IconCollectionAction}
+                    SelectedOption={this.SelectedOption}
+                    MainContainerBGColorValue={
+                      this.state.MainContainerBGColorValue
+                    }
+                    CellBGColorValue={this.state.CellColorValue}
+                    CellseparatorColorValue={this.state.CellseparatorColorValue}
+                    CelliconColorValue={this.state.CelliconColorValue}
+                    productborderColorValue={this.state.productborderColorValue}
+                    producttitleColorValue={this.state.producttitleColorValue}
+                    pricetitleColorValue={this.state.pricetitleColorValue}
+                    IconAction={this.state.IconAction}
+                    SelectedOptionValue={this.state.SelectedOption}
+                    CollectionGridRowValue={this.state.CollectionGridRowValue}
+                    gridSelectProductTitleValue={
+                      this.state.gridSelectProductTitleValue
+                    }
+                    gridSelectPriceTitleValue={
+                      this.state.gridSelectPriceTitleValue
+                    }
+                    gridSelectProdPriceValue={
+                      this.state.gridSelectProdPriceValue
+                    }
+                    gridTitleValue={this.state.gridTitleValue}
+                    gridSelectProdTitleValue={
+                      this.state.gridSelectProdTitleValue
+                    }
+                  />
+                </PerfectScrollbar>
+              </Col>
+              <Col md={8} id="RightContainerScroll">
+                <div id="mbl_bg_rit">
+                  <div id="CollectionMainRightContainer">
                     <PerfectScrollbar>
-                      <CollectioinSettingSection
-                        GridViewFieldOption={this.state.GridViewFieldOption}
+                      <CollectioinSettingSectionEffects
+                        ref={this.refCollectioinSettingSectionEffects}
+                        DisplaySaveBtn={this.DisplaySaveBtn}
                         gridSelectOptionValue={this.state.gridSelectOptionValue}
-                        CollectionGridRowOptionCallback={
-                          this.CollectionGridRowOptionCallback
+                        ListSelectOptionValue={this.state.GridViewFieldOption}
+                        CollectionGridRowValue={
+                          this.state.CollectionGridRowValue
                         }
-                        gridSelectProductTitleCall={
-                          this.gridSelectProductTitleCall
+                        gridSelectProductTitleValue={
+                          this.state.gridSelectProductTitleValue
                         }
-                        gridSelectPriceTitleCallback={
-                          this.gridSelectPriceTitleCallback
+                        gridSelectPriceTitleValue={
+                          this.state.gridSelectPriceTitleValue
                         }
-                        gridtitleAlignCallback={this.gridtitleAlignCallback}
-                        MainContainerBGColor={this.MainContainerBGColorCallbck}
-                        CellBGColor={this.CellBGColor}
-                        cellseparatorcolor={this.cellseparatorcolor}
-                        celliconcolor={this.celliconcolor}
-                        productbordercolor={this.productbordercolor}
-                        producttitlecolor={this.producttitlecolor}
-                        pricetitlecolor={this.pricetitlecolor}
-                        IconCollectionAction={this.IconCollectionAction}
-                        SelectedOption={this.SelectedOption}
+                        gridTitleValue={this.state.gridTitleValue}
                         MainContainerBGColorValue={
                           this.state.MainContainerBGColorValue
                         }
@@ -395,117 +432,56 @@ class Collections extends React.Component {
                         }
                         pricetitleColorValue={this.state.pricetitleColorValue}
                         IconAction={this.state.IconAction}
-                        SelectedOptionValue={this.state.SelectedOption}
-                        CollectionGridRowValue={
-                          this.state.CollectionGridRowValue
+                        DropDownGetIconheader={this.DropDownGetIconheader}
+                        naviconcolor={this.naviconcolor}
+                        navtitlecolor={this.navtitlecolor}
+                        navbgcolor={this.navbgcolor}
+                        NavTitle={this.NavTitle}
+                        DropDownGetIconheaderValue={
+                          this.state.DropDownGetIconheader
                         }
-                        gridSelectProductTitleValue={
-                          this.state.gridSelectProductTitleValue
+                        naviconcolorValue={this.state.naviconcolor}
+                        navtitlecolorValue={this.state.navtitlecolor}
+                        navbgcolorValue={this.state.navbgcolor}
+                        NavTitleValue={this.state.NavTitleValue}
+                        CollectionSettings={this.CollectionSettings}
+                        SelectedOption={this.state.SelectedOption}
+                        CollectionSelectedTitle={this.CollectionSelectedTitle}
+                        CollectionSelectedTitleValue={
+                          this.state.CollectionSelectedTitle
                         }
-                        gridSelectPriceTitleValue={
-                          this.state.gridSelectPriceTitleValue
+                        CollectionSelectedId={this.CollectionSelectedId}
+                        CollectionSelectedIdValue={
+                          this.state.CollectionSelectedId
                         }
-                        gridSelectProdPriceValue={
-                          this.state.gridSelectProdPriceValue
-                        }
-                        gridTitleValue={this.state.gridTitleValue}
-                        gridSelectProdTitleValue={
-                          this.state.gridSelectProdTitleValue
-                        }
+                        collectionType={this.collectionType}
+                        collectionTypeVal={this.state.collectionType}
+                        Clickedfilter={this.Clickedfilter}
+                        setLoad={this.setLoad}
+                        isLoaded={this.state.isLoaded}
+                        collectionHandle={this.collectionHandle}
+                        bannerImageUrlCallBack={this.bannerImageUrlCallBack}
+                        bannerImageUrl={this.state.bannerImageUrl}
                       />
                     </PerfectScrollbar>
-                  </Col>
-                  <Col md={8} sm={6} id="RightContainerScroll">
-                    <div id="mbl_bg_rit">
-                      <div id="CollectionMainRightContainer">
-                        <PerfectScrollbar>
-                          <CollectioinSettingSectionEffects
-                            ref={this.refCollectioinSettingSectionEffects}
-                            DisplaySaveBtn={this.DisplaySaveBtn}
-                            gridSelectOptionValue={
-                              this.state.gridSelectOptionValue
-                            }
-                            ListSelectOptionValue={
-                              this.state.GridViewFieldOption
-                            }
-                            CollectionGridRowValue={
-                              this.state.CollectionGridRowValue
-                            }
-                            gridSelectProductTitleValue={
-                              this.state.gridSelectProductTitleValue
-                            }
-                            gridSelectPriceTitleValue={
-                              this.state.gridSelectPriceTitleValue
-                            }
-                            gridTitleValue={this.state.gridTitleValue}
-                            MainContainerBGColorValue={
-                              this.state.MainContainerBGColorValue
-                            }
-                            CellBGColorValue={this.state.CellColorValue}
-                            CellseparatorColorValue={
-                              this.state.CellseparatorColorValue
-                            }
-                            CelliconColorValue={this.state.CelliconColorValue}
-                            productborderColorValue={
-                              this.state.productborderColorValue
-                            }
-                            producttitleColorValue={
-                              this.state.producttitleColorValue
-                            }
-                            pricetitleColorValue={
-                              this.state.pricetitleColorValue
-                            }
-                            IconAction={this.state.IconAction}
-                            DropDownGetIconheader={this.DropDownGetIconheader}
-                            naviconcolor={this.naviconcolor}
-                            navtitlecolor={this.navtitlecolor}
-                            navbgcolor={this.navbgcolor}
-                            NavTitle={this.NavTitle}
-                            DropDownGetIconheaderValue={
-                              this.state.DropDownGetIconheader
-                            }
-                            naviconcolorValue={this.state.naviconcolor}
-                            navtitlecolorValue={this.state.navtitlecolor}
-                            navbgcolorValue={this.state.navbgcolor}
-                            NavTitleValue={this.state.NavTitleValue}
-                            CollectionSettings={this.CollectionSettings}
-                            SelectedOption={this.state.SelectedOption}
-                            CollectionSelectedTitle={
-                              this.CollectionSelectedTitle
-                            }
-                            CollectionSelectedTitleValue={
-                              this.state.CollectionSelectedTitle
-                            }
-                            CollectionSelectedId={this.CollectionSelectedId}
-                            CollectionSelectedIdValue={
-                              this.state.CollectionSelectedId
-                            }
-                            collectionType={this.collectionType}
-                            collectionTypeVal={this.state.collectionType}
-                            Clickedfilter={this.Clickedfilter}
-                            setLoad={this.setLoad}
-                            isLoaded={this.state.isLoaded}
-                            collectionHandle={this.collectionHandle}
-                            bannerImageUrlCallBack={this.bannerImageUrlCallBack}
-                            bannerImageUrl={this.state.bannerImageUrl}
-                          />
-                        </PerfectScrollbar>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-                <ThemeOptions
-                  selectTheme={this.onThemeOptionSelection}
-                  ref={this.homeTopTabsShowEditAlert}
-                  onSaveEditedItems={this.onSaveEditedItems}
-                />
-              </div>
-            )}
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <ThemeOptions
+              selectTheme={this.onThemeOptionSelection}
+              ref={this.homeTopTabsShowEditAlert}
+              onSaveEditedItems={this.onSaveEditedItems}
+            />
           </ReactCSSTransitionGroup>
         )}
         {!this.state.isLoaded && (
-          <div md={12} id="mainPageLoading">
-            <Loader color="#0e7c95" type="ball-scale-multiple" />
+          <div>
+            <Loader
+              color="#0e7c95"
+              type="ball-scale-multiple"
+              style={{ marginTop: '15em', marginLeft: '30em' }}
+            />
           </div>
         )}
       </Fragment>

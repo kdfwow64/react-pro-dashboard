@@ -1,11 +1,6 @@
 import axios from 'axios';
-import {
-  DatePicker,
-  RadioButton,
-  RadioButtonGroup,
-  TimePicker
-} from 'material-ui';
 import React, { Fragment } from 'react';
+import { Field } from 'redux-form';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   Button,
@@ -33,7 +28,7 @@ export default class PushNotifications extends React.Component {
       titleText: '',
       // subtitle: "",
       body: '',
-      image: '',
+      image: '', // "https://mobileit-app-image-upload.s3.us-west-1.amazonaws.com/myappit-app-v2.myshopify.com/push_notification/16391_wallpaper-minimalist-desktop-wallpapers-minimalistic-1800381_1920x1200_h.jpg",
       deeplinkType: 'collection',
       deeplinkHandle: '',
       deeplinkList: [],
@@ -41,12 +36,14 @@ export default class PushNotifications extends React.Component {
       textFieldValue: '',
       scheduleLater: false,
       scheduleDateTime: new Date(),
-      scheduledNotifications: []
+      scheduledNotifications: [],
+      showNotification: 'none'
     };
   }
 
   onTitleChange = event => {
     this.setState({ titleText: event });
+    this.showNotificationDrawer();
   };
 
   componentDidMount() {
@@ -55,10 +52,15 @@ export default class PushNotifications extends React.Component {
 
   onBodyChange = event => {
     this.setState({ body: event });
+    this.showNotificationDrawer();
   };
 
   onImageChange = event => {
     this.setState({ image: event });
+  };
+
+  onSelectChange = event => {
+    this.setState({ deeplinkHandle: event });
   };
 
   onRadioChange = event => {
@@ -84,7 +86,20 @@ export default class PushNotifications extends React.Component {
     this.setState({ scheduleDateTime: newDate });
   };
 
+  showNotificationDrawer() {
+    this.setState({
+      showNotification: 'block'
+    });
+  }
+
   sendPushNotification() {
+    if (this.state.titleText.trim() === '' || this.state.body.trim() === '') {
+      this.setState({
+        errors: true
+      });
+      return false;
+    }
+
     const body = {
       headings: { en: this.state.titleText },
       contents: { en: this.state.body },
@@ -181,25 +196,67 @@ export default class PushNotifications extends React.Component {
                       You can send push notifications after your app is
                       published.
                     </CardTitle>
-                    <br />
-                    <Label for="exampleEmail">Notification Heading</Label>
+
+                    <Label style={{ marginTop: '5px' }} for="titleText">
+                      Notification Heading
+                    </Label>
                     <Input
                       type="text"
-                      name="email"
-                      id="exampleEmail"
+                      name="titleText"
+                      id="titleText"
                       placeholder=""
+                      onChange={e => {
+                        this.onTitleChange(e.target.value);
+                      }}
                     />
-                    <br />
-                    <Label for="examplePassword">Notification Body</Label>
+                    {this.state.titleText.trim() === '' &&
+                      this.state.errors === true && (
+                        <div
+                          className="invalid-feedback"
+                          style={{
+                            textAlign: 'right',
+                            display: 'block'
+                          }}
+                        >
+                          This field is required
+                        </div>
+                      )}
+                    <Label style={{ marginTop: '5px' }} for="body">
+                      Notification Body
+                    </Label>
                     <Input
                       type="textarea"
-                      name="password"
-                      id="examplePassword"
+                      name="body"
+                      id="body"
                       placeholder=""
+                      onChange={e => {
+                        this.onBodyChange(e.target.value);
+                      }}
                     />
-                    <br />
-                    <Label for="exampleSelect">Deeplink</Label>
-                    <Input type="select" name="select" id="exampleSelect">
+                    {this.state.body.trim() === '' &&
+                      this.state.errors === true && (
+                        <div
+                          className="invalid-feedback"
+                          style={{
+                            textAlign: 'right',
+                            display: 'block'
+                          }}
+                        >
+                          This field is required
+                        </div>
+                      )}
+
+                    <Label style={{ marginTop: '5px' }} for="exampleSelect">
+                      Deeplink
+                    </Label>
+                    <Input
+                      type="select"
+                      name="select"
+                      id="exampleSelect"
+                      onChange={e => {
+                        this.onSelectChange(e.target.value);
+                      }}
+                    >
                       <option>None</option>
                       <option>Collection</option>
                       <option>Product</option>
@@ -239,8 +296,10 @@ export default class PushNotifications extends React.Component {
                         />
                       }
                     /> */}
-                    <br />
-                    <Label for="exampleFile">Notification Image</Label>
+
+                    <Label style={{ marginTop: '5px' }} for="exampleFile">
+                      Notification Image
+                    </Label>
                     {/* <Input
                           type="file"
                           accept
@@ -262,39 +321,12 @@ export default class PushNotifications extends React.Component {
                       Attaching an image will show up in notification in mobile
                       device.
                     </FormText>
-                    <br />
-                    <Row>
-                      <Col>
-                        <RadioButtonGroup
-                          name="scheduler"
-                          defaultSelected="send_now"
-                          onChange={e => this.onRadioChange(e)}
-                        >
-                          <RadioButton
-                            value="send_now"
-                            label="Send immediately"
-                          />
-                          <RadioButton value="send_later" label="Send later" />
-                        </RadioButtonGroup>
-                      </Col>
-                      <Col>
-                        {this.state.scheduleLater === true && (
-                          <div>
-                            <DatePicker
-                              value={this.state.scheduleDateTime}
-                              onChange={this.onDateChange}
-                            />
-                            <TimePicker
-                              value={this.state.scheduleDateTime}
-                              onChange={this.onTimeChange}
-                            />
-                          </div>
-                        )}
-                      </Col>
-                    </Row>
+
                     <Button
                       color="primary"
-                      onClick={() => this.sendPushNotification}
+                      onClick={() => {
+                        this.sendPushNotification();
+                      }}
                       className="mt-1 btn-shadow"
                     >
                       Send
@@ -304,14 +336,47 @@ export default class PushNotifications extends React.Component {
               </Col>
               <Col md="4">
                 <div style={{ float: 'left', position: 'relative' }}>
-                  <img
-                    src={require('./device.png')}
-                    alt=""
-                    style={{ float: 'right' }}
-                    width="290px"
-                    height="530px"
-                  />
-                  <div className="notification-screen-style">
+                  <div
+                    className="notification-screen-style"
+                    style={{
+                      position: 'absolute',
+                      width: '82%',
+                      backgroundColor: '#eeeeee',
+                      opacity: 0.8,
+                      textAlign: 'left',
+                      left: '0',
+                      right: '0',
+                      margin: '0 auto',
+                      top: '30%',
+                      borderRadius: '10px',
+                      display: this.state.showNotification
+                    }}
+                  >
+                    <div
+                      className="Polaris-Heading"
+                      style={{
+                        maxWidth: '255px',
+                        overflow: 'hidden',
+                        minHeight: '24px',
+                        padding: '8px'
+                      }}
+                    >
+                      <img
+                        src={require('../../../assets/utils/images/logocrop.png')}
+                        alt=""
+                        style={{ float: 'left' }}
+                      />
+                      <h2
+                        style={{
+                          fontSize: '12px',
+                          padding: 4,
+                          fontWeight: 700
+                        }}
+                      >
+                        <b>AppIt</b>
+                        <p style={{ fontSize: '10px', float: 'right' }}>now</p>
+                      </h2>
+                    </div>
                     <h2
                       className="Polaris-Heading"
                       style={{
@@ -319,36 +384,46 @@ export default class PushNotifications extends React.Component {
                         overflow: 'hidden',
                         fontSize: '11px',
                         fontWeight: 700,
-                        minHeight: '24px'
+                        paddingLeft: '8px'
                       }}
                     >
                       {this.state.titleText}
                     </h2>
                     <h2
-                      className="Polaris-Heading"
-                      style={{
-                        maxWidth: '255px',
-                        overflow: 'hidden',
-                        fontSize: '11px',
-                        fontWeight: 500,
-                        minHeight: '24px'
-                      }}
-                    >
-                      {this.state.subtitle}
-                    </h2>
-                    <h2
-                      className="Polaris-Heading"
+                      className="Polaris-Body"
                       style={{
                         maxWidth: '255px',
                         overflow: 'hidden',
                         fontSize: '10px',
                         fontWeight: 400,
-                        minHeight: '24px'
+                        minHeight: '24px',
+                        paddingLeft: '8px'
                       }}
                     >
                       {this.state.body}
                     </h2>
+                    {this.state.image && (
+                      <img
+                        src={this.state.image}
+                        className="Polaris-Image"
+                        style={{
+                          maxWidth: '100%',
+                          width: '100%',
+                          overflow: 'hidden',
+                          minHeight: '24px',
+                          padding: '8px'
+                        }}
+                        alt=""
+                      />
+                    )}
                   </div>
+                  <img
+                    src={require('./device.png')}
+                    alt=""
+                    style={{ float: 'right' }}
+                    width="290px"
+                    height="530px"
+                  />
                 </div>
               </Col>
             </Row>

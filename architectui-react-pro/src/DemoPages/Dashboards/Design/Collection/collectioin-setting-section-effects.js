@@ -357,6 +357,7 @@ class CollectioinSettingSectionEffects extends React.Component {
 
   bannerImageUrl = value => {
     this.setState({ bannerImageUrl: value });
+    console.log('here', value);
     this.props.bannerImageUrlCallBack(value);
   };
 
@@ -442,7 +443,7 @@ class CollectioinSettingSectionEffects extends React.Component {
               {this.props.NavTitleValue === 'img' && (
                 <img
                   src={this.props.bannerImageUrl}
-                  style={{ maxHeight: '40px', maxWidth: '90px' }}
+                  style={{ maxHeight: '30px', maxWidth: '90px' }}
                 />
               )}
               {this.props.NavTitleValue === 'text' && 'COLLECTIONS'}
@@ -529,6 +530,41 @@ class CollectioinSettingSectionEffects extends React.Component {
                       ) : null}
                     </div>
                   </div>
+                  {/* <div className="CollectionMainEditIconColor">
+                    <div className="col-sm-12 CollectionSettingEditIconColor">
+                      <label>NAV BAR ICON COLOR</label>
+                    </div>
+                    <div className="col-sm-12 CollectionMainEditIconColorView">
+                      <input
+                        type="text"
+                        value={this.props.naviconcolorValue || '#fff'}
+                        defaultValue={this.props.naviconcolorValue || '#fff'}
+                        id="CollectionDropDown"
+                        className="textColorCode"
+                        onClick={this.naviconhandleClick}
+                      />
+                      <div style={this.swatch}>
+                        <div
+                          className="colorPickerBorder"
+                          style={{
+                            width: '20px',
+                            height: '20px',
+                            backgroundColor: this.props.naviconcolorValue || '#fff'
+                          }}
+                          onClick={this.naviconhandleClick}
+                        />
+                      </div>
+                      {this.state.navicondisplayColorPicker ? (
+                        <div style={this.popover}>
+                          <div style={ this.cover } onClick={ this.naviconhandleClose }/>
+                          <ChromePicker
+                            color={this.props.naviconcolorValue || '#fff'}
+                            onChange={this.naviconhandleChange}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  </div> */}
 
                   <div
                     className="CollectionMainEditIconColor"
@@ -594,8 +630,12 @@ class CollectioinSettingSectionEffects extends React.Component {
                         previewImageHeight="100px"
                         previewImageWidth="100px"
                         imageFolder="navTitleImage"
-                        onChange={value => this.bannerImageUrl(value)}
+                        onChange={value => {
+                          console.log(value);
+                          this.bannerImageUrl(value);
+                        }}
                       />
+                      {/* <input type="file" /> */}
                     </div>
                   </div>
                   <div className="CollectionEditCancelButton CollectionEditButton">
@@ -827,10 +867,18 @@ class CollectioinSettingSectionEffects extends React.Component {
               </div>
             </div>
           )}
-
           {!this.state.isLoaded && (
-            <div id="mobile_loadingSection">
-              <Loader color="#0e7c95" type="ball-scale-multiple" />
+            <div id="CollectionEffectBody">
+              <Loader
+                color="#0e7c95"
+                type="ball-scale-multiple"
+                style={{
+                  margin: '0 auto',
+                  textAlign: 'center',
+                  marginTop: '10em',
+                  marginLeft: '8em'
+                }}
+              />
             </div>
           )}
         </div>

@@ -176,7 +176,7 @@ class CartRightSection extends React.Component {
                   {this.props.NavTitleValue === 'img' && (
                     <img
                       src={this.props.bannerImageUrl}
-                      style={{ maxHeight: '40px', maxWidth: '90px' }}
+                      style={{ maxHeight: '30px', maxWidth: '90px' }}
                     />
                   )}
                   {this.props.NavTitleValue === 'text' && 'CART'}
@@ -232,8 +232,8 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditBGIconView">
                         <input
                           type="text"
-                          value={this.props.navbgcolorValue || '#0E7C95'}
-                          defaultValue={this.navbgcolor}
+                          defaultValue={this.props.navbgcolorValue || '#0E7C95'}
+                          // defaultValue={this.navbgcolor}
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navbghandleClick}
@@ -315,8 +315,8 @@ class CartRightSection extends React.Component {
                       <div className="col-sm-12 CollectionMainEditIconColorView">
                         <input
                           type="text"
-                          value={this.props.navtitlecolorValue || '#fff'}
-                          defaultValue={this.navtitlecolor}
+                          defaultValue={this.props.navtitlecolorValue || '#fff'}
+                          // defaultValue={this.navtitlecolor}
                           id="CollectionDropDown"
                           className="textColorCode"
                           onClick={this.navtitlehandleClick}
