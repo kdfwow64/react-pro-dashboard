@@ -215,7 +215,7 @@ export default class PushNotifications extends React.Component {
                         <div
                           className="invalid-feedback"
                           style={{
-                            textAlign: 'right',
+                            textAlign: 'left',
                             display: 'block'
                           }}
                         >
@@ -240,7 +240,7 @@ export default class PushNotifications extends React.Component {
                         <div
                           className="invalid-feedback"
                           style={{
-                            textAlign: 'right',
+                            textAlign: 'left',
                             display: 'block'
                           }}
                         >
