@@ -1,3 +1,4 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -25,11 +26,13 @@ const rootElement = document.getElementById('root');
 
 const renderApp = Component => {
   ReactDOM.render(
-    <Provider store={store}>
-      <HashRouter>
-        <Component />
-      </HashRouter>
-    </Provider>,
+    <MuiThemeProvider>
+      <Provider store={store}>
+        <HashRouter>
+          <Component />
+        </HashRouter>
+      </Provider>
+    </MuiThemeProvider>,
     rootElement
   );
 };
