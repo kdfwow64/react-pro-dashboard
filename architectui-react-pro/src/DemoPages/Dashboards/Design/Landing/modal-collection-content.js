@@ -298,7 +298,7 @@ class ModalSearchContent extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '2px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -600,13 +600,13 @@ class ModalSearchContent extends React.Component {
                             this.state.prodCollectionname || 'SELECT COLLECTION'
                           }
                           onClick={this.DisplayCollection.bind(this)}
+                          className="ProductDropSearchDown"
                         />
-                        <i className="lnr-chevron-down" />
+                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
                         <div
-                          className="CollectionResult"
+                          className="ProductResult mainProductListSearch"
                           style={{
                             display: this.state.DisplayCollectionValue,
-                            width: '95%'
                           }}
                         >
                           {this.state.ProductsCollectionsData.map(
@@ -783,45 +783,6 @@ class ModalSearchContent extends React.Component {
 
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
-                        <label>HEADER BACKGROUND COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.HeaderBGColor}
-                          defaultValue={this.state.HeaderBGColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onHeaderBGColorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.HeaderBGColor
-                            }}
-                            onClick={this.onHeaderBGColorClick}
-                          />
-                        </div>
-                        {this.state.displayHeaderBGColor ? (
-                          <div style={this.popover}>
-                            <div
-                              style={this.cover}
-                              onClick={this.onHeaderBGColorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.HeaderBGColor}
-                              onChange={this.onHeaderBGColorClickComplete}
-                            />
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
                         <label>PRODUCT BORDER COLOR</label>
                       </div>
                       <div className="CollectionMainEditBGIconView">
@@ -861,65 +822,7 @@ class ModalSearchContent extends React.Component {
                   </div>
                 </div>
                 <div className="col-lg-6 col-sm-6">
-                  {/* <div className="row">
-                      <div className="CollectionMainEditIcon">
-                        <div className="CollectionSettingIcon">
-                          <label>ACTION ICON </label>
-                        </div>
-                        <div
-                          className="ProductSilderActiveColor"
-                          style={{ position: "relative", marginLeft: "0px" }}
-                        >
-                          <IconList
-                            DropDownGetCollectionActionCallback={
-                              this.DropDownGetCollectionActionCallback
-                            }
-                            IconClassName={this.state.DropDownGetIconaction}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="CollectionMainEditIcon">
-                        <div className="CollectionSettingIcon">
-                          <label>ACTION ICON COLOR</label>
-                        </div>
-                        <div className="CollectionMainEditBGIconView">
-                          <input
-                            type="text"
-                            value={this.state.ActionColor}
-                            defaultValue={this.state.ActionColor}
-                            id="CollectionDropDown"
-                            className="textColorCode"
-                            onClick={this.onActionColorClick}
-                          />
-                          <div style={this.swatch}>
-                            <div
-                              className="colorPickerBorder"
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                backgroundColor: this.state.ActionColor
-                              }}
-                              onClick={this.onActionColorClick}
-                            />
-                          </div>
-                          {this.state.displayActionColor ? (
-                            <div style={this.popover}>
-                              <div
-                                style={this.cover}
-                                onClick={this.onActionColorClose}
-                              />
-                              <ChromePicker
-                                color={this.state.ActionColor}
-                                onChange={this.onActionColorClickComplete}
-                              />
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
-                    </div> */}
-
+                 
                   <div className="row">
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
@@ -1062,6 +965,48 @@ class ModalSearchContent extends React.Component {
                       </div>
                     </div>
                   </div>
+
+                  <div className="row">
+                    <div className="CollectionMainEditIcon">
+                      <div className="CollectionSettingIcon">
+                        <label>HEADER BACKGROUND COLOR</label>
+                      </div>
+                      <div className="CollectionMainEditBGIconView">
+                        <input
+                          type="text"
+                          value={this.state.HeaderBGColor}
+                          defaultValue={this.state.HeaderBGColor}
+                          id="CollectionDropDown"
+                          className="textColorCode"
+                          onClick={this.onHeaderBGColorClick}
+                        />
+                        <div style={this.swatch}>
+                          <div
+                            className="colorPickerBorder"
+                            style={{
+                              width: '20px',
+                              height: '20px',
+                              backgroundColor: this.state.HeaderBGColor
+                            }}
+                            onClick={this.onHeaderBGColorClick}
+                          />
+                        </div>
+                        {this.state.displayHeaderBGColor ? (
+                          <div style={this.popover}>
+                            <div
+                              style={this.cover}
+                              onClick={this.onHeaderBGColorClose}
+                            />
+                            <ChromePicker
+                              color={this.state.HeaderBGColor}
+                              onChange={this.onHeaderBGColorClickComplete}
+                            />
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>          
+                  </div>
+                  
                 </div>
               </div>
             </div>

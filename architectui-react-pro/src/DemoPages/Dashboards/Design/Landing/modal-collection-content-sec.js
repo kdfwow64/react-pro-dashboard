@@ -205,7 +205,7 @@ class ModalSearchContentSec extends React.Component {
     this.props.onCloseModal(this.props.modalId);
   };
 
-  applyAppliedSetting = defaultSettings => {};
+  applyAppliedSetting = defaultSettings => { };
 
   onIconColorsecClick = () => {
     this.setState({ displayIconColor: true });
@@ -311,7 +311,7 @@ class ModalSearchContentSec extends React.Component {
     this.setState({ CollectionProductTitle: color.hex });
   };
 
-  handleChangeStart = () => {};
+  handleChangeStart = () => { };
 
   handleChange = value => {
     this.setState({
@@ -319,14 +319,14 @@ class ModalSearchContentSec extends React.Component {
     });
   };
 
-  handleChangeComplete = () => {};
+  handleChangeComplete = () => { };
 
   swatch = {
     padding: '5px',
     display: 'inline-block',
     position: 'absolute',
     left: '2px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -477,7 +477,7 @@ class ModalSearchContentSec extends React.Component {
                             style={{
                               border: `1px solid${
                                 this.state.productBorderColor
-                              }`
+                                }`
                             }}
                           >
                             {item.imageUrl && (
@@ -570,13 +570,13 @@ class ModalSearchContentSec extends React.Component {
                             this.state.prodCollectionname || 'SELECT COLLECTION'
                           }
                           onClick={this.DisplayCollection.bind(this)}
+                          className="ProductDropSearchDown"
                         />
-                        <i className="lnr-chevron-down" />
+                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
                         <div
-                          className="CollectionResult"
+                          className="ProductResult mainProductListSearch"
                           style={{
                             display: this.state.DisplayCollectionValue,
-                            width: '95%'
                           }}
                         >
                           {this.state.ProductsCollectionsData.map(
@@ -748,43 +748,6 @@ class ModalSearchContentSec extends React.Component {
                       </div>
                     </div>
 
-                    <div className="CollectionMainEditIcon">
-                      <div className="CollectionSettingIcon">
-                        <label>HEADER BACKGROUND COLOR</label>
-                      </div>
-                      <div className="CollectionMainEditBGIconView">
-                        <input
-                          type="text"
-                          value={this.state.HeaderBGColor}
-                          id="CollectionDropDown"
-                          className="textColorCode"
-                          onClick={this.onHeaderBGsecColorClick}
-                        />
-                        <div style={this.swatch}>
-                          <div
-                            className="colorPickerBorder"
-                            style={{
-                              width: '20px',
-                              height: '20px',
-                              backgroundColor: this.state.HeaderBGColor
-                            }}
-                            onClick={this.onHeaderBGsecColorClick}
-                          />
-                        </div>
-                        {this.state.displayHeaderBGColor ? (
-                          <div style={this.popover}>
-                            <div
-                              style={this.cover}
-                              onClick={this.onHeaderBGsecColorClose}
-                            />
-                            <ChromePicker
-                              color={this.state.HeaderBGColor}
-                              onChange={this.onHeaderBGsecColorClickComplete}
-                            />
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
 
                     <div className="CollectionMainEditIcon">
                       <div className="CollectionSettingIcon">
@@ -828,63 +791,7 @@ class ModalSearchContentSec extends React.Component {
                   </div>
                 </div>
                 <div className="col-lg-6 col-sm-6">
-                  {/* <div className="row">
-                      <div className="CollectionMainEditIcon">
-                        <div className="CollectionSettingIcon">
-                          <label>ACTION ICON </label>
-                        </div>
-                        <div
-                          className="ProductSilderActiveColor"
-                          style={{ position: "relative", marginLeft: "0px" }}
-                        >
-                          <IconList
-                            DropDownGetCollection2ActionCallback={
-                              this.DropDownGetCollection2ActionCallback
-                            }
-                            IconClassName={this.state.DropDownGetIconaction}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="CollectionMainEditIcon">
-                        <div className="CollectionSettingIcon">
-                          <label>ACTION ICON COLOR</label>
-                        </div>
-                        <div className="CollectionMainEditBGIconView">
-                          <input
-                            type="text"
-                            value={this.state.ActionColor}
-                            id="CollectionDropDown"
-                            className="textColorCode"
-                            onClick={this.onActionColorsecClick}
-                          />
-                          <div style={this.swatch}>
-                            <div
-                              className="colorPickerBorder"
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                backgroundColor: this.state.ActionColor
-                              }}
-                              onClick={this.onActionColorsecClick}
-                            />
-                          </div>
-                          {this.state.displayActionColor ? (
-                            <div style={this.popover}>
-                              <div
-                                style={this.cover}
-                                onClick={this.onActionColorsecClose}
-                              />
-                              <ChromePicker
-                                color={this.state.ActionColor}
-                                onChange={this.onActionColorsecClickComplete}
-                              />
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
-                    </div> */}
+
 
                   <div className="row">
                     <div className="CollectionMainEditIcon">
@@ -1024,6 +931,48 @@ class ModalSearchContentSec extends React.Component {
                       </div>
                     </div>
                   </div>
+
+                  <div className="row">
+                    <div className="CollectionMainEditIcon">
+                      <div className="CollectionSettingIcon">
+                        <label>HEADER BACKGROUND COLOR</label>
+                      </div>
+                      <div className="CollectionMainEditBGIconView">
+                        <input
+                          type="text"
+                          value={this.state.HeaderBGColor}
+                          id="CollectionDropDown"
+                          className="textColorCode"
+                          onClick={this.onHeaderBGsecColorClick}
+                        />
+                        <div style={this.swatch}>
+                          <div
+                            className="colorPickerBorder"
+                            style={{
+                              width: '20px',
+                              height: '20px',
+                              backgroundColor: this.state.HeaderBGColor
+                            }}
+                            onClick={this.onHeaderBGsecColorClick}
+                          />
+                        </div>
+                        {this.state.displayHeaderBGColor ? (
+                          <div style={this.popover}>
+                            <div
+                              style={this.cover}
+                              onClick={this.onHeaderBGsecColorClose}
+                            />
+                            <ChromePicker
+                              color={this.state.HeaderBGColor}
+                              onChange={this.onHeaderBGsecColorClickComplete}
+                            />
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
               </div>
             </div>

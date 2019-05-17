@@ -192,7 +192,7 @@ class ModalBrowseProductCollections extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '2px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -306,7 +306,7 @@ class ModalBrowseProductCollections extends React.Component {
                             <img
                               src={item.imageUrl}
                               alt={item.title}
-                              style={{ width: '100%', height: 'auto' }}
+                              style={{ width: '100%', height: '105%' }}
                             />
                           )}
                           {item.imageUrl === '' && item.imageUrl === null && (
@@ -359,13 +359,13 @@ class ModalBrowseProductCollections extends React.Component {
                         this.state.prodCollectionname || 'SELECT COLLECTION'
                       }
                       onClick={this.DisplayCollection.bind(this)}
+                      className="ProductDropSearchDown"
                     />
-                    <i className="lnr-chevron-down" />
+                    <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
                     <div
-                      className="CollectionResult"
+                      className="ProductResult mainProductListSearch"
                       style={{
                         display: this.state.DisplayCollectionValue,
-                        width: '61%'
                       }}
                     >
                       {this.state.ProductsCollectionsData.map((item, index) => {
@@ -485,7 +485,7 @@ class ModalBrowseProductCollections extends React.Component {
                       defaultValue={this.state.title}
                       value={this.state.title}
                       onChange={this.onTitleChange}
-                      style={{ width: '80%' }}
+                      style={{ width: '95%' }}
                     />
                   </div>
                 </div>
@@ -541,6 +541,7 @@ class ModalBrowseProductCollections extends React.Component {
                       id="CollectionDropDown"
                       className="textColorCode"
                       onClick={this.onFooterBGColorClick}
+                      style={{width: '95%'}}
                     />
                     <div style={this.swatch}>
                       <div

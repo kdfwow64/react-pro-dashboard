@@ -175,7 +175,7 @@ class ModalCustomBanner extends React.Component {
                   ' CUSTOM BANNER '
                 ) : (
                   <img
-                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    style={{ maxWidth: '100%', maxHeight: '100%', height: '100%' }}
                     src={this.state.bannerImageUrl}
                   />
                 )}
@@ -263,13 +263,13 @@ class ModalCustomBanner extends React.Component {
                           this.state.prodCollectionname || 'SELECT COLLECTION'
                         }
                         onClick={this.DisplayCollection.bind(this)}
-                      />
-                      <i className="lnr-chevron-down" />
-                      <div
-                        className="CollectionResult"
+                        className="ProductDropSearchDown"
+                        />
+                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                        <div
+                          className="ProductResult mainProductListSearch"
                         style={{
                           display: this.state.DisplayCollectionValue,
-                          width: '95%'
                         }}
                       >
                         {this.state.ProductsCollectionsData.map(
@@ -346,13 +346,13 @@ class ModalCustomBanner extends React.Component {
                           this.state.prodCollectionname || 'SELECT A PRODUCT'
                         }
                         onClick={this.DisplayCollection.bind(this)}
-                      />
-                      <i className="lnr-chevron-down" />
-                      <div
-                        className="CollectionResult"
+                        className="ProductDropSearchDown"
+                        />
+                        <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                        <div
+                          className="ProductResult mainProductListSearch"
                         style={{
                           display: this.state.DisplayCollectionValue,
-                          width: '95%'
                         }}
                       >
                         <input

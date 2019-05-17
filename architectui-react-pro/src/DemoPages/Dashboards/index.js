@@ -25,6 +25,9 @@ import Referral from './Referral';
 import SalesDashboard from './Sales';
 import SettingsDashboard from './Settings';
 import Tutorials from './Tutorials';
+/*var url = window.location + '';
+var split_url = url.split("/");
+var lastName = split_url[split_url.length-1];*/
 
 const Dashboards = ({ match }) => (
   <Fragment>
@@ -33,25 +36,8 @@ const Dashboards = ({ match }) => (
     <div className="app-main">
       <AppSidebar />
       <div className="app-main__outer">
-        <div className="designPagesTop">
-          <Route path={`${match.url}/design`} component={DesignApp} />
-          <Route
-            path={`${match.url}/design-landing`}
-            component={DesignLanding}
-          />
-          <Route
-            path={`${match.url}/design-collection`}
-            component={DesignCollection}
-          />
-          <Route
-            path={`${match.url}/design-product`}
-            component={DesignProduct}
-          />
-          <Route path={`${match.url}/design-user`} component={DesignUser} />
-          <Route path={`${match.url}/design-cart`} component={DesignCart} />
-          <Route path={`${match.url}/design-search`} component={DesignSearch} />
-        </div>
-        <div className="app-main__inner">
+      {//lastName === 'analytics' &&
+       <div className="app-main__inner">
           <Route
             path={`${match.url}/analytics`}
             component={AnalyticsDashboard}
@@ -82,7 +68,28 @@ const Dashboards = ({ match }) => (
             component={MinimalDashboard2}
           />
         </div>
+      }
 
+      <div className="designPagesTop">
+            <Route path={`${match.url}/design`} component={DesignApp} />
+            <Route
+              path={`${match.url}/design-landing`}
+              component={DesignLanding}
+            />
+            <Route
+              path={`${match.url}/design-collection`}
+              component={DesignCollection}
+            />
+            <Route
+              path={`${match.url}/design-product`}
+              component={DesignProduct}
+            />
+            <Route path={`${match.url}/design-user`} component={DesignUser} />
+            <Route path={`${match.url}/design-cart`} component={DesignCart} />
+            <Route path={`${match.url}/design-search`} component={DesignSearch} />
+        </div>
+        
+       
         {/* <AppFooter/> */}
       </div>
     </div>

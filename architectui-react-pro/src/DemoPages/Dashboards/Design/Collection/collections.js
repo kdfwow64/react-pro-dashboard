@@ -243,7 +243,7 @@ class Collections extends React.Component {
   };
 
   CollectionGridRowOptionCallback = e => {
-    this.setState({ CollectionGridRowValue: e.target.value });
+    this.setState({ CollectionGridRowValue: e });
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
@@ -348,7 +348,7 @@ class Collections extends React.Component {
                 </p>
               </div>
             ) : (
-              <div>
+              <div id="HomePageContentContainer">
                 <Row>
                   <Col
                     md={4}

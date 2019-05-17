@@ -279,7 +279,7 @@ class CartLeftSection extends React.Component {
         <CardHeader>
           <h3 className="leftCardHeader"> Cart Settings </h3>{' '}
         </CardHeader>
-        <Row>
+        <Row className="leftCenterSec">
           <div
             className="ProductSilderActiveColor"
             style={{ position: 'relative' }}

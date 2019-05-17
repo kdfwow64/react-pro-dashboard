@@ -11,7 +11,7 @@ const styles = {
     display: 'inline-block',
     position: 'absolute',
     left: '3px',
-    top: '2px'
+    top: '4px'
   },
   popover: {
     position: 'absolute',
