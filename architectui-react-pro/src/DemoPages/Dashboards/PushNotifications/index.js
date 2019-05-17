@@ -21,6 +21,7 @@ import {
   RadioButtonGroup,
   TimePicker
 } from 'material-ui';
+import Select from 'react-select';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 import { API_ROOT } from '../../../utilities/api-config';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
@@ -63,10 +64,6 @@ export default class PushNotifications extends React.Component {
 
   onImageChange = event => {
     this.setState({ image: event });
-  };
-
-  onSelectChange = event => {
-    this.setState({ deeplinkHandle: event });
   };
 
   onRadioChange = event => {
@@ -145,6 +142,7 @@ export default class PushNotifications extends React.Component {
             prod.value = prod.id;
             prod.label = prod.title;
           }
+          console.log(res.data);
           this.setState({ deeplinkList: res.data });
         });
     }
@@ -159,6 +157,7 @@ export default class PushNotifications extends React.Component {
             prod.value = prod.id;
             prod.label = prod.title;
           }
+          console.log(res.data);
           this.setState({ deeplinkList: res.data });
         });
     }
@@ -261,16 +260,46 @@ export default class PushNotifications extends React.Component {
                       name="select"
                       id="exampleSelect"
                       onChange={e => {
-                        this.onSelectChange(e.target.value);
+                        const value = e.target.value.toLowerCase();
+                        this.setState({
+                          deeplinkType: value,
+                          deeplinkList: [],
+                          deeplinkHandle: '',
+                          deeplinkSelected: '',
+                          textFieldValue: ''
+                        });
+                        if (value === 'collection') {
+                          this.searchCollection('a');
+                        } else if (value === 'product') {
+                          this.searchProduct('a');
+                        }
                       }}
                     >
                       <option>None</option>
                       <option>Collection</option>
                       <option>Product</option>
                     </Input>
-
-                    {/* <Label>Select {this.state.deeplinkType === 'collection' ? 'Collection' : 'Product'}</Label>
-                    <Autocomplete
+                    <br />
+                    <Label>
+                      Select{' '}
+                      {this.state.deeplinkType === 'collection'
+                        ? 'Collection'
+                        : 'Product'}
+                    </Label>
+                    <Select
+                      value={this.state.textFieldValue}
+                      onChange={value => {
+                        console.log(value);
+                        this.setState({ textFieldValue: value });
+                        // if (this.state.deeplinkType === 'collection') {
+                        //   this.searchCollection(value);
+                        // } else if (this.state.deeplinkType === 'product') {
+                        //   this.searchProduct(value);
+                        // }
+                      }}
+                      options={this.state.deeplinkList}
+                    />
+                    {/* <Autocomplete
                       options={this.state.deeplinkList}
                       selected={this.state.deeplinkSelected}
                       onSelect={ selection => {
