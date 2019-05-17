@@ -301,7 +301,7 @@ class SearchLeftSection extends React.Component {
               <h3 className="leftCardHeader">Search Settings</h3>
             </CardHeader>
 
-            <Row>
+            <Row className="leftCenterSec">
               <div
                 className="ProductSilderActiveColor"
                 style={{ position: 'relative' }}

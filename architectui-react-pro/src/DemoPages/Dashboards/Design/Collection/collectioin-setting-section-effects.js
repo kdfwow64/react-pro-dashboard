@@ -8,6 +8,7 @@ import { API_ROOT } from '../../../../utilities/api-config';
 import CollectionSettingSingleSection from './collection-setting-grid-single-section';
 import CollectioinSettingListSectionEffects from './collection-setting-list-single-section';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import { DropdownList } from 'react-widgets';
 
 const ProductsCollections = {
   collections: [
@@ -296,7 +297,7 @@ class CollectioinSettingSectionEffects extends React.Component {
   }
 
   OnCollectionEditClick = e => {
-    this.props.NavTitle(e.target.value);
+   this.props.NavTitle(e);
   };
 
   swatch = {
@@ -304,7 +305,7 @@ class CollectioinSettingSectionEffects extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '15px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -367,7 +368,7 @@ class CollectioinSettingSectionEffects extends React.Component {
         className="CollectionGridListView"
       >
         <div className="CollectionEffectContainer">
-          <div className="CollectionEffectResultDropDown">
+          <div className="ProductEffectResultDropDown">
             <input
               type="text"
               value={
@@ -376,9 +377,11 @@ class CollectioinSettingSectionEffects extends React.Component {
               }
               readOnly
               onClick={this.DisplayCollectionResult.bind(this)}
+              className="ProductDropSearchDown"
             />
+            <div class="searchProIcon"><i class="lnr-chevron-down"></i></div>
             <div
-              className="CollectionResult"
+              className="mainProductListSearch ProductResult"
               style={{ display: this.state.DisplayCollection }}
             >
               {this.state.ProductsCollectionsData.map((item2, index2) => {
@@ -439,13 +442,13 @@ class CollectioinSettingSectionEffects extends React.Component {
               id="CollectionEffectMyStoreTitle"
               style={{ color: this.props.navtitlecolorValue || '#fff' }}
             >
-              {this.props.NavTitleValue === 'img' && (
+              {this.props.NavTitleValue === 'Image' && (
                 <img
                   src={this.props.bannerImageUrl}
                   style={{ maxHeight: '40px', maxWidth: '90px' }}
                 />
               )}
-              {this.props.NavTitleValue === 'text' && 'COLLECTIONS'}
+              {this.props.NavTitleValue === 'Text' && 'COLLECTIONS'}
               {!this.props.NavTitleValue && 'COLLECTIONS'}
             </div>
             <div
@@ -475,18 +478,15 @@ class CollectioinSettingSectionEffects extends React.Component {
 
                   <div className="CollectionMainEditTitle">
                     <div className="col-sm-12 CollectionSettingEditTitle">
-                      <label> NAVIGATION BAR TITLE </label>
+                      <label> NAVIGATION BAR TITLE (USE) </label>
                     </div>
                     <div className="col-sm-12 CollectionMainEditTitleView">
-                      <select
-                        name=""
-                        id="CollectionMainEditSelect"
-                        onChange={this.OnCollectionEditClick.bind(this)}
-                        value={this.props.NavTitleValue || 'text'}
-                      >
-                        <option value="img">Use Image</option>
-                        <option value="text">Use Text</option>
-                      </select>
+                    <DropdownList
+                      data={['Image', 'Text']}
+                      onChange={this.OnCollectionEditClick.bind(this)}
+                      value={this.props.NavTitleValue || 'Text'}
+                      textField="name"
+                    />
                     </div>
                   </div>
 
@@ -534,7 +534,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     className="CollectionMainEditIconColor"
                     style={{
                       display:
-                        this.props.NavTitleValue === 'img' ? 'none' : 'block'
+                        this.props.NavTitleValue === 'Image' ? 'none' : 'block'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -580,7 +580,7 @@ class CollectioinSettingSectionEffects extends React.Component {
                     className="CollectionMainEditImg"
                     style={{
                       display:
-                        this.props.NavTitleValue === 'img' ? 'block' : 'none'
+                        this.props.NavTitleValue === 'Image' ? 'block' : 'none'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditImg">

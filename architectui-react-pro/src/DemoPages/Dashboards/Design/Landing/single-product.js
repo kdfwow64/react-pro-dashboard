@@ -66,7 +66,6 @@ class SingleProduct extends React.Component {
   }
 
   render() {
-    // console.log(this.state.leftcellContents);
     return (
       <div
         className="HoverEffectDragDrop"

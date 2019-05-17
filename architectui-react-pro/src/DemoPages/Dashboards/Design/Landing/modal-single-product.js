@@ -218,35 +218,14 @@ class ModalSingleProduct extends React.Component {
   getCellContents = () => {
     const cellContents = [...this.state.cellContents];
     const rLength = cellContents.length;
-    // let lLenth = newLeftcellContents.length;
     if (cellContents.length >= 4) {
       this.setState({ addanotherdisplay: 'none' });
     }
-
-    /* if (rLength >= lLenth) {
-            newLeftcellContents[lLenth] = LeftProductsCollectionsCellsSettings.collections[0];
-            this.setState({ leftcellContents: newLeftcellContents });
-        }
-
-        if(rLength >= 4) {
-            this.setState({DefaultWidth: this.state.DefaultWidth + 130});
-        } */
     cellContents.push(ProductsCollectionsCellsSettings[0]);
     this.setState({ cellContents });
-
-    /* let showProductDropdown = [...this.state.showProductDropdown];
-        showProductDropdown.push("none");
-        this.setState({ showProductDropdown: showProductDropdown });
-
-        let showCollectionDropdown = [...this.state.showCollectionDropdown];
-        showCollectionDropdown.push("none");
-        this.setState({ showCollectionDropdown: showCollectionDropdown }); */
   };
 
   RemoveNewAddedDiv = index => {
-    /* console.log("index::");
-        console.log(index);
-        console.log(this.state.cellContents.length); */
     if (this.state.cellContents.length >= 1) {
       this.setState({
         cellContents: this.state.cellContents.filter((_, i) => i !== index)
@@ -368,7 +347,7 @@ class ModalSingleProduct extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '2px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -377,11 +356,6 @@ class ModalSingleProduct extends React.Component {
   };
 
   DisplayCollection = (item, index) => {
-    /* if (this.state.DisplayCollectionValue === 'none') {
-             this.setState({ DisplayCollectionValue: 'block' });
-         } else {
-             this.setState({ DisplayCollectionValue: 'none' });
-         } */
     const showCollectionDropdown = [...this.state.showCollectionDropdown];
     showCollectionDropdown[index] =
       showCollectionDropdown[index] === 'none' ? 'block' : 'none';
@@ -389,10 +363,6 @@ class ModalSingleProduct extends React.Component {
   };
 
   GetProductcollection = (item, index, e) => {
-    /* this.setState({ prodcollection: e.target.value });
-           this.setState({ prodCollectionname: '' });
-           this.setState({ selectedName: '' }); */
-
     const newCellContents = [...this.state.cellContents];
     const cellItem = this.state.cellContents[index];
 
@@ -637,7 +607,7 @@ class ModalSingleProduct extends React.Component {
                         </div>
                       )}
                       {item.price &&
-                      this.state.selectedprice && ( // this.state.prodcollection === 'product' &&
+                      this.state.selectedprice && (
                           <div
                             className="ThirdPicturePriceTitle"
                             style={{
@@ -652,7 +622,7 @@ class ModalSingleProduct extends React.Component {
                           </div>
                         )}
                       {!item.price &&
-                      !this.state.selectedprice && ( // this.state.prodcollection === 'collection' && !this.state.selectedprice &&
+                      !this.state.selectedprice && ( 
                           <div
                             className="ThirdPicturePriceTitle"
                             style={{
@@ -745,10 +715,11 @@ class ModalSingleProduct extends React.Component {
                               onClick={e => {
                                 this.DisplayCollection(item, index);
                               }}
+                              className="ProductDropSearchDown"
                             />
-                            <i className="lnr-chevron-down" />
+                            <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
                             <div
-                              className="CollectionResult"
+                              className="ProductResult mainProductListSearch"
                               style={{
                                 display: this.state.showCollectionDropdown[
                                   index
@@ -829,10 +800,11 @@ class ModalSingleProduct extends React.Component {
                               onClick={e => {
                                 this.DisplayProduct(item, index, e);
                               }}
-                            />
-                            <i className="lnr-chevron-down" />
-                            <div
-                              className="CollectionResult"
+                              className="ProductDropSearchDown"
+                              />
+                              <div class="searchDropModal"><i class="lnr-chevron-down"></i></div>
+                              <div
+                                className="ProductResult mainProductListSearch"
                               style={{
                                 display: this.state.showProductDropdown[index]
                               }}
@@ -902,19 +874,6 @@ class ModalSingleProduct extends React.Component {
                         </div>
                         {item.pictureValue === 'product' && (
                           <div className="ProductNamePrice">
-                            {/* <div className="CustomTitleSection">
-                            <p>CUSTOM TITLE</p>
-                            <input
-                              type="text"
-                              className="CustomTitleText"
-                              placeholder="Example: Product Name, Tagline, etc."
-                              onChange={e => {
-                                this.ProductTitle(item, index, e);
-                              }}
-                              value={item.name}
-                              defaultValue={item.name}
-                            />
-                          </div> */}
                             <div className="PriceSection">
                               <p>SHOW PRICE</p>
                               {index === 0 && (
@@ -954,7 +913,7 @@ class ModalSingleProduct extends React.Component {
                             </div>
                           </div>
                         )}
-                        {index >= 0 && (
+                        {index >= 1 && (
                           <div
                             className="RemoveCollectionProduct"
                             key={this.state.counterOfPicture}
@@ -981,7 +940,6 @@ class ModalSingleProduct extends React.Component {
                       outline
                       color="primary"
                     >
-                      {/* <Ionicon fontSize="20px" color="#333" icon='ios-add' className="btn-icon-wrapper" /> */}
                       Add Another
                     </Button>
                   </div>

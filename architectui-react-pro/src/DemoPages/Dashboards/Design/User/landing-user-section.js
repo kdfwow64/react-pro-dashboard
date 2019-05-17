@@ -23,6 +23,7 @@ import CreateSettingForm from './setting-account-form';
 import SettingAccountOption from './setting-account-option';
 import CreateContactForm from './user-contact-form';
 import UserReview from './user-review-form';
+import { DropdownList } from 'react-widgets';
 
 /** @type {{swatch: React.CSSProperties, popover: React.CSSProperties, cover: React.CSSProperties}} */
 const styles = {
@@ -31,7 +32,7 @@ const styles = {
     display: 'inline-block',
     position: 'absolute',
     left: '15px',
-    top: '2px'
+    top: '4px'
   },
   popover: {
     position: 'absolute',
@@ -623,7 +624,7 @@ class LandingUserSection extends React.Component {
   };
 
   OnCollectionEditClick = e => {
-    this.setState({ NavTitle: e.target.value });
+    this.setState({ NavTitle: e });
   };
 
   navtitlehandleClose = () => {
@@ -1023,7 +1024,7 @@ class LandingUserSection extends React.Component {
                 </p>
               </div>
             ) : (
-              <div>
+              <div id="HomePageContentContainer">
                 <Row>
                   <Col
                     md={4}
@@ -1454,7 +1455,7 @@ class LandingUserSection extends React.Component {
                                 color: this.state.navtitlecolor || '#fff'
                               }}
                             >
-                              {this.state.NavTitle === 'img' && (
+                              {this.state.NavTitle === 'Image' && (
                                 <img
                                   src={this.state.bannerImageUrl}
                                   style={{
@@ -1463,11 +1464,8 @@ class LandingUserSection extends React.Component {
                                   }}
                                 />
                               )}
-                              {this.state.NavTitle === 'Text' ||
-                                (this.state.NavTitle === 'text' &&
-                                  this.state.TitleUserPage)}
-                              {this.state.NavTitle === undefined &&
-                                this.state.TitleUserPage}
+                              {this.state.NavTitle === 'Text' && this.state.TitleUserPage}
+                              {this.state.NavTitle === undefined && this.state.TitleUserPage}
                             </div>
                             <div
                               id="CollectionEditMainSlider"
@@ -1504,16 +1502,13 @@ class LandingUserSection extends React.Component {
                                   </div>
                                   <div
                                     className="col-sm-12 CollectionMainEditTitleView"
-                                    onChange={this.OnCollectionEditClick}
                                   >
-                                    <select
-                                      name=""
-                                      id="CollectionMainEditSelect"
-                                      value={this.state.NavTitle || 'text'}
-                                    >
-                                      <option value="img">Use Image</option>
-                                      <option value="text">Use Text</option>
-                                    </select>
+                                  <DropdownList
+                                    data={['Image', 'Text']}
+                                    onChange={this.OnCollectionEditClick}
+                                    value={this.state.NavTitle || 'Text'}
+                                    textField="name"
+                                  />
                                   </div>
                                 </div>
 
@@ -1565,7 +1560,7 @@ class LandingUserSection extends React.Component {
                                   className="CollectionMainEditIconColor"
                                   style={{
                                     display:
-                                      this.state.NavTitle === 'img'
+                                      this.state.NavTitle === 'Image'
                                         ? 'none'
                                         : 'block'
                                   }}
@@ -1617,7 +1612,7 @@ class LandingUserSection extends React.Component {
                                   className="CollectionMainEditImg"
                                   style={{
                                     display:
-                                      this.state.NavTitle === 'img'
+                                      this.state.NavTitle === 'Image'
                                         ? 'block'
                                         : 'none'
                                   }}

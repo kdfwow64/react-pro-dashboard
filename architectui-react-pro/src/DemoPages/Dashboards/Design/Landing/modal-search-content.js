@@ -148,7 +148,7 @@ class ModalSearchContent extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '2px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {

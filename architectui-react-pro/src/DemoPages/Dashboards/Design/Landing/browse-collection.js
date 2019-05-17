@@ -112,7 +112,7 @@ class BrowseCollection extends React.Component {
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      style={{ width: '100%', height: 'auto' }}
+                      style={{ width: '100%', height: '105%' }}
                     />
                   </div>
                 </div>

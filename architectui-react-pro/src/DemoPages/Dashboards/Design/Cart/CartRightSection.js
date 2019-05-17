@@ -17,6 +17,7 @@ import {
 } from 'reactstrap';
 import Ionicon from 'react-ionicons';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import { DropdownList } from 'react-widgets';
 
 const iconData = ['ios-cut-outline'];
 
@@ -92,8 +93,8 @@ class CartRightSection extends React.Component {
   }
 
   OnCollectionEditClick = e => {
-    this.setState({ NavTitleValue: e.target.value });
-    this.props.NavTitle(e.target.value);
+    this.setState({ NavTitleValue: e });
+    this.props.NavTitle(e);
   };
 
   navbghandleClick = () => {
@@ -115,7 +116,7 @@ class CartRightSection extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '15px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -173,13 +174,13 @@ class CartRightSection extends React.Component {
                   id="CollectionEffectMyStoreTitle"
                   style={{ color: this.props.navtitlecolorValue }}
                 >
-                  {this.props.NavTitleValue === 'img' && (
+                  {this.props.NavTitleValue === 'Image' && (
                     <img
                       src={this.props.bannerImageUrl}
                       style={{ maxHeight: '40px', maxWidth: '90px' }}
                     />
                   )}
-                  {this.props.NavTitleValue === 'text' && 'CART'}
+                  {this.props.NavTitleValue === 'Text' && 'CART'}
                   {this.props.NavTitleValue === undefined && 'CART'}
                 </div>
                 <div
@@ -212,16 +213,13 @@ class CartRightSection extends React.Component {
                       </div>
                       <div
                         className="col-sm-12 CollectionMainEditTitleView"
-                        onChange={this.OnCollectionEditClick}
                       >
-                        <select
-                          name=""
-                          id="CollectionMainEditSelect"
-                          value={this.props.NavTitleValue || 'text'}
-                        >
-                          <option value="img">Use Image</option>
-                          <option value="text">Use Text</option>
-                        </select>
+                      <DropdownList
+                        data={['Image', 'Text']}
+                        onChange={this.OnCollectionEditClick}
+                        value={this.props.NavTitleValue || 'Text'}
+                        textField="name"
+                      />
                       </div>
                     </div>
 
@@ -306,7 +304,7 @@ class CartRightSection extends React.Component {
                       className="CollectionMainEditIconColor"
                       style={{
                         display:
-                          this.props.NavTitleValue === 'img' ? 'none' : 'block'
+                          this.props.NavTitleValue === 'Image' ? 'none' : 'block'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -352,7 +350,7 @@ class CartRightSection extends React.Component {
                       className="CollectionMainEditImg"
                       style={{
                         display:
-                          this.props.NavTitleValue === 'img' ? 'block' : 'none'
+                          this.props.NavTitleValue === 'Image' ? 'block' : 'none'
                       }}
                     >
                       <div className="col-sm-12 CollectionSettingEditImg">

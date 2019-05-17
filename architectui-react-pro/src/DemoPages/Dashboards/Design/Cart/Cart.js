@@ -213,7 +213,7 @@ class Cart extends React.Component {
                 </p>
               </div>
             ) : (
-              <Row>
+              <Row id="HomePageContentContainer">
                 <Col
                   md={4}
                   sm={6}

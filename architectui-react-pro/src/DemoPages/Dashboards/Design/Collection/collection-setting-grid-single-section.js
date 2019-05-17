@@ -14,7 +14,7 @@ class CollectionSettingGridSingleSection extends React.Component {
                 <div className="CollectionEffectGridphoto" style={{ border: `1px solid ${this.props.productborderColorValue}` }}>
                     {
                         this.props.ProdImageUrl &&
-                        <img src={this.props.ProdImageUrl} style={{ width: '100%', height: '125px' }} />
+                        <img src={this.props.ProdImageUrl} style={{ width: '100%', height: '100%' }} />
                     }
                     {
                         !this.props.ProdImageUrl &&
