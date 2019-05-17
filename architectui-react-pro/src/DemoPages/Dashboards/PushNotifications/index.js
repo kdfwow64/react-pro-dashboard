@@ -36,7 +36,7 @@ export default class PushNotifications extends React.Component {
       // subtitle: "",
       body: '',
       image: '', // "https://mobileit-app-image-upload.s3.us-west-1.amazonaws.com/myappit-app-v2.myshopify.com/push_notification/16391_wallpaper-minimalist-desktop-wallpapers-minimalistic-1800381_1920x1200_h.jpg",
-      deeplinkType: 'collection',
+      deeplinkType: 'none',
       deeplinkHandle: '',
       deeplinkList: [],
       deeplinkSelected: [],
@@ -60,10 +60,6 @@ export default class PushNotifications extends React.Component {
   onBodyChange = event => {
     this.setState({ body: event });
     this.showNotificationDrawer();
-  };
-
-  onImageChange = event => {
-    this.setState({ image: event });
   };
 
   onRadioChange = event => {
@@ -279,28 +275,33 @@ export default class PushNotifications extends React.Component {
                       <option>Collection</option>
                       <option>Product</option>
                     </Input>
-                    <br />
-                    <Label>
-                      Select{' '}
-                      {this.state.deeplinkType === 'collection'
-                        ? 'Collection'
-                        : 'Product'}
-                    </Label>
-                    <Select
-                      value={this.state.textFieldValue}
-                      onInputChange={value => {
-                        console.log(value);
-                        if (this.state.deeplinkType === 'collection') {
-                          this.searchCollection(value);
-                        } else if (this.state.deeplinkType === 'product') {
-                          this.searchProduct(value);
-                        }
-                      }}
-                      onChange={value => {
-                        this.setState({ textFieldValue: value });
-                      }}
-                      options={this.state.deeplinkList}
-                    />
+                    {this.state.deeplinkType === 'collection' ||
+                    this.state.deeplinkType === 'product' ? (
+                      <div>
+                        <br />
+                        <Label>
+                          Select{' '}
+                          {this.state.deeplinkType === 'collection'
+                            ? 'Collection'
+                            : 'Product'}
+                        </Label>
+                        <Select
+                          value={this.state.textFieldValue}
+                          onInputChange={value => {
+                            console.log(value);
+                            if (this.state.deeplinkType === 'collection') {
+                              this.searchCollection(value);
+                            } else if (this.state.deeplinkType === 'product') {
+                              this.searchProduct(value);
+                            }
+                          }}
+                          onChange={value => {
+                            this.setState({ textFieldValue: value });
+                          }}
+                          options={this.state.deeplinkList}
+                        />
+                      </div>
+                    ) : null}
                     <br />
                     <Label style={{ marginTop: '5px' }} for="exampleFile">
                       Notification Image
