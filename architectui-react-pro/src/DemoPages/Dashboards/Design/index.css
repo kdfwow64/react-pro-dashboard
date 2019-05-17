@@ -39,7 +39,6 @@ ul.homeTopNav li a {
   display: flex;
   z-index: 12;
 }
-/*.HomeRightRightContainer{width: auto;display: inline-block;margin-left: 15px;position: absolute !important;}*/
 .ProductCollectionTitle {
   background-color: blue;
   text-align: center;
@@ -55,7 +54,6 @@ ul.homeTopNav li a {
   padding: 0;
 }
 .productCollection ul li {
-  /*display: inline-block;*/
   margin: 5px;
   list-style-type: none;
 }
@@ -116,8 +114,6 @@ ul.homeTopNav li a {
   cursor: pointer;
   text-transform: uppercase;
   color: rgb(177, 177, 177);
-  /* color: rgb(222, 99, 204);
-  border-bottom: 1px solid rgb(222, 99, 204);*/
 }
 ul.homeTopNav li {
   margin: 0;
@@ -192,6 +188,7 @@ input.search_input {
   height: 100%;
   overflow: hidden;
   box-shadow: 0px 0px 4px 0px #c8c8c8;
+  margin-top: 20px;
 }
 #SecondDropContainer {
   margin-top: 20px;
@@ -367,7 +364,6 @@ input.search_input {
 #FourthDropContainer {
   height: 200px;
   width: 100%;
-  margin-bottom: 10px;
   text-align: center;
   font-size: 20px;
   margin-top: 20px;
@@ -379,7 +375,6 @@ input.search_input {
 #FifthDropContainer {
   height: 440px;
   width: 100%;
-  margin-bottom: 20px;
   margin-top: 20px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 4px 0px #c8c8c8;
@@ -449,6 +444,7 @@ input.search_input {
   margin-top: 5px;
   text-align: center;
   width: 115px;
+  margin: 0 auto;
 }
 .FifthDropGridPrice {
   width: 100%;
@@ -475,9 +471,6 @@ input.search_input {
   position: relative;
   top: 10em;
 }
-/*.SixthGridContainer{
-  height: 240px;
-}*/
 .SixthGridLeftTopPicture {
   width: calc(50% - 2px);
   height: 125px;
@@ -651,13 +644,9 @@ input.search_input {
   color: rgb(255, 255, 255);
 }
 #BuildCollectionsConstructorBody {
-  /*min-height: 452px;
-  height: auto;*/
   width: calc(100% - 4px);
 }
 #BuildCollectionsBannerDrag {
-  /* width: 380px;
- height: 500px;*/
   z-index: 10;
   position: relative;
   left: 0px;
@@ -680,7 +669,7 @@ input.search_input {
 }
 /* 16-11-1-2018 changes */
 #CollectionMainContainer {
-  height: 92vh;
+  height: 91vh;
   float: left;
   background-color: #ffffff;
   margin-right: 0px;
@@ -690,7 +679,6 @@ input.search_input {
 }
 #collectionContainer {
   height: auto !important;
-  /*min-height: 695px !important;*/
   overflow: visible !important;
   background-color: #ffffff;
   width: 100%;
@@ -725,15 +713,19 @@ input.search_input {
   position: relative;
 }
 #CollectionDropDown {
-  height: 35px;
-  padding-left: 10px;
-  font-weight: 300;
-  border: 1px solid #c6c6c6;
-  background-color: #ffffff;
-  color: #c6c6c6;
-  width: 95%;
+  width: 100%;
   font-weight: lighter !important;
   cursor: pointer;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  border: #ced4da 1px solid;
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+  border-collapse: separate;
+  display: inline-table;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 16px;
 }
 .CollectionSettingOption {
   margin-left: auto;
@@ -745,14 +737,6 @@ input.search_input {
   width: 100%;
   margin-bottom: 20px;
 }
-/*.react-color-picker{
-  display: inline-flex;
-  width: 180px;
-  height: 200px;
-}
-.react-color-picker__saturation-spectrum, .react-color-picker__hue-spectrum{
-  height: 150px !important;
-}*/
 #CollectionEffectMainContainer {
   width: 100%;
   margin: 0 auto;
@@ -801,9 +785,6 @@ input.search_input {
   width: 250px;
   overflow: auto;
 }
-.CollectionEffectResultDropDown {
-  margin-top: 10px;
-}
 #CollectionEffectNavBarContainer {
   height: 50px;
   width: 100%;
@@ -824,7 +805,7 @@ input.search_input {
   height: 50px;
   font-size: 16px;
   text-align: center;
-  line-height: 50px;
+  line-height: 45px;
   margin-top: 10px;
   margin: 0 auto;
 }
@@ -850,13 +831,9 @@ input.search_input {
 #CollectionEffectGrid {
   margin-top: 0px;
   width: 100%;
-  /*float: left;*/
   padding-top: 10px;
 }
 .CollectionEffectGridTopContainer {
-  /*width: 50%;
-  float: left;
-  height: 170px;*/
   height: auto;
   list-style-type: none;
   margin-bottom: 10px;
@@ -873,15 +850,13 @@ input.search_input {
   background-color: #eef1f3;
   line-height: 125px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #b9b9b9;
   margin: 0 auto;
 }
 .CollectionEffectGridTitle {
   width: 100%;
   height: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
   line-height: 20px;
   color: #b9b9b9;
   font-size: 14px;
@@ -891,7 +866,7 @@ input.search_input {
   margin-top: 5px;
 }
 .CollectionEffectGridPrice {
-  width: 80%;
+  width: 100%;
   height: 15px;
   line-height: 15px;
   color: #b9b9b9;
@@ -947,21 +922,17 @@ input.search_input {
   float: right;
 }
 #CollectionMainRightContainer {
-  width: 250px;
+  width: 33vh;
   margin: 0 auto;
-  margin-top: 65px;
   background-color: #fff;
   min-height: 400px;
   height: auto;
   -webkit-animation: fadein 2s;
   animation: fadein 2s;
-  /* background-image: url(http://patelrakesh.in/images/mobile-new.png);
-  background-size: cover;
-  margin-top: 0px;
-  background-repeat: no-repeat;
-  height: 92vh;
-  background-position: center;
-  padding: 0;*/
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 11vh;
 }
 .CollectionViewStyle {
   width: 100%;
@@ -992,9 +963,6 @@ input.search_input {
   position: absolute;
   cursor: pointer;
   display: none;
-}
-.CollectionMainEditOptionContainer input {
-  width: 100%;
 }
 .CollectionMainEditOptionContainer h2 {
   height: 30px;
@@ -1084,12 +1052,11 @@ input.search_input {
   padding-left: 10px;
   padding-right: 5px;
   line-height: 35px;
-  border-radius: 5px;
-  border: 1px solid #bfbfbf;
-  background-color: rgb(255, 255, 255);
   color: #bfbfbf;
   font-size: 11px;
   cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 40px;
 }
 .HomePageLeftBlock {
   max-width: 88%;
@@ -1104,7 +1071,7 @@ input.search_input {
   height: 35px;
 }
 #RightContainerScroll {
-  height: 92vh;
+  height: 91vh;
   padding-right: 0px;
   padding-left: 0px;
 }
@@ -1291,7 +1258,7 @@ input.search_input {
   width: calc(100% - 42px) !important;
 }
 .ProductDropSearchDown:hover {
-  border: 1px solid #e275d2;
+  border: 1px solid #0e7c95;
 }
 .ProductListSearchMain {
   border: 1px solid #b9b9b9;
@@ -1366,15 +1333,9 @@ input.search_input {
   top: 5px;
   color: #b9b9b9;
 }
-.ProductEffectResultDropDown {
-  position: relative;
-  margin-top: 10px;
-}
 .ProductResult {
   height: 40px;
-  background-color: #f9f9f9;
   z-index: 9999;
-  border: 1px solid;
   color: #b9b9b9;
   position: absolute;
   width: 100%;
@@ -1434,7 +1395,7 @@ input.search_input {
   text-transform: uppercase;
 }
 .leftmenurightimg img:hover {
-  outline: rgb(222, 99, 204) dashed 2px;
+  outline: #0e7c95 dashed 2px;
 }
 .leftmenurightimg img:hover,
 .Leftmenuimg img:hover {
@@ -2546,6 +2507,7 @@ i.fa-plus {
   height: 75px;
   position: relative;
   float: left;
+  margin-top: 10px;
 }
 .picture1_txt {
   margin-right: auto;
@@ -2564,13 +2526,21 @@ i.fa-plus {
   line-height: normal;
 }
 .pictureCollectionProduct {
-  height: 35px;
   padding-left: 10px;
-  font-weight: 300;
-  border: 1px solid #c6c6c6;
-  background-color: #ffffff;
   color: #c6c6c6;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-collapse: separate;
+  display: inline-table;
+  height: calc(1.5em + 0.75rem + 2px);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  border: #ced4da 1px solid;
+  border-radius: 0.25rem;
+}
+.pictureCollectionProduct option {
+  transition: transform 200ms, -webkit-transform 200ms;
 }
 .SingleproductpictureOption {
   width: 100%;
@@ -2621,24 +2591,6 @@ i.fa-plus {
   position: relative;
 }
 .PriceCheckSpan {
-  /* border: 1px solid #dfdfdf;
-  border-radius: 20px;
-  cursor: pointer;
-  display: inline-block;
-  height: 30px;
-  position: relative;
-  vertical-align: middle;
-  width: 50px;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  box-sizing: content-box;
-  background-clip: content-box;
-  top: -14px;
-  transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;
-  -webkit-transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;*/
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -2667,40 +2619,7 @@ i.fa-plus {
   font-size: 12px;
   position: relative;
 }
-/*.PriceSection input:checked + .PriceCheckSpan {
-  background-color: rgb(222, 99, 204);
-}
-.PriceSection input:focus + .PriceCheckSpan {
-  box-shadow: 0 0 1px rgb(222, 99, 204);
-}
-.PriceSection input:checked + .PriceCheckSpan:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-.PriceCheckSpan.round {
-  border-radius: 34px;
-}
 
-.PriceCheckSpan.round:before {
-  border-radius: 50%;
-}
-/*.PriceCheckSpan > small {
-  background: #fff;
-  border-radius: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  height: 30px;
-  position: absolute;
-  top: 0;
-  width: 30px;
-  transition: background-color 0.4s ease 0s, left 0.2s ease 0s;
-  -webkit-transition: background-color 0.4s ease 0s, left 0.2s ease 0s;
-}*/
-/*.PriceCheck {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}*/
 .PricesettingsSwitchContainer {
   position: absolute;
   top: 30px;
@@ -2825,14 +2744,20 @@ i.fa-plus {
   }
 }
 #BannerOption {
-  height: 35px;
-  padding-left: 10px;
   font-weight: 300;
-  border: 1px solid #c6c6c6;
-  background-color: #ffffff;
   color: #c6c6c6;
-  width: 100%;
   cursor: pointer;
+  width: 100%;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  border: #ced4da 1px solid;
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+  border-collapse: separate;
+  display: inline-table;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding-left: 10px;
 }
 /*30-11-2018*/
 .CollectionEffectResultDropDown i {
@@ -2849,9 +2774,9 @@ i.fa-plus {
 }
 /* 1-12-2018 */
 #active_switch .switchery {
-  background-color: rgb(222, 99, 204) !important;
-  box-shadow: rgb(222, 99, 204) 0px 0px 0px 0px inset !important;
-  border-color: rgb(222, 99, 204) !important;
+  background-color: #0e7c95 !important;
+  box-shadow: #0e7c95 0px 0px 0px 0px inset !important;
+  border-color: #0e7c95 !important;
 }
 .iconContainer {
   position: relative;
@@ -3071,7 +2996,7 @@ i.fa-plus {
 }
 #Active,
 .collectionElementProductShowHide:hover {
-  background-color: #e16dd0;
+  background-color: #0e7c95;
   color: #ffffff;
   overflow: hidden;
 }
@@ -3145,7 +3070,7 @@ i.fa-plus {
   height: 20px;
 }
 .Append_right_link_container:hover {
-  color: #de63cc;
+  color: #0e7c95;
   cursor: pointer;
 }
 .RemoveCollectionProduct {
@@ -3154,7 +3079,7 @@ i.fa-plus {
   position: absolute;
   height: 30px;
   display: block;
-  background-color: rgb(222, 99, 205);
+  background-color: #0e7c95;
   margin: 0 auto;
   bottom: 0px;
   max-width: 100%;
@@ -3241,10 +3166,14 @@ i.fa-plus {
   overflow: auto;
 }
 .mainProductListSearch {
-  background-color: #fff;
-  border: 1px solid #ccc;
   height: 200px;
   overflow: auto;
+  border-radius: 0.25rem;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  border: #ced4da 1px solid;
+  -webkit-transition: -webkit-transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
 }
 .homeTopNav li.save_main {
   margin-right: 0px !important;
@@ -3316,16 +3245,6 @@ i.fa-plus {
   }
 }
 
-@media only screen and (max-width: 1055px) {
-  .save_btn {
-    padding: 40px 34px !important;
-  }
-}
-
-/*.styles_modal__gNwvD {
-  background: #fff !important;
-  border-radius: 10px;
-}*/
 .btns button {
   height: 35px;
   width: 45%;
@@ -3358,13 +3277,7 @@ i.fa-plus {
 
 #drift-widget {
   right: 100px !important;
-  /*z-index: unset !important;*/
 }
-
-/*#drift-widget-container {*/
-/*z-index: unset !important;*/
-/*}*/
-
 .SelectthemeTitle {
   font-size: 14px;
   height: 20px;
@@ -3410,7 +3323,6 @@ i.fa-plus {
   font-family: arial, helvetica, sans-serif;
   padding: 10px 30px 10px 30px;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
-  /* background-color: #3093c7; */
   background-image: -webkit-gradient(
     linear,
     left top,
@@ -3468,13 +3380,9 @@ i.fa-plus {
   color: rgb(255, 0, 0);
 }
 .mobile_hide_txt_container {
-  display: table-cell;
   text-align: center;
-  margin: 0 auto;
-  width: 100%;
   padding: 0 20px;
-  vertical-align: middle;
-  height: 100vh;
+  padding-top: 40vh;
 }
 .CollectionEditButton a {
   color: #0e7c95;
@@ -3537,16 +3445,14 @@ i.fa-plus {
   height: 100%;
   background-color: #111111;
   opacity: 0.7;
-  /*cursor: move;
-  outline: 2px dashed #6039bd;*/
   cursor: grab;
 }
 
 .editIcon {
-  width: 80px;
+  width: 50px;
   position: absolute;
-  top: calc(50% - 25px);
-  left: calc(85% - 25px);
+  top: calc(50% - 18px);
+  left: calc(85% - 12px);
   line-height: 40px;
   text-align: center;
   font-size: 20px;
@@ -3565,7 +3471,6 @@ i.fa-plus {
 }
 
 /*28-11-21-018*/
-
 .user_section_main .textColorCode {
   padding-bottom: 4px;
   height: 26px;
@@ -3573,9 +3478,8 @@ i.fa-plus {
 
 .colorPickerBorder {
   border: 1px solid #000000;
+  border-radius: 3px;
 }
-
-/**/
 
 @media only screen and (max-width: 1599px) {
   #top_main_nav {
@@ -3621,8 +3525,6 @@ i.fa-plus {
   left: 0px;
   top: 0px;
   opacity: 0.7;
-  /*outline: 2px dashed #6039bd;
-  cursor: move;*/
   moz-transform: scale(1.03, 1.03);
   -ms-transform: scale(1.03, 1.03);
   -webkit-transform: scale(1.03, 1.03);
@@ -3674,12 +3576,10 @@ i.fa-plus {
 }
 
 .droppableContainer .hoverContainerForEditIcon {
-  /*height: 50px;*/
-  width: 100%;
+  width: 98%;
   font-size: 16px;
   position: relative;
   text-align: center;
-  /*line-height: 50px;*/
 }
 
 .editIconContainer {
@@ -3698,13 +3598,6 @@ i.fa-plus {
   width: 100%;
   background: #cccccc;
   height: 100%;
-  /*display: block;
-  -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-  animation-delay: 2s;
-  transition: 1s;*/
-
   moz-transform: scale(1.03, 1.03);
   -ms-transform: scale(1.03, 1.03);
   -webkit-transform: scale(1.03, 1.03);
@@ -3771,12 +3664,6 @@ i.fa-plus {
   cursor: pointer;
   background-color: #fbad3d !important;
 }
-.modal_effect_in {
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  -webkit-animation: beamer_pop-in 0.5s;
-}
 .leftCardHeader {
   font-size: 1.1rem;
   color: #0e7c95;
@@ -3794,7 +3681,7 @@ i.fa-plus {
   font-size: 12px;
 }
 .noticeContainer {
-  color: #e377d4;
+  color: #0e7c95;
   font-size: 12px;
   padding-left: 15px;
   padding-top: 15px;
@@ -4023,3 +3910,85 @@ i.fa-plus {
 .form_main_cont {
   padding: 15px;
 }
+.designPagesTop {
+  padding: 0px 30px 0px;
+}
+#mainPageLoading .ball-scale-multiple {
+  position: relative;
+  -webkit-transform: translateY(40vh) translateX(55vh);
+  transform: translateY(40vh) translateX(80vh);
+}
+.themeOptionContainer {
+  position: absolute;
+  bottom: 0;
+  right: 100;
+}
+#mobile_loadingSection {
+  height: 55vh;
+}
+#mobile_loadingSection .ball-scale-multiple {
+  position: relative;
+  -webkit-transform: translateY(-30px);
+  transform: translateY(150px) translateX(120px);
+}
+.chrome-picker {
+  -webkit-transition: -webkit-transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+input[type="text"] {
+  width: 100%;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  border: #ced4da 1px solid;
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+  border-collapse: separate;
+  display: inline-table;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding-left: 10px;
+}
+.ProductEffectResultDropDown {
+  margin-bottom: 10px;
+}
+.SingleModalProduct {
+  position: relative;
+}
+.searchDropModal{
+  position: absolute;
+  right: 0;
+  top: 1px;
+}
+.searchDropModal i {
+  font-size: 10px;
+}
+.HomeRightContainer{
+  overflow: hidden;
+}
+#HomePageContentContainer {
+  margin-top: -25px !important;
+}
+.leftCenterSec{
+  padding-bottom: 30px;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

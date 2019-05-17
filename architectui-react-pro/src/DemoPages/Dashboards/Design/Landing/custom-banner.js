@@ -36,7 +36,7 @@ class CustomBanner extends React.Component {
             ' CUSTOM BANNER '
           ) : (
             <img
-              style={{ maxWidth: '100%', maxHeight: '100%' }}
+              style={{ maxWidth: '100%', maxHeight: '100%', height: '100%' }}
               src={this.state.bannerImageUrl}
             />
           )}

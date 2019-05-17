@@ -488,7 +488,7 @@ class Products extends React.Component {
                 </p>
               </div>
             ) : (
-              <div>
+              <div id="HomePageContentContainer">
                 <Row>
                   <Col
                     md={4}

@@ -2,6 +2,7 @@
 // @ts-nocheck
 import React from 'react';
 import { ChromePicker } from 'react-color';
+import { DropdownList } from 'react-widgets';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 class SearchNavigationSettings extends React.Component {
@@ -142,7 +143,7 @@ class SearchNavigationSettings extends React.Component {
   };
 
   OnCollectionEditClick = e => {
-    this.props.NavTitle(e.target.value);
+    this.props.NavTitle(e);
   };
 
   swatch = {
@@ -150,7 +151,7 @@ class SearchNavigationSettings extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '15px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -196,18 +197,13 @@ class SearchNavigationSettings extends React.Component {
             <div className="col-sm-12 CollectionSettingEditTitle">
               <label>NAVIGATION BAR TITLE</label>
             </div>
-            <div
-              className="col-sm-12 CollectionMainEditTitleView"
-              onChange={this.OnCollectionEditClick.bind(this)}
-            >
-              <select
-                name=""
-                id="CollectionMainEditSelect"
-                value={this.props.NavTitleVal}
-              >
-                <option value="img"> Use Image </option>
-                <option value="text"> Use Text </option>
-              </select>
+            <div className="col-sm-12 CollectionMainEditTitleView">
+              <DropdownList
+                data={['Image', 'Text']}
+                onChange={this.OnCollectionEditClick.bind(this)}
+                value={this.props.NavTitleVal || 'Text'}
+                textField="name"
+              />
             </div>
           </div>
 
@@ -287,7 +283,7 @@ class SearchNavigationSettings extends React.Component {
           <div
             className="CollectionMainEditIconColor"
             style={{
-              display: this.props.NavTitleVal === 'img' ? 'none' : 'block'
+              display: this.props.NavTitleVal === 'Image' ? 'none' : 'block'
             }}
           >
             <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -331,7 +327,7 @@ class SearchNavigationSettings extends React.Component {
           <div
             className="CollectionMainEditImg"
             style={{
-              display: this.props.NavTitleVal === 'img' ? 'block' : 'none'
+              display: this.props.NavTitleVal === 'Image' ? 'block' : 'none'
             }}
           >
             <div className="col-sm-12 CollectionSettingEditImg">

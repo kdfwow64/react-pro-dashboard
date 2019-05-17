@@ -146,7 +146,7 @@ const homeLandingAllSettings = {
         cellStyle: 'Grid',
         cellTitleStyle: 'center',
         subTitleStyle: 'Please Set',
-        leftcellContentsType: 'vertical',
+        leftcellContentsType: 'Vertical',
         cellTitle: 'Collection Title',
         cellSubTitle: 'Collection Description',
         cellTitleColor: '#000000',
@@ -556,7 +556,7 @@ function getElementDefaultObject(e) {
       cellStyle: 'Grid',
       cellTitleStyle: 'center',
       subTitleStyle: 'Please Set',
-      leftcellContentsType: 'vertical',
+      leftcellContentsType: 'Vertical',
       cellTitle: 'Collection Title',
       cellSubTitle: 'Collection Description',
       cellTitleColor: '#000000',
@@ -747,7 +747,7 @@ class HomePageContent extends React.Component {
       clicked: false,
       bannerImageUrl: '',
       trialDays: null,
-      NavTitle: 'text',
+      NavTitle: 'Text',
       showMyStoreTextBox: 'none'
     };
   }
@@ -976,6 +976,7 @@ class HomePageContent extends React.Component {
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
+          this.homeTopTabsShowEditAlert.current.showSaveButton();
         });
     }
     this.allModalReferencesById[allSetting.itemId].current.applyAppliedSetting(
@@ -1033,6 +1034,7 @@ class HomePageContent extends React.Component {
       });
       axios.get(`${API_ROOT}/api/products`).then(res => {
         this.setState({ isLoaded: true });
+        this.homeTopTabsShowEditAlert.current.showSaveButton();
       });
     }
 
@@ -1070,6 +1072,7 @@ class HomePageContent extends React.Component {
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
+          this.homeTopTabsShowEditAlert.current.showSaveButton();
         });
     }
 
@@ -1108,6 +1111,7 @@ class HomePageContent extends React.Component {
         )
         .then(res1 => {
           this.setState({ isLoaded: true });
+          this.homeTopTabsShowEditAlert.current.showSaveButton();
         });
     }
 
@@ -1938,7 +1942,7 @@ class HomePageContent extends React.Component {
                                     ref={provided.innerRef}
                                     className="HomePageLeftBlock draggableContainer"
                                   >
-                                    <Row>
+                                    <Row className="leftCenterSec">
                                       <Col md="12">
                                         {this.state.landingTabAllDraggableItems.map(
                                           (item, index) => (
@@ -1987,7 +1991,7 @@ class HomePageContent extends React.Component {
                         <div id="mbl_bg_rit">
                           <div id="CollectionMainRightContainer">
                             <div className="buildStoreContainer">
-                              {this.state.NavTitle === 'text' && (
+                              {this.state.NavTitle === 'Text' && (
                                 <div className="BuildCollectionsTitleHint">
                                   <span>CLICK THE TITLE BELOW TO EDIT</span>
                                 </div>
@@ -2007,7 +2011,7 @@ class HomePageContent extends React.Component {
                                     }}
                                   />
 
-                                  {this.state.NavTitle === 'img' && (
+                                  {this.state.NavTitle === 'Image' && (
                                     <div id="CollectionEffectMyStoreTitle">
                                       <img
                                         src={this.state.bannerImageUrl}
@@ -2018,7 +2022,7 @@ class HomePageContent extends React.Component {
                                       />
                                     </div>
                                   )}
-                                  {this.state.NavTitle === 'text' && (
+                                  {this.state.NavTitle === 'Text' && (
                                     <div
                                       style={{
                                         color: this.state.navbartitleValue

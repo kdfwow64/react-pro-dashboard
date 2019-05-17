@@ -200,12 +200,6 @@ class Cart extends React.Component {
   };
 
   DisplaySaveBtn = () => {
-    /* this.setState({ navbgcolor: value.navbgcolor });
-    this.setState({ DropDownGetIconheader: value.DropDownGetIconheader });
-    this.setState({ naviconcolor: value.naviconcolor });
-    this.setState({ navtitlecolor: value.navtitlecolor });
-   // this.setState({ NavTitle: value.NavTitle });
-    this.setState({ NavTitleValue: value.NavTitleValue }); */
     this.homeTopTabsShowEditAlert.current.showSaveButton();
   };
 
@@ -233,7 +227,7 @@ class Cart extends React.Component {
                 </p>
               </div>
             ) : (
-              <Row>
+              <Row id="HomePageContentContainer">
                 <Col md={4} sm={6} id="CollectionMainContainer">
                   <PerfectScrollbar>
                     <SearchLeftSection

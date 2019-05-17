@@ -1280,6 +1280,7 @@ class ProductSettingsSection extends React.Component {
             isOpen={this.state.accordion[4]}
             data-parent="#accordion"
             id="exampleAccordion5"
+            style={{ paddingBottom: '15px' }}
           >
             <div
               className="ProductSilderActiveColor"

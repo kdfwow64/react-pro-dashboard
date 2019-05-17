@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { ChromePicker } from 'react-color';
+import { DropdownList } from 'react-widgets';
 import ProductAddCart from './product-details-elements/product-add-cart';
 import ProductDescription from './product-details-elements/product-description';
 import ProductExternalLink from './product-details-elements/product-external-link';
@@ -198,8 +199,8 @@ class ProductcustomizePage extends React.Component {
   }
 
   OnCollectionEditClick = e => {
-    this.setState({ NavTitle: e.target.value });
-    this.props.navBarTitle(e.target.value);
+    this.setState({ NavTitle: e });
+    this.props.navBarTitle(e);
   };
 
   navbghandleClick = () => {
@@ -221,7 +222,7 @@ class ProductcustomizePage extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '15px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -270,8 +271,6 @@ class ProductcustomizePage extends React.Component {
           FavButtonRight={this.props.FavButtonRight}
           DropDownGetIcon={this.props.DropDownGetIcon}
           productImage={this.props.productImageValue}
-
-          // productImage={this.state.productImage}
         />
       );
     }
@@ -409,13 +408,6 @@ class ProductcustomizePage extends React.Component {
               className="ProductResult"
               style={{ display: this.state.DisplayProduct }}
             >
-              {/* <input
-                type="text"
-                onKeyPress={this.SearchProduct}
-                defaultValue=""
-                value={this.state.searchText}
-                style={{ margin: '5px', width: '96%' }}
-              /> */}
               <div className="mainProductListSearch">
                 {this.state.CollectionsProductsData.map((item3, index3) => {
                   return (
@@ -458,13 +450,13 @@ class ProductcustomizePage extends React.Component {
                 id="CollectionEffectMyStoreTitle"
                 style={{ color: this.props.navtitlecolorValue || '#fff' }}
               >
-                {this.props.navBarTitleValue === 'img' && (
+                {this.props.navBarTitleValue === 'Image' && (
                   <img
                     src={this.props.bannerImageUrl}
                     style={{ maxHeight: '30px', maxWidth: '90px' }}
                   />
                 )}
-                {this.props.navBarTitleValue === 'text' && 'PRODUCT'}
+                {this.props.navBarTitleValue === 'Text' && 'PRODUCT'}
                 {!this.props.navBarTitleValue && 'PRODUCT'}
               </div>
               <div
@@ -495,18 +487,13 @@ class ProductcustomizePage extends React.Component {
                     <div className="col-sm-12 CollectionSettingEditTitle">
                       <label>NAVIGATION BAR TITLE </label>
                     </div>
-                    <div
-                      className="col-sm-12 CollectionMainEditTitleView"
-                      onChange={this.OnCollectionEditClick}
-                    >
-                      <select
-                        name=""
-                        id="CollectionMainEditSelect"
-                        value={this.props.navBarTitleValue || 'text'}
-                      >
-                        <option value="img">Use Image</option>
-                        <option value="text">Use Text</option>
-                      </select>
+                    <div className="col-sm-12 CollectionMainEditTitleView">
+                      <DropdownList
+                        data={['Image', 'Text']}
+                        onChange={this.OnCollectionEditClick}
+                        value={this.props.navBarTitleValue || 'Text'}
+                        textField="name"
+                      />
                     </div>
                   </div>
 
@@ -604,7 +591,9 @@ class ProductcustomizePage extends React.Component {
                     className="CollectionMainEditIconColor"
                     style={{
                       display:
-                        this.props.navBarTitleValue === 'img' ? 'none' : 'block'
+                        this.props.navBarTitleValue === 'Image'
+                          ? 'none'
+                          : 'block'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditIconColor">
@@ -649,7 +638,9 @@ class ProductcustomizePage extends React.Component {
                     className="CollectionMainEditImg"
                     style={{
                       display:
-                        this.props.navBarTitleValue === 'img' ? 'block' : 'none'
+                        this.props.navBarTitleValue === 'Image'
+                          ? 'block'
+                          : 'none'
                     }}
                   >
                     <div className="col-sm-12 CollectionSettingEditImg">

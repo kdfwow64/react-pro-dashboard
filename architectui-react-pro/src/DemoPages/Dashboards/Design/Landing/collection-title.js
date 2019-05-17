@@ -101,13 +101,13 @@ class CollectionTitle extends React.Component {
         style={{
           backgroundColor: this.state.cellBGColor,
           height:
-            this.state.leftcellContentsType === 'horizontal' ? 'auto' : '500px'
+            this.state.leftcellContentsType === 'Horizontal' ? 'auto' : '500px'
         }}
       >
         <div className="FifthDropGridContainer">
           <div
             className={
-              this.state.leftcellContentsType === 'horizontal'
+              this.state.leftcellContentsType === 'Horizontal'
                 ? 'productTitleFixed'
                 : ''
             }
@@ -135,13 +135,13 @@ class CollectionTitle extends React.Component {
           </div>
           <div
             className={
-              this.state.leftcellContentsType === 'horizontal'
+              this.state.leftcellContentsType === 'Horizontal'
                 ? 'productListoverflow'
                 : ''
             }
             style={{
               width:
-                this.state.leftcellContentsType === 'horizontal'
+                this.state.leftcellContentsType === 'Horizontal'
                   ? FullPxWidth
                   : ''
             }}
@@ -150,7 +150,7 @@ class CollectionTitle extends React.Component {
               return (
                 <div
                   className={
-                    this.state.leftcellContentsType === 'horizontal'
+                    this.state.leftcellContentsType === 'Horizontal'
                       ? 'productBox'
                       : ''
                   }
@@ -159,7 +159,7 @@ class CollectionTitle extends React.Component {
                   <div
                     style={{
                       display:
-                        this.state.leftcellContentsType === 'vertical'
+                        this.state.leftcellContentsType === 'Vertical'
                           ? 'block'
                           : 'none'
                     }}
@@ -258,7 +258,7 @@ class CollectionTitle extends React.Component {
                   <div
                     style={{
                       display:
-                        this.state.leftcellContentsType === 'horizontal'
+                        this.state.leftcellContentsType === 'Horizontal'
                           ? 'block'
                           : 'none',
                       overflowX: 'scroll',

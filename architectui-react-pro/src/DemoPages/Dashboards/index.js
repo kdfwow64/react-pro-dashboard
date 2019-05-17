@@ -25,6 +25,9 @@ import Referral from './Referral';
 import SalesDashboard from './Sales';
 import SettingsDashboard from './Settings';
 import Tutorials from './Tutorials';
+/* var url = window.location + '';
+var split_url = url.split("/");
+var lastName = split_url[split_url.length-1]; */
 
 const Dashboards = ({ match }) => (
   <Fragment>
@@ -33,6 +36,53 @@ const Dashboards = ({ match }) => (
     <div className="app-main">
       <AppSidebar />
       <div className="app-main__outer">
+        {
+          // lastName === 'analytics' &&
+          <div className="app-main__inner">
+            <Route
+              path={`${match.url}/analytics`}
+              component={AnalyticsDashboard}
+            />
+            <Route path={`${match.url}/sales`} component={SalesDashboard} />
+            <Route
+              path={`${match.url}/commerce`}
+              component={CommerceDashboard}
+            />
+            <Route path={`${match.url}/crm`} component={CRMDashboard} />
+            <Route path={`${match.url}/publish`} component={Publish} />
+            <Route
+              path={`${match.url}/settings`}
+              component={SettingsDashboard}
+            />
+            <Route
+              path={`${match.url}/integrations`}
+              component={Integrations}
+            />
+            <Route path={`${match.url}/tutorials`} component={Tutorials} />
+            <Route
+              path={`${match.url}/push-notifications`}
+              component={PushNotifications}
+            />
+            <Route
+              path={`${match.url}/push-notifications-scheduled`}
+              component={ScheduledNotifications}
+            />
+            <Route path={`${match.url}/preview-app`} component={PreviewApp} />
+            <Route
+              path={`${match.url}/get-a-free-month`}
+              component={Referral}
+            />
+            <Route
+              path={`${match.url}/minimal-dashboard-1`}
+              component={MinimalDashboard1}
+            />
+            <Route
+              path={`${match.url}/minimal-dashboard-2`}
+              component={MinimalDashboard2}
+            />
+          </div>
+        }
+
         <div className="designPagesTop">
           <Route path={`${match.url}/design`} component={DesignApp} />
           <Route
@@ -50,37 +100,6 @@ const Dashboards = ({ match }) => (
           <Route path={`${match.url}/design-user`} component={DesignUser} />
           <Route path={`${match.url}/design-cart`} component={DesignCart} />
           <Route path={`${match.url}/design-search`} component={DesignSearch} />
-        </div>
-        <div className="app-main__inner">
-          <Route
-            path={`${match.url}/analytics`}
-            component={AnalyticsDashboard}
-          />
-          <Route path={`${match.url}/sales`} component={SalesDashboard} />
-          <Route path={`${match.url}/commerce`} component={CommerceDashboard} />
-          <Route path={`${match.url}/crm`} component={CRMDashboard} />
-          <Route path={`${match.url}/publish`} component={Publish} />
-          <Route path={`${match.url}/settings`} component={SettingsDashboard} />
-          <Route path={`${match.url}/integrations`} component={Integrations} />
-          <Route path={`${match.url}/tutorials`} component={Tutorials} />
-          <Route
-            path={`${match.url}/push-notifications`}
-            component={PushNotifications}
-          />
-          <Route
-            path={`${match.url}/push-notifications-scheduled`}
-            component={ScheduledNotifications}
-          />
-          <Route path={`${match.url}/preview-app`} component={PreviewApp} />
-          <Route path={`${match.url}/get-a-free-month`} component={Referral} />
-          <Route
-            path={`${match.url}/minimal-dashboard-1`}
-            component={MinimalDashboard1}
-          />
-          <Route
-            path={`${match.url}/minimal-dashboard-2`}
-            component={MinimalDashboard2}
-          />
         </div>
 
         {/* <AppFooter/> */}

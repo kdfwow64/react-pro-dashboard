@@ -3,7 +3,17 @@
 import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import reactCSS from 'reactcss';
-import { Col, Row, Card, CardBody, CardTitle, CardHeader } from 'reactstrap';
+import {
+  Col,
+  Row,
+  Card,
+  CardBody,
+  CardTitle,
+  CardHeader,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+import { DropdownList } from 'react-widgets';
 import IconList from '../icon-list';
 
 class CollectioinSettingSection extends React.Component {
@@ -34,7 +44,6 @@ class CollectioinSettingSection extends React.Component {
     this.gridSelectProductTitleCallback = this.gridSelectProductTitleCallback.bind(
       this
     );
-    this.gridSelectPiceCallback = this.gridSelectPiceCallback.bind(this);
 
     this.state = {
       displayColorPicker: false,
@@ -51,17 +60,13 @@ class CollectioinSettingSection extends React.Component {
   }
 
   gridSelectOptionCallback = e => {
-    this.setState({ SelectedOption: e.target.value });
-    this.props.SelectedOption(e.target.value);
+    this.setState({ SelectedOption: e });
+    this.props.SelectedOption(e);
   };
 
   gridSelectProductTitleCallback = e => {
-    this.setState({ gridSelectProductTitle: e.target.value });
-    this.props.gridSelectProductTitleCall(e.target.value);
-  };
-
-  gridSelectPiceCallback = e => {
-    this.props.gridSelectPriceTitleCallback(e.target.value);
+    this.setState({ gridSelectProductTitle: e });
+    this.props.gridSelectProductTitleCall(e);
   };
 
   DropDownGetIconCellectionListActionCallback = icon => {
@@ -175,7 +180,7 @@ class CollectioinSettingSection extends React.Component {
     display: 'inline-block',
     position: 'absolute',
     left: '4px',
-    top: '2px'
+    top: '4px'
   };
 
   popover = {
@@ -204,15 +209,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>PAGE STYLE</label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
-                  onChange={this.gridSelectOptionCallback}
+                <DropdownList
+                  data={['Grid', 'List']}
                   value={this.props.SelectedOptionValue}
-                >
-                  <option value="Grid"> Grid </option>
-                  <option value="List"> List </option>
-                </select>
+                  onChange={this.gridSelectOptionCallback}
+                  textField="name"
+                />
               </div>
             </div>
 
@@ -224,16 +226,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>NO. IMAGES PER ROW </label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
-                  onChange={this.props.CollectionGridRowOptionCallback}
+                <DropdownList
+                  data={['1', '2', '3']}
                   value={this.props.CollectionGridRowValue}
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+                  onChange={this.props.CollectionGridRowOptionCallback}
+                  textField="name"
+                />
               </div>
             </div>
 
@@ -245,15 +243,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>PRODUCT TITLE </label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
+                <DropdownList
+                  data={['Show', 'Hide']}
                   onChange={this.gridSelectProductTitleCallback}
                   value={this.props.gridSelectProdTitleValue}
-                >
-                  <option value="Show">Show</option>
-                  <option value="Hide">Hide</option>
-                </select>
+                  textField="name"
+                />
               </div>
             </div>
 
@@ -265,15 +260,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>PRODUCT PRICE</label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
-                  onChange={this.gridSelectPiceCallback}
+                <DropdownList
+                  data={['Show', 'Hide']}
+                  onChange={this.props.gridSelectPriceTitleCallback}
                   value={this.props.gridSelectProdPriceValue}
-                >
-                  <option value="Show">Show</option>
-                  <option value="Hide">Hide</option>
-                </select>
+                  textField="name"
+                />
               </div>
             </div>
 
@@ -285,18 +277,12 @@ class CollectioinSettingSection extends React.Component {
                 <label>TITLE & PRICE ALIGNMENT</label>
               </div>
               <div className="col-sm-12 CollectionSettingOption">
-                <select
-                  name=""
-                  id="CollectionDropDown"
-                  onChange={e =>
-                    this.props.gridtitleAlignCallback(e.target.value)
-                  }
+                <DropdownList
+                  data={['Center', 'Left', 'Right']}
+                  onChange={this.props.gridtitleAlignCallback}
                   value={this.props.gridTitleValue}
-                >
-                  <option value="Center">Center</option>
-                  <option value="Left">Left</option>
-                  <option value="Right">Right</option>
-                </select>
+                  textField="name"
+                />
               </div>
             </div>
 
@@ -345,7 +331,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.CellBGColorValue}
+                  value={this.props.CellBGColorValue}
                   defaultValue={this.props.CellBGColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -387,7 +373,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.CellseparatorColorValue}
+                  value={this.props.CellseparatorColorValue}
                   defaultValue={this.props.CellseparatorColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -447,7 +433,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.CelliconColorValue}
+                  value={this.props.CelliconColorValue}
                   defaultValue={this.props.CelliconColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -487,7 +473,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.productborderColorValue}
+                  value={this.props.productborderColorValue}
                   defaultValue={this.props.productborderColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -526,7 +512,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.producttitleColorValue}
+                  value={this.props.producttitleColorValue}
                   defaultValue={this.props.producttitleColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
@@ -566,7 +552,7 @@ class CollectioinSettingSection extends React.Component {
               <div className="col-sm-12 CollectionSettingtitle">
                 <input
                   type="text"
-                  // value={this.props.pricetitleColorValue}
+                  value={this.props.pricetitleColorValue}
                   defaultValue={this.props.pricetitleColorValue}
                   id="CollectionDropDown"
                   className="textColorCode"
