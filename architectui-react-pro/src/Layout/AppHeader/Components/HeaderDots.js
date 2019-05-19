@@ -48,7 +48,6 @@ function getTabs() {
 class HeaderDots extends React.Component {
   constructor(props) {
     super(props);
-    // this.getDeployedAppVersion = this.getDeployedAppVersion.bind(this);
     this.state = {
       active: false,
       appleAppVersion: '',
@@ -62,7 +61,6 @@ class HeaderDots extends React.Component {
 
   getDeployedAppVersion() {
     Axios.get(`${API_ROOT}/api/app-deployment-details`).then(response => {
-      console.log(response);
       const data = response.data;
       this.setState({ appleAppVersion: data.appleAppVersion });
     });
