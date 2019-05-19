@@ -29,7 +29,7 @@ export default class WizardStep3 extends React.Component {
       <Fragment>
         <div className="form-wizard-content">
           <div className="no-results">
-            <div className="results-subtitle mt-4">Finished!</div>
+            <div className="results-subtitle mt-4">App Stores</div>
             <div className="results-title">
               Select the platform to publish the app to
             </div>
