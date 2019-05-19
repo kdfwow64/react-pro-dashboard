@@ -148,25 +148,24 @@ class HeaderDots extends React.Component {
                             </Nav>
                         </DropdownMenu>
                     </UncontrolledDropdown> */}
-          <UncontrolledDropdown>
-            <DropdownToggle className="p-0 mr-2" color="link">
-              <div
-                id="beamerButton"
-                className="icon-wrapper icon-wrapper-alt rounded-circle"
-              >
-                <div className="icon-wrapper-bg bg-danger" />
-                <Ionicon
-                  beat
-                  color="#d92550"
-                  fontSize="23px"
-                  icon="md-notifications-outline"
-                />
-                <div className="badge-dot badge-dot-sm badge-danger">
+          {/* <UncontrolledDropdown> */}
+          {/* <DropdownToggle className="p-0 mr-2" color="link"> */}
+          <div
+            id="beamerButton"
+            className="icon-wrapper icon-wrapper-alt rounded-circle"
+          >
+            <div className="icon-wrapper-bg bg-danger" />
+            <Ionicon
+              color="#d92550"
+              fontSize="23px"
+              icon="md-notifications-outline"
+            />
+            {/* <div className="badge-dot badge-dot-sm badge-danger">
                   Notifications
-                </div>
-              </div>
-            </DropdownToggle>
-            {/* <DropdownMenu right className="dropdown-menu-xl rm-pointers">
+                </div> */}
+          </div>
+          {/* </DropdownToggle> */}
+          {/* <DropdownMenu right className="dropdown-menu-xl rm-pointers">
                             <div className="dropdown-menu-header mb-0">
                                 <div className="dropdown-menu-header-inner bg-deep-blue">
                                     <div className="menu-header-image opacity-1"
@@ -191,7 +190,7 @@ class HeaderDots extends React.Component {
                                 </NavItem>
                             </Nav>
                         </DropdownMenu> */}
-          </UncontrolledDropdown>
+          {/* </UncontrolledDropdown> */}
           {/* <UncontrolledDropdown>
                         <DropdownToggle className="p-0 mr-2" color="link">
                             <div className="icon-wrapper icon-wrapper-alt rounded-circle">
