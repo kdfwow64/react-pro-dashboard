@@ -1,15 +1,7 @@
+import Axios from 'axios';
 import React, { Fragment } from 'react';
 import Ionicon from 'react-ionicons';
-import Tabs from 'react-responsive-tabs';
-import {
-  Button,
-  DropdownMenu,
-  DropdownToggle,
-  Nav,
-  NavItem,
-  UncontrolledDropdown
-} from 'reactstrap';
-import city3 from '../../../assets/utils/images/dropdown-header/city3.jpg';
+import { API_ROOT } from '../../../utilities/api-config';
 // Dropdown Tabs Content
 import ChatExample from './TabsContent/ChatExample';
 import SysErrEx from './TabsContent/SystemExample';
@@ -56,9 +48,24 @@ function getTabs() {
 class HeaderDots extends React.Component {
   constructor(props) {
     super(props);
+    // this.getDeployedAppVersion = this.getDeployedAppVersion.bind(this);
     this.state = {
-      active: false
+      active: false,
+      appleAppVersion: '',
+      googleAppVersion: ''
     };
+  }
+
+  componentDidMount() {
+    this.getDeployedAppVersion();
+  }
+
+  getDeployedAppVersion() {
+    Axios.get(`${API_ROOT}/api/app-deployment-details`).then(response => {
+      console.log(response);
+      const data = response.data;
+      this.setState({ appleAppVersion: data.appleAppVersion });
+    });
   }
 
   render() {
@@ -149,6 +156,16 @@ class HeaderDots extends React.Component {
                         </DropdownMenu>
                     </UncontrolledDropdown> */}
           {/* <UncontrolledDropdown> */}
+
+          {this.state.appleAppVersion !== '' && (
+            <div className="widget-content-left mr-3 header-user-info">
+              <div className="widget-heading">Current App Version</div>
+              <div className="widget-subheading">
+                {this.state.appleAppVersion}
+              </div>
+            </div>
+          )}
+
           {/* <DropdownToggle className="p-0 mr-2" color="link"> */}
           <div
             id="beamerButton"
