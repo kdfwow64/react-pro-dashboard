@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Fragment } from 'react';
 import { Field } from 'redux-form';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Snackbar } from '@material-ui/core';
 import {
   Button,
   Card,
@@ -44,7 +45,8 @@ export default class PushNotifications extends React.Component {
       scheduleLater: false,
       scheduleDateTime: new Date(),
       scheduledNotifications: [],
-      showNotification: 'none'
+      showNotification: 'none',
+      apiInProgress: false
     };
   }
 
@@ -114,6 +116,7 @@ export default class PushNotifications extends React.Component {
         deeplinkHandle: this.state.deeplinkHandle
       };
     }
+    this.setState({ apiInProgress: true });
     axios
       .post(`${API_ROOT}/api/v1/send-notification`, body)
       .then(resp => {
@@ -128,9 +131,15 @@ export default class PushNotifications extends React.Component {
           this.setState({ snackbar_open: true });
           //   sendSlackMessage('Failed to send Push notification', resp.data);
         }
+        this.setState({ apiInProgress: false });
       })
       .catch(e => {
+        this.setState({
+          snackbar_message:
+            'Error sending notification. Our team has been notified.'
+        });
         this.setState({ snackbar_open: true });
+        this.setState({ apiInProgress: false });
       });
   }
 
@@ -359,6 +368,7 @@ export default class PushNotifications extends React.Component {
                     </Row>
                     <Button
                       color="primary"
+                      disabled={this.state.apiInProgress}
                       onClick={() => {
                         this.sendPushNotification();
                       }}
@@ -463,6 +473,17 @@ export default class PushNotifications extends React.Component {
               </Col>
             </Row>
           </Container>
+          <Snackbar
+            style={{ marginBottom: '10px' }}
+            open={this.state.snackbar_open}
+            ContentProps={{ style: { fontSize: '20px' } }}
+            // eslint-disable-next-line jsx-a11y/accessible-emoji
+            message={<span>{this.state.snackbar_message}</span>}
+            onClose={() => {
+              this.setState({ snackbar_open: false });
+            }}
+            autoHideDuration={3000}
+          />
         </ReactCSSTransitionGroup>
       </Fragment>
     );
