@@ -1,21 +1,25 @@
-import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import Axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Card, CardBody, Col, Row, Input, Button } from 'reactstrap';
-import { saveForm } from '../../../utilities/app-settings';
+import Loader from 'react-loaders';
+import { connect } from 'react-redux';
+import { Card, CardBody, Col, Row } from 'reactstrap';
+import { reduxForm } from 'redux-form';
+// import { onChangeSubmit } from "../../../../shared/util/save-form-util";
+import PageTitle from '../../../Layout/AppMain/PageTitle';
 import { getGoLive, saveGoLive } from '../../../reducers/go-live';
+import { API_ROOT } from '../../../utilities/api-config';
+import { saveForm } from '../../../utilities/app-settings';
 import {
   triggerBuildAndroid,
   triggerBuildiOS
 } from '../../../utilities/trigger-build';
-// import { onChangeSubmit } from "../../../../shared/util/save-form-util";
-import PageTitle from '../../../Layout/AppMain/PageTitle';
 import Step1 from './Steps/Step1';
 import Step2 from './Steps/Step2';
 import Step3 from './Steps/Step3';
 import Step4 from './Steps/Step4';
 import Step5 from './Steps/Step5';
+import SubscriptionPlan from './SubscriptionPlan';
 import MultiStep from './Wizard';
 
 const steps = [
@@ -31,7 +35,16 @@ const getItem = item => {
 };
 
 class Publish extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subscribed: undefined
+    };
+  }
+
   componentDidMount() {
+    this.getPlanSubscribedTo();
     this.props.getGoLive();
   }
 
@@ -41,10 +54,55 @@ class Publish extends React.Component {
 
   saveRef = ref => (this.ref = ref);
 
+  getPlanSubscribedTo() {
+    this.setState({ subscribed: undefined });
+    Axios.get(`${API_ROOT}/api/mobile-shop-details`)
+      .then(response => {
+        console.log(response.data);
+
+        const data = response.data.subscriptionPlan;
+        if (data === null || data === undefined) {
+          this.setState({ subscribed: false });
+        } else {
+          //  sendSlackMessage('SUBMIT TO APP STORE CLICKED');
+          //  this.props.triggerBuildiOS();
+          this.setState({ subscribed: true });
+        }
+      })
+      .catch(e => {
+        this.setState({ subscribed: false });
+      });
+  }
+
   render() {
     const { handleSubmit } = this.props;
-    console.log(this.props);
-    console.log(this.props.valid);
+
+    let ui;
+    if (this.state.subscribed === undefined) {
+      ui = <Loader color="#0e7c95" type="ball-scale" />;
+    } else if (this.state.subscribed) {
+      ui = (
+        <div className="forms-wizard-vertical">
+          <form ref={this.setFormRef} onSubmit={handleSubmit}>
+            {/* <Input tag={Field} component="input" name="appName" defaultValue="test"/>
+        <Button onSubmit={handleSubmit}>Save</Button> */}
+            <MultiStep
+              showNavigation={this.props.valid}
+              steps={steps}
+              handleSubmit={handleSubmit}
+            />
+          </form>
+        </div>
+      );
+    } else {
+      ui = (
+        <SubscriptionPlan
+          onClose={() => {
+            //   this.setState({ subscribed: true });
+          }}
+        />
+      );
+    }
 
     return (
       <Fragment>
@@ -65,19 +123,7 @@ class Publish extends React.Component {
             <Row>
               <Col md="12">
                 <Card className="main-card mb-3">
-                  <CardBody>
-                    <div className="forms-wizard-vertical">
-                      <form ref={this.setFormRef} onSubmit={handleSubmit}>
-                        {/* <Input tag={Field} component="input" name="appName" defaultValue="test"/>
-                        <Button onSubmit={handleSubmit}>Save</Button> */}
-                        <MultiStep
-                          showNavigation={this.props.valid}
-                          steps={steps}
-                          handleSubmit={handleSubmit}
-                        />
-                      </form>
-                    </div>
-                  </CardBody>
+                  <CardBody>{ui}</CardBody>
                 </Card>
               </Col>
             </Row>
