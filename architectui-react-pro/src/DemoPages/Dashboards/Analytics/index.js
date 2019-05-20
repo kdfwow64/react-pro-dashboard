@@ -44,8 +44,6 @@ export default class AnalyticsDashboard extends Component {
   }
 
   componentDidMount() {
-    // TODO: Fetch latest version here
-
     // Active users
     axios
       .get(`${API_ROOT}/api/v1/app-center/analytics/active-device-counts`)
