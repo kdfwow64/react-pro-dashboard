@@ -43,6 +43,9 @@ class Publish extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
+    console.log(this.props);
+    console.log(this.props.valid);
+
     return (
       <Fragment>
         <ReactCSSTransitionGroup
@@ -65,7 +68,10 @@ class Publish extends React.Component {
                   <CardBody>
                     <div className="forms-wizard-vertical">
                       <form ref={this.setFormRef} onSubmit={handleSubmit}>
-                        <MultiStep showNavigation steps={steps} />
+                        <MultiStep
+                          showNavigation={this.props.valid}
+                          steps={steps}
+                        />
                       </form>
                     </div>
                   </CardBody>
@@ -106,14 +112,17 @@ const goLiveForm = reduxForm({
     // get App Icon / App Splash / json file urls
     if (getItem('appIconFileName')) {
       values.appIconFileName = getItem('appIconFileName');
+      localStorage.removeItem('appIconFileName');
     }
     if (getItem('splashScreenFileName')) {
       values.splashScreenFileName = getItem('splashScreenFileName');
+      localStorage.removeItem('splashScreenFileName');
     }
     if (getItem('playStoreJsonFile')) {
       values.playStoreJsonFile = getItem('playStoreJsonFile');
+      localStorage.removeItem('playStoreJsonFile');
     }
-
+    console.log(values);
     dispatch(saveGoLive(values));
   }
 })(Publish);

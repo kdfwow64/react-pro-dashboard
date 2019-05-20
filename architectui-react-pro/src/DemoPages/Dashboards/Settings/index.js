@@ -1,4 +1,5 @@
 import { Grid, Snackbar } from '@material-ui/core';
+import axios from 'axios';
 // import Radium, { StyleRoot } from 'radium';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -69,7 +70,7 @@ export const renderTextField = ({
   //     {...custom}
   //   />
 );
-
+let sortBy;
 export const renderSelectField = ({
   options,
   input,
@@ -80,10 +81,16 @@ export const renderSelectField = ({
 }) => (
   <DropdownList
     data={options}
-    value={input.value}
+    // value={input.value}
+    name="collectionSortOrder"
     allowCreate="onFilter"
     onCreate={name => this.handleCreate(name)}
-    onChange={value => input.onChange(value)}
+    valueField="value"
+    textField="label"
+    onChange={value => {
+      sortBy = value.value;
+      // input.onChange(value)
+    }}
     // textField="name"
   />
   //   <Select
@@ -102,13 +109,13 @@ class SettingsDashboard extends React.Component {
     super(props);
 
     this.state = {
-      snackbarOpen: false
+      snackbarOpen: false,
+      sortBy: 'Alphabetical'
     };
   }
 
   componentDidMount() {
     this.props.getAppSettings();
-    // sendSlackMessage('App Settings page loaded');
   }
 
   componentWillReceiveProps(nextProps) {
@@ -123,13 +130,22 @@ class SettingsDashboard extends React.Component {
 
   saveRef = ref => (this.ref = ref);
 
+  onChangeSubmit = data => {
+    console.log(data);
+    this.setState({
+      sortBy: data
+    });
+  };
+
   render() {
     const {
       handleSubmit,
       hideSoldOutProductsValue,
       androidPayEnabledValue,
+      collectionSortOrder,
       loading
     } = this.props;
+    // console.log(collectionSortOrder);
 
     // const styles = {
     //   apiUrl: {
@@ -170,22 +186,38 @@ class SettingsDashboard extends React.Component {
                     </p>
                   </Col>
                   <Col>
-                    <Field
-                      name="collectionSortOrder"
+                    {/* <Field 
                       component={renderSelectField}
                       options={[
-                        'Alphabetical',
-                        'Recently Updated'
-                        // { label: "Alphabetical", value: "ALPHABETICAL" },
-                        // {
-                        //   label: "Recently Updated",
-                        //   value: "RECENTLY_UPDATED"
-                        // }
-                      ]}
-                      value="Alphabetical"
+                        { label: "Alphabetical", value: "ALPHABETICAL" },
+                        {
+                          label: "Recently Updated",
+                          value: "RECENTLY_UPDATED"
+                        }
+                      ]} 
                       ref={this.saveRef}
-                      //   onChange={onChangeSubmit(handleSubmit)}
-                      withRef
+                      onChange={this.onChangeSubmit.bind(handleSubmit)}
+                    /> */}
+                    <DropdownList
+                      data={[
+                        { label: 'Alphabetical', value: 'ALPHABETICAL' },
+                        {
+                          label: 'Recently Updated',
+                          value: 'RECENTLY_UPDATED'
+                        }
+                      ]}
+                      defaultValue={this.state.sortBy}
+                      name="collectionSortOrder"
+                      ref={this.saveRef}
+                      allowCreate="onFilter"
+                      // onCreate={name => this.handleCreate(name)}
+                      valueField="value"
+                      textField="label"
+                      onChange={value => {
+                        sortBy = value.value;
+                        // input.onChange(value)
+                      }}
+                      // textField="name"
                     />
                   </Col>
                 </Row>
@@ -197,7 +229,7 @@ class SettingsDashboard extends React.Component {
                   component={renderApplePayEnabled}
                   ref={this.saveRef}
                   onChange={onChangeSubmit(handleSubmit)}
-                  withRef
+                  
                 /> */}
 
             {/* <Field
@@ -271,7 +303,6 @@ class SettingsDashboard extends React.Component {
                   onChange={onChangeSubmit(handleSubmit)}
                   withRef
                 /> */}
-
             {/* {hideSoldOutProductsValue === true ? (
                   <StyleRoot>
                     <div style={styles.apiUrl}>
@@ -528,21 +559,23 @@ class SettingsDashboard extends React.Component {
                   </Grid>
                 </Grid>
               </Card> */}
-          </form>
-          <div
-            className="Polaris-Card__Footer"
-            style={{ padding: '15px 0rem 2rem' }}
-          >
-            <Button
-              color="primary"
-              onClick={() => {
-                this.setState({ snackbarOpen: true });
-              }}
-              loading={loading}
+
+            <div
+              className="Polaris-Card__Footer"
+              style={{ padding: '15px 0rem 2rem' }}
             >
-              Save
-            </Button>
-          </div>
+              <Button
+                color="primary"
+                type="submit"
+                onClick={() => {
+                  this.setState({ snackbarOpen: true });
+                }}
+                loading={String(loading)}
+              >
+                Save
+              </Button>
+            </div>
+          </form>
           <Snackbar
             style={{ marginBottom: '10px' }}
             open={this.state.snackbarOpen}
@@ -560,6 +593,7 @@ class SettingsDashboard extends React.Component {
 }
 
 const selector = formValueSelector('appSettings'); // <-- same as form name
+
 const mapStateToProps = storeState => ({
   initialValues: storeState.appSettings.appSettings,
   snackbarOpen: storeState.appSettings.saved,
@@ -576,10 +610,12 @@ const mapDispatchToProps = {
 
 const appSettingsForm = reduxForm({
   form: 'appSettings',
-  enableReinitialize: true
-  // onSubmit: (values, dispatch) => {
-  //   dispatch(saveAppSettings(values));
-  // }
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
+    values.collectionSortOrder = sortBy;
+
+    dispatch(saveAppSettings(values));
+  }
 })(SettingsDashboard);
 
 const reduxConnect = connect(

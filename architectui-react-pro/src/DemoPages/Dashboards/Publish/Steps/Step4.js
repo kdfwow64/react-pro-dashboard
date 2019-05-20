@@ -112,7 +112,7 @@ export default class WizardStep4 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               name="appleTeamName"
               id="exampleEmail2"
               placeholder="Provide your Apple Team name"
@@ -125,7 +125,7 @@ export default class WizardStep4 extends React.Component {
               label="Add Play Store JSON File"
               acceptedFiles={['application/json']}
               tag={Field}
-              component="input"
+              component={Input}
               // fileName={this.props.bannerImageUrl}
               name="playStoreJsonFile"
               previewImageHeight="100px"

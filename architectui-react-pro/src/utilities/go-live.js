@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         loading: true
       };
     case FAILURE(ACTION_TYPES.GET_GO_LIVE):
-      console.log('go live get success');
+      console.log('go live get failure');
       return {
         ...state,
         loading: false,

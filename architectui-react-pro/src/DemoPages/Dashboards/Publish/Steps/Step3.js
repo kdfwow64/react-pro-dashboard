@@ -37,7 +37,7 @@ export default class WizardStep3 extends React.Component {
             <div className="text-center">
               <Button
                 color="success"
-                // type="submit"
+                type="button"
                 outline
                 size="lg"
                 active={this.state.appleSelected}
@@ -48,7 +48,7 @@ export default class WizardStep3 extends React.Component {
               </Button>
               <Button
                 color="success"
-                // type="submit"
+                type="button"
                 outline
                 size="lg"
                 active={this.state.googleSelected}

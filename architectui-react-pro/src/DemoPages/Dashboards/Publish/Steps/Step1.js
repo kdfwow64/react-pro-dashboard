@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { FormGroup, Input, Label } from 'reactstrap';
-import { Field } from 'redux-form';
+import { FormGroup, Input, Label, FormFeedback } from 'reactstrap';
+import { Field, reduxForm } from 'redux-form';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
 
 export default class WizardStep1 extends React.Component {
@@ -15,13 +15,20 @@ export default class WizardStep1 extends React.Component {
           <FormGroup>
             <Label for="exampleEmail55">App Name</Label>
             <Input
-              type="text"
-              tag={Field}
-              component="input"
+              id="exampleEmail55"
               name="appName"
+              tag={Field}
+              component={Input}
+              type="text"
               placeholder="Your app name"
               defaultValue="App name"
+              required
+              onChange={e => {
+                console.log(e.target.value);
+                console.log(this.props);
+              }}
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -29,12 +36,13 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               name="appShortDescription"
               id="exampleAddress"
               placeholder=""
               defaultValue=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -42,12 +50,13 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="textarea"
               tag={Field}
-              component="input"
+              component={Input}
               name="appDescription"
               id="exampleAddress2"
               placeholder=""
               defaultValue=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -55,12 +64,13 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               name="keywords"
               id="keywords"
               placeholder=""
               defaultValue=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -70,7 +80,7 @@ export default class WizardStep1 extends React.Component {
               acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
               tag={Field}
-              component="input"
+              component={Input}
               name="appIconFileName"
               previewImageHeight="100px"
               previewImageWidth="100px"
@@ -80,6 +90,7 @@ export default class WizardStep1 extends React.Component {
                 localStorage.setItem('appIconFileName', e);
               }}
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -90,7 +101,7 @@ export default class WizardStep1 extends React.Component {
               //   fileName='splash_screen'
               name="splashScreenFileName"
               tag={Field}
-              component="input"
+              component={Input}
               previewImageHeight="150px"
               previewImageWidth="100px"
               imageFolder="splash_screen"
