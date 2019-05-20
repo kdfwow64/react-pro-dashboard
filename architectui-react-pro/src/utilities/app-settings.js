@@ -73,9 +73,7 @@ export default (state = initialState, action) => {
 
 export const getAppSettings = () => ({
   type: ACTION_TYPES.GET_APP_SETTINGS,
-  payload: axios.get(`${API_ROOT}/api/app-settings`).then(res => {
-    // console.log(res.data)
-  })
+  payload: axios.get(`${API_ROOT}/api/app-settings`)
 });
 
 export const saveAppSettings = function(appSettings) {
