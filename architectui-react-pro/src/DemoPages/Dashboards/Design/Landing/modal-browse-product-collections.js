@@ -71,6 +71,8 @@ class ModalBrowseProductCollections extends React.Component {
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onApplySetting = this.onApplySetting.bind(this);
     this.state = {
+      CollectionsProductsData: [],
+      CollectionsProductsDataVal: getSelectedCollectionProducts(),
       iconColor: this.props.defaultSettings.iconColor,
       displayIconColor: false,
       title: this.props.defaultSettings.title,
@@ -85,8 +87,7 @@ class ModalBrowseProductCollections extends React.Component {
       selectedProductName: this.props.defaultSettings.selectedProductName,
       prodCollectionname: this.props.defaultSettings.prodCollectionname,
       ProductsCollectionsData: [],
-      CollectionsProductsData: [],
-      CollectionsProductsDataVal: getSelectedCollectionProducts(),
+
       isLoaded: false,
       collectionType: this.props.defaultSettings.collectionType || '',
       handle: this.props.defaultSettings.handle || ''
@@ -209,6 +210,7 @@ class ModalBrowseProductCollections extends React.Component {
       )
       .then(res1 => {
         this.setState({ CollectionsProductsData: res1.data.productVMList });
+
         res1.data && this.setState({ isLoaded: true });
       });
     this.setState({ selectedProductName: collectionDetails.id });

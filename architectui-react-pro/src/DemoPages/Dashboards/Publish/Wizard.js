@@ -70,6 +70,8 @@ export default class MultiStep extends React.Component {
   };
 
   next = () => {
+    const { handleSubmit } = this.props;
+    handleSubmit();
     this.setNavState(this.state.compState + 1);
   };
 

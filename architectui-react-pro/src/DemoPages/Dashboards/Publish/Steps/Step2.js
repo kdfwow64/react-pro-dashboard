@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { FormGroup, Input, Label } from 'reactstrap';
+import { FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import { Field } from 'redux-form';
 
 export default class WizardStep2 extends React.Component {
@@ -18,11 +18,12 @@ export default class WizardStep2 extends React.Component {
               type="text"
               // name="privacy-policy-url"
               tag={Field}
-              component="input"
+              component={Input}
               name="privacyPolicyUrl"
               id="exampleEmail55"
               placeholder=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -30,11 +31,12 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               name="supportUrl"
               id="exampleEmail55"
               placeholder=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -42,11 +44,12 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               name="copyright"
               id="exampleEmail55"
               placeholder=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -54,12 +57,13 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               // name="phone-number"
               name="phoneNumber"
               id="exampleEmail55"
               placeholder=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -67,12 +71,13 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component="input"
+              component={Input}
               // name="trade-name"
               name="tradeName"
               id="exampleEmail55"
               placeholder=""
             />
+            <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           {/* <FormGroup>
