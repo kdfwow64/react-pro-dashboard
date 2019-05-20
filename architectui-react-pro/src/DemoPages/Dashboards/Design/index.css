@@ -3977,12 +3977,3 @@ input[type='text'] {
 .sweet-alert fieldset {
   display: none;
 }
-
-@media only screen and (max-width: 900px) {
-  .emptystateText {
-    vertical-align: top;
-  }
-  .emptystate {
-    background-size: contain;
-  }
-}
