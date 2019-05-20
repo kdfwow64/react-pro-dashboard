@@ -7,7 +7,7 @@ import authentication from '../utilities/authentication';
 // import appMiscSettings from '../utilities/app-misc-settings';
 import appSettings from '../utilities/app-settings';
 // import collectionListings from '../utilities/collection-listing';
-import goLive from '../utilities/go-live';
+import goLive from '../reducers/go-live';
 // import providerShopDetails from '../utilities/provider-shop-details';
 import triggerBuild from '../utilities/trigger-build';
 import ThemeOptions from '../reducers/ThemeOptions';

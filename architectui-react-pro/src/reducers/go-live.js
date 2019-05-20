@@ -1,7 +1,7 @@
 /* tslint:disable */
 import axios from 'axios';
 import { FAILURE, REQUEST, SUCCESS } from './action-type.util';
-import { API_ROOT } from './api-config';
+import { API_ROOT } from '../utilities/api-config';
 
 export const ACTION_TYPES = {
   GET_GO_LIVE: 'go-live/GET_GO_LIVE',

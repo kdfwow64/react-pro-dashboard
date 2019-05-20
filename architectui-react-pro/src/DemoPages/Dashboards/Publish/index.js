@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Card, CardBody, Col, Row, Input, Button } from 'reactstrap';
 import { saveForm } from '../../../utilities/app-settings';
-import { getGoLive, saveGoLive } from '../../../utilities/go-live';
+import { getGoLive, saveGoLive } from '../../../reducers/go-live';
 import {
   triggerBuildAndroid,
   triggerBuildiOS

@@ -14,14 +14,8 @@ export default class WizardStep1 extends React.Component {
           </h3>
           <FormGroup>
             <Label for="exampleEmail55">App Name</Label>
-            <Input
-              tag={Field}
-              component="input"
-              name="appName"
-              defaultValue="test"
-              required
-            />
-            <FormFeedback> This field is required </FormFeedback>
+            <Input tag={Field} component="input" name="appName" required />
+            <FormFeedback>This field is required</FormFeedback>
           </FormGroup>
 
           <FormGroup>

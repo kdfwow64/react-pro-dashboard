@@ -1,9 +1,9 @@
 /* tslint:disable */
 import axios from 'axios';
 
-import { REQUEST, SUCCESS, FAILURE } from './action-type.util';
+import { REQUEST, SUCCESS, FAILURE } from '../reducers/action-type.util';
 import Storage from './storage-util';
-import {API_ROOT} from "./api-config";
+import { API_ROOT } from './api-config';
 
 export const ACTION_TYPES = {
   LOGIN: 'authentication/LOGIN',
@@ -62,30 +62,30 @@ export default (state = initialState, action) => {
       return {
         ...initialState
       };
-    case SUCCESS(ACTION_TYPES.GET_SESSION):
-      {
-        const isAuthenticated = action.payload && action.payload.data && action.payload.data.activated;
+    case SUCCESS(ACTION_TYPES.GET_SESSION): {
+      const isAuthenticated =
+        action.payload && action.payload.data && action.payload.data.activated;
 
-        let login = null;
-        let firstName = null;
-        let lastName = null;
+      let login = null;
+      let firstName = null;
+      let lastName = null;
 
-        if(isAuthenticated) {
-          login = action.payload.data.login;
-          firstName = action.payload.data.firstName;
-          lastName = action.payload.data.lastName;
-        }
-
-        return {
-          ...state,
-          isAuthenticated,
-          login,
-          firstName,
-          lastName,
-          loading: false,
-          account: action.payload.data
-        };
+      if (isAuthenticated) {
+        login = action.payload.data.login;
+        firstName = action.payload.data.firstName;
+        lastName = action.payload.data.lastName;
       }
+
+      return {
+        ...state,
+        isAuthenticated,
+        login,
+        firstName,
+        lastName,
+        loading: false,
+        account: action.payload.data
+      };
+    }
     case ACTION_TYPES.ERROR_MESSAGE:
       return {
         ...initialState,
@@ -102,12 +102,16 @@ export default (state = initialState, action) => {
   }
 };
 
-export const displayAuthError = message => ({ type: ACTION_TYPES.ERROR_MESSAGE, message });
-
-export const getSession = () => dispatch => dispatch({
-  type: ACTION_TYPES.GET_SESSION,
-  payload: axios.get(`${API_ROOT}/api/account`)
+export const displayAuthError = message => ({
+  type: ACTION_TYPES.ERROR_MESSAGE,
+  message
 });
+
+export const getSession = () => dispatch =>
+  dispatch({
+    type: ACTION_TYPES.GET_SESSION,
+    payload: axios.get(`${API_ROOT}/api/account`)
+  });
 
 export const clearAuthToken = () => {
   if (Storage.local.get('jhi-authenticationToken')) {
@@ -118,10 +122,17 @@ export const clearAuthToken = () => {
   }
 };
 
-export const login = (username, password, rememberMe = false) => async (dispatch, getState) => {
+export const login = (username, password, rememberMe = false) => async (
+  dispatch,
+  getState
+) => {
   const result = await dispatch({
     type: ACTION_TYPES.LOGIN,
-    payload: axios.post(`${API_ROOT}/api/authenticate`, { username, password, rememberMe })
+    payload: axios.post(`${API_ROOT}/api/authenticate`, {
+      username,
+      password,
+      rememberMe
+    })
   });
   const bearerToken = result.value.headers.authorization;
   if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {

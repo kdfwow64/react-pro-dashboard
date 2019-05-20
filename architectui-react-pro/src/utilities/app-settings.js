@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { submit } from 'redux-form';
-import { FAILURE, REQUEST, SUCCESS } from './action-type.util';
+import { FAILURE, REQUEST, SUCCESS } from '../reducers/action-type.util';
 import { API_ROOT } from './api-config';
 
 export const ACTION_TYPES = {
