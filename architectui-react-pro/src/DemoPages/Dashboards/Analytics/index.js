@@ -424,17 +424,27 @@ export default class AnalyticsDashboard extends Component {
       } else {
         // Show empty data page
         ui = (
-          <Card>
+          <Card className="p-3">
             <CardBody>
-              <div className="emptystate">
-                <div className="emptystateText">
-                  <h3>Understand how people use your app</h3>
-                  <p>
-                    Analytics will start showing up here once there is enough
-                    data.
-                  </p>
-                </div>
-              </div>
+              <Row className="align-items-center">
+                <Col>
+                  <div>
+                    <Row>
+                      <h3>Understand how people use your app</h3>
+                    </Row>
+                    <br />
+                    <Row>
+                      <h5>
+                        Analytics will start showing up here once there is
+                        enough data.
+                      </h5>
+                    </Row>
+                  </div>
+                </Col>
+                <Col>
+                  <img src="https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg" />
+                </Col>
+              </Row>
             </CardBody>
           </Card>
         );

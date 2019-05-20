@@ -194,16 +194,14 @@ class ThemeOptions extends React.Component {
             </div>
           )}
 
-        <div className="productSelectEror">
-          <SweetAlert
-            title="Product/Collection is missing for Dragged element/s ."
-            confirmButtonColor="#0e7c95"
-            show={this.state.landingProductwarning}
-            text="Please select Any Product/Collection for all Dragged element."
-            type="error"
-            onConfirm={() => this.setState({ landingProductwarning: false })}
-          />
-        </div>
+        <SweetAlert
+          title="Product/Collection is missing for dragged element/s."
+          confirmButtonColor="#0e7c95"
+          show={this.state.landingProductwarning}
+          text="Please select any Product/Collection for all Dragged element."
+          type="error"
+          onConfirm={() => this.setState({ landingProductwarning: false })}
+        />
 
         {this.state.saved && !this.state.isEdited && !this.state.clicked && (
           <div>
