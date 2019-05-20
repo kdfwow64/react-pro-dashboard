@@ -25,9 +25,9 @@ export default function configureStore() {
       triggerBuild,
       // providerShopDetails,
       // appHomePage
-      // form: reduxFormReducer,
+      ThemeOptions,
+      form: reduxFormReducer
       // ...reducers
-      ThemeOptions
     }),
     {}
   );

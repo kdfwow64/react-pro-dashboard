@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Card, CardBody, Col, Row } from 'reactstrap';
+import { Card, CardBody, Col, Row, Input, Button } from 'reactstrap';
 import { saveForm } from '../../../utilities/app-settings';
 import { getGoLive, saveGoLive } from '../../../utilities/go-live';
 import {
@@ -68,6 +68,8 @@ class Publish extends React.Component {
                   <CardBody>
                     <div className="forms-wizard-vertical">
                       <form ref={this.setFormRef} onSubmit={handleSubmit}>
+                        {/* <Input tag={Field} component="input" name="appName" defaultValue="test"/>
+                        <Button onSubmit={handleSubmit}>Save</Button> */}
                         <MultiStep
                           showNavigation={this.props.valid}
                           steps={steps}
@@ -110,19 +112,6 @@ const goLiveForm = reduxForm({
   form: 'goLive',
   enableReinitialize: true,
   onSubmit: (values, dispatch) => {
-    // get App Icon / App Splash / json file urls
-    if (getItem('appIconFileName')) {
-      values.appIconFileName = getItem('appIconFileName');
-      localStorage.removeItem('appIconFileName');
-    }
-    if (getItem('splashScreenFileName')) {
-      values.splashScreenFileName = getItem('splashScreenFileName');
-      localStorage.removeItem('splashScreenFileName');
-    }
-    if (getItem('playStoreJsonFile')) {
-      values.playStoreJsonFile = getItem('playStoreJsonFile');
-      localStorage.removeItem('playStoreJsonFile');
-    }
     console.log(values);
     dispatch(saveGoLive(values));
   }
