@@ -71,6 +71,7 @@ class Publish extends React.Component {
                         <MultiStep
                           showNavigation={this.props.valid}
                           steps={steps}
+                          handleSubmit={handleSubmit}
                         />
                       </form>
                     </div>
