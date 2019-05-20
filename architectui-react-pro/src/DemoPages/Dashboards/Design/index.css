@@ -3974,3 +3974,45 @@ input[type='text'] {
   width: 100% !important;
   margin: 0 auto !important;
 }
+.sweet-alert fieldset{
+  display: none;
+}
+.emptystateText h3 {
+  color: #343a40;
+  font-size: 30px;
+}
+.emptystateText h3, .emptystateText p {
+  width: 40vh;
+}
+.emptystateText p {
+  color: #a8aeaf;
+  font-size: 20px;
+}
+.emptystateText {
+  display: table-cell;
+  vertical-align: middle;
+}
+.emptystate {
+  background-image: url(https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg);
+  height: 1000px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: table;
+  width: 100%;
+}
+.sweet-alert button, .sweet-alert button:hover{
+  border-color: unset;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .emptystateText {
+    vertical-align: top;
+  }
+  .emptystate {
+    background-size: contain;
+  }
+}
+
+

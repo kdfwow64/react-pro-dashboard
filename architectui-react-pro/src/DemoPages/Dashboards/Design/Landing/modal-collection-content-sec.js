@@ -409,12 +409,12 @@ class ModalSearchContentSec extends React.Component {
               style={{
                 background: this.state.CollectionCellBG,
                 height:
-                  this.state.CollectionsProductsData.length !== 0
+                this.state.CollectionsProductsData &&this.state.CollectionsProductsData.length !== 0
                     ? 'auto'
                     : '130px',
                 width: '268px',
                 overflow:
-                  this.state.CollectionsProductsData.length !== 0
+                this.state.CollectionsProductsData &&this.state.CollectionsProductsData.length !== 0
                     ? 'auto'
                     : 'hidden'
               }}
@@ -462,12 +462,12 @@ class ModalSearchContentSec extends React.Component {
                   height: '120px',
                   paddingTop: '35px',
                   display:
-                    this.state.CollectionsProductsData.length === 0
+                  this.state.CollectionsProductsData && this.state.CollectionsProductsData.length === 0
                       ? 'block'
                       : 'none'
                 }}
               >
-                {this.state.CollectionsProductsData.length === 0 &&
+                {this.state.CollectionsProductsData && this.state.CollectionsProductsData.length === 0 &&
                   this.state.CollectionsProductsDataDefault.map(
                     (item, index) => {
                       return (
@@ -501,23 +501,23 @@ class ModalSearchContentSec extends React.Component {
               <div
                 id="SecondDropProductContent"
                 style={{
-                  width: `${this.state.CollectionsProductsData.length * 70}px`,
+                  width: this.state.CollectionsProductsData && `${this.state.CollectionsProductsData.length * 70}px`,
                   height: '120px',
                   paddingTop: '35px',
                   display:
-                    this.state.CollectionsProductsData.length === 0
+                  this.state.CollectionsProductsData && this.state.CollectionsProductsData.length === 0
                       ? 'none'
                       : 'block'
                 }}
               >
-                {!this.state.isLoaded &&
+                {!this.state.isLoaded && this.state.CollectionsProductsData &&
                   this.state.CollectionsProductsData.length !== 0 && (
                     <div className="">
                       {' '}
                       {/* <Loader loaded={this.state.isLoaded} />{' '} */}
                     </div>
                   )}
-                {this.state.CollectionsProductsData.length !== 0 &&
+                {this.state.CollectionsProductsData && this.state.CollectionsProductsData.length !== 0 &&
                   this.state.isLoaded &&
                   this.state.CollectionsProductsData.map((item, index) => {
                     return (

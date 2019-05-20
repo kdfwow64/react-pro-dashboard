@@ -144,10 +144,10 @@ class ProductCollection2 extends React.Component {
           style={{
             width: '500px',
             display:
-              this.state.CollectionsProductsData.length !== 0 ? 'block' : 'none'
+            this.state.CollectionsProductsData && this.state.CollectionsProductsData.length !== 0 ? 'block' : 'none'
           }}
         >
-          {// this.state.isLoaded &&
+          { this.state.CollectionsProductsData &&
           this.state.CollectionsProductsData.length !== 0 &&
             this.state.CollectionsProductsData.map((item, index) => {
               return (
@@ -211,7 +211,7 @@ class ProductCollection2 extends React.Component {
           style={{
             width: '500px',
             display:
-              this.state.CollectionsProductsData.length === 0 &&
+            this.state.CollectionsProductsData && this.state.CollectionsProductsData.length === 0 &&
               this.props.callType === 'droppable'
                 ? 'block'
                 : 'none'
@@ -220,7 +220,7 @@ class ProductCollection2 extends React.Component {
           {
             // !this.state.isLoaded && this.props.callType === 'droppable' && <div className=""> <Loader loaded={this.state.isLoaded} /> </div>
           }
-          {// this.state.isLoaded &&
+          { this.state.CollectionsProductsData &&
           this.state.CollectionsProductsData.length === 0 &&
             this.props.callType === 'droppable' &&
             this.state.CollectionsProductsDataDefault.map((item, index) => {

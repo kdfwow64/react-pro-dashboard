@@ -4,9 +4,10 @@ import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
 import CountUp from 'react-countup';
-import { Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import { Card, CardBody, CardTitle, Col, Container, EmptyState, Row, CardHeader } from 'reactstrap';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 import { API_ROOT } from '../../../utilities/api-config';
+import Loader from 'react-loaders';
 
 export default class AnalyticsDashboard extends Component {
   constructor(props) {
@@ -314,16 +315,16 @@ export default class AnalyticsDashboard extends Component {
     };
 
     let ui;
-    // if (this.state.api_complete_progress === 100) {
-    //     if (this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
-    //         this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
-    //         this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
-    //         this.state.sessionCount > 0 ||
-    //         this.state.averageSessionsPerUser > 0 ||
-    //         this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
-    //         this.ifAnyNonZero(this.state.modelCounts) ||
-    //         this.ifAnyNonZero(this.state.versionDetailsDataset)
-    //     ) {
+     if (this.state.api_complete_progress === 100) {
+      if (this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
+             this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
+             this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
+             this.state.sessionCount > 0 ||
+             this.state.averageSessionsPerUser > 0 ||
+             this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
+            this.ifAnyNonZero(this.state.modelCounts) ||
+             this.ifAnyNonZero(this.state.versionDetailsDataset)
+        ) {
     ui = (
       <Fragment>
         <ReactCSSTransitionGroup
@@ -412,23 +413,26 @@ export default class AnalyticsDashboard extends Component {
         </ReactCSSTransitionGroup>
       </Fragment>
     );
-    // } else {
+   } else {
     // Show empty data page
-    // ui = (
-    //     <EmptyState
-    //         heading="Understand how people use your app"
-    //         action={{ content: '' }}
-    //         image="https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg"
-    //     >
-    //         <p>Analytics will start showing up here once there is enough data.</p>
-    //     </EmptyState>
-    // );
-    //     }
-    // } else {
-    //     ui = (
-    //         <Loader type="ball-scale"/>
-    //     );
-    // }
+     ui = (
+         <Card>
+            <CardBody>
+              <div className="emptystate">
+                <div className="emptystateText">
+                  <h3>Understand how people use your app</h3>
+                  <p>Analytics will start showing up here once there is enough data.</p>
+                </div>
+              </div>
+             </CardBody>
+         </Card>
+     );
+         }
+     } else {
+         ui = (
+             <Loader color="#0e7c95" type="ball-scale"/>
+         );
+     }
     return ui;
   }
 }

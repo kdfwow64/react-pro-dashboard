@@ -8,16 +8,23 @@ import PageTitle from '../../../Layout/AppMain/PageTitle';
 export default class Tutorials extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
+    this.toggleExplainer = this.toggleExplainer.bind(this);
+    this.toggleWalk = this.toggleWalk.bind(this);
 
     this.state = {
-      modal: false
+      modalExplainer: false,
+      modalWalk: false,
     };
   }
 
-  toggle() {
+  toggleExplainer() {
     this.setState({
-      modal: !this.state.modal
+      modalExplainer: !this.state.modalExplainer
+    });
+  }
+  toggleWalk() {
+    this.setState({
+      modalWalk: !this.state.modalWalk
     });
   }
 
@@ -43,7 +50,7 @@ export default class Tutorials extends Component {
                 md="6"
                 lg="4"
                 onClick={() => {
-                  this.setState({ modal: true });
+                  this.setState({ modalWalk: true });
                 }}
               >
                 <Card className="mb-3 profile-block">
@@ -65,7 +72,7 @@ export default class Tutorials extends Component {
                 md="6"
                 lg="4"
                 onClick={() => {
-                  this.setState({ modal: true });
+                  this.setState({ modalExplainer: true });
                 }}
               >
                 <Card className="mb-3 profile-block">
@@ -85,15 +92,39 @@ export default class Tutorials extends Component {
               </Col>
             </Row>
             <Modal
-              isOpen={this.state.modal}
-              toggle={this.toggle}
+              isOpen={this.state.modalWalk}
+              toggle={this.toggleWalk}
               className={this.props.className}
               width={560}
             >
               {/* <ModalHeader toggle={this.toggle}>Modal title</ModalHeader> */}
               <ModalBody>
                 <iframe
-                  width="560"
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/KhoM4mfzSy0"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </ModalBody>
+              {/* <ModalFooter>
+                <Button color="link" onClick={this.toggle}>
+                  Ok
+                </Button>
+              </ModalFooter> */}
+            </Modal>
+
+            <Modal
+              isOpen={this.state.modalExplainer}
+              toggle={this.toggleExplainer}
+              className={this.props.className}
+              width={560}
+            >
+              {/* <ModalHeader toggle={this.toggle}>Modal title</ModalHeader> */}
+              <ModalBody>
+                <iframe
+                  width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/gvicwQDqkIU"
                   frameBorder="0"
@@ -107,6 +138,7 @@ export default class Tutorials extends Component {
                 </Button>
               </ModalFooter> */}
             </Modal>
+
           </div>
         </ReactCSSTransitionGroup>
       </Fragment>
