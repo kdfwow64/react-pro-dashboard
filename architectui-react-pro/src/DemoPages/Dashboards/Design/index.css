@@ -3977,10 +3977,6 @@ input[type='text'] {
 .sweet-alert fieldset {
   display: none;
 }
-.sweet-alert button,
-.sweet-alert button:hover {
-  border-color: unset;
-}
 
 @media only screen and (max-width: 900px) {
   .emptystateText {
