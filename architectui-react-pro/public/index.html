@@ -73,6 +73,53 @@
   </script>
   <!-- End of Luck Orange Code -->
 
+  <!-- Start of Async Drift Code -->
+  <script>
+    "use strict";
+
+    var shopName = 'undefined'
+    if(window.location.href.indexOf('shop') > -1){
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        shopName = vars['shop'];
+    }
+    fetch('https://thesearchit.com/api/order-count?shop=' + shopName).then(response => {
+        return response.json();
+    })
+    .then(response => {
+        if (response.count > 100) {
+            !function () {
+                var t = window.driftt = window.drift = window.driftt || [];
+                if (!t.init) {
+                    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                    t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+                        t.factory = function (e) {
+                            return function () {
+                                var n = Array.prototype.slice.call(arguments);
+                                return n.unshift(e), t.push(n), t;
+                            };
+                        }, t.methods.forEach(function (e) {
+                        t[e] = t.factory(e);
+                    }), t.load = function (t) {
+                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                        var i = document.getElementsByTagName("script")[0];
+                        i.parentNode.insertBefore(o, i);
+                    };
+                }
+            }();
+            drift.SNIPPET_VERSION = '0.3.1';
+            drift.load('b2ti3tig8wur');
+            drift.on('ready', function () {
+                drift.identify(shopName);
+            });
+        }
+    });
+  </script>
+  <!-- End of Async Drift Code -->
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
