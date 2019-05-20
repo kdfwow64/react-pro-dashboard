@@ -152,19 +152,13 @@
     "window-resize-listener-react": "^1.1.0"
   },
   "scripts": {
-    "precommit": "NODE_ENV=production lint-staged",
+    "precommit": "lint-staged",
     "start": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "pretty-quick",
-      "eslint src/utilities src/reducers src/DemoPages/Dashboards/ --fix",
-      "git add"
-    ]
-  },
+ 
   "eslintConfig": {
     "extends": "react-app"
   },
