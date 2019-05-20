@@ -13,7 +13,7 @@ export default class Tutorials extends Component {
 
     this.state = {
       modalExplainer: false,
-      modalWalk: false,
+      modalWalk: false
     };
   }
 
@@ -22,6 +22,7 @@ export default class Tutorials extends Component {
       modalExplainer: !this.state.modalExplainer
     });
   }
+
   toggleWalk() {
     this.setState({
       modalWalk: !this.state.modalWalk
@@ -138,7 +139,6 @@ export default class Tutorials extends Component {
                 </Button>
               </ModalFooter> */}
             </Modal>
-
           </div>
         </ReactCSSTransitionGroup>
       </Fragment>

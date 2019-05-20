@@ -4,10 +4,19 @@ import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Bar, HorizontalBar, Line } from 'react-chartjs-2';
 import CountUp from 'react-countup';
-import { Card, CardBody, CardTitle, Col, Container, EmptyState, Row, CardHeader } from 'reactstrap';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  Col,
+  Container,
+  EmptyState,
+  Row,
+  CardHeader
+} from 'reactstrap';
+import Loader from 'react-loaders';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 import { API_ROOT } from '../../../utilities/api-config';
-import Loader from 'react-loaders';
 
 export default class AnalyticsDashboard extends Component {
   constructor(props) {
@@ -315,124 +324,126 @@ export default class AnalyticsDashboard extends Component {
     };
 
     let ui;
-     if (this.state.api_complete_progress === 100) {
-      if (this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
-             this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
-             this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
-             this.state.sessionCount > 0 ||
-             this.state.averageSessionsPerUser > 0 ||
-             this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
-            this.ifAnyNonZero(this.state.modelCounts) ||
-             this.ifAnyNonZero(this.state.versionDetailsDataset)
-        ) {
-    ui = (
-      <Fragment>
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="TabsAnimation"
-          transitionAppear
-          transitionAppearTimeout={0}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
-          <PageTitle
-            heading="Analytics"
-            subheading="Get insight on how your mobile app is performing."
-            icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
-          />
-          <Container fluid>
-            <Card className="main-card mb-3">
-              <CardBody>
-                <CardTitle>Active Users</CardTitle>
-                {/* <DisplayText size="small">Active Users <StatefulToolTip position="right" arrow="center"
+    if (this.state.api_complete_progress === 100) {
+      if (
+        this.ifAnyNonZero(this.state.activeUserCountsDatasetDaily) ||
+        this.ifAnyNonZero(this.state.activeUserCountsDatasetWeekly) ||
+        this.ifAnyNonZero(this.state.activeUserCountsDatasetMonthly) ||
+        this.state.sessionCount > 0 ||
+        this.state.averageSessionsPerUser > 0 ||
+        this.ifAnyNonZero(this.state.sessionPerDeviceDataset) ||
+        this.ifAnyNonZero(this.state.modelCounts) ||
+        this.ifAnyNonZero(this.state.versionDetailsDataset)
+      ) {
+        ui = (
+          <Fragment>
+            <ReactCSSTransitionGroup
+              component="div"
+              transitionName="TabsAnimation"
+              transitionAppear
+              transitionAppearTimeout={0}
+              transitionEnter={false}
+              transitionLeave={false}
+            >
+              <PageTitle
+                heading="Analytics"
+                subheading="Get insight on how your mobile app is performing."
+                icon="pe-7s-graph3 icon-gradient bg-mean-fruit"
+              />
+              <Container fluid>
+                <Card className="main-card mb-3">
+                  <CardBody>
+                    <CardTitle>Active Users</CardTitle>
+                    {/* <DisplayText size="small">Active Users <StatefulToolTip position="right" arrow="center"
                                             id="activeUsersToolTip"
                                             text="Each point represents the number of unique users that used the app over the previous 1 day (daily), 7 days (weekly) and 30 days (monthly) respectively." /></DisplayText> */}
-                <Line data={activeUsersData} />
-              </CardBody>
-            </Card>
+                    <Line data={activeUsersData} />
+                  </CardBody>
+                </Card>
 
-            <Row>
-              <Col>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    {/* <DisplayText size="small">Daily session per user <StatefulToolTip position="right" arrow="center"
+                <Row>
+                  <Col>
+                    <Card className="main-card mb-3">
+                      <CardBody>
+                        {/* <DisplayText size="small">Daily session per user <StatefulToolTip position="right" arrow="center"
                                                             id="dailySessionsToolTip"
                                                             text="Each point is the average number of sessions per unique user for that day." /></DisplayText> */}
-                    <Line data={dailySessionsUsersData} />
+                        <Line data={dailySessionsUsersData} />
 
-                    <Row>
-                      <Col>
-                        <div>
-                          <p>TOTAL SESSIONS</p>
-                          <p>
-                            <CountUp
-                              end={this.state.sessionCount}
-                              duration="5"
-                            />
-                          </p>
-                        </div>
-                      </Col>
-                      <Col>
-                        <div className="float-right">
-                          <p>AVG. SESSIONS PER DAY</p>
-                          <p>
-                            <CountUp
-                              end={this.state.averageSessionsPerUser}
-                              duration="5"
-                            />
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col>
+                        <Row>
+                          <Col>
+                            <div>
+                              <p>TOTAL SESSIONS</p>
+                              <p>
+                                <CountUp
+                                  end={this.state.sessionCount}
+                                  duration="5"
+                                />
+                              </p>
+                            </div>
+                          </Col>
+                          <Col>
+                            <div className="float-right">
+                              <p>AVG. SESSIONS PER DAY</p>
+                              <p>
+                                <CountUp
+                                  end={this.state.averageSessionsPerUser}
+                                  duration="5"
+                                />
+                              </p>
+                            </div>
+                          </Col>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
 
-              <Col>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    {/* <DisplayText size="small">Top devices <StatefulToolTip position="right" arrow="center"
+                  <Col>
+                    <Card className="main-card mb-3">
+                      <CardBody>
+                        {/* <DisplayText size="small">Top devices <StatefulToolTip position="right" arrow="center"
                                                             id="topDevicesToolTip"
                                                             text="The number of active users for the top used models. OS Distribution: the distribution of top 4 OS version of active users." /></DisplayText> */}
-                    <HorizontalBar data={topDevicesData} />
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
+                        <HorizontalBar data={topDevicesData} />
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
 
-            <Card className="main-card mb-3">
-              <CardBody>
-                {/* <DisplayText size="small">Active users per version <StatefulToolTip position="right" arrow="center"
+                <Card className="main-card mb-3">
+                  <CardBody>
+                    {/* <DisplayText size="small">Active users per version <StatefulToolTip position="right" arrow="center"
                                             id="versionDetailsToolTip"
                                             text="Distribution of the number of users that were active, by version. Only the latest 20 versions are displayed." /></DisplayText> */}
-                <Bar data={versionDetailsData} />
-              </CardBody>
-            </Card>
-            {/* </FormLayout> */}
-          </Container>
-        </ReactCSSTransitionGroup>
-      </Fragment>
-    );
-   } else {
-    // Show empty data page
-     ui = (
-         <Card>
+                    <Bar data={versionDetailsData} />
+                  </CardBody>
+                </Card>
+                {/* </FormLayout> */}
+              </Container>
+            </ReactCSSTransitionGroup>
+          </Fragment>
+        );
+      } else {
+        // Show empty data page
+        ui = (
+          <Card>
             <CardBody>
               <div className="emptystate">
                 <div className="emptystateText">
                   <h3>Understand how people use your app</h3>
-                  <p>Analytics will start showing up here once there is enough data.</p>
+                  <p>
+                    Analytics will start showing up here once there is enough
+                    data.
+                  </p>
                 </div>
               </div>
-             </CardBody>
-         </Card>
-     );
-         }
-     } else {
-         ui = (
-             <Loader color="#0e7c95" type="ball-scale"/>
-         );
-     }
+            </CardBody>
+          </Card>
+        );
+      }
+    } else {
+      ui = <Loader color="#0e7c95" type="ball-scale" />;
+    }
     return ui;
   }
 }

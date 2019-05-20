@@ -42,8 +42,8 @@ class ThemeOptions extends React.Component {
     toCollections: false,
     openFirstModal: false,
     item: '',
-    savingBtn: true,
-    //landingProductwarning: false,
+    savingBtn: true
+    // landingProductwarning: false,
   };
 
   _onThemeOptionSelection = themName => {
@@ -95,20 +95,20 @@ class ThemeOptions extends React.Component {
   };
 
   saveClicked = () => {
-   // console.log(this.props);
+    // console.log(this.props);
     this.props.onSaveEditedItems();
     this.setState({ isEdited: false });
     this.setState({ clicked: true });
     this.setState({ saved: false });
-    //this.setState({landingProductwarning: true});
+    // this.setState({landingProductwarning: true});
   };
 
-  landingProduct = (val) =>{
-    if(val === false){
-      this.setState({landingProductwarning: true});
-      this.setState({savingBtn: false });
+  landingProduct = val => {
+    if (val === false) {
+      this.setState({ landingProductwarning: true });
+      this.setState({ savingBtn: false });
     }
-  }
+  };
 
   saveTheme = () => {
     Axios.post(`${API_ROOT}/api/v2/app-theme`, {
@@ -145,10 +145,10 @@ class ThemeOptions extends React.Component {
   };
 
   render() {
-   // console.log(this.props.landingProductVal);
-  if(!this.props.landingProductVal){
-    this.landingProductwarning = true;
-  }
+    // console.log(this.props.landingProductVal);
+    if (!this.props.landingProductVal) {
+      this.landingProductwarning = true;
+    }
     return (
       <div className="themeOptionContainer">
         {this.state.isEdited && !this.state.clicked && !this.state.saved && (
@@ -174,37 +174,37 @@ class ThemeOptions extends React.Component {
             }
           </div>
         )}
-        {this.state.clicked && !this.state.isEdited && !this.state.saved && this.state.savingBtn && (
-          <div>
-            <div
-              className="Savebutton"
-              id="Tooltip-saving"
-              style={{ backgroundColor: '#0A941B', cursor: 'progress' }}
-            >
-              <FontAwesomeIcon
-                icon={['fas', 'spinner']}
-                pulse
-                fixedWidth
-                size="1x"
-              />
+        {this.state.clicked &&
+          !this.state.isEdited &&
+          !this.state.saved &&
+          this.state.savingBtn && (
+            <div>
+              <div
+                className="Savebutton"
+                id="Tooltip-saving"
+                style={{ backgroundColor: '#0A941B', cursor: 'progress' }}
+              >
+                <FontAwesomeIcon
+                  icon={['fas', 'spinner']}
+                  pulse
+                  fixedWidth
+                  size="1x"
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-      <div className="productSelectEror">
-        <SweetAlert
-          title="Product/Collection is missing for Dragged element/s ."
-          confirmButtonColor="#0e7c95"
-          show={this.state.landingProductwarning}
-          text='Please select Any Product/Collection for all Dragged element.'
-          type="error"
-          onConfirm={() => this.setState({ landingProductwarning: false })}
-        />
-      </div>
+        <div className="productSelectEror">
+          <SweetAlert
+            title="Product/Collection is missing for Dragged element/s ."
+            confirmButtonColor="#0e7c95"
+            show={this.state.landingProductwarning}
+            text="Please select Any Product/Collection for all Dragged element."
+            type="error"
+            onConfirm={() => this.setState({ landingProductwarning: false })}
+          />
+        </div>
 
-
-
-      
         {this.state.saved && !this.state.isEdited && !this.state.clicked && (
           <div>
             <div
@@ -250,7 +250,7 @@ class ThemeOptions extends React.Component {
           showCancelButton
           onConfirm={() => window.location.reload()}
           onCancel={() => this.setState({ reloadConfirmation: false })}
-        />*/}
+        /> */}
 
         {/* <div
             className="Fixedthemebutton"

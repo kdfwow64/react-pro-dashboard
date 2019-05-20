@@ -95,7 +95,8 @@ class BrowseCollection extends React.Component {
         id="SixthDropContainer"
         style={{ overflowX: 'scroll' }}
       >
-        {this.state.CollectionsProductsData && this.state.CollectionsProductsData.length !== 0 &&
+        {this.state.CollectionsProductsData &&
+          this.state.CollectionsProductsData.length !== 0 &&
           this.state.CollectionsProductsData.map((item, index) => {
             return (
               <div key={index}>
@@ -140,7 +141,8 @@ class BrowseCollection extends React.Component {
               </div>
             );
           })}
-        {this.state.CollectionsProductsData && this.state.CollectionsProductsData.length === 0 &&
+        {this.state.CollectionsProductsData &&
+          this.state.CollectionsProductsData.length === 0 &&
           this.props.callType === 'droppable' &&
           this.state.CollectionsProductsDataVal.map((item, index) => {
             return (

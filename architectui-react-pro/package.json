@@ -158,7 +158,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
- 
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick",
+      "eslint src/utilities src/reducers src/DemoPages/Dashboards/ --fix",
+      "git add"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },

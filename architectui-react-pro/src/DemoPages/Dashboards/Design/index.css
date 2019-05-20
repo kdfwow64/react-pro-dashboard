@@ -3974,14 +3974,15 @@ input[type='text'] {
   width: 100% !important;
   margin: 0 auto !important;
 }
-.sweet-alert fieldset{
+.sweet-alert fieldset {
   display: none;
 }
 .emptystateText h3 {
   color: #343a40;
   font-size: 30px;
 }
-.emptystateText h3, .emptystateText p {
+.emptystateText h3,
+.emptystateText p {
   width: 40vh;
 }
 .emptystateText p {
@@ -4000,11 +4001,10 @@ input[type='text'] {
   display: table;
   width: 100%;
 }
-.sweet-alert button, .sweet-alert button:hover{
+.sweet-alert button,
+.sweet-alert button:hover {
   border-color: unset;
 }
-
-
 
 @media only screen and (max-width: 900px) {
   .emptystateText {
@@ -4014,5 +4014,3 @@ input[type='text'] {
     background-size: contain;
   }
 }
-
-
