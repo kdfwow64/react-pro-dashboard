@@ -119,7 +119,7 @@ export default class SubscriptionPlan extends React.Component {
                         </ul>
                         {plan.planPrice === '0.0' ? null : (
                           <Button
-                            primary
+                            color="primary"
                             disabled={this.state.loading}
                             onClick={() => {
                               this.subscribePlanClicked(plan.planId);
