@@ -114,19 +114,24 @@ export default class PushNotifications extends React.Component {
         deeplinkHandle: this.state.deeplinkHandle
       };
     }
-    axios.post(`${API_ROOT}/api/v1/send-notification`, body).then(resp => {
-      if (resp.data.success) {
-        this.setState({ snackbar_message: 'Notification Sent 👍' });
+    axios
+      .post(`${API_ROOT}/api/v1/send-notification`, body)
+      .then(resp => {
+        if (resp.data.success) {
+          this.setState({ snackbar_message: 'Notification Sent 👍' });
+          this.setState({ snackbar_open: true });
+        } else {
+          this.setState({
+            snackbar_message:
+              'Error sending notification. Our team has been notified.'
+          });
+          this.setState({ snackbar_open: true });
+          //   sendSlackMessage('Failed to send Push notification', resp.data);
+        }
+      })
+      .catch(e => {
         this.setState({ snackbar_open: true });
-      } else {
-        this.setState({
-          snackbar_message:
-            'Error sending notification. Our team has been notified.'
-        });
-        this.setState({ snackbar_open: true });
-        //   sendSlackMessage('Failed to send Push notification', resp.data);
-      }
-    });
+      });
   }
 
   searchProduct = searchField => {
