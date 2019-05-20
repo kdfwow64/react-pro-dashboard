@@ -48,6 +48,31 @@
       src="https://app.getbeamer.com/js/beamer-embed.js"
       defer="defer"
     ></script>
+
+    <!-- Start of Lucky Orange Code -->
+    <script type='text/javascript'>
+      if (window.location.href.indexOf('shop') > -1) {
+          var shopName = 'undefined'
+          window.__lo_site_id = 121081;   
+          (function () {
+              var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+              wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+          })();
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+              vars[key] = value;
+          });
+          shopName = vars['shop'];
+          var customData = {
+              'shop': shopName
+          }
+          window._loq = window._loq || []    
+          window._loq.push(['custom', customData])
+      }
+  </script>
+  <!-- End of Luck Orange Code -->
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
