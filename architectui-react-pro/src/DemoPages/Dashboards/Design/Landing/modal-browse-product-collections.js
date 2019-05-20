@@ -233,7 +233,6 @@ class ModalBrowseProductCollections extends React.Component {
         )
         .then(res1 => {
           this.setState({ CollectionsProductsData: res1.data.productVMList });
-          console.log(res1.data.productVMList);
           res1.data && this.setState({ isLoaded: true });
         });
     }
