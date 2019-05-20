@@ -155,14 +155,15 @@ class HeaderDots extends React.Component {
                     </UncontrolledDropdown> */}
           {/* <UncontrolledDropdown> */}
 
-          {this.state.appleAppVersion !== '' && (
-            <div className="widget-content-left mr-3 header-user-info">
-              <div className="widget-heading">Current App Version</div>
-              <div className="widget-subheading">
-                {this.state.appleAppVersion}
+          {this.state.appleAppVersion !== '' &&
+            this.state.appleAppVersion !== null && (
+              <div className="widget-content-left mr-3 header-user-info">
+                <div className="widget-heading">Current App Version</div>
+                <div className="widget-subheading">
+                  {this.state.appleAppVersion}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {/* <DropdownToggle className="p-0 mr-2" color="link"> */}
           <div
