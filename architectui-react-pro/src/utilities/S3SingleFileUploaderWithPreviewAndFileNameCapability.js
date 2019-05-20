@@ -3,6 +3,7 @@
 import axios from 'axios';
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import Loader from 'react-loaders';
 import * as S3Upload from 'react-s3-uploader/s3upload';
 import { Button } from 'reactstrap';
 import { API_ROOT } from './api-config';
@@ -168,7 +169,9 @@ export default class S3SingleFileUploaderWithPreviewAndFileNameCapability extend
           </div>
         ) : (
           <div>
-            {loading ? null : (
+            {loading ? (
+              <Loader type="ball-clip-rotate" />
+            ) : (
               <Button
                 className="btn-shadow"
                 // style={style.addFileBtn}
