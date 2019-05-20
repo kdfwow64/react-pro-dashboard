@@ -14,7 +14,7 @@ const setupAxiosInterceptors = (onUnauthenticated, clearAuthToken) => {
     }
 
     if (IS_LOCALHOST === 'true') {
-      config.headers.Username = 'myappit-app-v2.myshopify.com';
+      config.headers.Username = 'mobileit-test.myshopify.com';
     }
 
     config.timeout = TIMEOUT;
