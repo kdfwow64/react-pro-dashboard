@@ -748,7 +748,8 @@ class HomePageContent extends React.Component {
       bannerImageUrl: '',
       trialDays: null,
       NavTitle: 'Text',
-      showMyStoreTextBox: 'none'
+      showMyStoreTextBox: 'none',
+      landingProduct: true
     };
   }
 
@@ -1824,14 +1825,71 @@ class HomePageContent extends React.Component {
       BrowsefooterBGColor: this.state.BrowsefooterBGColor
     };
     const landingTabDraggedItems = this.state.landingTabDraggedItems;
-    axios
-      .post(`${API_ROOT}/api/v2/app-home-page`, {
-        LandingSettings,
-        landingTabDraggedItems
-      })
-      .then(res => {
-        res.data && this.homeTopTabsShowEditAlert.current.showSavedButton();
-      });
+    let itemId_arr = [];
+    landingTabDraggedItems.map((item, index) => {
+      if (
+        item.elementtype === 'productCollection1' &&
+        item.settings.selectedProductId
+      ) {
+        itemId_arr.push(item.settings.selectedProductId);
+      } else if (
+        item.elementtype === 'productCollection2' &&
+        item.settings.selectedProductId
+      ) {
+        itemId_arr.push(item.settings.selectedProductId);
+      } else if (
+        item.elementtype === 'collectionSet' &&
+        item.settings.selectedProductName &&
+        item.settings.selectedProductName !== '' &&
+        item.settings.selectedProductName !== 'undefined'
+      ) {
+        itemId_arr.push(item.settings.selectedProductName);
+      } else if (
+        item.elementtype === 'customBanner' // && item.settings.BannerOptionValue && item.settings.BannerOptionValue !== '' && item.settings.BannerOptionValue !== 'undefined')
+      ) {
+        itemId_arr.push(true);
+      } else if (
+        item.elementtype === 'collectionWithTitle' &&
+        item.settings.leftcellContents
+      ) {
+        let name = [];
+        item.settings.leftcellContents.map((item1, index1) => {
+          if (item1.title && item1.title !== '') {
+            name.push(item1.title);
+          }
+        });
+        if (name.length !== 0) {
+          itemId_arr.push(name[0]);
+        }
+      } else if (
+        item.elementtype === 'singleProduct' &&
+        item.settings.cellContents
+      ) {
+        let cellContents_title = [];
+        item.settings.cellContents.map((item1, index1) => {
+          if (item1.title && item1.title !== '') {
+            cellContents_title.push(item1.title);
+          }
+        });
+        if (cellContents_title.length !== 0) {
+          itemId_arr.push(cellContents_title[0]);
+        }
+      }
+    });
+
+    if (landingTabDraggedItems.length === itemId_arr.length) {
+      this.homeTopTabsShowEditAlert.current.landingProduct(true);
+      axios
+        .post(`${API_ROOT}/api/v2/app-home-page`, {
+          LandingSettings,
+          landingTabDraggedItems
+        })
+        .then(res => {
+          res.data && this.homeTopTabsShowEditAlert.current.showSavedButton();
+        });
+    } else {
+      this.homeTopTabsShowEditAlert.current.landingProduct(false);
+    }
   };
 
   bannerImageUrlCallBack = val => {
@@ -2435,6 +2493,7 @@ class HomePageContent extends React.Component {
                   selectTheme={this.onThemeOptionSelection}
                   ref={this.homeTopTabsShowEditAlert}
                   onSaveEditedItems={this.onSaveEditedItems}
+                  // landingProductVal = {this.state.landingProduct}
                 />
               </div>
             )}

@@ -3974,3 +3974,6 @@ input[type='text'] {
   width: 100% !important;
   margin: 0 auto !important;
 }
+.sweet-alert fieldset {
+  display: none;
+}

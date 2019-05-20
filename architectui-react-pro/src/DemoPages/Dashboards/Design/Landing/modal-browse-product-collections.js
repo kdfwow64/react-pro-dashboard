@@ -254,7 +254,8 @@ class ModalBrowseProductCollections extends React.Component {
               id="SixthDropContainer"
               style={{ overflowX: 'scroll' }}
             >
-              {this.state.CollectionsProductsData.length === 0 &&
+              {this.state.CollectionsProductsData &&
+                this.state.CollectionsProductsData.length === 0 &&
                 this.state.CollectionsProductsDataVal.map((item, index) => {
                   return (
                     <div key={index} className="browseProductList">
@@ -286,7 +287,8 @@ class ModalBrowseProductCollections extends React.Component {
                     </div>
                   );
                 })}
-              {this.state.CollectionsProductsData.length !== 0 &&
+              {this.state.CollectionsProductsData &&
+                this.state.CollectionsProductsData.length !== 0 &&
                 this.state.CollectionsProductsData.map((item, index) => {
                   return (
                     <div key={index} className="browseProductList">
