@@ -3977,3 +3977,21 @@ input[type='text'] {
 .sweet-alert fieldset {
   display: none;
 }
+.app_setting_main .card {
+  margin-bottom: 15px;
+}
+.realtimetooltip {
+  background-color: #0e7c95;
+  padding: 0px 7px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+.help_icon {
+  border: 1px solid #ccccccd9;
+  border-radius: 12px;
+  background-color: #ccccccd9;
+  margin-left: 5px;
+  font-weight: bolder;
+}

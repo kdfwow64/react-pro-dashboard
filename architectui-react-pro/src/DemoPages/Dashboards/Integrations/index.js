@@ -45,6 +45,7 @@ export default class Integrations extends React.Component {
   };
 
   saveSearchanise = value => {
+    value = value.target.value;
     const appIntegrations = this.state.appIntegrations;
     appIntegrations.searchaniseKey = value;
     this.setState({ appIntegrations });
@@ -62,6 +63,7 @@ export default class Integrations extends React.Component {
   };
 
   saveYotpo = value => {
+    value = value.target.value;
     const appIntegrations = this.state.appIntegrations;
     appIntegrations.yotpoAPIKey = value;
     this.setState({ appIntegrations });
@@ -77,6 +79,7 @@ export default class Integrations extends React.Component {
   };
 
   saveJudgeMe = value => {
+    value = value.target.value;
     const appIntegrations = this.state.appIntegrations;
     appIntegrations.judgeMeAPIToken = value;
     this.setState({ appIntegrations });
@@ -94,6 +97,7 @@ export default class Integrations extends React.Component {
   };
 
   saveGATrackingId = value => {
+    value = value.target.value;
     const appIntegrations = this.state.appIntegrations;
     appIntegrations.gaTrackingId = value;
     this.setState({ appIntegrations });
@@ -111,6 +115,7 @@ export default class Integrations extends React.Component {
   };
 
   saveJivoChatWidgetId = value => {
+    value = value.target.value;
     const appIntegrations = this.state.appIntegrations;
     appIntegrations.jivoChatWidgetId = value;
     this.setState({ appIntegrations });
@@ -128,6 +133,7 @@ export default class Integrations extends React.Component {
   };
 
   saveIntercom = () => {
+    value = value.target.value;
     this.setState({ snackBackOpen: true });
     axios
       .post(`${API_ROOT}/api/mobile-integration/intercom`, {
