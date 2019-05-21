@@ -1,5 +1,4 @@
 import { Snackbar } from '@material-ui/core';
-import Axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Ionicon from 'react-ionicons';
@@ -17,7 +16,6 @@ import {
 } from 'reactstrap';
 import { Field, formValueSelector, reduxForm } from 'redux-form';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
-import { API_ROOT } from '../../../utilities/api-config';
 import {
   getAppSettings,
   saveAppSettings,
@@ -114,13 +112,6 @@ class SettingsDashboard extends React.Component {
   };
 
   saveRef = ref => (this.ref = ref);
-
-  onChangeSubmit = data => {
-    console.log(data);
-    this.setState({
-      sortBy: data
-    });
-  };
 
   render() {
     const {
