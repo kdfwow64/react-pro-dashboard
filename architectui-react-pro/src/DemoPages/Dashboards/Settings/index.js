@@ -601,7 +601,6 @@ const appSettingsForm = reduxForm({
   form: 'appSettings',
   enableReinitialize: true,
   onSubmit: (values, dispatch, props) => {
-    values.collectionSortOrder = sortBy;
     dispatch(saveAppSettings(values));
   }
 })(SettingsDashboard);
