@@ -194,15 +194,11 @@ class SettingsDashboard extends React.Component {
                           value: 'RECENTLY_UPDATED'
                         }
                       ]}
-                      value={this.state.sortBy}
                       name="collectionSortOrder"
                       ref={this.saveRef}
-                      allowCreate="onFilter"
                       valueField="value"
                       textField="label"
-                      onChange={value => {
-                        sortBy = value.value;
-                      }}
+                      onChange={onChangeSubmit(handleSubmit)}
                     />
                   </Col>
                 </Row>
