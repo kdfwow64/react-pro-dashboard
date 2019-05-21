@@ -1,5 +1,6 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
+import thunk from 'redux-thunk';
 import reducers from '../reducers';
 import authentication from '../utilities/authentication';
 // import appDesign from '../utilities/app-design';
@@ -29,7 +30,10 @@ export default function configureStore() {
       form: reduxFormReducer
       // ...reducers
     }),
-    {}
+    compose(
+      applyMiddleware(thunk),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
   );
   if (module.hot) {
     // TODO : see if reducers can be moved to feature modules and still get HMR working

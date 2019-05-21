@@ -45,7 +45,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        appSettings: action.payload.data
+        appSettings: action.payload
       };
     case REQUEST(ACTION_TYPES.SAVE_APP_SETTINGS):
       return {
@@ -71,10 +71,23 @@ export default (state = initialState, action) => {
   }
 };
 
-export const getAppSettings = () => ({
-  type: ACTION_TYPES.GET_APP_SETTINGS,
-  payload: axios.get(`${API_ROOT}/api/app-settings`)
-});
+export const getAppSettings = () => {
+  return dispatch =>
+    axios.get(`${API_ROOT}/api/app-settings`).then(
+      res => {
+        dispatch({
+          type: SUCCESS(ACTION_TYPES.GET_APP_SETTINGS),
+          payload: res.data
+        });
+      },
+      err => {
+        dispatch({
+          type: FAILURE(ACTION_TYPES.GET_APP_SETTINGS),
+          payload: err
+        });
+      }
+    );
+};
 
 export const saveAppSettings = function(appSettings) {
   // sendSlackMessage('Saving App Settings', appSettings);

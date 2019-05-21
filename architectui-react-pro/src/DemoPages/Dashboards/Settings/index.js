@@ -89,6 +89,8 @@ class SettingsDashboard extends React.Component {
     this.state = {
       snackbarOpen: false
     };
+
+    console.log('////', this.props.initialValues);
   }
 
   componentDidMount() {
@@ -561,18 +563,22 @@ class SettingsDashboard extends React.Component {
 
 const selector = formValueSelector('appSettings'); // <-- same as form name
 
-const mapStateToProps = storeState => ({
-  initialValues: storeState.appSettings.appSettings,
-  snackbarOpen: storeState.appSettings.saved,
-  loading: storeState.appSettings.loading,
-  hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
-  androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
-});
+const mapStateToProps = storeState => {
+  return {
+    initialValues: storeState.appSettings.appSettings,
+    snackbarOpen: storeState.appSettings.saved,
+    loading: storeState.appSettings.loading,
+    hideSoldOutProductsValue: selector(storeState, 'hideSoldOutProducts'),
+    androidPayEnabledValue: selector(storeState, 'androidPayEnabled')
+  };
+};
 
-const mapDispatchToProps = {
-  getAppSettings,
-  saveAppSettings,
-  saveForm
+const mapDispatchToProps = dispatch => {
+  return {
+    getAppSettings: () => dispatch(getAppSettings()),
+    saveAppSettings,
+    saveForm
+  };
 };
 
 const appSettingsForm = reduxForm({
