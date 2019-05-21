@@ -133,7 +133,6 @@ export default class Integrations extends React.Component {
   };
 
   saveIntercom = () => {
-    value = value.target.value;
     this.setState({ snackBackOpen: true });
     axios
       .post(`${API_ROOT}/api/mobile-integration/intercom`, {
@@ -306,7 +305,7 @@ export default class Integrations extends React.Component {
                           value={this.state.appIntegrations.intercomAppId}
                           onChange={value => {
                             const appIntegrations = this.state.appIntegrations;
-                            appIntegrations.intercomAppId = value;
+                            appIntegrations.intercomAppId = value.target.value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
                           }}
@@ -318,7 +317,8 @@ export default class Integrations extends React.Component {
                           value={this.state.appIntegrations.intercomAPIKeyiOS}
                           onChange={value => {
                             const appIntegrations = this.state.appIntegrations;
-                            appIntegrations.intercomAPIKeyiOS = value;
+                            appIntegrations.intercomAPIKeyiOS =
+                              value.target.value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
                           }}
@@ -332,7 +332,8 @@ export default class Integrations extends React.Component {
                           }
                           onChange={value => {
                             const appIntegrations = this.state.appIntegrations;
-                            appIntegrations.intercomAPIKeyAndroid = value;
+                            appIntegrations.intercomAPIKeyAndroid =
+                              value.target.value;
                             this.setState({ appIntegrations });
                             this.saveIntercom();
                           }}

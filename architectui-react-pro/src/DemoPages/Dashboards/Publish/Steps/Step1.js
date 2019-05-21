@@ -2,8 +2,31 @@ import React, { Fragment } from 'react';
 import { FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form';
 import S3SingleFileUploaderWithPreviewAndFileNameCapability from '../../../../utilities/S3SingleFileUploaderWithPreviewAndFileNameCapability';
+import Storage from '../../../../utilities/storage-util';
 
 export default class WizardStep1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      appName: '',
+      touched: {
+        appName: false,
+        appShortDescription: false
+      }
+    };
+  }
+
+  handleBlur = field => evt => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true }
+    });
+  };
+
+  handleChange = field => evt => {
+    let state = this.state;
+    state[field] = evt.target.value;
+  };
+
   render() {
     return (
       <Fragment>
@@ -13,9 +36,18 @@ export default class WizardStep1 extends React.Component {
             <p>Enter your app information below</p>
           </h3>
           <FormGroup>
-            <Label for="exampleEmail55">App Name</Label>
-            <Input tag={Field} component="input" name="appName" required />
-            <FormFeedback>This field is required</FormFeedback>
+            <Label for="exampleEmail55">App Name </Label>
+            <Input
+              tag={Field}
+              component="input"
+              name="appName"
+              required
+              onBlur={this.handleBlur('appName')}
+              onChange={this.handleChange('appName')}
+              valid={this.state.appName}
+              invalid={!this.state.appName && this.state.touched.appName}
+            />
+            <FormFeedback invalid>This field is required</FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -23,13 +55,21 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               name="appShortDescription"
               id="exampleAddress"
               placeholder=""
               defaultValue=""
+              required
+              onBlur={this.handleBlur('appShortDescription')}
+              onChange={this.handleChange('appShortDescription')}
+              valid={this.state.appShortDescription}
+              invalid={
+                !this.state.appShortDescription &&
+                this.state.touched.appShortDescription
+              }
             />
-            <FormFeedback> This field is required </FormFeedback>
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -37,13 +77,20 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="textarea"
               tag={Field}
-              component={Input}
+              component="input"
               name="appDescription"
               id="exampleAddress2"
               placeholder=""
               defaultValue=""
+              required
+              onBlur={this.handleBlur('appDescription')}
+              onChange={this.handleChange('appDescription')}
+              valid={this.state.appDescription}
+              invalid={
+                !this.state.appDescription && this.state.touched.appDescription
+              }
             />
-            <FormFeedback> This field is required </FormFeedback>
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -51,50 +98,54 @@ export default class WizardStep1 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               name="keywords"
               id="keywords"
               placeholder=""
               defaultValue=""
+              onBlur={this.handleBlur('keywords')}
+              onChange={this.handleChange('keywords')}
+              valid={this.state.keywords}
+              invalid={!this.state.keywords && this.state.touched.keywords}
             />
             <FormFeedback> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
-            <Label>App Icon</Label>
+            <Label>
+              App Icon <Label style={{ color: 'red' }}>*</Label>
+            </Label>
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add App Icon"
               acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
               tag={Field}
-              component={Input}
+              component="input"
               name="appIconFileName"
               previewImageHeight="100px"
               previewImageWidth="100px"
               imageFolder="app_icon"
               onChange={e => {
-                console.log(e);
-                localStorage.setItem('appIconFileName', e);
+                Storage.local.set('appIconFileName', e);
               }}
             />
-            <FormFeedback> This field is required </FormFeedback>
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
-            <Label>Splash Screen</Label>
+            <Label>Splash Screen </Label>
             <S3SingleFileUploaderWithPreviewAndFileNameCapability
               label="Add Splash Screen"
               acceptedFiles={['image/jpeg', 'image/png']}
               //   fileName='splash_screen'
               name="splashScreenFileName"
               tag={Field}
-              component={Input}
+              component="input"
               previewImageHeight="150px"
               previewImageWidth="100px"
               imageFolder="splash_screen"
               onChange={e => {
-                console.log(e);
-                localStorage.setItem('splashScreenFileName', e);
+                Storage.local.set('splashScreenFileName', e);
               }}
             />
             {/* <Input type="file" /> */}

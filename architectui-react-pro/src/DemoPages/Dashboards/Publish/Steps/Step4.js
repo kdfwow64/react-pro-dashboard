@@ -34,7 +34,10 @@ export default class WizardStep4 extends React.Component {
       custom: [true, false],
       status: 'Closed',
       fadeIn: true,
-      timeout: 300
+      timeout: 300,
+      touched: {
+        appleTeamName: false
+      }
     };
   }
 
@@ -80,6 +83,17 @@ export default class WizardStep4 extends React.Component {
     this.setState({ fadeIn: !this.state.fadeIn });
   }
 
+  handleBlur = field => evt => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true }
+    });
+  };
+
+  handleChange = field => evt => {
+    let state = this.state;
+    state[field] = evt.target.value;
+  };
+
   render() {
     return (
       <Fragment>
@@ -112,11 +126,19 @@ export default class WizardStep4 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               name="appleTeamName"
               id="exampleEmail2"
               placeholder="Provide your Apple Team name"
+              required
+              onBlur={this.handleBlur('appleTeamName')}
+              onChange={this.handleChange('appleTeamName')}
+              valid={this.state.appleTeamName}
+              invalid={
+                !this.state.appleTeamName && this.state.touched.appleTeamName
+              }
             />
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -125,7 +147,7 @@ export default class WizardStep4 extends React.Component {
               label="Add Play Store JSON File"
               acceptedFiles={['application/json']}
               tag={Field}
-              component={Input}
+              component="input"
               // fileName={this.props.bannerImageUrl}
               name="playStoreJsonFile"
               previewImageHeight="100px"

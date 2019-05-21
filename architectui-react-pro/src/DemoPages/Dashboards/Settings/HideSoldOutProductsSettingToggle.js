@@ -79,9 +79,7 @@ class HideSoldOutProductsSettingToggle extends React.Component {
                   className="help_icon"
                 />
               </span>
-              <RealTimeToolTip
-                tooltip_target="realhideSoldOutProductsToolTip"
-              />
+              <RealTimeToolTip tooltip_target="realhideSoldOutProductsToolTip" />
               <StatefulToolTip
                 text="Hide sold out products in the mobile app."
                 tooltip_target="hideSoldOutProductsToolTip"

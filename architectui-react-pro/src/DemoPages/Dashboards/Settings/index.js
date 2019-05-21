@@ -1,31 +1,31 @@
 import { Snackbar } from '@material-ui/core';
-import axios from 'axios';
+import Axios from 'axios';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { connect } from 'react-redux';
-import { Field, formValueSelector, reduxForm } from 'redux-form';
-import { DropdownList } from 'react-widgets';
 import Ionicon from 'react-ionicons';
+import { connect } from 'react-redux';
+import { DropdownList } from 'react-widgets';
 import {
+  Button,
   Card,
   CardBody,
+  CardFooter,
   CardTitle,
   Col,
-  Row,
-  CardHeader,
   Input,
-  Button,
-  CardFooter
+  Row
 } from 'reactstrap';
+import { Field, formValueSelector, reduxForm } from 'redux-form';
+import PageTitle from '../../../Layout/AppMain/PageTitle';
+import { API_ROOT } from '../../../utilities/api-config';
 import {
   getAppSettings,
   saveAppSettings,
   saveForm
 } from '../../../utilities/app-settings';
-import { onChangeSubmit } from '../shared/util/save-form-util';
 import RealTimeToolTip from '../shared/util/RealTimeToolTip';
+import { onChangeSubmit } from '../shared/util/save-form-util';
 import StatefulToolTip from '../shared/util/StatefulToolTip';
-import PageTitle from '../../../Layout/AppMain/PageTitle';
 import AndroidPaySettingToggle from './AndroidPaySettingToggle';
 import ApplePaySettingToggle from './ApplePaySettingToggle';
 import HideSoldOutProductsSettingToggle from './HideSoldOutProductsSettingToggle';
@@ -91,7 +91,6 @@ export const renderSelectField = ({
 class SettingsDashboard extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       snackbarOpen: false,
       sortBy: 'Alphabetical'
@@ -100,6 +99,32 @@ class SettingsDashboard extends React.Component {
 
   componentDidMount() {
     this.props.getAppSettings();
+    this.getAppSettings();
+  }
+
+  getAppSettings() {
+    Axios.get(`${API_ROOT}/api/app-settings`)
+      .then(response => {
+        console.log(response.data);
+        let appSettings = response.data;
+        let options = [
+          { label: 'Alphabetical', value: 'ALPHABETICAL' },
+          {
+            label: 'Recently Updated',
+            value: 'RECENTLY_UPDATED'
+          }
+        ];
+        for (let i in options) {
+          if (options[i].value === response.data.collectionSortOrder) {
+            this.setState({
+              sortBy: options[i]
+            });
+          }
+        }
+
+        console.log(this.state.sortBy);
+      })
+      .catch(e => {});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -181,9 +206,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="sort_orderrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="sort_orderrealtimetooltip" />
                       <StatefulToolTip
                         text={
                           "The sorting order for the collections in the 'Browse' section in the mobile app"
@@ -204,7 +227,7 @@ class SettingsDashboard extends React.Component {
                           value: 'RECENTLY_UPDATED'
                         }
                       ]}
-                      defaultValue={this.state.sortBy}
+                      value={this.state.sortBy}
                       name="collectionSortOrder"
                       ref={this.saveRef}
                       allowCreate="onFilter"
@@ -329,9 +352,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="refund_policyrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="refund_policyrealtimetooltip" />
                       <StatefulToolTip
                         text={
                           "Enter url for refund policy. This will show up in the 'Settings' tab in the app."
@@ -374,9 +395,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="fb_urlrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="fb_urlrealtimetooltip" />
                       <StatefulToolTip
                         text="This will show up in Settings tab in the mobile app. Your customers can like your Facebook page."
                         tooltip_target="fb_url"
@@ -415,9 +434,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="twitter_urlrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="twitter_urlrealtimetooltip" />
                       <StatefulToolTip
                         text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Twitter."
                         tooltip_target="twitter_url"
@@ -456,9 +473,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="insta_urlrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="insta_urlrealtimetooltip" />
                       <StatefulToolTip
                         text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Instagram."
                         tooltip_target="insta_url"
@@ -497,9 +512,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="youtube_urlrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="youtube_urlrealtimetooltip" />
                       <StatefulToolTip
                         text="This will show up in Settings tab in the mobile app. You could either put url to your YouTube channel or a specific Youtube video."
                         tooltip_target="youtube_url"
@@ -540,9 +553,7 @@ class SettingsDashboard extends React.Component {
                           className="help_icon"
                         />
                       </span>
-                      <RealTimeToolTip
-                        tooltip_target="other_urlrealtimetooltip"
-                      />
+                      <RealTimeToolTip tooltip_target="other_urlrealtimetooltip" />
                       <StatefulToolTip
                         text="This will show up in Settings tab in the mobile app."
                         tooltip_target="other_url"
@@ -565,11 +576,13 @@ class SettingsDashboard extends React.Component {
             <CardFooter>
               <Button
                 color="primary"
-                type="submit"
                 onClick={() => {
                   this.setState({ snackbarOpen: true });
+                  console.log('called');
+                  console.log(this.state.snackbarOpen);
                 }}
                 loading={String(loading)}
+                type="submit"
               >
                 Save
               </Button>
@@ -610,9 +623,8 @@ const mapDispatchToProps = {
 const appSettingsForm = reduxForm({
   form: 'appSettings',
   enableReinitialize: true,
-  onSubmit: (values, dispatch) => {
+  onSubmit: (values, dispatch, props) => {
     values.collectionSortOrder = sortBy;
-
     dispatch(saveAppSettings(values));
   }
 })(SettingsDashboard);

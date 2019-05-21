@@ -1,7 +1,16 @@
 import React, { Fragment } from 'react';
 import { Button } from 'reactstrap';
+import { Snackbar } from '@material-ui/core';
 
 export default class WizardStep5 extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.state = {
+      snackbarOpen: false
+    };
+  }
+
   render() {
     return (
       <Fragment>
@@ -31,6 +40,18 @@ export default class WizardStep5 extends React.Component {
             </div>
           </div>
         </div>
+        {/* 
+        <Snackbar
+          style={{ marginBottom: '10px' }}
+          ContentProps={{ style: { fontSize: '20px' } }}
+          message={<span>Saving...</span>}
+          autoHideDuration={1000}
+          onClose={() => {
+            this.setState({ snackbarOpen: false });
+
+          }}
+          open={this.state.snackbarOpen}
+        />  */}
       </Fragment>
     );
   }
