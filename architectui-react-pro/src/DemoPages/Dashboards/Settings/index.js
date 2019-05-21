@@ -65,8 +65,6 @@ export const renderTextField = ({
   ...custom
 }) => <Input type="text" {...input} {...custom} />;
 
-let sortBy;
-
 export const renderSelectField = ({
   options,
   input,
@@ -79,12 +77,9 @@ export const renderSelectField = ({
     data={options}
     name="collectionSortOrder"
     allowCreate="onFilter"
-    onCreate={name => this.handleCreate(name)}
     valueField="value"
     textField="label"
-    onChange={value => {
-      sortBy = value.value;
-    }}
+    onChange={value => input.onChange(value)}
   />
 );
 
@@ -92,8 +87,7 @@ class SettingsDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      snackbarOpen: false,
-      sortBy: 'Alphabetical'
+      snackbarOpen: false
     };
   }
 
