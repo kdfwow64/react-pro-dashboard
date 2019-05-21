@@ -1,57 +1,63 @@
-import { Grid, Snackbar } from '@material-ui/core';
+import { Snackbar } from '@material-ui/core';
 import axios from 'axios';
-// import Radium, { StyleRoot } from 'radium';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-// import { fadeInDown } from 'react-animations';
 import { connect } from 'react-redux';
 import { Field, formValueSelector, reduxForm } from 'redux-form';
-// import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
-import { Card, Button, CardBody, Row, Col, CardTitle, Input } from 'reactstrap';
 import { DropdownList } from 'react-widgets';
+import Ionicon from 'react-ionicons';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  Col,
+  Row,
+  CardHeader,
+  Input,
+  Button,
+  CardFooter
+} from 'reactstrap';
 import {
   getAppSettings,
   saveAppSettings,
   saveForm
 } from '../../../utilities/app-settings';
-// import { onChangeSubmit } from '../../../../shared/util/save-form-util';
-import RealTimeToolTip from '../../../utilities/RealTimeToolTip';
-import StatefulToolTip from '../../../utilities/StatefulToolTip';
+import { onChangeSubmit } from '../shared/util/save-form-util';
+import RealTimeToolTip from '../shared/util/RealTimeToolTip';
+import StatefulToolTip from '../shared/util/StatefulToolTip';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
-import ExternalLink from '../../../utilities/ExternalLink';
+import AndroidPaySettingToggle from './AndroidPaySettingToggle';
+import ApplePaySettingToggle from './ApplePaySettingToggle';
+import HideSoldOutProductsSettingToggle from './HideSoldOutProductsSettingToggle';
+import SmartAppBannerSettingToggle from './SmartAppBannerSettingToggle';
 
-// import AndroidPaySettingToggle from './Toggles/AndroidPaySettingToggle';
-// import ApplePaySettingToggle from './Toggles/ApplePaySettingToggle';
-// import HideSoldOutProductsSettingToggle from './Toggles/HideSoldOutProductsSettingToggle';
-// import SmartAppBannerSettingToggle from './Toggles/SmartAppBannerSettingToggle';
+const renderApplePayEnabled = field => (
+  <ApplePaySettingToggle
+    enabled={field.input.value}
+    onChange={value => field.input.onChange(value)}
+  />
+);
 
-// const renderApplePayEnabled = field => (
-//   <ApplePaySettingToggle
-//     enabled={field.input.value}
-//     onChange={value => field.input.onChange(value)}
-//   />
-// );
+const renderAndroidPayEnabled = field => (
+  <AndroidPaySettingToggle
+    enabled={field.input.value}
+    onChange={value => field.input.onChange(value)}
+  />
+);
 
-// const renderAndroidPayEnabled = field => (
-//   <AndroidPaySettingToggle
-//     enabled={field.input.value}
-//     onChange={value => field.input.onChange(value)}
-//   />
-// );
+const renderSmartAppBannerField = field => (
+  <SmartAppBannerSettingToggle
+    enabled={field.input.value}
+    onChange={value => field.input.onChange(value)}
+  />
+);
 
-// const renderSmartAppBannerField = field => (
-//   <SmartAppBannerSettingToggle
-//     enabled={field.input.value}
-//     onChange={value => field.input.onChange(value)}
-//   />
-// );
-
-// const renderHideSoldOutProductsField = field => (
-//   <HideSoldOutProductsSettingToggle
-//     enabled={field.input.value}
-//     onChange={value => field.input.onChange(value)}
-//   />
-// );
+const renderHideSoldOutProductsField = field => (
+  <HideSoldOutProductsSettingToggle
+    enabled={field.input.value}
+    onChange={value => field.input.onChange(value)}
+  />
+);
 
 export const renderTextField = ({
   input,
@@ -59,17 +65,7 @@ export const renderTextField = ({
   multiLine,
   meta: { touched, error },
   ...custom
-}) => (
-  <Input type="text" />
-  //   <TextField
-  //     helpText={label}
-  //     floatingLabelText={label}
-  //     multiline={multiLine}
-  //     error={touched && error}
-  //     {...input}
-  //     {...custom}
-  //   />
-);
+}) => <Input type="text" />;
 let sortBy;
 export const renderSelectField = ({
   options,
@@ -81,7 +77,6 @@ export const renderSelectField = ({
 }) => (
   <DropdownList
     data={options}
-    // value={input.value}
     name="collectionSortOrder"
     allowCreate="onFilter"
     onCreate={name => this.handleCreate(name)}
@@ -89,22 +84,11 @@ export const renderSelectField = ({
     textField="label"
     onChange={value => {
       sortBy = value.value;
-      // input.onChange(value)
     }}
-    // textField="name"
   />
-  //   <Select
-  //     label=""
-  //     value={input.value || ''}
-  //     onChange={value => input.onChange(value)}
-  //     options={options}
-  //   />
 );
 
 class SettingsDashboard extends React.Component {
-  /* ref: any;
-  form: HTMLFormElement; */
-
   constructor(props) {
     super(props);
 
@@ -145,20 +129,17 @@ class SettingsDashboard extends React.Component {
       collectionSortOrder,
       loading
     } = this.props;
-    // console.log(collectionSortOrder);
 
-    // const styles = {
-    //   apiUrl: {
-    //     animation: 'x 0.2s',
-    //     animationName: Radium.keyframes(fadeInDown, 'fadeInDown'),
-    //     margin: '10px'
-    //   },
-    //   androidPay: {
-    //     animation: 'x 0.2s',
-    //     animationName: Radium.keyframes(fadeInDown, 'fadeInDown'),
-    //     margin: '10px'
-    //   }
-    // };
+    const style = {
+      style: {
+        backgroundImage:
+          'url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2020%2020%22%3E%3Cstyle%20type=%22text/css%22%3Ecircle,%20ellipse,%20line,%20path,%20polygon,%20polyline,%20rect,%20text%20%7B%20fill:%20%235c6ac4%20!important;%20%7D%3C/style%3E%3Cpath%20d=%22M17%202c.553%200%201%20.448%201%201v5c0%20.552-.447%201-1%201s-1-.448-1-1V5.414l-7.293%207.293c-.195.195-.45.293-.707.293s-.512-.098-.707-.293c-.39-.39-.39-1.023%200-1.414L14.586%204H12c-.553%200-1-.448-1-1s.447-1%201-1h5zm-4%209c.553%200%201%20.448%201%201v5c0%20.552-.447%201-1%201H3c-.553%200-1-.448-1-1V7c0-.552.447-1%201-1h5c.553%200%201%20.448%201%201s-.447%201-1%201H4v8h8v-4c0-.552.447-1%201-1z%22/%3E%3C/svg%3E%0A")',
+        backgroundPosition: 'right top',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '16px 16px',
+        paddingRight: '18px'
+      }
+    };
 
     return (
       <Fragment>
@@ -173,31 +154,48 @@ class SettingsDashboard extends React.Component {
           <PageTitle
             heading="Settings"
             subheading="App Settings"
-            icon="pe-7s-video icon-gradient bg-sunny-morning"
+            icon="pe-7s-tools icon-gradient bg-sunny-morning"
           />
-          <form ref={this.setFormRef} onSubmit={handleSubmit}>
+          <form
+            ref={this.setFormRef}
+            onSubmit={handleSubmit}
+            className="app_setting_main"
+          >
             <Card>
               <CardBody>
                 <Row>
-                  <Col>
-                    <CardTitle>Collection Sort Order</CardTitle>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Collection Sort Order
+                      <span
+                        id="sort_orderrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="sort_order">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
+                        />
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="sort_orderrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text={
+                          "The sorting order for the collections in the 'Browse' section in the mobile app"
+                        }
+                        tooltip_target="sort_order"
+                      />
+                    </CardTitle>
                     <p>
                       Sorting order for the collections in the 'Browse' section.
                     </p>
                   </Col>
-                  <Col>
-                    {/* <Field 
-                      component={renderSelectField}
-                      options={[
-                        { label: "Alphabetical", value: "ALPHABETICAL" },
-                        {
-                          label: "Recently Updated",
-                          value: "RECENTLY_UPDATED"
-                        }
-                      ]} 
-                      ref={this.saveRef}
-                      onChange={this.onChangeSubmit.bind(handleSubmit)}
-                    /> */}
+                  <Col xs={12} sm={6}>
                     <DropdownList
                       data={[
                         { label: 'Alphabetical', value: 'ALPHABETICAL' },
@@ -210,230 +208,183 @@ class SettingsDashboard extends React.Component {
                       name="collectionSortOrder"
                       ref={this.saveRef}
                       allowCreate="onFilter"
-                      // onCreate={name => this.handleCreate(name)}
                       valueField="value"
                       textField="label"
                       onChange={value => {
                         sortBy = value.value;
-                        // input.onChange(value)
                       }}
-                      // textField="name"
                     />
                   </Col>
                 </Row>
               </CardBody>
             </Card>
 
-            {/* <Field
-                  name="applePayEnabled"
-                  component={renderApplePayEnabled}
-                  ref={this.saveRef}
-                  onChange={onChangeSubmit(handleSubmit)}
-                  
-                /> */}
+            <Card>
+              <CardBody>
+                <Row>
+                  <Field
+                    name="applePayEnabled"
+                    component={renderApplePayEnabled}
+                    ref={this.saveRef}
+                    onChange={onChangeSubmit(handleSubmit)}
+                  />
+                </Row>
+              </CardBody>
+            </Card>
 
-            {/* <Field
+            <Card>
+              <CardBody>
+                <Field
                   name="androidPayEnabled"
                   component={renderAndroidPayEnabled}
                   ref={this.saveRef}
                   onChange={onChangeSubmit(handleSubmit)}
                   withRef
-                /> */}
+                />
+              </CardBody>
+            </Card>
 
-            {/* {androidPayEnabledValue === true ? (
-                  <StyleRoot>
-                    <div style={styles.androidPay}>
-                      <Card sectioned>
-                        <Grid container spacing={0}>
-                          <Grid item xs={12} sm={6}>
-                            <TextContainer>
-                              <TextStyle variation="strong">
-                                Android Pay Public Key{' '}
-                                <StatefulToolTip
-                                  position="right"
-                                  arrow="center"
-                                  id="androidPayToolTip"
-                                  // tslint:disable-next-line:max-line-length
-                                  text={`Enter the 'Public Key' from private app.`}
-                                />
-                              </TextStyle>
-                              <p>
-                                {
-                                  // tslint:disable-next-line:max-line-length
-                                  <TextStyle variation="subdued">
-                                    Enter the <i>Public Key</i> from private
-                                    app.{' '}
-                                    <ExternalLink
-                                      url="https://help.shopify.com/en/api/custom-storefronts/mobile-buy-sdk/android#generate-a-public-key-for-android-pay"
-                                      text="Learn how"
-                                    />
-                                    .
-                                  </TextStyle>
-                                }
-                              </p>
-                            </TextContainer>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Field
-                              name="androidPayPublicKey"
-                              component={renderTextField}
-                              ref={this.saveRef}
-                              onChange={onChangeSubmit(handleSubmit)}
-                              withRef
-                            />
-                          </Grid>
-                        </Grid>
-                      </Card>
-                    </div>
-                  </StyleRoot>
-                ) : null} */}
-
-            {/* <Field
+            <Card>
+              <CardBody>
+                <Field
                   name="showSmartAppBanner"
                   component={renderSmartAppBannerField}
                   ref={this.saveRef}
                   onChange={onChangeSubmit(handleSubmit)}
                   withRef
-                /> */}
+                />
+              </CardBody>
+            </Card>
 
-            {/* <Field
+            <Card>
+              <CardBody>
+                <Field
                   name="hideSoldOutProducts"
                   component={renderHideSoldOutProductsField}
                   ref={this.ref}
                   onChange={onChangeSubmit(handleSubmit)}
                   withRef
-                /> */}
-            {/* {hideSoldOutProductsValue === true ? (
-                  <StyleRoot>
-                    <div style={styles.apiUrl}>
-                      <Card sectioned>
-                        <Grid container spacing={0}>
-                          <Grid item xs={12} sm={6}>
-                            <TextContainer>
-                              <TextStyle variation="strong">
-                                API URL{' '}
-                                <StatefulToolTip
-                                  position="right"
-                                  arrow="center"
-                                  id="apiURLToolTip"
-                                  // tslint:disable-next-line:max-line-length
-                                  text={`Enter the 'Example url' from private app.`}
-                                />
-                              </TextStyle>
-                              <p>
-                                <TextStyle variation="subdued">
-                                  Enter the <i>Example url</i> from private app.{' '}
-                                  <ExternalLink
-                                    url="https://youtu.be/WziuBid3YcQ"
-                                    text="Watch how"
-                                  />
-                                  .
-                                </TextStyle>
-                              </p>
-                            </TextContainer>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Field
-                              name="apiUrl"
-                              component={renderTextField}
-                              ref={this.saveRef}
-                              onChange={onChangeSubmit(handleSubmit)}
-                              withRef
-                            />
-                          </Grid>
-                        </Grid>
-                      </Card>
-                    </div>
-                  </StyleRoot>
-                ) : null} */}
+                />
+              </CardBody>
+            </Card>
 
-            {/* <Card sectioned>
-                  <Grid container spacing={0} style={{ margin: '15px' }}>
-                    <Grid item xs={12} sm={6}>
-                      <TextContainer>
-                        <TextStyle variation="strong">
-                          Contact Us <RealTimeToolTip />{' '}
-                          <StatefulToolTip
-                            position="right"
-                            arrow="center"
-                            id="contactUsToolTip"
-                            // tslint:disable-next-line:max-line-length
-                            text={`Enter an email address or contact us url for your shop. Mobile app users will use this for contacting you through mobile app.`}
-                          />
-                        </TextStyle>
-                        <p>
-                          <TextStyle variation="subdued">
-                            Enter either an email address or your contact us
-                            page url.
-                          </TextStyle>
-                        </p>
-                      </TextContainer>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <Field
-                        name="contactUsDetails"
-                        component={renderTextField}
-                        ref={this.saveRef}
-                        onChange={onChangeSubmit(handleSubmit)}
-                        withRef
-                      />
-                    </Grid>
-                  </Grid>
-                </Card>
-
-                <Card sectioned>
-                  <Grid container spacing={0} style={{ margin: '15px' }}>
-                    <Grid item xs={12} sm={6}>
-                      <TextContainer>
-                        <TextStyle variation="strong">
-                          Refund Policy <RealTimeToolTip />{' '}
-                          <StatefulToolTip
-                            position="right"
-                            arrow="center"
-                            id="refundPolicyToolTip"
-                            // tslint:disable-next-line:max-line-length
-                            text={`Enter url for refund policy. This will show up in the 'Settings' tab in the app.`}
-                          />
-                        </TextStyle>
-                        <p>
-                          <TextStyle variation="subdued">
-                            Enter url for your refund policy. (Optional)
-                          </TextStyle>
-                        </p>
-                      </TextContainer>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <Field
-                        name="refundPolicy"
-                        component={renderTextField}
-                        ref={this.saveRef}
-                        onChange={onChangeSubmit(handleSubmit)}
-                        withRef
-                      />
-                    </Grid>
-                  </Grid>
-                </Card>
-                <Card sectioned>
-                <Grid container spacing={0} style={{ margin: '15px' }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Facebook URL <RealTimeToolTip />{' '}
-                        <StatefulToolTip
-                          position="right"
-                          arrow="center"
-                          id="facebookToolTip"
-                          text="This will show up in Settings tab in the mobile app. Your customers can like your Facebook page."
+            <Card sectioned>
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      {' '}
+                      Contact Us{' '}
+                      <span id="realtimetooltip" className="realtimetooltip">
+                        RT
+                      </span>
+                      <span id="contact">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
                         />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Your Facebook page URL.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
+                      </span>
+                      <RealTimeToolTip tooltip_target="realtimetooltip" />
+                      <StatefulToolTip
+                        text="Enter an email address or contact us url for your shop. Mobile app users will use this for contacting you through mobile app."
+                        tooltip_target="contact"
+                      />
+                    </CardTitle>
+                    <p>
+                      Enter either an email address or your contact us page url.
+                    </p>
+                  </Col>
+                  <Col xs={12} sm={6}>
+                    <Field
+                      name="contactUsDetails"
+                      component={renderTextField}
+                      ref={this.saveRef}
+                      onChange={onChangeSubmit(handleSubmit)}
+                      withRef
+                    />
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+
+            <Card sectioned>
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Refund Policy
+                      <span
+                        id="refund_policyrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="refund_policy">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
+                        />
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="refund_policyrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text={
+                          "Enter url for refund policy. This will show up in the 'Settings' tab in the app."
+                        }
+                        tooltip_target="refund_policy"
+                      />
+                    </CardTitle>
+                    <p>Enter url for your refund policy. (Optional)</p>
+                  </Col>
+                  <Col item xs={12} sm={6}>
+                    <Field
+                      name="refundPolicy"
+                      component={renderTextField}
+                      ref={this.saveRef}
+                      onChange={onChangeSubmit(handleSubmit)}
+                      withRef
+                    />
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+
+            <Card sectioned>
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Facebook URL
+                      <span
+                        id="fb_urlrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="fb_url">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
+                        />
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="fb_urlrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text="This will show up in Settings tab in the mobile app. Your customers can like your Facebook page."
+                        tooltip_target="fb_url"
+                      />
+                    </CardTitle>
+                    <p>Your Facebook page URL.</p>
+                  </Col>
+                  <Col item xs={12} sm={6}>
                     <Field
                       name="facebookUrl"
                       component={renderTextField}
@@ -441,29 +392,40 @@ class SettingsDashboard extends React.Component {
                       onChange={onChangeSubmit(handleSubmit)}
                       withRef
                     />
-                  </Grid>
-                </Grid>
+                  </Col>
+                </Row>
+              </CardBody>
 
-                <Grid container spacing={0} style={{ margin: '15px' }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Twitter URL <RealTimeToolTip />{' '}
-                        <StatefulToolTip
-                          position="right"
-                          arrow="center"
-                          id="twitterToolTip"
-                          text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Twitter."
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Twitter URL
+                      <span
+                        id="twitter_urlrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="twitter_url">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
                         />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Your Twitter page URL.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="twitter_urlrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Twitter."
+                        tooltip_target="twitter_url"
+                      />
+                    </CardTitle>
+                    <p>Your Twitter page URL.</p>
+                  </Col>
+                  <Col xs={12} sm={6}>
                     <Field
                       name="twitterUrl"
                       component={renderTextField}
@@ -471,29 +433,40 @@ class SettingsDashboard extends React.Component {
                       onChange={onChangeSubmit(handleSubmit)}
                       withRef
                     />
-                  </Grid>
-                </Grid>
+                  </Col>
+                </Row>
+              </CardBody>
 
-                <Grid container spacing={0} style={{ margin: '15px' }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Instagram URL <RealTimeToolTip />{' '}
-                        <StatefulToolTip
-                          position="right"
-                          arrow="center"
-                          id="instagramToolTip"
-                          text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Instagram."
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Instagram URL
+                      <span
+                        id="insta_urlrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="insta_url">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
                         />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Your Instagram page URL.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="insta_urlrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text="This will show up in Settings tab in the mobile app. Your customers can follow your store on Instagram."
+                        tooltip_target="insta_url"
+                      />
+                    </CardTitle>
+                    <p>Your Instagram page URL.</p>
+                  </Col>
+                  <Col item xs={12} sm={6}>
                     <Field
                       name="instagramUrl"
                       component={renderTextField}
@@ -501,29 +474,42 @@ class SettingsDashboard extends React.Component {
                       onChange={onChangeSubmit(handleSubmit)}
                       withRef
                     />
-                  </Grid>
-                </Grid>
+                  </Col>
+                </Row>
+              </CardBody>
 
-                <Grid container spacing={0} style={{ margin: '15px' }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        YouTube URL <RealTimeToolTip />{' '}
-                        <StatefulToolTip
-                          position="right"
-                          arrow="center"
-                          id="youtubeToolTip"
-                          text="This will show up in Settings tab in the mobile app. You could either put url to your YouTube channel or a specific Youtube video."
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      YouTube URL
+                      <span
+                        id="youtube_urlrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="youtube_url">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
                         />
-                      </TextStyle>
-                      <p>
-                        <TextStyle variation="subdued">
-                          Your YouTube URL.
-                        </TextStyle>
-                      </p>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="youtube_urlrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text="This will show up in Settings tab in the mobile app. You could either put url to your YouTube channel or a specific Youtube video."
+                        tooltip_target="youtube_url"
+                      />
+                    </CardTitle>
+
+                    <p>Your YouTube URL.</p>
+                  </Col>
+
+                  <Col item xs={12} sm={6}>
                     <Field
                       name="youtubeUrl"
                       component={renderTextField}
@@ -531,24 +517,39 @@ class SettingsDashboard extends React.Component {
                       onChange={onChangeSubmit(handleSubmit)}
                       withRef
                     />
-                  </Grid>
-                </Grid> */}
+                  </Col>
+                </Row>
+              </CardBody>
 
-            {/* <Grid container spacing={0} style={{ margin: '15px' }}>
-                  <Grid item xs={12} sm={6}>
-                    <TextContainer>
-                      <TextStyle variation="strong">
-                        Other URL <RealTimeToolTip />{' '}
-                        <StatefulToolTip
-                          position="right"
-                          arrow="center"
-                          id="otherUrlToolTip"
-                          text="This will show up in Settings tab in the mobile app."
+              <CardBody>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <CardTitle>
+                      Other URL
+                      <span
+                        id="other_urlrealtimetooltip"
+                        className="realtimetooltip"
+                      >
+                        RT
+                      </span>
+                      <span id="other_url">
+                        <Ionicon
+                          fontSize="20px"
+                          color="#fff"
+                          icon="ios-help"
+                          className="help_icon"
                         />
-                      </TextStyle>
-                    </TextContainer>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
+                      </span>
+                      <RealTimeToolTip
+                        tooltip_target="other_urlrealtimetooltip"
+                      />
+                      <StatefulToolTip
+                        text="This will show up in Settings tab in the mobile app."
+                        tooltip_target="other_url"
+                      />
+                    </CardTitle>
+                  </Col>
+                  <Col item xs={12} sm={6}>
                     <Field
                       name="otherUrl"
                       component={renderTextField}
@@ -556,14 +557,12 @@ class SettingsDashboard extends React.Component {
                       onChange={onChangeSubmit(handleSubmit)}
                       withRef
                     />
-                  </Grid>
-                </Grid>
-              </Card> */}
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
 
-            <div
-              className="Polaris-Card__Footer"
-              style={{ padding: '15px 0rem 2rem' }}
-            >
+            <CardFooter>
               <Button
                 color="primary"
                 type="submit"
@@ -574,7 +573,7 @@ class SettingsDashboard extends React.Component {
               >
                 Save
               </Button>
-            </div>
+            </CardFooter>
           </form>
           <Snackbar
             style={{ marginBottom: '10px' }}
