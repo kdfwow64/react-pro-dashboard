@@ -531,20 +531,17 @@ class SettingsDashboard extends React.Component {
               </CardBody>
             </Card>
 
-            <CardFooter>
-              <Button
-                color="primary"
-                onClick={() => {
-                  this.setState({ snackbarOpen: true });
-                  console.log('called');
-                  console.log(this.state.snackbarOpen);
-                }}
-                loading={String(loading)}
-                type="submit"
-              >
-                Save
-              </Button>
-            </CardFooter>
+            <Button
+              className="mb-3"
+              color="primary"
+              onClick={() => {
+                this.setState({ snackbarOpen: true });
+              }}
+              loading={String(loading)}
+              type="submit"
+            >
+              Save
+            </Button>
           </form>
           <Snackbar
             style={{ marginBottom: '10px' }}
