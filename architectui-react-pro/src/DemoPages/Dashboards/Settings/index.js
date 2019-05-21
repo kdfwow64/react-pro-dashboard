@@ -242,7 +242,7 @@ class SettingsDashboard extends React.Component {
                 <Field
                   name="hideSoldOutProducts"
                   component={renderHideSoldOutProductsField}
-                  ref={this.ref}
+                  ref={this.saveRef}
                   onChange={onChangeSubmit(handleSubmit)}
                   withRef
                 />

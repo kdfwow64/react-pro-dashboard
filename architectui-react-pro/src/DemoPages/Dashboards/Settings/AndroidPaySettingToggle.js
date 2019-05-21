@@ -116,13 +116,12 @@ class AndroidPaySettingToggle extends React.Component {
                     </p>
                   </Col>
                   <Col xs={12} sm={6}>
-                    <Input
+                    <Field
                       name="androidPayPublicKey"
                       component={renderTextField}
                       ref={this.saveRef}
                       onChange={this.props.onChange(!this.state.enabled)}
                       withRef
-                      type="text"
                     />
                   </Col>
                 </Row>
