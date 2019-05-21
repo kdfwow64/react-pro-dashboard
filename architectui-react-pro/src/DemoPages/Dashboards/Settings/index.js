@@ -65,8 +65,10 @@ export const renderTextField = ({
   multiLine,
   meta: { touched, error },
   ...custom
-}) => <Input type="text" />;
+}) => <Input type="text" {...input} {...custom} />;
+
 let sortBy;
+
 export const renderSelectField = ({
   options,
   input,
@@ -99,32 +101,6 @@ class SettingsDashboard extends React.Component {
 
   componentDidMount() {
     this.props.getAppSettings();
-    this.getAppSettings();
-  }
-
-  getAppSettings() {
-    Axios.get(`${API_ROOT}/api/app-settings`)
-      .then(response => {
-        console.log(response.data);
-        let appSettings = response.data;
-        let options = [
-          { label: 'Alphabetical', value: 'ALPHABETICAL' },
-          {
-            label: 'Recently Updated',
-            value: 'RECENTLY_UPDATED'
-          }
-        ];
-        for (let i in options) {
-          if (options[i].value === response.data.collectionSortOrder) {
-            this.setState({
-              sortBy: options[i]
-            });
-          }
-        }
-
-        console.log(this.state.sortBy);
-      })
-      .catch(e => {});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -250,6 +226,7 @@ class SettingsDashboard extends React.Component {
                     component={renderApplePayEnabled}
                     ref={this.saveRef}
                     onChange={onChangeSubmit(handleSubmit)}
+                    withRef
                   />
                 </Row>
               </CardBody>
