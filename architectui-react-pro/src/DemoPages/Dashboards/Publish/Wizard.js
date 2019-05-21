@@ -39,6 +39,7 @@ export default class MultiStep extends React.Component {
     showPreviousBtn: false,
     showNextBtn: true,
     compState: 0,
+    valid: false,
     navState: getNavStates(0, this.props.steps.length)
   };
 
@@ -70,8 +71,11 @@ export default class MultiStep extends React.Component {
   };
 
   next = () => {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, message } = this.props;
+    console.log(message);
     handleSubmit();
+    this.props.callbackParent('');
+
     this.setNavState(this.state.compState + 1);
   };
 
@@ -91,7 +95,6 @@ export default class MultiStep extends React.Component {
         className={this.getClassName('form-wizard-step', i)}
         onClick={this.handleOnClick}
         key={i}
-        value={i}
       >
         <em>{i + 1}</em>
         <span>{this.props.steps[i].name}</span>
@@ -122,6 +125,7 @@ export default class MultiStep extends React.Component {
               className="btn-shadow btn-wide float-right btn-pill btn-hover-shine"
               style={this.state.showNextBtn ? {} : { display: 'none' }}
               onClick={this.next}
+              // disabled={this.state.valid}
             >
               Next
             </Button>

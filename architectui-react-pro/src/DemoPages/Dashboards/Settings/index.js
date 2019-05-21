@@ -1,5 +1,5 @@
 import { Grid, Snackbar } from '@material-ui/core';
-import axios from 'axios';
+import Axios from 'axios';
 // import Radium, { StyleRoot } from 'radium';
 import React, { Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -9,6 +9,7 @@ import { Field, formValueSelector, reduxForm } from 'redux-form';
 // import { getAppSettings, saveAppSettings, saveForm } from '../../../../mobile-reducers/app-settings';
 import { Card, Button, CardBody, Row, Col, CardTitle, Input } from 'reactstrap';
 import { DropdownList } from 'react-widgets';
+import { API_ROOT } from '../../../utilities/api-config';
 import {
   getAppSettings,
   saveAppSettings,
@@ -107,7 +108,6 @@ class SettingsDashboard extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       snackbarOpen: false,
       sortBy: 'Alphabetical'
@@ -116,6 +116,32 @@ class SettingsDashboard extends React.Component {
 
   componentDidMount() {
     this.props.getAppSettings();
+    this.getAppSettings();
+  }
+
+  getAppSettings() {
+    Axios.get(`${API_ROOT}/api/app-settings`)
+      .then(response => {
+        console.log(response.data);
+        let appSettings = response.data;
+        let options = [
+          { label: 'Alphabetical', value: 'ALPHABETICAL' },
+          {
+            label: 'Recently Updated',
+            value: 'RECENTLY_UPDATED'
+          }
+        ];
+        for (let i in options) {
+          if (options[i].value === response.data.collectionSortOrder) {
+            this.setState({
+              sortBy: options[i]
+            });
+          }
+        }
+
+        console.log(this.state.sortBy);
+      })
+      .catch(e => {});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -206,15 +232,18 @@ class SettingsDashboard extends React.Component {
                           value: 'RECENTLY_UPDATED'
                         }
                       ]}
-                      defaultValue={this.state.sortBy}
+                      value={this.state.sortBy}
                       name="collectionSortOrder"
-                      ref={this.saveRef}
-                      allowCreate="onFilter"
+                      // ref={this.saveRef}
+                      // allowCreate="onFilter"
                       // onCreate={name => this.handleCreate(name)}
                       valueField="value"
                       textField="label"
                       onChange={value => {
                         sortBy = value.value;
+                        this.setState({
+                          sortBy
+                        });
                         // input.onChange(value)
                       }}
                       // textField="name"
@@ -566,26 +595,28 @@ class SettingsDashboard extends React.Component {
             >
               <Button
                 color="primary"
-                type="submit"
                 onClick={() => {
                   this.setState({ snackbarOpen: true });
+                  console.log('called');
+                  console.log(this.state.snackbarOpen);
                 }}
                 loading={String(loading)}
+                type="submit"
               >
                 Save
               </Button>
             </div>
+            <Snackbar
+              style={{ marginBottom: '10px' }}
+              open={this.state.snackbarOpen}
+              ContentProps={{ style: { fontSize: '20px' } }}
+              message={<span>Saving...</span>}
+              autoHideDuration={3000}
+              onClose={() => {
+                this.setState({ snackbarOpen: false });
+              }}
+            />
           </form>
-          <Snackbar
-            style={{ marginBottom: '10px' }}
-            open={this.state.snackbarOpen}
-            ContentProps={{ style: { fontSize: '20px' } }}
-            message={<span>Saving...</span>}
-            autoHideDuration={3000}
-            onClose={() => {
-              this.setState({ snackbarOpen: false });
-            }}
-          />
         </ReactCSSTransitionGroup>
       </Fragment>
     );
@@ -611,9 +642,8 @@ const mapDispatchToProps = {
 const appSettingsForm = reduxForm({
   form: 'appSettings',
   enableReinitialize: true,
-  onSubmit: (values, dispatch) => {
+  onSubmit: (values, dispatch, props) => {
     values.collectionSortOrder = sortBy;
-
     dispatch(saveAppSettings(values));
   }
 })(SettingsDashboard);

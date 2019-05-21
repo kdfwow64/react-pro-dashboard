@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Button } from 'reactstrap';
+import Storage from '../../../../utilities/storage-util';
 
 export default class WizardStep3 extends React.Component {
   constructor(props) {
@@ -16,12 +17,21 @@ export default class WizardStep3 extends React.Component {
     this.setState(prevState => ({
       appleSelected: !prevState.appleSelected
     }));
+    this.setState(prevState => ({
+      googleSelected: false
+    }));
+
+    Storage.local.set('platform', JSON.stringify({ appleSelected: true }));
   }
 
   toggleGoogle() {
     this.setState(prevState => ({
       googleSelected: !prevState.googleSelected
     }));
+    this.setState(prevState => ({
+      appleSelected: false
+    }));
+    Storage.local.set('platform', JSON.stringify({ googleSelected: true }));
   }
 
   render() {

@@ -3,6 +3,49 @@ import { FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 import { Field } from 'redux-form';
 
 export default class WizardStep2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      privacyPolicyUrl: '',
+      supportUrl: '',
+      touched: {
+        privacyPolicyUrl: false
+      }
+    };
+  }
+
+  handleBlur = field => evt => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true }
+    });
+  };
+
+  handleChange = field => evt => {
+    let state = this.state;
+    state[field] = evt.target.value;
+  };
+
+  validate(input, type) {
+    let isValid = false;
+    let data = null;
+    if (input) {
+      if (type === 'url') {
+        data = input.match(
+          new RegExp(
+            /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)/g
+          )
+        );
+      } else {
+        data = input.match(
+          new RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)
+        );
+        isValid = data !== null;
+      }
+      isValid = data !== null;
+    }
+    return isValid;
+  }
+
   render() {
     return (
       <Fragment>
@@ -15,15 +58,34 @@ export default class WizardStep2 extends React.Component {
           <FormGroup>
             <Label for="exampleEmail55">Privacy Policy Url</Label>
             <Input
-              type="text"
+              type="url"
               // name="privacy-policy-url"
               tag={Field}
-              component={Input}
+              component="input"
               name="privacyPolicyUrl"
               id="exampleEmail55"
               placeholder=""
+              required
+              onBlur={this.handleBlur('privacyPolicyUrl')}
+              onChange={this.handleChange('privacyPolicyUrl')}
+              valid={
+                this.state.privacyPolicyUrl &&
+                this.validate(this.state.privacyPolicyUrl, 'url')
+              }
+              invalid={
+                (!this.state.privacyPolicyUrl &&
+                  this.state.touched.privacyPolicyUrl) ||
+                (this.state.touched.privacyPolicyUrl &&
+                  this.validate(this.state.privacyPolicyUrl, 'url') === false)
+              }
             />
-            <FormFeedback> This field is required </FormFeedback>
+            {!this.state.privacyPolicyUrl && (
+              <FormFeedback invalid>This field is required</FormFeedback>
+            )}
+            {this.state.privacyPolicyUrl &&
+              this.validate(this.state.privacyPolicyUrl, 'url') === false && (
+                <FormFeedback invalid>Invalid Url</FormFeedback>
+              )}
           </FormGroup>
 
           <FormGroup>
@@ -31,12 +93,30 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               name="supportUrl"
               id="exampleEmail55"
               placeholder=""
+              required
+              onBlur={this.handleBlur('supportUrl')}
+              onChange={this.handleChange('supportUrl')}
+              valid={
+                this.state.supportUrl &&
+                this.validate(this.state.supportUrl, 'url')
+              }
+              invalid={
+                (!this.state.supportUrl && this.state.touched.supportUrl) ||
+                (this.state.touched.supportUrl &&
+                  this.validate(this.state.supportUrl, 'url') === false)
+              }
             />
-            <FormFeedback> This field is required </FormFeedback>
+            {!this.state.supportUrl && (
+              <FormFeedback invalid>This field is required</FormFeedback>
+            )}
+            {this.state.supportUrl &&
+              this.validate(this.state.supportUrl, 'url') === false && (
+                <FormFeedback invalid>Invalid Url</FormFeedback>
+              )}
           </FormGroup>
 
           <FormGroup>
@@ -44,12 +124,17 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               name="copyright"
               id="exampleEmail55"
               placeholder=""
+              required
+              onBlur={this.handleBlur('copyright')}
+              onChange={this.handleChange('copyright')}
+              valid={this.state.copyright}
+              invalid={!this.state.copyright && this.state.touched.copyright}
             />
-            <FormFeedback> This field is required </FormFeedback>
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           <FormGroup>
@@ -57,13 +142,34 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               // name="phone-number"
               name="phoneNumber"
               id="exampleEmail55"
               placeholder=""
+              required
+              onBlur={this.handleBlur('phoneNumber')}
+              onChange={this.handleChange('phoneNumber')}
+              valid={
+                this.state.phoneNumber &&
+                this.validate(this.state.phoneNumber, 'phone')
+              }
+              invalid={
+                (!this.state.phoneNumber && this.state.touched.phoneNumber) ||
+                (this.state.touched.phoneNumber &&
+                  this.validate(this.state.phoneNumber, 'phone') === false)
+              }
             />
-            <FormFeedback> This field is required </FormFeedback>
+
+            {!this.state.phoneNumber && (
+              <FormFeedback invalid>This field is required</FormFeedback>
+            )}
+            {this.state.phoneNumber &&
+              this.validate(this.state.phoneNumber, 'phone') === false && (
+                <FormFeedback invalid>
+                  Please enter a valid Phone number
+                </FormFeedback>
+              )}
           </FormGroup>
 
           <FormGroup>
@@ -71,13 +177,18 @@ export default class WizardStep2 extends React.Component {
             <Input
               type="text"
               tag={Field}
-              component={Input}
+              component="input"
               // name="trade-name"
               name="tradeName"
               id="exampleEmail55"
               placeholder=""
+              required
+              onBlur={this.handleBlur('tradeName')}
+              onChange={this.handleChange('tradeName')}
+              valid={this.state.tradeName}
+              invalid={!this.state.tradeName && this.state.touched.tradeName}
             />
-            <FormFeedback> This field is required </FormFeedback>
+            <FormFeedback invalid> This field is required </FormFeedback>
           </FormGroup>
 
           {/* <FormGroup>

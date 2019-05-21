@@ -6,10 +6,12 @@ import { connect } from 'react-redux';
 import { Card, CardBody, Col, Row } from 'reactstrap';
 import { reduxForm } from 'redux-form';
 // import { onChangeSubmit } from "../../../../shared/util/save-form-util";
+import { Snackbar } from '@material-ui/core';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 import { getGoLive, saveGoLive } from '../../../reducers/go-live';
 import { API_ROOT } from '../../../utilities/api-config';
 import { saveForm } from '../../../utilities/app-settings';
+import Storage from '../../../utilities/storage-util';
 import {
   triggerBuildAndroid,
   triggerBuildiOS
@@ -30,17 +32,34 @@ const steps = [
   { name: 'Final', component: <Step5 /> }
 ];
 
-const getItem = item => {
-  return localStorage.getItem(item);
+const getUrls = data => {
+  data.splashScreenFileName = Storage.local.get('splashScreenFileName');
+  data.playStoreJsonFile = Storage.local.get('playStoreJsonFile');
+  data.appIconFileName = Storage.local.get('appIconFileName');
+  data.platform = Storage.local.get('platform'); // { googleSelected : true } || { appleSelected : true }
+  return data;
 };
+const clearUrls = () => {
+  Storage.local.remove('splashScreenFileName');
+  Storage.local.remove('playStoreJsonFile');
+  Storage.local.remove('appIconFileName');
+  Storage.local.remove('platform');
+};
+
+let message = null;
 
 class Publish extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      subscribed: undefined
+      snackbarOpen: false,
+      message: 'Saving...'
     };
+    this.handleCallback = this.handleCallback.bind(this);
+  }
+
+  handleCallback(newState) {
+    console.log(newState);
   }
 
   componentDidMount() {
@@ -87,9 +106,11 @@ class Publish extends React.Component {
             {/* <Input tag={Field} component="input" name="appName" defaultValue="test"/>
         <Button onSubmit={handleSubmit}>Save</Button> */}
             <MultiStep
-              showNavigation={this.props.valid}
+              // showNavigation={this.props.valid}
+              callbackParent={component => this.handleCallback(component)}
               steps={steps}
               handleSubmit={handleSubmit}
+              message={message}
             />
           </form>
         </div>
@@ -154,12 +175,77 @@ const mapDispatchToProps = {
   triggerBuildAndroid
 };
 
+const validate = values => {
+  let valid = false;
+  // step 1
+  if (!values.appName) {
+    message = 'App name is required.';
+    return valid;
+  }
+
+  if (!values.appShortDescription) {
+    message = 'Short description is required.';
+    return valid;
+  }
+  if (!values.appDescription) {
+    message = 'Long description is required.';
+    return valid;
+  }
+  if (!values.keywords) {
+    message = 'Keywords are required.';
+    return valid;
+  }
+
+  if (!values.appIconFileName) {
+    message = 'App Icon is required.';
+    return valid;
+  }
+  // step 2
+  if (!values.privacyPolicyUrl) {
+    message = 'Privacy policy url is required.';
+    return valid;
+  }
+  if (!values.supportUrl) {
+    message = 'Support Url is required.';
+    return valid;
+  }
+  if (!values.copyright) {
+    message = 'Copyrigh is required.';
+    return valid;
+  }
+  if (!values.phoneNumber) {
+    message = 'Phone number is required.';
+    return valid;
+  }
+  if (!values.tradeName) {
+    message = 'Trade name is required.';
+    return valid;
+  }
+
+  // step 3 & 4
+  if (!values.appleTeamName) {
+    message = 'Apple Team name is required.';
+    return valid;
+  }
+
+  if (message === null) {
+    valid = true;
+  } else {
+    valid = false;
+  }
+  return valid;
+};
+
 const goLiveForm = reduxForm({
   form: 'goLive',
   enableReinitialize: true,
-  onSubmit: (values, dispatch) => {
-    console.log(values);
-    dispatch(saveGoLive(values));
+  onSubmit: (values, dispatch, props) => {
+    values = getUrls(values);
+    let isValid = validate(values);
+    if (isValid === true) {
+      dispatch(saveGoLive(values));
+      clearUrls();
+    }
   }
 })(Publish);
 
