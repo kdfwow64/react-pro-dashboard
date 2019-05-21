@@ -16,6 +16,12 @@ class IconList extends React.Component  {
     };
   }
 
+
+
+
+
+  
+
   DropDownGetIcon = e => {
     this.setState({ IconClassName: e.target.getAttribute('data-key') });
     this.setState({ showIconsList: 'none' });
