@@ -89,12 +89,12 @@ class SettingsDashboard extends React.Component {
     this.state = {
       snackbarOpen: false
     };
-
-    console.log('////', this.props.initialValues);
   }
 
   componentDidMount() {
-    this.props.getAppSettings();
+    this.props.getAppSettings().then(res => {
+      console.log('////', this.props.initialValues);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
